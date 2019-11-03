@@ -1,3 +1,9 @@
 *.pro.user
 build-*
 *.o
+*.app
+Makefile
+*.moc
+moc*.h
+moc*.cpp
+.qmake.stash

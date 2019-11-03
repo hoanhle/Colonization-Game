@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/workerIcons">
+        <file>mine.png</file>
+        <file>tractor.png</file>
+        <file>worker.png</file>
+        <file>axe.png</file>
+    </qresource>
+</RCC>

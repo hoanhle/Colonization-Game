@@ -17,12 +17,15 @@ MapWindow::MapWindow(QWidget *parent,
     Course::SimpleGameScene* sgs_rawptr = m_simplescene.get();
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
+
+
 }
 
 MapWindow::~MapWindow()
 {
     delete m_ui;
 }
+
 
 void MapWindow::setGEHandler(
         std::shared_ptr<Course::iGameEventHandler> nHandler)
