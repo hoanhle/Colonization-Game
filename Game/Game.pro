@@ -6,10 +6,12 @@ QT += core gui widgets
 CONFIG += c++14
 
 SOURCES += \
+    highscoredialog.cpp \
     main.cpp \
     mapwindow.cc
 
 HEADERS += \
+    highscoredialog.hh \
     mapwindow.hh
 
 win32:CONFIG(release, debug|release): LIBS += \
@@ -37,4 +39,5 @@ else:unix: PRE_TARGETDEPS += \
     $$OUT_PWD/../Course/CourseLib/libCourseLib.a
 
 FORMS += \
+    highscoredialog.ui \
     mapwindow.ui
