@@ -18,7 +18,25 @@ MapWindow::MapWindow(QWidget *parent,
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
 
+    m_ui->bwButton->setCheckable(true);
+    m_ui->bwButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/worker.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/worker.png)}");
 
+    m_ui->loggerButton->setCheckable(true);
+    m_ui->loggerButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/axe.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/axeLight.png)}");
+
+    m_ui->farmerButton->setCheckable(true);
+    m_ui->farmerButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/tractor.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/tractor.png)}");
+
+    m_ui->minerButton->setCheckable(true);
+    m_ui->minerButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/mine.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/mine.png)}");
 }
 
 MapWindow::~MapWindow()
@@ -61,4 +79,8 @@ void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
 void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 {
     m_simplescene->drawItem(obj);
+}
+
+void MapWindow::on_bwButton_toggled(bool checked)
+{
 }

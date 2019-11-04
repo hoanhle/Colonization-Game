@@ -38,6 +38,9 @@ public:
     void updateItem( std::shared_ptr<Course::GameObject> obj);
 
 
+private slots:
+    void on_bwButton_toggled(bool checked);
+
 private:
     Ui::MapWindow* m_ui;
     std::shared_ptr<Course::iGameEventHandler> m_GEHandler = nullptr;
