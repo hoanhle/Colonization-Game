@@ -8,13 +8,11 @@ CONFIG += c++14
 SOURCES += \
     highscoredialog.cpp \
     main.cpp \
-    mapwindow.cc \
-    objectmanager.cpp
+    mapwindow.cc
 
 HEADERS += \
     highscoredialog.hh \
-    mapwindow.hh \
-    objectmanager.hh
+    mapwindow.hh
 
 win32:CONFIG(release, debug|release): LIBS += \
     -L$$OUT_PWD/../Course/CourseLib/release/ -lCourseLib
