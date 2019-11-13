@@ -40,11 +40,8 @@ public:
 
 
 private slots:
-<<<<<<< HEAD
     void on_highScoreButton_clicked();
-=======
     void on_bwButton_toggled(bool checked);
->>>>>>> 08c0fb2b423a991e0e7a4dde501b42249af03033
 
 private:
     Ui::MapWindow* m_ui;
