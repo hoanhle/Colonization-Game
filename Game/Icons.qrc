@@ -4,5 +4,6 @@
         <file>tractor.png</file>
         <file>worker.png</file>
         <file>axe.png</file>
+        <file>axeLight.png</file>
     </qresource>
 </RCC>

@@ -19,6 +19,28 @@ MapWindow::MapWindow(QWidget *parent,
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
 
+<<<<<<< HEAD
+=======
+    m_ui->bwButton->setCheckable(true);
+    m_ui->bwButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/worker.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/worker.png)}");
+
+    m_ui->loggerButton->setCheckable(true);
+    m_ui->loggerButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/axe.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/axeLight.png)}");
+
+    m_ui->farmerButton->setCheckable(true);
+    m_ui->farmerButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/tractor.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/tractor.png)}");
+
+    m_ui->minerButton->setCheckable(true);
+    m_ui->minerButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/mine.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/mine.png)}");
+>>>>>>> 08c0fb2b423a991e0e7a4dde501b42249af03033
 }
 
 MapWindow::~MapWindow()
@@ -63,6 +85,7 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
     m_simplescene->drawItem(obj);
 }
 
+<<<<<<< HEAD
 void MapWindow::on_highScoreButton_clicked()
 {
     HighScoreDialog* highScoreDialog = new HighScoreDialog;
@@ -73,4 +96,8 @@ void MapWindow::on_highScoreButton_clicked()
 
     highScoreDialog->setHighScoreInformation(highScoreDb);
     highScoreDialog->exec();
+=======
+void MapWindow::on_bwButton_toggled(bool checked)
+{
+>>>>>>> 08c0fb2b423a991e0e7a4dde501b42249af03033
 }
