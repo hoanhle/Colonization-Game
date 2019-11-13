@@ -12,6 +12,7 @@
 
 #include "interfaces/igameeventhandler.h"
 #include "graphics/simplegamescene.h"
+#include "highscoredialog.hh"
 
 namespace Ui {
 class MapWindow;
@@ -37,6 +38,9 @@ public:
     void removeItem( std::shared_ptr<Course::GameObject> obj);
     void updateItem( std::shared_ptr<Course::GameObject> obj);
 
+
+private slots:
+    void on_highScoreButton_clicked();
 
 private:
     Ui::MapWindow* m_ui;

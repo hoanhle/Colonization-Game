@@ -7,6 +7,8 @@ namespace Ui {
 class HighScoreDialog;
 }
 
+typedef std::pair<std::string, int> playerInfo;
+
 class HighScoreDialog : public QDialog
 {
     Q_OBJECT
@@ -14,7 +16,7 @@ class HighScoreDialog : public QDialog
 public:
     explicit HighScoreDialog(QWidget *parent = nullptr);
 
-    void setHighScoreInformation(std::map<std::string, int> highScoreDb);
+    void setHighScoreInformation(std::vector<playerInfo> highScoreDb);
     ~HighScoreDialog();
 
 private slots:
