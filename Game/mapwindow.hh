@@ -36,7 +36,6 @@ public:
     ~MapWindow();
 
     void setGEHandler(std::shared_ptr<Course::iGameEventHandler> nHandler);
-
     void setSize(int width, int height);
     void setScale(int scale);
     void resize();

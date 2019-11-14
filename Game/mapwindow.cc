@@ -6,6 +6,9 @@
 
 #include <math.h>
 
+int X_SIZE = 10;
+int Y_SIZE = 10;
+
 MapWindow::MapWindow(QWidget *parent,
                      std::shared_ptr<Course::iGameEventHandler> handler):
     QMainWindow(parent),
@@ -21,14 +24,21 @@ MapWindow::MapWindow(QWidget *parent,
     Course::SimpleGameScene* sgs_rawptr = m_simplescene.get();
 
 
-
-    m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
-
     Course::WorldGenerator& generator = Course::WorldGenerator::getInstance();
     generator.addConstructor<Course::Forest>(10);
     generator.addConstructor<Course::Grassland>(5);
 
-    generator.generateMap(15,15,99,m_objectmanager, m_GEHandler);
+    generator.generateMap(X_SIZE, Y_SIZE, 99, m_objectmanager, m_GEHandler);
+
+
+    for(int x = 0; x < X_SIZE; ++x){
+        for(int y = 0; y < Y_SIZE; ++y){
+            sgs_rawptr->drawItem(m_objectmanager->getTile(Course::Coordinate(x,y)));
+        }
+    }
+
+    m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
+
 
     m_ui->bwButton->setCheckable(true);
     m_ui->bwButton->setStyleSheet(
