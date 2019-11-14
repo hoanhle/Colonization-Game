@@ -7,13 +7,16 @@ CONFIG += c++14
 
 SOURCES += \
     highscoredialog.cpp \
+    housingbase.cpp \
     main.cpp \
     mapwindow.cc \
     objectmanager.cpp
 
 HEADERS += \
     highscoredialog.hh \
+    housingbase.hh \
     mapwindow.hh \
+    nresourcemaps.hh \
     objectmanager.hh
 
 win32:CONFIG(release, debug|release): LIBS += \

@@ -7,5 +7,5 @@ Makefile
 moc*.h
 moc*.cpp
 .qmake.stash
-*/Makefile.Release
-*/Makefile.Debug
+Makefile.Release
+Makefile.Debug
