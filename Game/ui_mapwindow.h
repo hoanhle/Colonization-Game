@@ -70,8 +70,8 @@ public:
     QLCDNumber *lcdNumber_8;
     QLabel *label_8;
     QPushButton *pushButton;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
+    QPushButton *highScoreButton;
+    QPushButton *highScoreButton_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -233,17 +233,17 @@ public:
         label_8->setGeometry(QRect(60, 0, 131, 16));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(560, 470, 201, 31));
-        pushButton_4 = new QPushButton(centralwidget);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setGeometry(QRect(670, 500, 91, 32));
-        pushButton_5 = new QPushButton(centralwidget);
-        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setGeometry(QRect(560, 500, 91, 32));
+        pushButton->setGeometry(QRect(560, 480, 211, 31));
+        highScoreButton = new QPushButton(centralwidget);
+        highScoreButton->setObjectName(QString::fromUtf8("highScoreButton"));
+        highScoreButton->setGeometry(QRect(560, 510, 101, 31));
+        highScoreButton_2 = new QPushButton(centralwidget);
+        highScoreButton_2->setObjectName(QString::fromUtf8("highScoreButton_2"));
+        highScoreButton_2->setGeometry(QRect(670, 510, 101, 31));
         MapWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MapWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 800, 17));
         MapWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MapWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -289,8 +289,8 @@ public:
         label_2->setText(QCoreApplication::translate("MapWindow", "Free", nullptr));
         label_8->setText(QCoreApplication::translate("MapWindow", "Worker Management", nullptr));
         pushButton->setText(QCoreApplication::translate("MapWindow", "End Turn", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("MapWindow", "Quit", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("MapWindow", "Highscore", nullptr));
+        highScoreButton->setText(QCoreApplication::translate("MapWindow", "Highscore", nullptr));
+        highScoreButton_2->setText(QCoreApplication::translate("MapWindow", "Quit", nullptr));
     } // retranslateUi
 
 };

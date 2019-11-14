@@ -12,10 +12,14 @@
 
 #include "interfaces/igameeventhandler.h"
 #include "graphics/simplegamescene.h"
+
 #include "objectmanager.hh"
 #include "core/worldgenerator.h"
 #include "tiles/forest.h"
 #include "tiles/grassland.h"
+
+#include "highscoredialog.hh"
+
 
 namespace Ui {
 class MapWindow;
@@ -43,6 +47,7 @@ public:
 
 
 private slots:
+    void on_highScoreButton_clicked();
     void on_bwButton_toggled(bool checked);
 
 private:

@@ -2,6 +2,7 @@
 #include "ui_mapwindow.h"
 
 #include "graphics/simplemapitem.h"
+#include "highscoredialog.hh"
 
 #include <math.h>
 
@@ -92,6 +93,19 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
     m_simplescene->drawItem(obj);
 }
 
+void MapWindow::on_highScoreButton_clicked()
+{
+    HighScoreDialog* highScoreDialog = new HighScoreDialog;
+
+    playerInfo pair1 = {"haha", 1};
+    std::vector<playerInfo> highScoreDb;
+    highScoreDb.push_back(pair1);
+
+    highScoreDialog->setHighScoreInformation(highScoreDb);
+    highScoreDialog->exec();
+}
+
 void MapWindow::on_bwButton_toggled(bool checked)
 {
+
 }
