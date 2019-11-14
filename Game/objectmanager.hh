@@ -15,6 +15,11 @@ class ObjectManager : public Course::iObjectManager
 public:
     ObjectManager();
 
+    /**
+     * @brief Default destructor.
+     */
+    virtual ~ObjectManager() = default;
+
 
     /**
      * @brief Adds new tiles to the ObjectManager.
@@ -24,7 +29,7 @@ public:
      *
      */
     virtual void addTiles(
-            const std::vector<std::shared_ptr<Course::TileBase>>& tiles) = 0;
+            const std::vector<std::shared_ptr<Course::TileBase>>& tiles);
 
     /**
      * @brief Returns a shared pointer to a Tile that has specified coordinate.
@@ -34,7 +39,7 @@ public:
      * @post Exception Guarantee: Basic
      */
     virtual std::shared_ptr<Course::TileBase> getTile(
-            const Course::Coordinate& coordinate) = 0;
+            const Course::Coordinate& coordinate);
 
     /**
      * @brief Returns a shared pointer to a Tile that has specified ID
@@ -43,7 +48,7 @@ public:
      * If no for the id exists, return empty pointer.
      * @post Exception Guarantee: Basic
      */
-    virtual std::shared_ptr<Course::TileBase> getTile(const Course::ObjectId& id) = 0;
+    virtual std::shared_ptr<Course::TileBase> getTile(const Course::ObjectId& id);
 
     /**
      * @brief Returns a vector of shared pointers to Tiles specified by
@@ -54,7 +59,7 @@ public:
      * @post Exception Guarantee: Basic
      */
     virtual std::vector<std::shared_ptr<Course::TileBase>> getTiles(
-            const std::vector<Course::Coordinate>& coordinates) = 0;
+            const std::vector<Course::Coordinate>& coordinates);
 
 
 private:

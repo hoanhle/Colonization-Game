@@ -1,6 +1,7 @@
 #include "objectmanager.hh"
 
-ObjectManager::ObjectManager()
+ObjectManager::ObjectManager():
+    m_tiles()
 {
 
 }
