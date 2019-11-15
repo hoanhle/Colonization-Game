@@ -6,6 +6,7 @@ QT += core gui widgets
 CONFIG += c++14
 
 SOURCES += \
+    gamescene.cpp \
     highscoredialog.cpp \
     housingbase.cpp \
     main.cpp \
@@ -13,6 +14,7 @@ SOURCES += \
     objectmanager.cpp
 
 HEADERS += \
+    gamescene.hh \
     highscoredialog.hh \
     housingbase.hh \
     mapwindow.hh \

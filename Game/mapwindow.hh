@@ -11,12 +11,13 @@
 #include <map>
 
 #include "interfaces/igameeventhandler.h"
-#include "graphics/simplegamescene.h"
+#include "gamescene.hh"
 
 #include "objectmanager.hh"
 #include "core/worldgenerator.h"
 #include "tiles/forest.h"
 #include "tiles/grassland.h"
+
 
 #include "highscoredialog.hh"
 
@@ -52,7 +53,7 @@ private slots:
 private:
     Ui::MapWindow* m_ui;
     std::shared_ptr<Course::iGameEventHandler> m_GEHandler = nullptr;
-    std::shared_ptr<Course::SimpleGameScene> m_simplescene = nullptr;
+    std::shared_ptr<GameScene> m_scene = nullptr;
     std::shared_ptr<ObjectManager> m_objectmanager = nullptr;
 
 };

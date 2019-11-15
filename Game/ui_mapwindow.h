@@ -243,7 +243,7 @@ public:
         MapWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MapWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 17));
+        menubar->setGeometry(QRect(0, 0, 800, 22));
         MapWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MapWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

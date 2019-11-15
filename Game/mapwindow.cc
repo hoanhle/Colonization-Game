@@ -14,14 +14,14 @@ MapWindow::MapWindow(QWidget *parent,
     QMainWindow(parent),
     m_ui(new Ui::MapWindow),
     m_GEHandler(handler),
-    m_simplescene(new Course::SimpleGameScene(this)),
+    m_scene(new GameScene(this)),
     m_objectmanager(new ObjectManager())
 {
     m_ui->setupUi(this);
 
 
 
-    Course::SimpleGameScene* sgs_rawptr = m_simplescene.get();
+    GameScene* sgs_rawptr = m_scene.get();
 
 
     Course::WorldGenerator& generator = Course::WorldGenerator::getInstance();
@@ -75,32 +75,32 @@ void MapWindow::setGEHandler(
 
 void MapWindow::setSize(int width, int height)
 {
-    m_simplescene->setSize(width, height);
+    m_scene->setSize(width, height);
 }
 
 void MapWindow::setScale(int scale)
 {
-    m_simplescene->setScale(scale);
+    m_scene->setScale(scale);
 }
 
 void MapWindow::resize()
 {
-    m_simplescene->resize();
+    m_scene->resize();
 }
 
 void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
 {
-    m_simplescene->updateItem(obj);
+    m_scene->updateItem(obj);
 }
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
 {
-    m_simplescene->removeItem(obj);
+    m_scene->removeItem(obj);
 }
 
 void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 {
-    m_simplescene->drawItem(obj);
+    m_scene->drawItem(obj);
 }
 
 void MapWindow::on_highScoreButton_clicked()
