@@ -5,5 +5,9 @@
         <file>worker.png</file>
         <file>axe.png</file>
         <file>axeLight.png</file>
+        <file>axe_selected.png</file>
+        <file>mine_selected.png</file>
+        <file>tractor_selected.png</file>
+        <file>worker_selected.png</file>
     </qresource>
 </RCC>

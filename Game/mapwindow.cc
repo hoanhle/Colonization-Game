@@ -43,22 +43,22 @@ MapWindow::MapWindow(QWidget *parent,
     m_ui->bwButton->setCheckable(true);
     m_ui->bwButton->setStyleSheet(
                 "QPushButton {border-image: url(:/workerIcons/worker.png)}"
-                "QPushButton:checked {border-image: url(:/workerIcons/worker.png)}");
+                "QPushButton:checked {border-image: url(:/workerIcons/worker_selected.png)}");
 
     m_ui->loggerButton->setCheckable(true);
     m_ui->loggerButton->setStyleSheet(
                 "QPushButton {border-image: url(:/workerIcons/axe.png)}"
-                "QPushButton:checked {border-image: url(:/workerIcons/axeLight.png)}");
+                "QPushButton:checked {border-image: url(:/workerIcons/axe_selected.png)}");
 
     m_ui->farmerButton->setCheckable(true);
     m_ui->farmerButton->setStyleSheet(
                 "QPushButton {border-image: url(:/workerIcons/tractor.png)}"
-                "QPushButton:checked {border-image: url(:/workerIcons/tractor.png)}");
+                "QPushButton:checked {border-image: url(:/workerIcons/tractor_selected.png)}");
 
     m_ui->minerButton->setCheckable(true);
     m_ui->minerButton->setStyleSheet(
                 "QPushButton {border-image: url(:/workerIcons/mine.png)}"
-                "QPushButton:checked {border-image: url(:/workerIcons/mine.png)}");
+                "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
 }
 
 MapWindow::~MapWindow()
