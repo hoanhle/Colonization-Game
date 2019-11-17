@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>assigndialog</class>
- <widget class="QDialog" name="assigndialog">
+ <class>AssignDialog</class>
+ <widget class="QDialog" name="AssignDialog">
   <property name="geometry">
    <rect>
     <x>0</x>

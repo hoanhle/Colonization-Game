@@ -4,10 +4,10 @@
 #include <QDialog>
 
 namespace Ui {
-class assigndialog;
+class AssignDialog;
 }
 
-class assigndialog : public QDialog
+class AssignDialog : public QDialog
 {
     Q_OBJECT
 
@@ -17,8 +17,8 @@ public:
      * @param workers_ number of free workers
      * @param parent QWidget parent
      */
-    explicit assigndialog(unsigned int workers_, QWidget *parent = nullptr);
-    ~assigndialog();
+    explicit AssignDialog(unsigned int workers_, QWidget *parent = nullptr);
+    ~AssignDialog();
 
     int getNumberOfWorkers();
 
@@ -29,7 +29,7 @@ private slots:
     void on_assignButton_clicked();
 
 private:
-    Ui::assigndialog *ui;
+    Ui::AssignDialog *ui;
 };
 
 #endif // ASSIGNDIALOG_HH

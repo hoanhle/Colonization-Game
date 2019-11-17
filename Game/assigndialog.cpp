@@ -1,9 +1,9 @@
 #include "assigndialog.hh"
 #include "ui_assigndialog.h"
 
-assigndialog::assigndialog(unsigned int workers_, QWidget *parent) :
+AssignDialog::AssignDialog(unsigned int workers_, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::assigndialog)
+    ui(new Ui::AssignDialog)
 {
     ui->setupUi(this);
     this->setWindowTitle("Assign Workers");
@@ -12,17 +12,17 @@ assigndialog::assigndialog(unsigned int workers_, QWidget *parent) :
                                     + " free workers.");
 }
 
-assigndialog::~assigndialog()
+AssignDialog::~AssignDialog()
 {
     delete ui;
 }
 
-int assigndialog::getNumberOfWorkers()
+int AssignDialog::getNumberOfWorkers()
 {
     return ui->workerSpinBox->value();
 }
 
-void assigndialog::on_assignButton_clicked()
+void AssignDialog::on_assignButton_clicked()
 {
     emit setWorkers();
     accept();
