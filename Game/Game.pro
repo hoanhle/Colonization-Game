@@ -11,7 +11,8 @@ SOURCES += \
     housingbase.cpp \
     main.cpp \
     mapwindow.cc \
-    objectmanager.cpp
+    objectmanager.cpp \
+    rock.cpp
 
 HEADERS += \
     gamescene.hh \
@@ -19,7 +20,8 @@ HEADERS += \
     housingbase.hh \
     mapwindow.hh \
     nresourcemaps.hh \
-    objectmanager.hh
+    objectmanager.hh \
+    rock.hh
 
 win32:CONFIG(release, debug|release): LIBS += \
     -L$$OUT_PWD/../Course/CourseLib/release/ -lCourseLib
