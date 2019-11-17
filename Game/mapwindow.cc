@@ -25,10 +25,7 @@ MapWindow::MapWindow(QWidget *parent,
 
 
     Course::WorldGenerator& generator = Course::WorldGenerator::getInstance();
-    generator.addConstructor<Course::Forest>(10);
-    generator.addConstructor<Course::Grassland>(5);
-
-    generator.generateMap(X_SIZE, Y_SIZE, 99, m_objectmanager, m_GEHandler);
+    addTiles(generator);
 
 
     for(int x = 0; x < X_SIZE; ++x){
@@ -91,6 +88,17 @@ void MapWindow::resize()
 void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
 {
     m_scene->updateItem(obj);
+}
+
+void MapWindow::addTiles(Course::WorldGenerator &generator)
+{
+    generator.addConstructor<Course::Forest>(10);
+    generator.addConstructor<Course::Grassland>(5);
+    generator.addConstructor<Rock>(6);
+    generator.addConstructor<Sand>(3);
+    generator.addConstructor<Water>(4);
+
+    generator.generateMap(X_SIZE, Y_SIZE, 99, m_objectmanager, m_GEHandler);
 }
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)

@@ -17,7 +17,9 @@
 #include "core/worldgenerator.h"
 #include "tiles/forest.h"
 #include "tiles/grassland.h"
-
+#include "rock.hh"
+#include "sand.hh"
+#include "water.hh"
 
 #include "highscoredialog.hh"
 
@@ -44,6 +46,8 @@ public:
     void drawItem( std::shared_ptr<Course::GameObject> obj);
     void removeItem( std::shared_ptr<Course::GameObject> obj);
     void updateItem( std::shared_ptr<Course::GameObject> obj);
+
+    void addTiles(Course::WorldGenerator& generator);
 
 
 private slots:

@@ -12,7 +12,9 @@ SOURCES += \
     main.cpp \
     mapwindow.cc \
     objectmanager.cpp \
-    rock.cpp
+    rock.cpp \
+    sand.cpp \
+    water.cpp
 
 HEADERS += \
     gamescene.hh \
@@ -21,7 +23,9 @@ HEADERS += \
     mapwindow.hh \
     nresourcemaps.hh \
     objectmanager.hh \
-    rock.hh
+    rock.hh \
+    sand.hh \
+    water.hh
 
 win32:CONFIG(release, debug|release): LIBS += \
     -L$$OUT_PWD/../Course/CourseLib/release/ -lCourseLib
