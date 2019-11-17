@@ -46,5 +46,5 @@ HighScoreDialog::~HighScoreDialog()
 
 void HighScoreDialog::on_pushButton_clicked()
 {
-
+    accept();
 }
