@@ -138,6 +138,6 @@ void GameScene::removeItem(std::shared_ptr<Course::GameObject> obj)
 
 void GameScene::drawItem( std::shared_ptr<Course::GameObject> obj)
 {
-    Course::SimpleMapItem* nItem = new Course::SimpleMapItem(obj, m_scale);
+    MapItem* nItem = new MapItem(obj, obj->getType(), m_scale);
     addItem(nItem);
 }

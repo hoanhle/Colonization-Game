@@ -9,5 +9,10 @@
         <file>mine_selected.png</file>
         <file>tractor_selected.png</file>
         <file>worker_selected.png</file>
+        <file>sand.png</file>
+        <file>grass.png</file>
+        <file>rock.png</file>
+        <file>water.png</file>
+        <file>forest.png</file>
     </qresource>
 </RCC>
