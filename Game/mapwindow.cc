@@ -3,6 +3,8 @@
 
 #include "graphics/simplemapitem.h"
 #include "highscoredialog.hh"
+#include "assigndialog.hh"
+
 
 #include <math.h>
 
@@ -56,6 +58,11 @@ MapWindow::MapWindow(QWidget *parent,
     m_ui->minerButton->setStyleSheet(
                 "QPushButton {border-image: url(:/workerIcons/mine.png)}"
                 "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
+
+
+
+
+
 }
 
 MapWindow::~MapWindow()
@@ -121,9 +128,30 @@ void MapWindow::on_highScoreButton_clicked()
 
     highScoreDialog->setHighScoreInformation(highScoreDb);
     highScoreDialog->exec();
+
+    delete highScoreDialog;
 }
 
 void MapWindow::on_bwButton_toggled(bool checked)
 {
 
+}
+
+void MapWindow::on_assignButton_clicked()
+{
+    int freeWorkers = m_ui->freeBwNumber->value();
+
+    AssignDialog* assignDialog = new AssignDialog(freeWorkers);
+    assignDialog->exec();
+
+}
+
+void MapWindow::on_bwButton_clicked()
+{
+
+}
+
+void MapWindow::on_quitButton_clicked()
+{
+    qApp->exit(0);
 }

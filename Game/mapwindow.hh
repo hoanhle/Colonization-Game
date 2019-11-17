@@ -22,6 +22,7 @@
 #include "water.hh"
 
 #include "highscoredialog.hh"
+#include "assigndialog.hh"
 
 
 namespace Ui {
@@ -53,6 +54,12 @@ public:
 private slots:
     void on_highScoreButton_clicked();
     void on_bwButton_toggled(bool checked);
+
+    void on_assignButton_clicked();
+
+    void on_bwButton_clicked();
+
+    void on_quitButton_clicked();
 
 private:
     Ui::MapWindow* m_ui;

@@ -497,7 +497,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="lcdNumber_2">
+    <widget class="QLCDNumber" name="freeBwNumber">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -507,7 +507,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="lcdNumber_3">
+    <widget class="QLCDNumber" name="freeFarmerNumber">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -527,7 +527,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="lcdNumber_5">
+    <widget class="QLCDNumber" name="freeLoggerNumber">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -547,7 +547,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="lcdNumber_7">
+    <widget class="QLCDNumber" name="freeMinerNumber">
      <property name="geometry">
       <rect>
        <x>210</x>
@@ -607,7 +607,7 @@
      <string>Highscore</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="highScoreButton_2">
+   <widget class="QPushButton" name="quitButton">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -627,7 +627,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>
