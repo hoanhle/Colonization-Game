@@ -6,6 +6,7 @@ QT += core gui widgets
 CONFIG += c++14
 
 SOURCES += \
+    assigndialog.cpp \
     gamescene.cpp \
     highscoredialog.cpp \
     housingbase.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
     water.cpp
 
 HEADERS += \
+    assigndialog.hh \
     gamescene.hh \
     highscoredialog.hh \
     housingbase.hh \
@@ -52,6 +54,7 @@ else:unix: PRE_TARGETDEPS += \
     $$OUT_PWD/../Course/CourseLib/libCourseLib.a
 
 FORMS += \
+    assigndialog.ui \
     highscoredialog.ui \
     mapwindow.ui
 
