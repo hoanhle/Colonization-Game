@@ -10,6 +10,7 @@ SOURCES += \
     highscoredialog.cpp \
     housingbase.cpp \
     main.cpp \
+    mapitem.cpp \
     mapwindow.cc \
     objectmanager.cpp \
     rock.cpp \
@@ -20,6 +21,7 @@ HEADERS += \
     gamescene.hh \
     highscoredialog.hh \
     housingbase.hh \
+    mapitem.hh \
     mapwindow.hh \
     nresourcemaps.hh \
     objectmanager.hh \
