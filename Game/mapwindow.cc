@@ -4,6 +4,7 @@
 #include "graphics/simplemapitem.h"
 #include "highscoredialog.hh"
 #include "assigndialog.hh"
+#include "unassigndialog.hh"
 
 
 #include <math.h>
@@ -143,6 +144,7 @@ void MapWindow::on_assignButton_clicked()
 
     AssignDialog* assignDialog = new AssignDialog(freeWorkers);
     assignDialog->exec();
+    delete assignDialog;
 
 }
 
@@ -154,4 +156,12 @@ void MapWindow::on_bwButton_clicked()
 void MapWindow::on_quitButton_clicked()
 {
     qApp->exit(0);
+}
+
+void MapWindow::on_unassignButton_clicked()
+{
+    // NEED TO SET THE NUMBER OF ASSIGNED WORKER IN THE BLOCK
+    UnAssignDialog* unAssignDialog = new UnAssignDialog(0);
+    unAssignDialog->exec();
+    delete unAssignDialog;
 }
