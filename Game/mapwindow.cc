@@ -6,6 +6,7 @@
 #include "assigndialog.hh"
 
 
+
 #include <math.h>
 
 
@@ -65,20 +66,24 @@ void MapWindow::setGEHandler(
     m_GEHandler = nHandler;
 }
 
+
 void MapWindow::setSize(int width, int height)
 {
     m_scene->setSize(width, height);
 }
+
 
 void MapWindow::setScale(int scale)
 {
     m_scene->setScale(scale);
 }
 
+
 void MapWindow::resize()
 {
     m_scene->resize();
 }
+
 
 void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
 {
@@ -127,16 +132,14 @@ void MapWindow::on_assignButton_clicked()
 
     AssignDialog* assignDialog = new AssignDialog(freeWorkers);
     assignDialog->exec();
+    delete assignDialog;
 
 }
-
-
 
 void MapWindow::on_quitButton_clicked()
 {
     qApp->exit(0);
 }
-
 
 
 void MapWindow::setStyleWorkerButtons()
@@ -170,3 +173,10 @@ void MapWindow::setupButtonGroup(std::vector<QAbstractButton *> buttons, QButton
 }
 
 
+void MapWindow::on_unassignButton_clicked()
+{
+    // NEED TO SET THE NUMBER OF ASSIGNED WORKER IN THE BLOCK
+    UnAssignDialog* unAssignDialog = new UnAssignDialog(0);
+    unAssignDialog->exec();
+    delete unAssignDialog;
+}

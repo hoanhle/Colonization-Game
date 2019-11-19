@@ -24,7 +24,7 @@
 
 #include "highscoredialog.hh"
 #include "assigndialog.hh"
-
+#include "unassigndialog.hh"
 
 
 namespace Ui {
