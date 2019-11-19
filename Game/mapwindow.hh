@@ -7,6 +7,7 @@
 #include <QMouseEvent>
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
+#include <QButtonGroup>
 
 #include <map>
 
@@ -53,21 +54,20 @@ public:
 
 private slots:
     void on_highScoreButton_clicked();
-    void on_bwButton_toggled(bool checked);
 
     void on_assignButton_clicked();
 
-    void on_bwButton_clicked();
-
     void on_quitButton_clicked();
 
-    void on_farmButton_toggled(bool checked);
 
 private:
     Ui::MapWindow* m_ui;
     std::shared_ptr<Course::iGameEventHandler> m_GEHandler = nullptr;
     std::shared_ptr<GameScene> m_scene = nullptr;
     std::shared_ptr<ObjectManager> m_objectmanager = nullptr;
+
+    void setStyleWorkerButtons();
+    void setupButtonGroup(std::vector<QAbstractButton*> buttons, QButtonGroup* group);
 
 };
 

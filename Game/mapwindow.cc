@@ -7,10 +7,11 @@
 
 
 #include <math.h>
-#include <QButtonGroup>
+
 
 int X_SIZE = 10;
 int Y_SIZE = 10;
+
 
 MapWindow::MapWindow(QWidget *parent,
                      std::shared_ptr<Course::iGameEventHandler> handler):
@@ -23,22 +24,24 @@ MapWindow::MapWindow(QWidget *parent,
     m_ui->setupUi(this);
 
     QButtonGroup* workerButtonGroup = new QButtonGroup(this);
-    workerButtonGroup->addButton(m_ui->bwButton);
-    workerButtonGroup->addButton(m_ui->minerButton);
-    workerButtonGroup->addButton(m_ui->loggerButton);
-    workerButtonGroup->addButton(m_ui->farmerButton);
+    std::vector<QAbstractButton*> workerButtons = {m_ui->bwButton, m_ui->loggerButton,
+                                               m_ui->farmerButton, m_ui->minerButton };
 
+    QButtonGroup* buildingButtonGroup = new QButtonGroup(this);
+    std::vector<QAbstractButton*> buildingButtons = {m_ui->hqButton, m_ui->farmButton,
+                                               m_ui->mineButton, m_ui->sawButton, m_ui->outpustButton,
+                                                     m_ui->apartmentsButton, m_ui->skyscraperButton,
+                                                     m_ui->largeHouseButton, m_ui->smallHouseButton };
 
+    setupButtonGroup(workerButtons, workerButtonGroup);
+    setupButtonGroup(buildingButtons, buildingButtonGroup);
 
-
-
+    setStyleWorkerButtons();
 
     GameScene* sgs_rawptr = m_scene.get();
 
-
     Course::WorldGenerator& generator = Course::WorldGenerator::getInstance();
     addTiles(generator);
-
 
     for(int x = 0; x < X_SIZE; ++x){
         for(int y = 0; y < Y_SIZE; ++y){
@@ -47,31 +50,6 @@ MapWindow::MapWindow(QWidget *parent,
     }
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
-
-
-    m_ui->bwButton->setCheckable(true);
-    m_ui->bwButton->setStyleSheet(
-                "QPushButton {border-image: url(:/workerIcons/worker.png)}"
-                "QPushButton:checked {border-image: url(:/workerIcons/worker_selected.png)}");
-
-    m_ui->loggerButton->setCheckable(true);
-    m_ui->loggerButton->setStyleSheet(
-                "QPushButton {border-image: url(:/workerIcons/axe.png)}"
-                "QPushButton:checked {border-image: url(:/workerIcons/axe_selected.png)}");
-
-    m_ui->farmerButton->setCheckable(true);
-    m_ui->farmerButton->setStyleSheet(
-                "QPushButton {border-image: url(:/workerIcons/tractor.png)}"
-                "QPushButton:checked {border-image: url(:/workerIcons/tractor_selected.png)}");
-
-    m_ui->minerButton->setCheckable(true);
-    m_ui->minerButton->setStyleSheet(
-                "QPushButton {border-image: url(:/workerIcons/mine.png)}"
-                "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
-
-
-
-
 
 }
 
@@ -142,10 +120,6 @@ void MapWindow::on_highScoreButton_clicked()
     delete highScoreDialog;
 }
 
-void MapWindow::on_bwButton_toggled(bool checked)
-{
-
-}
 
 void MapWindow::on_assignButton_clicked()
 {
@@ -156,18 +130,43 @@ void MapWindow::on_assignButton_clicked()
 
 }
 
-void MapWindow::on_bwButton_clicked()
-{
 
-}
 
 void MapWindow::on_quitButton_clicked()
 {
     qApp->exit(0);
 }
 
-void MapWindow::on_farmButton_toggled(bool checked)
+
+
+void MapWindow::setStyleWorkerButtons()
 {
-    m_ui->farmButton->setDown(true);
+
+    m_ui->bwButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/worker.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/worker_selected.png)}");
+
+    m_ui->loggerButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/axe.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/axe_selected.png)}");
+
+    m_ui->farmerButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/tractor.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/tractor_selected.png)}");
+
+    m_ui->minerButton->setStyleSheet(
+                "QPushButton {border-image: url(:/workerIcons/mine.png)}"
+                "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
 
 }
+
+void MapWindow::setupButtonGroup(std::vector<QAbstractButton *> buttons, QButtonGroup *group)
+{
+    for(auto iter = buttons.begin(); iter != buttons.end(); ++iter)
+    {
+        group->addButton(*iter);
+        (*iter)->setCheckable(true);
+    }
+}
+
+
