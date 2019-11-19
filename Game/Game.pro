@@ -16,6 +16,7 @@ SOURCES += \
     objectmanager.cpp \
     rock.cpp \
     sand.cpp \
+    unassigndialog.cpp \
     water.cpp
 
 HEADERS += \
@@ -29,6 +30,7 @@ HEADERS += \
     objectmanager.hh \
     rock.hh \
     sand.hh \
+    unassigndialog.hh \
     water.hh
 
 win32:CONFIG(release, debug|release): LIBS += \
@@ -58,7 +60,8 @@ else:unix: PRE_TARGETDEPS += \
 FORMS += \
     assigndialog.ui \
     highscoredialog.ui \
-    mapwindow.ui
+    mapwindow.ui \
+    unassigndialog.ui
 
 RESOURCES += \
     Icons.qrc
