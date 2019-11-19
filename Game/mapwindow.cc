@@ -7,6 +7,7 @@
 
 
 #include <math.h>
+#include <QButtonGroup>
 
 int X_SIZE = 10;
 int Y_SIZE = 10;
@@ -20,6 +21,15 @@ MapWindow::MapWindow(QWidget *parent,
     m_objectmanager(new ObjectManager())
 {
     m_ui->setupUi(this);
+
+    QButtonGroup* workerButtonGroup = new QButtonGroup(this);
+    workerButtonGroup->addButton(m_ui->bwButton);
+    workerButtonGroup->addButton(m_ui->minerButton);
+    workerButtonGroup->addButton(m_ui->loggerButton);
+    workerButtonGroup->addButton(m_ui->farmerButton);
+
+
+
 
 
 
@@ -154,4 +164,10 @@ void MapWindow::on_bwButton_clicked()
 void MapWindow::on_quitButton_clicked()
 {
     qApp->exit(0);
+}
+
+void MapWindow::on_farmButton_toggled(bool checked)
+{
+    m_ui->farmButton->setDown(true);
+
 }

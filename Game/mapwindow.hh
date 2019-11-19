@@ -61,6 +61,8 @@ private slots:
 
     void on_quitButton_clicked();
 
+    void on_farmButton_toggled(bool checked);
+
 private:
     Ui::MapWindow* m_ui;
     std::shared_ptr<Course::iGameEventHandler> m_GEHandler = nullptr;
