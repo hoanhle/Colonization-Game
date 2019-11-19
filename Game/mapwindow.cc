@@ -76,10 +76,6 @@ MapWindow::MapWindow(QWidget *parent,
 
 
 
-    StartDialog* startDialog = new StartDialog(this);
-    startDialog->exec();
-
-
 }
 
 MapWindow::~MapWindow()

@@ -15,6 +15,5 @@ StartDialog::~StartDialog()
 
 void StartDialog::on_startButton_clicked()
 {
-    emit startGame();
     accept();
 }

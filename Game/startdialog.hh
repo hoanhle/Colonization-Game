@@ -16,7 +16,8 @@ public:
     ~StartDialog();
 
 signals:
-    void startGame();
+    void openRules();
+    void openCredit();
 
 private slots:
     void on_startButton_clicked();
