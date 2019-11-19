@@ -5,6 +5,7 @@
 #include "highscoredialog.hh"
 #include "assigndialog.hh"
 #include "unassigndialog.hh"
+#include "startdialog.hh"
 
 
 #include <math.h>
@@ -62,6 +63,8 @@ MapWindow::MapWindow(QWidget *parent,
 
 
 
+    StartDialog* startDialog = new StartDialog(this);
+    startDialog->exec();
 
 
 }
@@ -140,6 +143,10 @@ void MapWindow::on_bwButton_toggled(bool checked)
 
 void MapWindow::on_assignButton_clicked()
 {
+    /* TODO
+     * Connect the signal to update assigned workers
+     * After that assign the worker from the block
+     */
     int freeWorkers = m_ui->freeBwNumber->value();
 
     AssignDialog* assignDialog = new AssignDialog(freeWorkers);
@@ -160,7 +167,11 @@ void MapWindow::on_quitButton_clicked()
 
 void MapWindow::on_unassignButton_clicked()
 {
-    // NEED TO SET THE NUMBER OF ASSIGNED WORKER IN THE BLOCK
+    /* TODO
+     * Connect the signal to update free workers
+     * After that free the workers from that block
+     */
+
     UnAssignDialog* unAssignDialog = new UnAssignDialog(0);
     unAssignDialog->exec();
     delete unAssignDialog;

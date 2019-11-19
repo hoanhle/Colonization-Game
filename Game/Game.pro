@@ -16,6 +16,7 @@ SOURCES += \
     objectmanager.cpp \
     rock.cpp \
     sand.cpp \
+    startdialog.cpp \
     unassigndialog.cpp \
     water.cpp
 
@@ -30,6 +31,7 @@ HEADERS += \
     objectmanager.hh \
     rock.hh \
     sand.hh \
+    startdialog.hh \
     unassigndialog.hh \
     water.hh
 
@@ -61,6 +63,7 @@ FORMS += \
     assigndialog.ui \
     highscoredialog.ui \
     mapwindow.ui \
+    startdialog.ui \
     unassigndialog.ui
 
 RESOURCES += \
