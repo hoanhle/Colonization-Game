@@ -4,6 +4,8 @@
 #include "graphics/simplemapitem.h"
 #include "highscoredialog.hh"
 #include "assigndialog.hh"
+#include "unassigndialog.hh"
+#include "startdialog.hh"
 
 
 
@@ -51,6 +53,8 @@ MapWindow::MapWindow(QWidget *parent,
     }
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
+
+
 }
 
 
@@ -132,6 +136,10 @@ void MapWindow::on_highScoreButton_clicked()
 
 void MapWindow::on_assignButton_clicked()
 {
+    /* TODO
+     * Connect the signal to update assigned workers
+     * After that assign the worker from the block
+     */
     int freeWorkers = m_ui->freeBwNumber->value();
 
     AssignDialog* assignDialog = new AssignDialog(freeWorkers);
@@ -179,7 +187,11 @@ void MapWindow::setupButtonGroup(std::vector<QAbstractButton *> buttons, QButton
 
 void MapWindow::on_unassignButton_clicked()
 {
-    // NEED TO SET THE NUMBER OF ASSIGNED WORKER IN THE BLOCK
+    /* TODO
+     * Connect the signal to update free workers
+     * After that free the workers from that block
+     */
+
     UnAssignDialog* unAssignDialog = new UnAssignDialog(0);
     unAssignDialog->exec();
     delete unAssignDialog;
