@@ -18,7 +18,7 @@ int Y_SIZE = 10;
 
 
 MapWindow::MapWindow(QWidget *parent,
-                     std::shared_ptr<Course::iGameEventHandler> handler):
+                     std::shared_ptr<GameEventHandler> handler):
     QMainWindow(parent),
     m_ui(new Ui::MapWindow),
     m_GEHandler(handler),
@@ -86,7 +86,7 @@ MapWindow::~MapWindow()
 
 
 void MapWindow::setGEHandler(
-        std::shared_ptr<Course::iGameEventHandler> nHandler)
+        std::shared_ptr<GameEventHandler> nHandler)
 {
     m_GEHandler = nHandler;
 }
@@ -216,4 +216,11 @@ void MapWindow::on_unassignButton_clicked()
     UnAssignDialog* unAssignDialog = new UnAssignDialog(0);
     unAssignDialog->exec();
     delete unAssignDialog;
+}
+
+void MapWindow::createPlayers(int numberPlayers)
+{
+    show();
+    m_GEHandler->createPlayers(numberPlayers);
+    m_GEHandler->printPlayerNames();
 }

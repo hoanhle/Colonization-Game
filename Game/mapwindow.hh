@@ -25,6 +25,7 @@
 #include "highscoredialog.hh"
 #include "assigndialog.hh"
 #include "unassigndialog.hh"
+#include "gameeventhandler.hh"
 
 
 namespace Ui {
@@ -37,11 +38,11 @@ class MapWindow : public QMainWindow
 
 public:
     explicit MapWindow(QWidget *parent = 0,
-                       std::shared_ptr<Course::iGameEventHandler> GEHandler = {}
+                       std::shared_ptr<GameEventHandler> GEHandler = {}
                        );
     ~MapWindow();
 
-    void setGEHandler(std::shared_ptr<Course::iGameEventHandler> nHandler);
+    void setGEHandler(std::shared_ptr<GameEventHandler> nHandler);
     void setSize(int width, int height);
     void setScale(int scale);
     void resize();
@@ -62,9 +63,12 @@ private slots:
 
     void on_unassignButton_clicked();
 
+public slots:
+    void createPlayers(int numberPlayers);
+
 private:
     Ui::MapWindow* m_ui;
-    std::shared_ptr<Course::iGameEventHandler> m_GEHandler = nullptr;
+    std::shared_ptr<GameEventHandler> m_GEHandler = nullptr;
     std::shared_ptr<GameScene> m_scene = nullptr;
     std::shared_ptr<ObjectManager> m_objectmanager = nullptr;
 

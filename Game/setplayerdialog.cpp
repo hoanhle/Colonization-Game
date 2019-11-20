@@ -25,5 +25,6 @@ int SetPlayerDialog::getNumberOfPlayers()
 void SetPlayerDialog::on_setButton_clicked()
 {
     hide();
-    emit startGame();
+    int playerNumbers = this->getNumberOfPlayers();
+    emit startGame(playerNumbers);
 }

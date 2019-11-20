@@ -21,7 +21,7 @@ signals:
     /**
      * @brief startGame signal to open mapwindow
      */
-    void startGame();
+    void startGame(int playerNumbers);
 
 private slots:
     void on_setButton_clicked();
