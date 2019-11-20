@@ -54,6 +54,9 @@ public:
     void addTiles(Course::WorldGenerator& generator);
 
 
+    void updateResourceInfo();
+
+
 private slots:
     void on_highScoreButton_clicked();
 

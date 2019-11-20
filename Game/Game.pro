@@ -7,6 +7,7 @@ CONFIG += c++14
 
 SOURCES += \
     assigndialog.cpp \
+    gameeventhandler.cpp \
     gamescene.cpp \
     highscoredialog.cpp \
     housingbase.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
 
 HEADERS += \
     assigndialog.hh \
+    gameeventhandler.hh \
     gamescene.hh \
     highscoredialog.hh \
     housingbase.hh \

@@ -7,6 +7,7 @@
 #include "core/coordinate.h"
 #include "core/gameobject.h"
 #include "core/gameobject.h"
+#include "nresourcemaps.hh"
 
 class GameEventHandler : public Course::iGameEventHandler
 {
@@ -21,6 +22,14 @@ public:
 
     void printPlayerNames();
 
+    /**
+     * @brief createBeginResource give basic resources to all players
+     * in the beginning
+     */
+    void createBeginResource();
+
+    Course::ResourceMap getCurrentPlayerResource();
+
     bool modifyResource(std::shared_ptr<Course::PlayerBase> player,
                                     Course::BasicResource resource,
                                     int amount) override;
@@ -29,6 +38,12 @@ public:
 
 private:
     std::vector<std::shared_ptr<Course::PlayerBase>> players_;
+
+    // Players resources with order respectively to players_ vector
+    std::vector<Course::ResourceMap> playersResource_;
+
+    // Current player index
+    int current_ = 0;
 };
 
 #endif // GAMEEVENTHANDLER_HH

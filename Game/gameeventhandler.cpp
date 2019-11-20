@@ -3,6 +3,7 @@
 #include "core/playerbase.h"
 #include "interfaces/igameeventhandler.h"
 #include "iostream"
+#include "nresourcemaps.hh"
 
 GameEventHandler::GameEventHandler()
 {
@@ -24,6 +25,18 @@ void GameEventHandler::printPlayerNames()
     for (auto player : players_){
         std::cout << player->getName() << std::endl;
     }
+}
+
+void GameEventHandler::createBeginResource()
+{
+    for (int i = 0; i < players_.size(); i++){
+        playersResource_.push_back(NewResourceMaps::BEGINNING_RESOURCE);
+    }
+}
+
+Course::ResourceMap GameEventHandler::getCurrentPlayerResource()
+{
+    return playersResource_[current_];
 }
 
 bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player, Course::BasicResource resource, int amount)

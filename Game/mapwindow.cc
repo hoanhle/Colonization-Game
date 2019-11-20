@@ -127,6 +127,17 @@ void MapWindow::addTiles(Course::WorldGenerator &generator)
     generator.generateMap(X_SIZE, Y_SIZE, 99, m_objectmanager, m_GEHandler);
 }
 
+void MapWindow::updateResourceInfo()
+{
+    Course::ResourceMap playerResource = m_GEHandler->getCurrentPlayerResource();
+
+    m_ui->lcdFood->display(playerResource.at(Course::FOOD));
+    m_ui->lcdMoney->display(playerResource.at(Course::MONEY));
+    m_ui->lcdWood->display(playerResource.at(Course::WOOD));
+    m_ui->lcdStone->display(playerResource.at(Course::STONE));
+    m_ui->lcdOre->display(playerResource.at(Course::ORE));
+}
+
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
 {
@@ -218,9 +229,16 @@ void MapWindow::on_unassignButton_clicked()
     delete unAssignDialog;
 }
 
+
+
 void MapWindow::createPlayers(int numberPlayers)
 {
     show();
     m_GEHandler->createPlayers(numberPlayers);
-    m_GEHandler->printPlayerNames();
+
+    // Give all the players the basic resources in the beginng
+    m_GEHandler->createBeginResource();
+
+    // Show the first player resource
+    this->updateResourceInfo();
 }

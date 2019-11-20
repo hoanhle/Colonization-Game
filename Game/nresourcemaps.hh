@@ -7,6 +7,14 @@
 // Add new resourcemap elements
 namespace NewResourceMaps {
 
+const Course::ResourceMap BEGINNING_RESOURCE = {
+    {Course::MONEY, 500},
+    {Course::FOOD, 500},
+    {Course::WOOD, 500},
+    {Course::STONE, 500},
+    {Course::ORE, 500},
+};
+
 const Course::ResourceMap ROCK_BP = {
     {Course::MONEY, 3},
     {Course::FOOD, 0},
