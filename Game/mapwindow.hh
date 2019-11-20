@@ -66,6 +66,9 @@ private slots:
 
     void on_unassignButton_clicked();
 
+
+    void on_endTurnButton_clicked();
+
 public slots:
     void createPlayers(int numberPlayers);
 

@@ -242,3 +242,13 @@ void MapWindow::createPlayers(int numberPlayers)
     // Show the first player resource
     this->updateResourceInfo();
 }
+
+
+
+void MapWindow::on_endTurnButton_clicked()
+{
+    // Change player when end turn
+    m_GEHandler->changePlayer();
+
+    m_GEHandler->printCurrentPlayer();
+}

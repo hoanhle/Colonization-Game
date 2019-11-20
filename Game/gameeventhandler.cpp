@@ -39,6 +39,20 @@ Course::ResourceMap GameEventHandler::getCurrentPlayerResource()
     return playersResource_[current_];
 }
 
+void GameEventHandler::changePlayer()
+{
+    if (current_ == players_.size() - 1){
+        current_ = 0;
+    } else {
+        current_ += 1;
+    }
+}
+
+void GameEventHandler::printCurrentPlayer()
+{
+    std::cout << players_[current_]->getName() << std::endl;
+}
+
 bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player, Course::BasicResource resource, int amount)
 {
 

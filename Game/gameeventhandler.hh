@@ -28,7 +28,18 @@ public:
      */
     void createBeginResource();
 
+    /**
+     * @brief getCurrentPlayerResource
+     * @return resourcemap of current player
+     */
     Course::ResourceMap getCurrentPlayerResource();
+
+    /**
+     * @brief changePlayer change player after ending turn
+     */
+    void changePlayer();
+
+    void printCurrentPlayer();
 
     bool modifyResource(std::shared_ptr<Course::PlayerBase> player,
                                     Course::BasicResource resource,
@@ -45,5 +56,6 @@ private:
     // Current player index
     int current_ = 0;
 };
+
 
 #endif // GAMEEVENTHANDLER_HH
