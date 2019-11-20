@@ -75,7 +75,9 @@ MapWindow::MapWindow(QWidget *parent,
                 "QPushButton {border-image: url(:/workerIcons/mine.png)}"
                 "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
 
+
 }
+
 
 MapWindow::~MapWindow()
 {
@@ -113,6 +115,7 @@ void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
     m_scene->updateItem(obj);
 }
 
+
 void MapWindow::addTiles(Course::WorldGenerator &generator)
 {
     generator.addConstructor<Course::Forest>(10);
@@ -124,15 +127,18 @@ void MapWindow::addTiles(Course::WorldGenerator &generator)
     generator.generateMap(X_SIZE, Y_SIZE, 99, m_objectmanager, m_GEHandler);
 }
 
+
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
 {
     m_scene->removeItem(obj);
 }
 
+
 void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 {
     m_scene->drawItem(obj);
 }
+
 
 void MapWindow::on_highScoreButton_clicked()
 {
@@ -163,6 +169,7 @@ void MapWindow::on_assignButton_clicked()
 
 }
 
+
 void MapWindow::on_quitButton_clicked()
 {
     qApp->exit(0);
@@ -171,7 +178,6 @@ void MapWindow::on_quitButton_clicked()
 
 void MapWindow::setStyleWorkerButtons()
 {
-
     m_ui->bwButton->setStyleSheet(
                 "QPushButton {border-image: url(:/workerIcons/worker.png)}"
                 "QPushButton:checked {border-image: url(:/workerIcons/worker_selected.png)}");
@@ -187,8 +193,8 @@ void MapWindow::setStyleWorkerButtons()
     m_ui->minerButton->setStyleSheet(
                 "QPushButton {border-image: url(:/workerIcons/mine.png)}"
                 "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
-
 }
+
 
 void MapWindow::setupButtonGroup(std::vector<QAbstractButton *> buttons, QButtonGroup *group)
 {

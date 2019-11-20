@@ -18,7 +18,7 @@
     <rect>
      <x>40</x>
      <y>30</y>
-     <width>191</width>
+     <width>261</width>
      <height>21</height>
     </rect>
    </property>
@@ -26,25 +26,12 @@
     <string>You have 5 assgined workers for this block</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>60</y>
-     <width>191</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Enter the number of workers you want to free</string>
-   </property>
-  </widget>
   <widget class="QSpinBox" name="workerSpinBox">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>60</y>
-     <width>131</width>
+     <x>180</x>
+     <y>80</y>
+     <width>81</width>
      <height>21</height>
     </rect>
    </property>
@@ -52,14 +39,27 @@
   <widget class="QPushButton" name="freeButton">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>160</x>
      <y>110</y>
-     <width>101</width>
+     <width>121</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>Free</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>60</y>
+     <width>331</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the number of workers you want to free:</string>
    </property>
   </widget>
  </widget>

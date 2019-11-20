@@ -17,12 +17,17 @@ int main(int argc, char* argv[])
     // Dialog to start the game
     StartDialog startDialog;
 
+
     // Dialog to set the number of players in the game
     SetPlayerDialog setPlayerDialog;
+
 
     QDialog::connect(&startDialog, SIGNAL(openSetPlayers()), &setPlayerDialog, SLOT(exec()));
     QDialog::connect(&setPlayerDialog, SIGNAL(startGame()), &mapWindow, SLOT(show()));
     startDialog.exec();
+
+
+
 
 
 

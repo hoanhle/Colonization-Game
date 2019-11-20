@@ -192,19 +192,6 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>10</y>
-       <width>31</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Build</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="hqButton">
      <property name="geometry">
       <rect>
@@ -320,6 +307,19 @@
      </property>
      <property name="text">
       <string>Skyscraper</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buildButton">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>0</y>
+       <width>113</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Build</string>
      </property>
     </widget>
    </widget>
@@ -627,7 +627,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>17</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
