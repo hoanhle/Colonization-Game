@@ -6,6 +6,7 @@
 #include "assigndialog.hh"
 #include "unassigndialog.hh"
 #include "startdialog.hh"
+#include "setplayerdialog.hh"
 
 
 
@@ -73,8 +74,6 @@ MapWindow::MapWindow(QWidget *parent,
     m_ui->minerButton->setStyleSheet(
                 "QPushButton {border-image: url(:/workerIcons/mine.png)}"
                 "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
-
-
 
 }
 

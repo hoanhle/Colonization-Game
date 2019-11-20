@@ -14,12 +14,16 @@ class AssignDialog : public QDialog
 public:
     /**
      * @brief assigndialog constructor of this dialog
-     * @param workers_ number of free workers
+     * @param workers_ number of total free workers
      * @param parent QWidget parent
      */
     explicit AssignDialog(unsigned int workers_, QWidget *parent = nullptr);
     ~AssignDialog();
 
+    /**
+     * @brief getNumberOfWorkers
+     * @return number of workers to assign to that building
+     */
     int getNumberOfWorkers();
 
 signals:

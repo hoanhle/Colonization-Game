@@ -1,7 +1,11 @@
 #include "mapwindow.hh"
-#include "startdialog.hh"
 #include <QApplication>
 #include <QDialog>
+#include <QObject>
+#include "startdialog.hh"
+#include "setplayerdialog.hh"
+
+
 
 int main(int argc, char* argv[])
 {
@@ -10,10 +14,18 @@ int main(int argc, char* argv[])
 
     MapWindow mapWindow;
 
-    StartDialog startdialog;
-    if (startdialog.exec() == QDialog::Accepted){
-        mapWindow.show();
-    }
+    // Dialog to start the game
+    StartDialog startDialog;
+
+    // Dialog to set the number of players in the game
+    SetPlayerDialog setPlayerDialog;
+
+    QDialog::connect(&startDialog, SIGNAL(openSetPlayers()), &setPlayerDialog, SLOT(exec()));
+    QDialog::connect(&setPlayerDialog, SIGNAL(startGame()), &mapWindow, SLOT(show()));
+    startDialog.exec();
+
+
+
 
     return app.exec();
 }

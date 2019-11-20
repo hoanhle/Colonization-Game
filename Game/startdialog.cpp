@@ -6,6 +6,8 @@ StartDialog::StartDialog(QWidget *parent) :
     ui(new Ui::StartDialog)
 {
     ui->setupUi(this);
+    ui->label->setWordWrap(true);
+    this->setWindowTitle("START GAME");
 }
 
 StartDialog::~StartDialog()
@@ -15,5 +17,13 @@ StartDialog::~StartDialog()
 
 void StartDialog::on_startButton_clicked()
 {
-    accept();
+    hide();
+    emit openSetPlayers();
+
+}
+
+
+void StartDialog::on_ruleButton_clicked()
+{
+    emit openRules();
 }
