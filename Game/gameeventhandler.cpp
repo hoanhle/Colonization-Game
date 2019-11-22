@@ -23,7 +23,7 @@ void GameEventHandler::createPlayers(int numberPlayers)
 void GameEventHandler::printPlayerNames()
 {
     for (auto player : players_){
-        std::cout << player->getName() << std::endl;
+        qDebug() << player->getName().data();
     }
 }
 
@@ -50,7 +50,7 @@ void GameEventHandler::changePlayer()
 
 void GameEventHandler::printCurrentPlayer()
 {
-    std::cout << players_[current_]->getName() << std::endl;
+    qDebug() << players_[current_]->getName().data();
 }
 
 void GameEventHandler::setCurrentTile(std::shared_ptr<Course::GameObject> tile)

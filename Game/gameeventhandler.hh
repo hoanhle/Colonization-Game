@@ -8,6 +8,8 @@
 #include "core/gameobject.h"
 #include "core/gameobject.h"
 #include "nresourcemaps.hh"
+#include <QDebug>
+
 
 class GameEventHandler : public Course::iGameEventHandler
 {

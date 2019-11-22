@@ -258,5 +258,4 @@ void MapWindow::on_endTurnButton_clicked()
     m_GEHandler->changePlayer();
 
     m_GEHandler->printCurrentPlayer();
-    qDebug() << m_GEHandler->returnSelectedTile()->ID;
 }
