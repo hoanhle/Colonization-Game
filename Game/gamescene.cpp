@@ -111,6 +111,8 @@ bool GameScene::event(QEvent *event)
                 qDebug() << "ObjID: " <<
                             static_cast<Course::SimpleMapItem*>(pressed)
                             ->getBoundObject()->ID  << " pressed.";
+                emit sendTilePointer(static_cast<Course::SimpleMapItem*>(pressed)
+                                     ->getBoundObject());
                 return true;
             }
 

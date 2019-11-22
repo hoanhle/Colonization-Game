@@ -53,6 +53,16 @@ void GameEventHandler::printCurrentPlayer()
     std::cout << players_[current_]->getName() << std::endl;
 }
 
+void GameEventHandler::setCurrentTile(std::shared_ptr<Course::GameObject> tile)
+{
+    tile_ = tile;
+}
+
+std::shared_ptr<Course::GameObject> GameEventHandler::returnSelectedTile()
+{
+    return tile_;
+}
+
 bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player, Course::BasicResource resource, int amount)
 {
 

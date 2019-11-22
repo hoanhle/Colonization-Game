@@ -7,7 +7,7 @@
 #include "unassigndialog.hh"
 #include "startdialog.hh"
 #include "setplayerdialog.hh"
-
+#include "gamescene.hh"
 
 
 #include <math.h>
@@ -75,6 +75,8 @@ MapWindow::MapWindow(QWidget *parent,
                 "QPushButton {border-image: url(:/workerIcons/mine.png)}"
                 "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
 
+    connect(m_scene.get(), SIGNAL(sendTilePointer(std::shared_ptr<Course::GameObject>)),
+            this, SLOT(setSelectedTile(std::shared_ptr<Course::GameObject>)));
 
 }
 
@@ -243,6 +245,11 @@ void MapWindow::createPlayers(int numberPlayers)
     this->updateResourceInfo();
 }
 
+void MapWindow::setSelectedTile(std::shared_ptr<Course::GameObject> tile)
+{
+    m_GEHandler->setCurrentTile(tile);
+}
+
 
 
 void MapWindow::on_endTurnButton_clicked()
@@ -251,4 +258,5 @@ void MapWindow::on_endTurnButton_clicked()
     m_GEHandler->changePlayer();
 
     m_GEHandler->printCurrentPlayer();
+    qDebug() << m_GEHandler->returnSelectedTile()->ID;
 }

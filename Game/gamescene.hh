@@ -4,7 +4,6 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QDebug>
-
 #include <map>
 #include <memory>
 
@@ -18,6 +17,7 @@ const std::pair<int, int> SCENE_SCALE_LIMITS = {1, 500};
 
 class GameScene : public QGraphicsScene
 {
+    Q_OBJECT
 public:
 
     /**
@@ -112,6 +112,9 @@ public:
      * False: if the event handling was passed over.
      */
     virtual bool event(QEvent* event) override;
+
+signals:
+    void sendTilePointer(std::shared_ptr<Course::GameObject> tile);
 
 private:
     QGraphicsItem* m_mapBoundRect;

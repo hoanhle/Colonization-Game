@@ -41,11 +41,21 @@ public:
 
     void printCurrentPlayer();
 
+    /**
+     * @brief setCurrentTile save the current selected tile
+     * @param tile tile pointer
+     */
+    void setCurrentTile(std::shared_ptr<Course::GameObject> tile);
+
+    std::shared_ptr<Course::GameObject> returnSelectedTile();
+
+
     bool modifyResource(std::shared_ptr<Course::PlayerBase> player,
                                     Course::BasicResource resource,
                                     int amount) override;
     bool modifyResources(std::shared_ptr<Course::PlayerBase> player,
                                      Course::ResourceMap resources) override;
+
 
 private:
     std::vector<std::shared_ptr<Course::PlayerBase>> players_;
@@ -55,6 +65,9 @@ private:
 
     // Current player index
     int current_ = 0;
+
+    // Current selected tile
+    std::shared_ptr<Course::GameObject> tile_;
 };
 
 

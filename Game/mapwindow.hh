@@ -35,7 +35,6 @@ class MapWindow;
 class MapWindow : public QMainWindow
 {
     Q_OBJECT
-
 public:
     explicit MapWindow(QWidget *parent = 0,
                        std::shared_ptr<GameEventHandler> GEHandler = {}
@@ -71,6 +70,8 @@ private slots:
 
 public slots:
     void createPlayers(int numberPlayers);
+
+    void setSelectedTile(std::shared_ptr<Course::GameObject> tile);
 
 private:
     Ui::MapWindow* m_ui;
