@@ -35,6 +35,16 @@ const Course::ResourceMap APARTMENT_PRODUCTION = {
     {Course::FOOD, -1}
 };
 
+const Course::ResourceMap SKYSCRAPER_BUILD_COST = {
+    {Course::MONEY, 1000},
+    {Course::FOOD, 500},
+    {Course::WOOD, 500}
+};
+const Course::ResourceMap SKYSCRAPER_PRODUCTION = {
+    {Course::MONEY, 0},
+    {Course::FOOD, -100}
+};
+
 const Course::ResourceMap LARGEHOUSE_BUILD_COST = {
     {Course::MONEY, 100},
     {Course::FOOD, 150},

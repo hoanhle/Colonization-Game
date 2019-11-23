@@ -21,6 +21,7 @@ SOURCES += \
     rulesdialog.cpp \
     sand.cpp \
     setplayerdialog.cpp \
+    skyscraper.cpp \
     smallhouse.cpp \
     startdialog.cpp \
     unassigndialog.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
     rulesdialog.hh \
     sand.hh \
     setplayerdialog.hh \
+    skyscraper.hh \
     smallhouse.hh \
     startdialog.hh \
     unassigndialog.hh \

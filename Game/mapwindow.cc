@@ -322,6 +322,14 @@ void MapWindow::on_buildButton_clicked()
                                                                             NewResourceMaps::APARTMENT_BUILD_COST,
                                                                             NewResourceMaps::APARTMENT_PRODUCTION
                                                                             );
+    }else if (selected == m_ui->skyscraperButton){
+        building = std::make_shared<SkyScraper>(m_GEHandler,
+                                                                            m_objectmanager,
+                                                                            player,
+                                                                            1,
+                                                                            NewResourceMaps::SKYSCRAPER_BUILD_COST,
+                                                                            NewResourceMaps::SKYSCRAPER_PRODUCTION
+                                                                            );
     }
 
 

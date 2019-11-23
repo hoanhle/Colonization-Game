@@ -22,5 +22,6 @@
         <file>farm.png</file>
         <file>outpost.png</file>
         <file>apartment.png</file>
+        <file>skyscraper.png</file>
     </qresource>
 </RCC>

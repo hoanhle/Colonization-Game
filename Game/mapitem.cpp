@@ -63,6 +63,10 @@ void MapItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
     {
         painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
                             m_size, m_size, QPixmap(":/buildingIcons/apartment.png"));
+    }else if(m_gameobject->getType() == "SkyScraper")
+    {
+    painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
+                        m_size, m_size, QPixmap(":/buildingIcons/skyscraper.png"));
     }
 
 
