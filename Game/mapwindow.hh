@@ -28,6 +28,7 @@
 #include "gameeventhandler.hh"
 #include "smallhouse.hh"
 #include "largehouse.hh"
+#include "apartmentblock.hh"
 #include "buildings/farm.h"
 #include "buildings/headquarters.h"
 #include "buildings/outpost.h"

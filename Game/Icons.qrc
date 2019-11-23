@@ -21,5 +21,6 @@
         <file>smallHouse.png</file>
         <file>farm.png</file>
         <file>outpost.png</file>
+        <file>apartment.png</file>
     </qresource>
 </RCC>

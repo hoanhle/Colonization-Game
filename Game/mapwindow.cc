@@ -314,6 +314,14 @@ void MapWindow::on_buildButton_clicked()
                                                                             Course::ConstResourceMaps::OUTPOST_BUILD_COST,
                                                                             Course::ConstResourceMaps::OUTPOST_PRODUCTION
                                                                             );
+    }else if (selected == m_ui->apartmentsButton){
+        building = std::make_shared<ApartmentBlock>(m_GEHandler,
+                                                                            m_objectmanager,
+                                                                            player,
+                                                                            1,
+                                                                            NewResourceMaps::APARTMENT_BUILD_COST,
+                                                                            NewResourceMaps::APARTMENT_PRODUCTION
+                                                                            );
     }
 
 
