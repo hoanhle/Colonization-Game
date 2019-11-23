@@ -41,6 +41,8 @@ public:
      */
     void changePlayer();
 
+    std::shared_ptr<Course::PlayerBase> getCurrentPlayer();
+
     void printCurrentPlayer();
 
     /**
@@ -49,6 +51,10 @@ public:
      */
     void setCurrentTile(std::shared_ptr<Course::GameObject> tile);
 
+    /**
+     * @brief return the selected tile
+     * @return tile tile pointer
+     */
     std::shared_ptr<Course::GameObject> returnSelectedTile();
 
 
