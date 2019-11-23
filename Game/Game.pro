@@ -18,6 +18,7 @@ SOURCES += \
     rock.cpp \
     sand.cpp \
     setplayerdialog.cpp \
+    smallhouse.cpp \
     startdialog.cpp \
     unassigndialog.cpp \
     water.cpp
@@ -35,6 +36,7 @@ HEADERS += \
     rock.hh \
     sand.hh \
     setplayerdialog.hh \
+    smallhouse.hh \
     startdialog.hh \
     unassigndialog.hh \
     water.hh

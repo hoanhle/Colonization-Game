@@ -19,3 +19,16 @@ HousingBase::HousingBase(const std::shared_ptr<Course::iGameEventHandler> &event
 {
 
 }
+
+std::string HousingBase::getType() const
+{
+    return "HousingBase";
+}
+
+void HousingBase::addWorkers()
+{
+    /*
+     * TODO: implement the generation of workers
+     * */
+    return;
+}

@@ -1,24 +1,19 @@
-#ifndef HOUSINGBASE_HH
-#define HOUSINGBASE_HH
+#ifndef SMALLHOUSE_HH
+#define SMALLHOUSE_HH
 
-#include "buildings/buildingbase.h"
-#include "nresourcemaps.hh"
-#include "core/resourcemaps.h"
-#include "core/placeablegameobject.h"
+#include "housingbase.hh"
 
-/**
- * @brief The HousingBase class
- */
-class HousingBase : public Course::BuildingBase
+class SmallHouse : public HousingBase
 {
 public:
+
     const Course::ResourceMap BUILD_COST;
     /**
      * @brief Disabled parameterless constructor
      */
-    HousingBase() = delete;
+    SmallHouse() = delete;
 
-    explicit HousingBase(
+    explicit SmallHouse(
             const std::shared_ptr<Course::iGameEventHandler>& eventhandler,
             const std::shared_ptr<Course::iObjectManager>& objectmanager,
             const std::shared_ptr<Course::PlayerBase>& owner,
@@ -27,25 +22,15 @@ public:
             const Course::ResourceMap& production = {},
             const int& numPeople = 0);
 
-
     /**
      * @brief Default destructor.
      */
-    virtual ~HousingBase() = default ;
+    virtual ~SmallHouse() = default ;
 
     /**
      * @copydoc GameObject::getType()
      */
     virtual std::string getType() const override;
-
-    void addWorkers();
-
-
-
-
-
-private:
-    int numPeople_;
 };
 
-#endif // HOUSINGBASE_HH
+#endif // SMALLHOUSE_HH
