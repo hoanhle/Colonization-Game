@@ -27,18 +27,19 @@ MapWindow::MapWindow(QWidget *parent,
 {
     m_ui->setupUi(this);
 
-    QButtonGroup* workerButtonGroup = new QButtonGroup(this);
+    std::shared_ptr<QButtonGroup> workerButtonGroup = std::make_shared<QButtonGroup>(this);
     std::vector<QAbstractButton*> workerButtons = {m_ui->bwButton, m_ui->loggerButton,
                                                m_ui->farmerButton, m_ui->minerButton };
 
-    QButtonGroup* buildingButtonGroup = new QButtonGroup(this);
+
+    m_buildingButtonGroup = std::make_shared<QButtonGroup>(this);
     std::vector<QAbstractButton*> buildingButtons = {m_ui->hqButton, m_ui->farmButton,
                                                m_ui->mineButton, m_ui->sawButton, m_ui->outpustButton,
                                                      m_ui->apartmentsButton, m_ui->skyscraperButton,
                                                      m_ui->largeHouseButton, m_ui->smallHouseButton };
 
     setupButtonGroup(workerButtons, workerButtonGroup);
-    setupButtonGroup(buildingButtons, buildingButtonGroup);
+    setupButtonGroup(buildingButtons, m_buildingButtonGroup);
 
     setStyleWorkerButtons();
 
@@ -209,7 +210,7 @@ void MapWindow::setStyleWorkerButtons()
 }
 
 
-void MapWindow::setupButtonGroup(std::vector<QAbstractButton *> buttons, QButtonGroup *group)
+void MapWindow::setupButtonGroup(std::vector<QAbstractButton *> buttons, std::shared_ptr<QButtonGroup>  group)
 {
     for(auto iter = buttons.begin(); iter != buttons.end(); ++iter)
     {
@@ -265,16 +266,21 @@ void MapWindow::on_buildButton_clicked()
     std::shared_ptr<Course::Coordinate> pos = m_GEHandler->returnSelectedTile()->getCoordinatePtr();
     std::shared_ptr<Course::PlayerBase> player = m_GEHandler->getCurrentPlayer();
 
+    QAbstractButton* selected = m_buildingButtonGroup->checkedButton();
+    std::shared_ptr<SmallHouse> building = nullptr;
+    if (selected == m_ui->smallHouseButton){
+        building = std::make_shared<SmallHouse>(m_GEHandler,
+                                                                            m_objectmanager,
+                                                                            player,
+                                                                            1,
+                                                                            NewResourceMaps::SMALLHOUSE_BUILD_COST,
+                                                                            NewResourceMaps::SMALLHOUSE_BUILD_COST,
+                                                                            4);
+    }
 
-    std::shared_ptr<SmallHouse> building = std::make_shared<SmallHouse>(m_GEHandler,
-                                                                        m_objectmanager,
-                                                                        player,
-                                                                        1,
-                                                                        NewResourceMaps::SMALLHOUSE_BUILD_COST,
-                                                                        NewResourceMaps::SMALLHOUSE_BUILD_COST,
-                                                                        4);
 
     building->setCoordinate(pos);
     m_objectmanager->getTile(*pos)->addBuilding(building);
     m_scene->drawItem(building);
+
 }

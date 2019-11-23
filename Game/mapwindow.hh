@@ -82,8 +82,10 @@ private:
     std::shared_ptr<GameScene> m_scene = nullptr;
     std::shared_ptr<ObjectManager> m_objectmanager = nullptr;
 
+    std::shared_ptr<QButtonGroup> m_buildingButtonGroup = nullptr;
+
     void setStyleWorkerButtons();
-    void setupButtonGroup(std::vector<QAbstractButton*> buttons, QButtonGroup* group);
+    void setupButtonGroup(std::vector<QAbstractButton*> buttons, std::shared_ptr<QButtonGroup> group);
 
 };
 
