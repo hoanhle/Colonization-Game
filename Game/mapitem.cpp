@@ -47,8 +47,19 @@ void MapItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
     {
         painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
                             m_size, m_size, QPixmap(":/buildingIcons/largeHouse.png"));
+    } else if(m_gameobject->getType() == "Farm")
+    {
+        painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
+                            m_size, m_size, QPixmap(":/buildingIcons/farm.png"));
+    } else if(m_gameobject->getType() == "HeadQuarters")
+    {
+        painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
+                            m_size, m_size, QPixmap(":/buildingIcons/HQ.png"));
+    } else if(m_gameobject->getType() == "Outpost")
+    {
+        painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
+                            m_size, m_size, QPixmap(":/buildingIcons/outpost.png"));
     }
-
     painter->drawRect(boundingRect());
 }
 

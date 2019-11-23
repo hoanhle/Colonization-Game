@@ -16,7 +16,10 @@
         <file>forest.png</file>
     </qresource>
     <qresource prefix="/buildingIcons">
-        <file>smallHouse.png</file>
+        <file>HQ.png</file>
         <file>largeHouse.png</file>
+        <file>smallHouse.png</file>
+        <file>farm.png</file>
+        <file>outpost.png</file>
     </qresource>
 </RCC>

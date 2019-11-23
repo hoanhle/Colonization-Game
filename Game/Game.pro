@@ -6,6 +6,7 @@ QT += core gui widgets
 CONFIG += c++14
 
 SOURCES += \
+    apartmentblock.cpp \
     assigndialog.cpp \
     gameeventhandler.cpp \
     gamescene.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
     water.cpp
 
 HEADERS += \
+    apartmentblock.hh \
     assigndialog.hh \
     gameeventhandler.hh \
     gamescene.hh \

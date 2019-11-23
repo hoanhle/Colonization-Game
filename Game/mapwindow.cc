@@ -284,9 +284,36 @@ void MapWindow::on_buildButton_clicked()
                                                                             m_objectmanager,
                                                                             player,
                                                                             1,
-                                                                            NewResourceMaps::SMALLHOUSE_BUILD_COST,
-                                                                            NewResourceMaps::SMALLHOUSE_BUILD_COST,
+                                                                            NewResourceMaps::LARGEHOUSE_BUILD_COST,
+                                                                            NewResourceMaps::LARGEHOUSE_BUILD_COST,
                                                                             8);
+    }else if (selected == m_ui->farmButton)
+    {
+        building = std::make_shared<Course::Farm>(m_GEHandler,
+                                                                            m_objectmanager,
+                                                                            player,
+                                                                            1,
+                                                                            Course::ConstResourceMaps::FARM_BUILD_COST,
+                                                                            Course::ConstResourceMaps::FARM_PRODUCTION
+                                                                            );
+    }else if (selected == m_ui->hqButton)
+    {
+        building = std::make_shared<Course::HeadQuarters>(m_GEHandler,
+                                                                            m_objectmanager,
+                                                                            player,
+                                                                            1,
+                                                                            Course::ConstResourceMaps::HQ_BUILD_COST,
+                                                                            Course::ConstResourceMaps::HQ_PRODUCTION
+                                                                            );
+    }else if (selected == m_ui->outpustButton)
+    {
+        building = std::make_shared<Course::Outpost>(m_GEHandler,
+                                                                            m_objectmanager,
+                                                                            player,
+                                                                            1,
+                                                                            Course::ConstResourceMaps::OUTPOST_BUILD_COST,
+                                                                            Course::ConstResourceMaps::OUTPOST_PRODUCTION
+                                                                            );
     }
 
 
