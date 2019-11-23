@@ -82,13 +82,23 @@ public slots:
 
     void setSelectedTile(std::shared_ptr<Course::GameObject> tile);
 
+    /**
+     * @brief enable to build when a building is selected
+     */
+    void buildingButtonPressed(QAbstractButton*);
+
+    /**
+     * @brief enable to assign or unassign when a worker is selected
+     */
+    void workerButtonPressed(QAbstractButton*);
+
 private:
     Ui::MapWindow* m_ui;
     std::shared_ptr<GameEventHandler> m_GEHandler = nullptr;
     std::shared_ptr<GameScene> m_scene = nullptr;
     std::shared_ptr<ObjectManager> m_objectmanager = nullptr;
-
     std::shared_ptr<QButtonGroup> m_buildingButtonGroup = nullptr;
+    std::shared_ptr<QButtonGroup> m_workerButtonGroup = nullptr;
 
     void setStyleWorkerButtons();
     void setupButtonGroup(std::vector<QAbstractButton*> buttons, std::shared_ptr<QButtonGroup> group);
