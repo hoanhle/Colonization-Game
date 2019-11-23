@@ -111,6 +111,7 @@ bool GameScene::event(QEvent *event)
                 qDebug() << "ObjID: " <<
                             static_cast<Course::SimpleMapItem*>(pressed)
                             ->getBoundObject()->ID  << " pressed.";
+
                 emit sendTilePointer(static_cast<Course::SimpleMapItem*>(pressed)
                                      ->getBoundObject());
                 return true;
@@ -142,4 +143,5 @@ void GameScene::drawItem( std::shared_ptr<Course::GameObject> obj)
 {
     MapItem* nItem = new MapItem(obj, obj->getType(), m_scale);
     addItem(nItem);
+    resize();
 }

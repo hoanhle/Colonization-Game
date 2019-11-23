@@ -41,7 +41,7 @@ public:
      */
     void paint(QPainter *painter,
                const QStyleOptionGraphicsItem *option,
-               QWidget *widget);
+               QWidget *widget) override;
 
     /**
      * @brief getBoundObject

@@ -111,7 +111,7 @@ public:
      * @return True: if event was  handled in the handler.
      * False: if the event handling was passed over.
      */
-    virtual bool event(QEvent* event) override;
+    bool event(QEvent* event);
 
 signals:
     void sendTilePointer(std::shared_ptr<Course::GameObject> tile);

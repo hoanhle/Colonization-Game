@@ -26,6 +26,7 @@
 #include "assigndialog.hh"
 #include "unassigndialog.hh"
 #include "gameeventhandler.hh"
+#include "smallhouse.hh"
 
 
 namespace Ui {
@@ -67,6 +68,8 @@ private slots:
 
 
     void on_endTurnButton_clicked();
+
+    void on_buildButton_clicked();
 
 public slots:
     void createPlayers(int numberPlayers);

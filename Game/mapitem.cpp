@@ -19,7 +19,6 @@ void MapItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
     Q_UNUSED( option ) Q_UNUSED( widget )
 
 
-
     if ( m_gameobject->getType() == "Sand" )
     {
         painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
@@ -40,9 +39,11 @@ void MapItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
     {
         painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
                             m_size, m_size, QPixmap(":/workerIcons/forest.png") );
+    } else if(m_gameobject->getType() == "SmallHouse")
+    {
+        painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
+                            m_size, m_size, QPixmap(":/buildingIcons/smallHouse.png"));
     }
-
-
 
     painter->drawRect(boundingRect());
 }

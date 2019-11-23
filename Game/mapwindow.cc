@@ -259,3 +259,22 @@ void MapWindow::on_endTurnButton_clicked()
 
     m_GEHandler->printCurrentPlayer();
 }
+
+void MapWindow::on_buildButton_clicked()
+{
+    std::shared_ptr<Course::Coordinate> pos = m_GEHandler->returnSelectedTile()->getCoordinatePtr();
+    std::shared_ptr<Course::PlayerBase> player = m_GEHandler->getCurrentPlayer();
+
+
+    std::shared_ptr<SmallHouse> building = std::make_shared<SmallHouse>(m_GEHandler,
+                                                                        m_objectmanager,
+                                                                        player,
+                                                                        1,
+                                                                        NewResourceMaps::SMALLHOUSE_BUILD_COST,
+                                                                        NewResourceMaps::SMALLHOUSE_BUILD_COST,
+                                                                        4);
+
+    building->setCoordinate(pos);
+    m_objectmanager->getTile(*pos)->addBuilding(building);
+    m_scene->drawItem(building);
+}

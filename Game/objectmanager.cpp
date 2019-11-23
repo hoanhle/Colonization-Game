@@ -61,3 +61,5 @@ std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getTiles(const st
     }
     return tiles;
 }
+
+

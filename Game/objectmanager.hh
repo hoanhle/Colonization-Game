@@ -62,9 +62,11 @@ public:
             const std::vector<Course::Coordinate>& coordinates);
 
 
+
 private:
 
     std::vector<std::shared_ptr<Course::TileBase>> m_tiles;
+
 
 };
 

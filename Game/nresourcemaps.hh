@@ -15,6 +15,16 @@ const Course::ResourceMap BEGINNING_RESOURCE = {
     {Course::ORE, 500},
 };
 
+const Course::ResourceMap SMALLHOUSE_BUILD_COST = {
+    {Course::MONEY, 50},
+    {Course::FOOD, 100},
+    {Course::WOOD, 25}
+};
+const Course::ResourceMap SMALLHOUSE_PRODUCTION = {
+    {Course::MONEY, 0},
+    {Course::FOOD, -1}
+};
+
 const Course::ResourceMap ROCK_BP = {
     {Course::MONEY, 3},
     {Course::FOOD, 0},

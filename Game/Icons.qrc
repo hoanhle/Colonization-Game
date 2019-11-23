@@ -15,4 +15,7 @@
         <file>water.png</file>
         <file>forest.png</file>
     </qresource>
+    <qresource prefix="/buildingIcons">
+        <file>smallHouse.png</file>
+    </qresource>
 </RCC>
