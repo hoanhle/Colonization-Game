@@ -120,7 +120,7 @@ bool GameScene::event(QEvent *event)
         }
     }
 
-    return false;
+    return QGraphicsScene::event(event);
 }
 
 
@@ -143,5 +143,5 @@ void GameScene::drawItem( std::shared_ptr<Course::GameObject> obj)
 {
     MapItem* nItem = new MapItem(obj, obj->getType(), m_scale);
     addItem(nItem);
-
+    this->update();
 }

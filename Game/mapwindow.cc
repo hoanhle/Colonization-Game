@@ -27,6 +27,7 @@ MapWindow::MapWindow(QWidget *parent,
 {
     m_ui->setupUi(this);
 
+
     std::shared_ptr<QButtonGroup> workerButtonGroup = std::make_shared<QButtonGroup>(this);
     std::vector<QAbstractButton*> workerButtons = {m_ui->bwButton, m_ui->loggerButton,
                                                m_ui->farmerButton, m_ui->minerButton };
@@ -272,6 +273,7 @@ void MapWindow::on_buildButton_clicked()
     if (selected == m_ui->smallHouseButton)
     {
         building = std::make_shared<SmallHouse>(m_GEHandler,
+
                                                                             m_objectmanager,
                                                                             player,
                                                                             1,
@@ -330,11 +332,12 @@ void MapWindow::on_buildButton_clicked()
                                                                             NewResourceMaps::SKYSCRAPER_BUILD_COST,
                                                                             NewResourceMaps::SKYSCRAPER_PRODUCTION
                                                                             );
+
     }
 
 
     building->setCoordinate(pos);
     m_objectmanager->getTile(*pos)->addBuilding(building);
     m_scene->drawItem(building);
-
+    this->update();
 }
