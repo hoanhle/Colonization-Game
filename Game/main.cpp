@@ -5,6 +5,7 @@
 #include "startdialog.hh"
 #include "setplayerdialog.hh"
 #include "gameeventhandler.hh"
+#include "rulesdialog.hh"
 
 
 int main(int argc, char* argv[])
@@ -20,9 +21,17 @@ int main(int argc, char* argv[])
     // Dialog to start the game
     StartDialog startDialog;
 
-
     // Dialog to set the number of players in the game
     SetPlayerDialog setPlayerDialog;
+
+    // Dialog to show how to play
+    RulesDialog rulesDialog;
+
+    // Open rulesDialog when the how to play button is clicked
+    QDialog::connect(&startDialog, SIGNAL(openRules()), &rulesDialog, SLOT(show()));
+
+    // Back to startDialog when back button is clicked
+    QDialog::connect(&rulesDialog, SIGNAL(backToStart()), &startDialog, SLOT(show()));
 
     // Open setPlayerDialog when the play button is clicked
     QDialog::connect(&startDialog, SIGNAL(openSetPlayers()), &setPlayerDialog, SLOT(exec()));
@@ -30,7 +39,12 @@ int main(int argc, char* argv[])
     // Set the number of players in the game
     QDialog::connect(&setPlayerDialog, SIGNAL(startGame(int)),&mapWindow, SLOT(createPlayers(int)));
 
-    startDialog.exec();
+    // Stop the game if the startDialog get deleted.
+    if (startDialog.exec() != QDialog::Accepted){
+        return app.exec();
+    }
+
+    rulesDialog.exec();
 
 
 

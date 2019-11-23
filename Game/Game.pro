@@ -16,6 +16,7 @@ SOURCES += \
     mapwindow.cc \
     objectmanager.cpp \
     rock.cpp \
+    rulesdialog.cpp \
     sand.cpp \
     setplayerdialog.cpp \
     smallhouse.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     nresourcemaps.hh \
     objectmanager.hh \
     rock.hh \
+    rulesdialog.hh \
     sand.hh \
     setplayerdialog.hh \
     smallhouse.hh \
@@ -69,6 +71,7 @@ FORMS += \
     assigndialog.ui \
     highscoredialog.ui \
     mapwindow.ui \
+    rulesdialog.ui \
     setplayerdialog.ui \
     startdialog.ui \
     unassigndialog.ui

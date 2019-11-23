@@ -25,5 +25,6 @@ void StartDialog::on_startButton_clicked()
 
 void StartDialog::on_ruleButton_clicked()
 {
+    hide();
     emit openRules();
 }
