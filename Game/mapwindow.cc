@@ -267,8 +267,10 @@ void MapWindow::on_buildButton_clicked()
     std::shared_ptr<Course::PlayerBase> player = m_GEHandler->getCurrentPlayer();
 
     QAbstractButton* selected = m_buildingButtonGroup->checkedButton();
-    std::shared_ptr<SmallHouse> building = nullptr;
-    if (selected == m_ui->smallHouseButton){
+
+    std::shared_ptr<Course::BuildingBase> building = nullptr;
+    if (selected == m_ui->smallHouseButton)
+    {
         building = std::make_shared<SmallHouse>(m_GEHandler,
                                                                             m_objectmanager,
                                                                             player,
@@ -276,6 +278,15 @@ void MapWindow::on_buildButton_clicked()
                                                                             NewResourceMaps::SMALLHOUSE_BUILD_COST,
                                                                             NewResourceMaps::SMALLHOUSE_BUILD_COST,
                                                                             4);
+    }else if (selected == m_ui->largeHouseButton)
+    {
+        building = std::make_shared<LargeHouse>(m_GEHandler,
+                                                                            m_objectmanager,
+                                                                            player,
+                                                                            1,
+                                                                            NewResourceMaps::SMALLHOUSE_BUILD_COST,
+                                                                            NewResourceMaps::SMALLHOUSE_BUILD_COST,
+                                                                            8);
     }
 
 

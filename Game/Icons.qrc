@@ -17,5 +17,6 @@
     </qresource>
     <qresource prefix="/buildingIcons">
         <file>smallHouse.png</file>
+        <file>largeHouse.png</file>
     </qresource>
 </RCC>

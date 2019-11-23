@@ -11,6 +11,7 @@ SOURCES += \
     gamescene.cpp \
     highscoredialog.cpp \
     housingbase.cpp \
+    largehouse.cpp \
     main.cpp \
     mapitem.cpp \
     mapwindow.cc \
@@ -30,6 +31,7 @@ HEADERS += \
     gamescene.hh \
     highscoredialog.hh \
     housingbase.hh \
+    largehouse.hh \
     mapitem.hh \
     mapwindow.hh \
     nresourcemaps.hh \

@@ -27,6 +27,7 @@
 #include "unassigndialog.hh"
 #include "gameeventhandler.hh"
 #include "smallhouse.hh"
+#include "largehouse.hh"
 
 
 namespace Ui {

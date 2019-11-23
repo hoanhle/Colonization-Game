@@ -25,6 +25,16 @@ const Course::ResourceMap SMALLHOUSE_PRODUCTION = {
     {Course::FOOD, -1}
 };
 
+const Course::ResourceMap LARGEHOUSE_BUILD_COST = {
+    {Course::MONEY, 100},
+    {Course::FOOD, 150},
+    {Course::WOOD, 35}
+};
+const Course::ResourceMap LARGEHOUSE_PRODUCTION = {
+    {Course::MONEY, 0},
+    {Course::FOOD, -2}
+};
+
 const Course::ResourceMap ROCK_BP = {
     {Course::MONEY, 3},
     {Course::FOOD, 0},
