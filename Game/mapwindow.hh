@@ -60,7 +60,17 @@ public:
     void addTiles(Course::WorldGenerator& generator);
 
 
+    /**
+     * @brief update player's resource in mapwindow
+     */
     void updateResourceInfo();
+
+    /**
+     * @brief turn Resourcemap building cost
+     * element into negative
+     */
+    Course::ResourceMap turnCostToMinus(Course::ResourceMap& cost);
+
 
 
 private slots:

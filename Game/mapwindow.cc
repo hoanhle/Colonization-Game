@@ -150,6 +150,16 @@ void MapWindow::updateResourceInfo()
     m_ui->lcdOre->display(playerResource.at(Course::ORE));
 }
 
+Course::ResourceMap MapWindow::turnCostToMinus(Course::ResourceMap& cost)
+{
+    Course::ResourceMap subtract = cost;
+
+    for ( auto it = cost.begin(); it != cost.end(); it++){
+        subtract[it->first] = 0 - it->second;
+    }
+    return subtract;
+}
+
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
 {
