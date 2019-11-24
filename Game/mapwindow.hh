@@ -30,6 +30,8 @@
 #include "largehouse.hh"
 #include "apartmentblock.hh"
 #include "skyscraper.hh"
+#include "mine.hh"
+#include "sawmill.hh"
 #include "buildings/farm.h"
 #include "buildings/headquarters.h"
 #include "buildings/outpost.h"

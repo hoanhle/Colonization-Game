@@ -16,10 +16,12 @@ SOURCES += \
     main.cpp \
     mapitem.cpp \
     mapwindow.cc \
+    mine.cpp \
     objectmanager.cpp \
     rock.cpp \
     rulesdialog.cpp \
     sand.cpp \
+    sawmill.cpp \
     setplayerdialog.cpp \
     skyscraper.cpp \
     smallhouse.cpp \
@@ -37,11 +39,13 @@ HEADERS += \
     largehouse.hh \
     mapitem.hh \
     mapwindow.hh \
+    mine.hh \
     nresourcemaps.hh \
     objectmanager.hh \
     rock.hh \
     rulesdialog.hh \
     sand.hh \
+    sawmill.hh \
     setplayerdialog.hh \
     skyscraper.hh \
     smallhouse.hh \

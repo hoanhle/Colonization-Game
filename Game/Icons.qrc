@@ -23,5 +23,7 @@
         <file>outpost.png</file>
         <file>apartment.png</file>
         <file>skyscraper.png</file>
+        <file>mineBuilding.png</file>
+        <file>sawmill.png</file>
     </qresource>
 </RCC>

@@ -67,6 +67,14 @@ void MapItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
     {
     painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
                         m_size, m_size, QPixmap(":/buildingIcons/skyscraper.png"));
+    }else if(m_gameobject->getType() == "Mine")
+    {
+        painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
+                            m_size, m_size, QPixmap(":/buildingIcons/mineBuilding.png"));
+    }else if(m_gameobject->getType()=="SawMill")
+    {
+        painter->drawPixmap(m_scenelocation.x()*m_size, m_scenelocation.y()*m_size,
+                            m_size, m_size, QPixmap(":/buildingIcons/sawmill.png"));
     }
 
 
