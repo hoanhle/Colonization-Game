@@ -441,6 +441,7 @@ void MapWindow::on_buildButton_clicked()
         m_buildingButtonGroup->checkedButton()->setChecked(false);
         m_buildingButtonGroup->setExclusive(true);
 
+
         // Update gamescene and objectmanager
         building->setCoordinate(pos);
         m_objectmanager->getTile(*pos)->addBuilding(building);
@@ -448,6 +449,7 @@ void MapWindow::on_buildButton_clicked()
 
         // Disable buildButton again
         m_ui->buildButton->setEnabled(false);
+        m_ui->buildButton->setChecked(false);
 
         // Update resource of the player
         updateResourceInfo();
