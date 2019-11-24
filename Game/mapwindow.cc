@@ -165,41 +165,42 @@ bool MapWindow::checkEnoughResource()
     QAbstractButton* selected = m_buildingButtonGroup->checkedButton();
     bool success = true;
     Course::ResourceMap subtract;
+    std::shared_ptr<Course::PlayerBase> currentPlayer = m_GEHandler->getCurrentPlayer();
     if (selected == m_ui->smallHouseButton){
         subtract = turnCostToMinus(NewResourceMaps::SMALLHOUSE_BUILD_COST);
-        success = m_GEHandler->modifyResources(subtract);
+        success = m_GEHandler->modifyResources(currentPlayer, subtract);
     }else if (selected == m_ui->largeHouseButton)
     {
         subtract = turnCostToMinus(NewResourceMaps::LARGEHOUSE_BUILD_COST);
-        success = m_GEHandler->modifyResources(subtract);
+        success = m_GEHandler->modifyResources(currentPlayer, subtract);
     }else if (selected == m_ui->farmButton)
     {
         subtract = turnCostToMinus(Course::ConstResourceMaps::FARM_BUILD_COST);
-        success = m_GEHandler->modifyResources(subtract);
+        success = m_GEHandler->modifyResources(currentPlayer, subtract);
     }else if (selected == m_ui->hqButton)
     {
         subtract = turnCostToMinus(Course::ConstResourceMaps::HQ_BUILD_COST);
-        success = m_GEHandler->modifyResources(subtract);
+        success = m_GEHandler->modifyResources(currentPlayer, subtract);
     }else if (selected == m_ui->outpustButton)
     {
         subtract = turnCostToMinus(Course::ConstResourceMaps::OUTPOST_BUILD_COST);
-        success = m_GEHandler->modifyResources(subtract);
+        success = m_GEHandler->modifyResources(currentPlayer, subtract);
     }else if (selected == m_ui->apartmentsButton)
     {
         subtract = turnCostToMinus(NewResourceMaps::APARTMENT_BUILD_COST);
-        success = m_GEHandler->modifyResources(subtract);
+        success = m_GEHandler->modifyResources(currentPlayer, subtract);
     }else if (selected == m_ui->skyscraperButton)
     {
         subtract = turnCostToMinus(NewResourceMaps::SKYSCRAPER_BUILD_COST);
-        success = m_GEHandler->modifyResources(subtract);
+        success = m_GEHandler->modifyResources(currentPlayer, subtract);
     }else if (selected == m_ui->mineButton)
     {
         subtract = turnCostToMinus(NewResourceMaps::MINE_BUILD_COST);
-        success = m_GEHandler->modifyResources(subtract);
+        success = m_GEHandler->modifyResources(currentPlayer, subtract);
     }else if (selected == m_ui->sawButton)
     {
         subtract = turnCostToMinus(NewResourceMaps::SAWMILL_BUILD_COST);
-        success = m_GEHandler->modifyResources(subtract);
+        success = m_GEHandler->modifyResources(currentPlayer, subtract);
     }
     return success;
 }

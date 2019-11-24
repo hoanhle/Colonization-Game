@@ -64,9 +64,6 @@ public:
     bool modifyResources(std::shared_ptr<Course::PlayerBase> player,
                                      Course::ResourceMap resources) override;
 
-    bool modifyResources(Course::ResourceMap resources);
-
-
 private:
     std::vector<std::shared_ptr<Course::PlayerBase>> players_;
 
