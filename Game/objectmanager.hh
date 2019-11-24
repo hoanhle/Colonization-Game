@@ -69,9 +69,12 @@ public:
      */
     std::vector<std::shared_ptr<Course::TileBase>> getAllTiles();
 
+    void addBuilding(std::shared_ptr<Course::BuildingBase> building);
+
 private:
 
     std::vector<std::shared_ptr<Course::TileBase>> m_tiles;
+    std::vector<std::shared_ptr<Course::BuildingBase>> m_buildings;
 
 
 };

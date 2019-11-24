@@ -74,4 +74,9 @@ std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getAllTiles()
     return tiles;
 }
 
+void ObjectManager::addBuilding(std::shared_ptr<Course::BuildingBase> building )
+{
+    m_buildings.push_back(building);
+}
+
 

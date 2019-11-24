@@ -341,8 +341,9 @@ void MapWindow::on_endTurnButton_clicked()
     std::vector<std::shared_ptr<Course::TileBase>> tiles = m_objectmanager->getAllTiles();
     for (auto x = tiles.begin(); x != tiles.end(); ++x)
     {
-        bool ans = x->get()->generateResources();
+        bool success = x->get()->generateResources();
     }
+    updateResourceInfo();
 }
 
 
@@ -454,6 +455,7 @@ void MapWindow::on_buildButton_clicked()
         // Update gamescene and objectmanager
         building->setCoordinate(pos);
         m_objectmanager->getTile(*pos)->addBuilding(building);
+        m_objectmanager->addBuilding(building);
         m_scene->drawItem(building);
 
         // Disable buildButton again

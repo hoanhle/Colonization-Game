@@ -14,9 +14,8 @@ int main(int argc, char* argv[])
 
     std::shared_ptr<GameEventHandler> handler = std::make_shared<GameEventHandler>();
 
-    MapWindow mapWindow;
+    MapWindow mapWindow(0, handler);
 
-    mapWindow.setGEHandler(handler);
 
     // Dialog to start the game
     StartDialog startDialog;
