@@ -335,7 +335,8 @@ void MapWindow::on_buildButton_clicked()
                                                     Course::ConstResourceMaps::OUTPOST_BUILD_COST,
                                                     Course::ConstResourceMaps::OUTPOST_PRODUCTION
                                                     );
-    }else if (selected == m_ui->apartmentsButton){
+    }else if (selected == m_ui->apartmentsButton)
+    {
         building = std::make_shared<ApartmentBlock>(m_GEHandler,
                                                     m_objectmanager,
                                                     player,
@@ -343,7 +344,8 @@ void MapWindow::on_buildButton_clicked()
                                                     NewResourceMaps::APARTMENT_BUILD_COST,
                                                     NewResourceMaps::APARTMENT_PRODUCTION
                                                     );
-    }else if (selected == m_ui->skyscraperButton){
+    }else if (selected == m_ui->skyscraperButton)
+    {
         building = std::make_shared<SkyScraper>(m_GEHandler,
                                                 m_objectmanager,
                                                 player,
@@ -353,7 +355,30 @@ void MapWindow::on_buildButton_clicked()
                                                 );
 
 
+    }else if (selected == m_ui->mineButton)
+    {
+        building = std::make_shared<Mine>(m_GEHandler,
+                                                m_objectmanager,
+                                                player,
+                                                1,
+                                                NewResourceMaps::MINE_BUILD_COST,
+                                                NewResourceMaps::MINE_PRODUCTION
+                                                );
+
+    }else if (selected == m_ui->sawButton)
+    {
+        building = std::make_shared<SawMill>(m_GEHandler,
+                                                m_objectmanager,
+                                                player,
+                                                1,
+                                                NewResourceMaps::SAWMILL_BUILD_COST,
+                                                NewResourceMaps::SAWMILL_PRODUCTION
+                                                );
+
     }
+
+
+
     // Deselect the selected button after build
     m_buildingButtonGroup->setExclusive(false);
     m_buildingButtonGroup->checkedButton()->setChecked(false);
