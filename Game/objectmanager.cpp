@@ -63,3 +63,15 @@ std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getTiles(const st
 }
 
 
+std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getAllTiles()
+{
+    std::vector<std::shared_ptr<Course::TileBase>> tiles;
+
+    for(auto tile = m_tiles.begin(); tile != m_tiles.end(); ++tile)
+    {
+        tiles.push_back(*tile);
+    }
+    return tiles;
+}
+
+

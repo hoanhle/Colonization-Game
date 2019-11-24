@@ -309,15 +309,18 @@ void MapWindow::createPlayers(int numberPlayers)
     this->updateResourceInfo();
 }
 
+
 void MapWindow::setSelectedTile(std::shared_ptr<Course::GameObject> tile)
 {
     m_GEHandler->setCurrentTile(tile);
 }
 
+
 void MapWindow::buildingButtonPressed(QAbstractButton*)
 {
     m_ui->buildButton->setEnabled(true);
 }
+
 
 void MapWindow::workerButtonPressed(QAbstractButton*)
 {
@@ -333,7 +336,14 @@ void MapWindow::on_endTurnButton_clicked()
     m_GEHandler->changePlayer();
 
     m_GEHandler->printCurrentPlayer();
+
+    std::vector<std::shared_ptr<Course::TileBase>> tiles = m_objectmanager->getAllTiles();
+    for (auto x = tiles.begin(); x != tiles.end(); ++x)
+    {
+        bool ans = x->get()->generateResources();
+    }
 }
+
 
 void MapWindow::on_buildButton_clicked()
 {
@@ -353,8 +363,6 @@ void MapWindow::on_buildButton_clicked()
                                                     NewResourceMaps::SMALLHOUSE_BUILD_COST,
                                                     NewResourceMaps::SMALLHOUSE_PRODUCTION,
                                                     4);
-
-
 
         }else if (selected == m_ui->largeHouseButton)
         {
@@ -458,3 +466,5 @@ void MapWindow::on_buildButton_clicked()
     }
 
 }
+
+

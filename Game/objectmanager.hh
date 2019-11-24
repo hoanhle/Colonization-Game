@@ -61,7 +61,13 @@ public:
     virtual std::vector<std::shared_ptr<Course::TileBase>> getTiles(
             const std::vector<Course::Coordinate>& coordinates);
 
-
+    /**
+     * @brief Returns a vecotr shared pointers to call the tiles on map
+     *
+     * @return Vector that contains to pointers to all tiles on the map.
+     * @post Exception Guarantee: Basic
+     */
+    std::vector<std::shared_ptr<Course::TileBase>> getAllTiles();
 
 private:
 
