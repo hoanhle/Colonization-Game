@@ -76,10 +76,6 @@ bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player
 
 bool GameEventHandler::modifyResources(std::shared_ptr<Course::PlayerBase> player, Course::ResourceMap resources)
 {
-}
-
-bool GameEventHandler::modifyResources(Course::ResourceMap resources)
-{
     Course::ResourceMap currentResource = playersResource_[current_];
     Course::ResourceMap newResource = Course::mergeResourceMaps(currentResource, resources);
     bool success = true;
