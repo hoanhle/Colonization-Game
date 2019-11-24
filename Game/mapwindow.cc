@@ -352,7 +352,12 @@ void MapWindow::on_buildButton_clicked()
                                                 NewResourceMaps::SKYSCRAPER_PRODUCTION
                                                 );
 
+
     }
+    // Deselect the selected button after build
+    m_buildingButtonGroup->setExclusive(false);
+    m_buildingButtonGroup->checkedButton()->setChecked(false);
+    m_buildingButtonGroup->setExclusive(true);
 
     // Update gamescene and objectmanager
     building->setCoordinate(pos);
