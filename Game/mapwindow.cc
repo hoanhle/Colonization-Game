@@ -453,6 +453,8 @@ void MapWindow::on_buildButton_clicked()
 
         // Update resource of the player
         updateResourceInfo();
+    } else {
+        m_ui->warningLabel->setText("You don't have enough resource");
     }
 
 }
