@@ -150,7 +150,7 @@ void MapWindow::updateResourceInfo()
     m_ui->lcdOre->display(playerResource.at(Course::ORE));
 }
 
-Course::ResourceMap MapWindow::turnCostToMinus(Course::ResourceMap& cost)
+Course::ResourceMap MapWindow::turnCostToMinus(const Course::ResourceMap& cost)
 {
     Course::ResourceMap subtract = cost;
 
@@ -158,6 +158,50 @@ Course::ResourceMap MapWindow::turnCostToMinus(Course::ResourceMap& cost)
         subtract[it->first] = 0 - it->second;
     }
     return subtract;
+}
+
+bool MapWindow::checkEnoughResource()
+{
+    QAbstractButton* selected = m_buildingButtonGroup->checkedButton();
+    bool success = true;
+    Course::ResourceMap subtract;
+    if (selected == m_ui->smallHouseButton){
+        subtract = turnCostToMinus(NewResourceMaps::SMALLHOUSE_BUILD_COST);
+        success = m_GEHandler->modifyResources(subtract);
+    }else if (selected == m_ui->largeHouseButton)
+    {
+        subtract = turnCostToMinus(NewResourceMaps::LARGEHOUSE_BUILD_COST);
+        success = m_GEHandler->modifyResources(subtract);
+    }else if (selected == m_ui->farmButton)
+    {
+        subtract = turnCostToMinus(Course::ConstResourceMaps::FARM_BUILD_COST);
+        success = m_GEHandler->modifyResources(subtract);
+    }else if (selected == m_ui->hqButton)
+    {
+        subtract = turnCostToMinus(Course::ConstResourceMaps::HQ_BUILD_COST);
+        success = m_GEHandler->modifyResources(subtract);
+    }else if (selected == m_ui->outpustButton)
+    {
+        subtract = turnCostToMinus(Course::ConstResourceMaps::OUTPOST_BUILD_COST);
+        success = m_GEHandler->modifyResources(subtract);
+    }else if (selected == m_ui->apartmentsButton)
+    {
+        subtract = turnCostToMinus(NewResourceMaps::APARTMENT_BUILD_COST);
+        success = m_GEHandler->modifyResources(subtract);
+    }else if (selected == m_ui->skyscraperButton)
+    {
+        subtract = turnCostToMinus(NewResourceMaps::SKYSCRAPER_BUILD_COST);
+        success = m_GEHandler->modifyResources(subtract);
+    }else if (selected == m_ui->mineButton)
+    {
+        subtract = turnCostToMinus(NewResourceMaps::MINE_BUILD_COST);
+        success = m_GEHandler->modifyResources(subtract);
+    }else if (selected == m_ui->sawButton)
+    {
+        subtract = turnCostToMinus(NewResourceMaps::SAWMILL_BUILD_COST);
+        success = m_GEHandler->modifyResources(subtract);
+    }
+    return success;
 }
 
 
@@ -293,112 +337,120 @@ void MapWindow::on_endTurnButton_clicked()
 
 void MapWindow::on_buildButton_clicked()
 {
-    std::shared_ptr<Course::Coordinate> pos = m_GEHandler->returnSelectedTile()->getCoordinatePtr();
-    std::shared_ptr<Course::PlayerBase> player = m_GEHandler->getCurrentPlayer();
+    bool enoughResource = checkEnoughResource();
 
-    QAbstractButton* selected = m_buildingButtonGroup->checkedButton();
+    if (enoughResource){
+        QAbstractButton* selected = m_buildingButtonGroup->checkedButton();
+        std::shared_ptr<Course::Coordinate> pos = m_GEHandler->returnSelectedTile()->getCoordinatePtr();
+        std::shared_ptr<Course::PlayerBase> player = m_GEHandler->getCurrentPlayer();
+        std::shared_ptr<Course::BuildingBase> building = nullptr;
+        if (selected == m_ui->smallHouseButton)
+        {
+            building = std::make_shared<SmallHouse>(m_GEHandler,
+                                                    m_objectmanager,
+                                                    player,
+                                                    1,
+                                                    NewResourceMaps::SMALLHOUSE_BUILD_COST,
+                                                    NewResourceMaps::SMALLHOUSE_PRODUCTION,
+                                                    4);
 
-    std::shared_ptr<Course::BuildingBase> building = nullptr;
-    if (selected == m_ui->smallHouseButton)
-    {
-        building = std::make_shared<SmallHouse>(m_GEHandler,
-                                                m_objectmanager,
-                                                player,
-                                                1,
-                                                NewResourceMaps::SMALLHOUSE_BUILD_COST,
-                                                NewResourceMaps::SMALLHOUSE_BUILD_COST,
-                                                4);
 
-    }else if (selected == m_ui->largeHouseButton)
-    {
-        building = std::make_shared<LargeHouse>(m_GEHandler,
-                                                m_objectmanager,
-                                                player,
-                                                1,
-                                                NewResourceMaps::LARGEHOUSE_BUILD_COST,
-                                                NewResourceMaps::LARGEHOUSE_BUILD_COST,
-                                                8);
-    }else if (selected == m_ui->farmButton)
-    {
-        building = std::make_shared<Course::Farm>(m_GEHandler,
-                                                m_objectmanager,
-                                                player,
-                                                1,
-                                                Course::ConstResourceMaps::FARM_BUILD_COST,
-                                                Course::ConstResourceMaps::FARM_PRODUCTION
-                                                );
-    }else if (selected == m_ui->hqButton)
-    {
-        building = std::make_shared<Course::HeadQuarters>(m_GEHandler,
+
+        }else if (selected == m_ui->largeHouseButton)
+        {
+            building = std::make_shared<LargeHouse>(m_GEHandler,
+                                                    m_objectmanager,
+                                                    player,
+                                                    1,
+                                                    NewResourceMaps::LARGEHOUSE_BUILD_COST,
+                                                    NewResourceMaps::LARGEHOUSE_PRODUCTION,
+                                                    8);
+        }else if (selected == m_ui->farmButton)
+        {
+            building = std::make_shared<Course::Farm>(m_GEHandler,
+                                                    m_objectmanager,
+                                                    player,
+                                                    1,
+                                                    Course::ConstResourceMaps::FARM_BUILD_COST,
+                                                    Course::ConstResourceMaps::FARM_PRODUCTION
+                                                    );
+        }else if (selected == m_ui->hqButton)
+        {
+            building = std::make_shared<Course::HeadQuarters>(m_GEHandler,
+                                                            m_objectmanager,
+                                                            player,
+                                                            1,
+                                                            Course::ConstResourceMaps::HQ_BUILD_COST,
+                                                            Course::ConstResourceMaps::HQ_PRODUCTION
+                                                            );
+        }else if (selected == m_ui->outpustButton)
+        {
+            building = std::make_shared<Course::Outpost>(m_GEHandler,
                                                         m_objectmanager,
                                                         player,
                                                         1,
-                                                        Course::ConstResourceMaps::HQ_BUILD_COST,
-                                                        Course::ConstResourceMaps::HQ_PRODUCTION
+                                                        Course::ConstResourceMaps::OUTPOST_BUILD_COST,
+                                                        Course::ConstResourceMaps::OUTPOST_PRODUCTION
                                                         );
-    }else if (selected == m_ui->outpustButton)
-    {
-        building = std::make_shared<Course::Outpost>(m_GEHandler,
+        }else if (selected == m_ui->apartmentsButton)
+        {
+            building = std::make_shared<ApartmentBlock>(m_GEHandler,
+                                                        m_objectmanager,
+                                                        player,
+                                                        1,
+                                                        NewResourceMaps::APARTMENT_BUILD_COST,
+                                                        NewResourceMaps::APARTMENT_PRODUCTION
+                                                        );
+        }else if (selected == m_ui->skyscraperButton)
+        {
+            building = std::make_shared<SkyScraper>(m_GEHandler,
                                                     m_objectmanager,
                                                     player,
                                                     1,
-                                                    Course::ConstResourceMaps::OUTPOST_BUILD_COST,
-                                                    Course::ConstResourceMaps::OUTPOST_PRODUCTION
+                                                    NewResourceMaps::SKYSCRAPER_BUILD_COST,
+                                                    NewResourceMaps::SKYSCRAPER_PRODUCTION
                                                     );
-    }else if (selected == m_ui->apartmentsButton)
-    {
-        building = std::make_shared<ApartmentBlock>(m_GEHandler,
+
+
+        }else if (selected == m_ui->mineButton)
+        {
+            building = std::make_shared<Mine>(m_GEHandler,
                                                     m_objectmanager,
                                                     player,
                                                     1,
-                                                    NewResourceMaps::APARTMENT_BUILD_COST,
-                                                    NewResourceMaps::APARTMENT_PRODUCTION
+                                                    NewResourceMaps::MINE_BUILD_COST,
+                                                    NewResourceMaps::MINE_PRODUCTION
                                                     );
-    }else if (selected == m_ui->skyscraperButton)
-    {
-        building = std::make_shared<SkyScraper>(m_GEHandler,
-                                                m_objectmanager,
-                                                player,
-                                                1,
-                                                NewResourceMaps::SKYSCRAPER_BUILD_COST,
-                                                NewResourceMaps::SKYSCRAPER_PRODUCTION
-                                                );
+
+        }else if (selected == m_ui->sawButton)
+        {
+            building = std::make_shared<SawMill>(m_GEHandler,
+                                                    m_objectmanager,
+                                                    player,
+                                                    1,
+                                                    NewResourceMaps::SAWMILL_BUILD_COST,
+                                                    NewResourceMaps::SAWMILL_PRODUCTION
+                                                    );
+
+        }
 
 
-    }else if (selected == m_ui->mineButton)
-    {
-        building = std::make_shared<Mine>(m_GEHandler,
-                                                m_objectmanager,
-                                                player,
-                                                1,
-                                                NewResourceMaps::MINE_BUILD_COST,
-                                                NewResourceMaps::MINE_PRODUCTION
-                                                );
 
-    }else if (selected == m_ui->sawButton)
-    {
-        building = std::make_shared<SawMill>(m_GEHandler,
-                                                m_objectmanager,
-                                                player,
-                                                1,
-                                                NewResourceMaps::SAWMILL_BUILD_COST,
-                                                NewResourceMaps::SAWMILL_PRODUCTION
-                                                );
+        // Deselect the selected button after build
+        m_buildingButtonGroup->setExclusive(false);
+        m_buildingButtonGroup->checkedButton()->setChecked(false);
+        m_buildingButtonGroup->setExclusive(true);
 
+        // Update gamescene and objectmanager
+        building->setCoordinate(pos);
+        m_objectmanager->getTile(*pos)->addBuilding(building);
+        m_scene->drawItem(building);
+
+        // Disable buildButton again
+        m_ui->buildButton->setEnabled(false);
+
+        // Update resource of the player
+        updateResourceInfo();
     }
 
-
-
-    // Deselect the selected button after build
-    m_buildingButtonGroup->setExclusive(false);
-    m_buildingButtonGroup->checkedButton()->setChecked(false);
-    m_buildingButtonGroup->setExclusive(true);
-
-    // Update gamescene and objectmanager
-    building->setCoordinate(pos);
-    m_objectmanager->getTile(*pos)->addBuilding(building);
-    m_scene->drawItem(building);
-
-    // Disable buildButton again
-    m_ui->buildButton->setEnabled(false);
 }

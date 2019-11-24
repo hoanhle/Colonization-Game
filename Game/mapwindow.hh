@@ -71,7 +71,16 @@ public:
      * @brief turn Resourcemap building cost
      * element into negative
      */
-    Course::ResourceMap turnCostToMinus(Course::ResourceMap& cost);
+    Course::ResourceMap turnCostToMinus(const Course::ResourceMap& cost);
+
+    /**
+     * @brief check if the player has enough resource to build
+     * also minus the resource imidiately if the player has enough
+     * @return
+     * true: enough resource
+     * false: not enough resource
+     */
+    bool checkEnoughResource();
 
 
 

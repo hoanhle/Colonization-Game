@@ -4,6 +4,7 @@
 #include "interfaces/igameeventhandler.h"
 #include "iostream"
 #include "nresourcemaps.hh"
+#include "algorithm"
 
 GameEventHandler::GameEventHandler()
 {
@@ -75,5 +76,23 @@ bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player
 
 bool GameEventHandler::modifyResources(std::shared_ptr<Course::PlayerBase> player, Course::ResourceMap resources)
 {
+}
 
+bool GameEventHandler::modifyResources(Course::ResourceMap resources)
+{
+    Course::ResourceMap currentResource = playersResource_[current_];
+    Course::ResourceMap newResource = Course::mergeResourceMaps(currentResource, resources);
+    bool success = true;
+
+    for (auto it = newResource.begin(); it != newResource.end(); it++){
+        if (it->second < 0){
+            success = false;
+        }
+    }
+
+    if (success){
+        playersResource_[current_] = newResource;
+    }
+
+    return success;
 }
