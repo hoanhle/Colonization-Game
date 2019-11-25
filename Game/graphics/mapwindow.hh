@@ -18,9 +18,9 @@
 #include "core/worldgenerator.h"
 #include "tiles/forest.h"
 #include "tiles/grassland.h"
-#include "rock.hh"
-#include "sand.hh"
-#include "water.hh"
+#include "tiles/rock.hh"
+#include "tiles/sand.hh"
+#include "tiles/water.hh"
 
 #include "graphics/highscoredialog.hh"
 #include "graphics/assigndialog.hh"

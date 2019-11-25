@@ -22,16 +22,16 @@ SOURCES += \
     workers/miner.cpp \
     workers/newbasicworker.cpp \
     core/objectmanager.cpp \
-    rock.cpp \
+    tiles/rock.cpp \
     graphics/rulesdialog.cpp \
-    sand.cpp \
+    tiles/sand.cpp \
     buildings/sawmill.cpp \
     graphics/setplayerdialog.cpp \
     buildings/skyscraper.cpp \
     buildings/smallhouse.cpp \
     graphics/startdialog.cpp \
     graphics/unassigndialog.cpp \
-    water.cpp
+    tiles/water.cpp
 
 HEADERS += \
     buildings/apartmentblock.hh \
@@ -50,16 +50,16 @@ HEADERS += \
     workers/newbasicworker.hh \
     core/nresourcemaps.hh \
     core/objectmanager.hh \
-    rock.hh \
+    tiles/rock.hh \
     graphics/rulesdialog.hh \
-    sand.hh \
+    tiles/sand.hh \
     buildings/sawmill.hh \
     graphics/setplayerdialog.hh \
     buildings/skyscraper.hh \
     buildings/smallhouse.hh \
     graphics/startdialog.hh \
     graphics/unassigndialog.hh \
-    water.hh
+    tiles/water.hh
 
 win32:CONFIG(release, debug|release): LIBS += \
     -L$$OUT_PWD/../Course/CourseLib/release/ -lCourseLib
