@@ -15,7 +15,7 @@ SOURCES += \
     buildings/housingbase.cpp \
     buildings/largehouse.cpp \
     workers/logger.cpp \
-    main.cpp \
+    core/main.cpp \
     graphics/mapitem.cpp \
     graphics/mapwindow.cc \
     buildings/mine.cpp \
