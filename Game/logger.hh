@@ -23,7 +23,7 @@ public:
            const Course::ResourceMap& cost = {},
            const Course::ResourceMapDouble efficiency =
             NewResourceMaps::NEW_BASIC_WORKER_EFFICIENCY,
-           const Course::BasicResource focus = Course::ORE);
+           const Course::BasicResource focus = Course::WOOD);
 
     virtual ~Logger() override = default;
 
