@@ -1,9 +1,8 @@
-#ifndef APARTMENTBLOCK_HH
-#define APARTMENTBLOCK_HH
+#ifndef LARGEHOUSE_HH
+#define LARGEHOUSE_HH
+#include "buildings/housingbase.hh"
 
-#include "housingbase.hh"
-
-class ApartmentBlock : public HousingBase
+class LargeHouse : public HousingBase
 {
 public:
 
@@ -11,25 +10,26 @@ public:
     /**
      * @brief Disabled parameterless constructor
      */
-    ApartmentBlock() = delete;
+    LargeHouse() = delete;
 
-    explicit ApartmentBlock(
+    explicit LargeHouse(
             const std::shared_ptr<Course::iGameEventHandler>& eventhandler,
             const std::shared_ptr<Course::iObjectManager>& objectmanager,
             const std::shared_ptr<Course::PlayerBase>& owner,
             const int& tilespaces = 1,
             const Course::ResourceMap& building  = {},
             const Course::ResourceMap& production = {},
-            const int& numPeople = 15);
+            const int& numPeople = 4);
 
     /**
      * @brief Default destructor.
      */
-    virtual ~ApartmentBlock() = default ;
+    virtual ~LargeHouse() = default ;
 
     /**
      * @copydoc GameObject::getType()
      */
     virtual std::string getType() const override;
 };
-#endif // APARTMENTBLOCK_HH
+
+#endif // LARGEHOUSE_HH

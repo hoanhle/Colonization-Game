@@ -1,8 +1,8 @@
-#ifndef LARGEHOUSE_HH
-#define LARGEHOUSE_HH
-#include "housingbase.hh"
+#ifndef SKYSCRAPER_HH
+#define SKYSCRAPER_HH
+#include "buildings/housingbase.hh"
 
-class LargeHouse : public HousingBase
+class SkyScraper : public HousingBase
 {
 public:
 
@@ -10,21 +10,21 @@ public:
     /**
      * @brief Disabled parameterless constructor
      */
-    LargeHouse() = delete;
+    SkyScraper() = delete;
 
-    explicit LargeHouse(
+    explicit SkyScraper(
             const std::shared_ptr<Course::iGameEventHandler>& eventhandler,
             const std::shared_ptr<Course::iObjectManager>& objectmanager,
             const std::shared_ptr<Course::PlayerBase>& owner,
             const int& tilespaces = 1,
             const Course::ResourceMap& building  = {},
             const Course::ResourceMap& production = {},
-            const int& numPeople = 4);
+            const int& numPeople = 50);
 
     /**
      * @brief Default destructor.
      */
-    virtual ~LargeHouse() = default ;
+    virtual ~SkyScraper() = default ;
 
     /**
      * @copydoc GameObject::getType()
@@ -32,4 +32,5 @@ public:
     virtual std::string getType() const override;
 };
 
-#endif // LARGEHOUSE_HH
+
+#endif // SKYSCRAPER_HH

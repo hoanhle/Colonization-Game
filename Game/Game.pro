@@ -6,46 +6,46 @@ QT += core gui widgets
 CONFIG += c++14
 
 SOURCES += \
-    apartmentblock.cpp \
+    buildings/apartmentblock.cpp \
     assigndialog.cpp \
     farmer.cpp \
     gameeventhandler.cpp \
     gamescene.cpp \
     highscoredialog.cpp \
-    housingbase.cpp \
-    largehouse.cpp \
+    buildings/housingbase.cpp \
+    buildings/largehouse.cpp \
     logger.cpp \
     main.cpp \
     mapitem.cpp \
     mapwindow.cc \
-    mine.cpp \
+    buildings/mine.cpp \
     miner.cpp \
     newbasicworker.cpp \
     objectmanager.cpp \
     rock.cpp \
     rulesdialog.cpp \
     sand.cpp \
-    sawmill.cpp \
+    buildings/sawmill.cpp \
     setplayerdialog.cpp \
-    skyscraper.cpp \
-    smallhouse.cpp \
+    buildings/skyscraper.cpp \
+    buildings/smallhouse.cpp \
     startdialog.cpp \
     unassigndialog.cpp \
     water.cpp
 
 HEADERS += \
-    apartmentblock.hh \
+    buildings/apartmentblock.hh \
     assigndialog.hh \
     farmer.hh \
     gameeventhandler.hh \
     gamescene.hh \
     highscoredialog.hh \
-    housingbase.hh \
-    largehouse.hh \
+    buildings/housingbase.hh \
+    buildings/largehouse.hh \
     logger.hh \
     mapitem.hh \
     mapwindow.hh \
-    mine.hh \
+    buildings/mine.hh \
     miner.hh \
     newbasicworker.hh \
     nresourcemaps.hh \
@@ -53,10 +53,10 @@ HEADERS += \
     rock.hh \
     rulesdialog.hh \
     sand.hh \
-    sawmill.hh \
+    buildings/sawmill.hh \
     setplayerdialog.hh \
-    skyscraper.hh \
-    smallhouse.hh \
+    buildings/skyscraper.hh \
+    buildings/smallhouse.hh \
     startdialog.hh \
     unassigndialog.hh \
     water.hh
