@@ -65,7 +65,6 @@ public:
       */
      virtual const Course::ResourceMapDouble tileWorkAction() override final;
 
-
 };
 
 #endif // NEWBASICWORKER_HH
