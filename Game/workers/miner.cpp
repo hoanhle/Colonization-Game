@@ -1,4 +1,4 @@
-#include "miner.hh"
+#include "workers/miner.hh"
 
 
 Miner::Miner(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,

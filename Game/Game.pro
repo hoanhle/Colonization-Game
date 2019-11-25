@@ -8,19 +8,19 @@ CONFIG += c++14
 SOURCES += \
     buildings/apartmentblock.cpp \
     graphics/assigndialog.cpp \
-    farmer.cpp \
+    workers/farmer.cpp \
     core/gameeventhandler.cpp \
     core/gamescene.cpp \
     graphics/highscoredialog.cpp \
     buildings/housingbase.cpp \
     buildings/largehouse.cpp \
-    logger.cpp \
+    workers/logger.cpp \
     main.cpp \
     graphics/mapitem.cpp \
     graphics/mapwindow.cc \
     buildings/mine.cpp \
-    miner.cpp \
-    newbasicworker.cpp \
+    workers/miner.cpp \
+    workers/newbasicworker.cpp \
     core/objectmanager.cpp \
     rock.cpp \
     graphics/rulesdialog.cpp \
@@ -36,18 +36,18 @@ SOURCES += \
 HEADERS += \
     buildings/apartmentblock.hh \
     graphics/assigndialog.hh \
-    farmer.hh \
+    workers/farmer.hh \
     core/gameeventhandler.hh \
     core/gamescene.hh \
     graphics/highscoredialog.hh \
     buildings/housingbase.hh \
     buildings/largehouse.hh \
-    logger.hh \
+    workers/logger.hh \
     graphics/mapitem.hh \
     graphics/mapwindow.hh \
     buildings/mine.hh \
-    miner.hh \
-    newbasicworker.hh \
+    workers/miner.hh \
+    workers/newbasicworker.hh \
     core/nresourcemaps.hh \
     core/objectmanager.hh \
     rock.hh \

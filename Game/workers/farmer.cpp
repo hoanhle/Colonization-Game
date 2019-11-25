@@ -1,6 +1,7 @@
-#include "logger.hh"
+#include "workers/farmer.hh"
+#include "workers/workerbase.h"
 
-Logger::Logger(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
+Farmer::Farmer(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
                const std::shared_ptr<Course::iObjectManager> &objectmanager,
                const std::shared_ptr<Course::PlayerBase> &owner,
                const int &tilespaces,
@@ -17,7 +18,7 @@ Logger::Logger(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
     Course::WorkerBase::setResourceFocus(focus);
 }
 
-std::string Logger::getType() const
+std::string Farmer::getType() const
 {
-    return "logger";
+    return "farmer";
 }
