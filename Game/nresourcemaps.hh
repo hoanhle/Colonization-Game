@@ -114,6 +114,21 @@ const Course::ResourceMap WATER_BP = {
     {Course::ORE, 0},
 };
 
+const Course::ResourceMapDouble FARMER_EFFICIENCY = {
+    {Course::MONEY, 1},
+    {Course::FOOD, 2},
+    {Course::WOOD, 0.5},
+    {Course::STONE, 0.25},
+    {Course::ORE, 0.25}
+};
+
+const Course::ResourceMapDouble NEW_BASIC_WORKER_EFFICIENCY = {
+    {Course::MONEY, 0.25},
+    {Course::FOOD, 1.00},
+    {Course::WOOD, 0.75},
+    {Course::STONE, 0.50},
+    {Course::ORE, 0.50}
+};
 
 }
 

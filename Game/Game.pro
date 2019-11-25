@@ -8,6 +8,7 @@ CONFIG += c++14
 SOURCES += \
     apartmentblock.cpp \
     assigndialog.cpp \
+    farmer.cpp \
     gameeventhandler.cpp \
     gamescene.cpp \
     highscoredialog.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
     mapitem.cpp \
     mapwindow.cc \
     mine.cpp \
+    newbasicworker.cpp \
     objectmanager.cpp \
     rock.cpp \
     rulesdialog.cpp \
@@ -32,6 +34,7 @@ SOURCES += \
 HEADERS += \
     apartmentblock.hh \
     assigndialog.hh \
+    farmer.hh \
     gameeventhandler.hh \
     gamescene.hh \
     highscoredialog.hh \
@@ -40,6 +43,7 @@ HEADERS += \
     mapitem.hh \
     mapwindow.hh \
     mine.hh \
+    newbasicworker.hh \
     nresourcemaps.hh \
     objectmanager.hh \
     rock.hh \
