@@ -2,8 +2,8 @@
 #define WATER_HH
 
 #include "tiles/tilebase.h"
-#include "objectmanager.hh"
-#include "nresourcemaps.hh"
+#include "core/objectmanager.hh"
+#include "core/nresourcemaps.hh"
 
 /**
  * @brief The Sand class represents Sand in the gameworld.

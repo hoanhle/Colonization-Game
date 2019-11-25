@@ -7,7 +7,7 @@
 #include "core/coordinate.h"
 #include "core/gameobject.h"
 #include "core/gameobject.h"
-#include "nresourcemaps.hh"
+#include "core/nresourcemaps.hh"
 #include <QDebug>
 
 

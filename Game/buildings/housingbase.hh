@@ -2,7 +2,7 @@
 #define HOUSINGBASE_HH
 
 #include "buildings/buildingbase.h"
-#include "nresourcemaps.hh"
+#include "core/nresourcemaps.hh"
 #include "core/resourcemaps.h"
 #include "core/placeablegameobject.h"
 

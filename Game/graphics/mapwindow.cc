@@ -7,7 +7,7 @@
 #include "unassigndialog.hh"
 #include "startdialog.hh"
 #include "setplayerdialog.hh"
-#include "gamescene.hh"
+#include "core/gamescene.hh"
 
 
 #include <math.h>

@@ -12,9 +12,9 @@
 #include <map>
 
 #include "interfaces/igameeventhandler.h"
-#include "gamescene.hh"
+#include "core/gamescene.hh"
 
-#include "objectmanager.hh"
+#include "core/objectmanager.hh"
 #include "core/worldgenerator.h"
 #include "tiles/forest.h"
 #include "tiles/grassland.h"
@@ -22,10 +22,10 @@
 #include "sand.hh"
 #include "water.hh"
 
-#include "highscoredialog.hh"
-#include "assigndialog.hh"
-#include "unassigndialog.hh"
-#include "gameeventhandler.hh"
+#include "graphics/highscoredialog.hh"
+#include "graphics/assigndialog.hh"
+#include "graphics/unassigndialog.hh"
+#include "core/gameeventhandler.hh"
 #include "buildings/smallhouse.hh"
 #include "buildings/largehouse.hh"
 #include "buildings/apartmentblock.hh"

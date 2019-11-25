@@ -1,11 +1,11 @@
-#include "mapwindow.hh"
+#include "graphics/mapwindow.hh"
 #include <QApplication>
 #include <QDialog>
 #include <QObject>
-#include "startdialog.hh"
-#include "setplayerdialog.hh"
-#include "gameeventhandler.hh"
-#include "rulesdialog.hh"
+#include "graphics/startdialog.hh"
+#include "graphics/setplayerdialog.hh"
+#include "core/gameeventhandler.hh"
+#include "graphics/rulesdialog.hh"
 
 
 int main(int argc, char* argv[])

@@ -3,7 +3,7 @@
 
 #include "core/basicresources.h"
 #include "newbasicworker.hh"
-#include "nresourcemaps.hh"
+#include "core/nresourcemaps.hh"
 #include "core/playerbase.h"
 #include "interfaces/igameeventhandler.h"
 #include "interfaces/iobjectmanager.h"

@@ -2,8 +2,8 @@
 #define ROCK_HH
 
 #include "tiles/tilebase.h"
-#include "objectmanager.hh"
-#include "nresourcemaps.hh"
+#include "core/objectmanager.hh"
+#include "core/nresourcemaps.hh"
 
 /**
  * @brief The Rock class represents Rock in the gameworld.

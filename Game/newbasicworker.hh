@@ -2,7 +2,7 @@
 #define NEWBASICWORKER_HH
 
 #include "workers/workerbase.h"
-#include "nresourcemaps.hh"
+#include "core/nresourcemaps.hh"
 #include "core/playerbase.h"
 #include "interfaces/igameeventhandler.h"
 #include "interfaces/iobjectmanager.h"
