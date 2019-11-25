@@ -24,7 +24,7 @@ const Course::ResourceMap SMALLHOUSE_BUILD_COST = {
 };
 const Course::ResourceMap SMALLHOUSE_PRODUCTION = {
     {Course::MONEY, 0},
-    {Course::FOOD, -1}
+    {Course::FOOD, -10}
 };
 
 // Apartment block resources

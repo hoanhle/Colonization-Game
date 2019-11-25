@@ -344,18 +344,16 @@ void MapWindow::on_endTurnButton_clicked()
         bool success = x->get()->generateResources();
     }*/
 
-    std::vector<std::shared_ptr<Course::PlayerBase>> players = m_GEHandler->getPlayers();
-    for (auto player = players.begin(); player != players.end(); ++player)
-    {
-        std::vector<std::shared_ptr<Course::GameObject>> objects = player->get()->getObjects();
 
-        for (auto x = objects.begin(); x != objects.end(); ++x){
-            Course::Coordinate coord = x->get()->getCoordinate();
-            std::shared_ptr<Course::TileBase> tile = m_objectmanager->getTile(coord);
+    std::vector<std::shared_ptr<Course::GameObject>> objects = m_GEHandler->getCurrentPlayer()->getObjects();
 
-            bool success = tile->generateResources();
-        }
+    for (auto x = objects.begin(); x != objects.end(); ++x){
+        Course::Coordinate coord = x->get()->getCoordinate();
+        std::shared_ptr<Course::TileBase> tile = m_objectmanager->getTile(coord);
+
+        bool success = tile->generateResources();
     }
+
     updateResourceInfo();
 }
 
@@ -470,7 +468,8 @@ void MapWindow::on_buildButton_clicked()
         // Update gamescene and objectmanager
         building->setCoordinate(pos);
         m_objectmanager->getTile(*pos)->addBuilding(building);
-        m_objectmanager->addBuilding(building);
+
+        m_objectmanager->getTile(*pos)->setOwner(m_GEHandler->getCurrentPlayer());
         m_scene->drawItem(building);
 
         // Disable buildButton again
