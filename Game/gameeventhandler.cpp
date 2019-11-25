@@ -59,6 +59,11 @@ void GameEventHandler::printCurrentPlayer()
     std::cout << players_[current_]->getName() << std::endl;
 }
 
+std::vector<std::shared_ptr<Course::PlayerBase> > GameEventHandler::getPlayers()
+{
+    return players_;
+}
+
 void GameEventHandler::setCurrentTile(std::shared_ptr<Course::GameObject> tile)
 {
     tile_ = tile;

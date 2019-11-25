@@ -44,6 +44,11 @@ public:
     std::shared_ptr<Course::PlayerBase> getCurrentPlayer();
 
     void printCurrentPlayer();
+    /**
+     * @brief Get all players in the game
+     * @return a vector containing shared pointers to all players
+     */
+    std::vector<std::shared_ptr<Course::PlayerBase>> getPlayers();
 
     /**
      * @brief setCurrentTile save the current selected tile
@@ -65,6 +70,7 @@ public:
                                      Course::ResourceMap resources) override;
 
 private:
+
     std::vector<std::shared_ptr<Course::PlayerBase>> players_;
 
     // Players resources with order respectively to players_ vector

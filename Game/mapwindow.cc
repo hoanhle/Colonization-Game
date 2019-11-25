@@ -337,11 +337,24 @@ void MapWindow::on_endTurnButton_clicked()
     m_GEHandler->changePlayer();
 
     m_GEHandler->printCurrentPlayer();
-
+/*
     std::vector<std::shared_ptr<Course::TileBase>> tiles = m_objectmanager->getAllTiles();
     for (auto x = tiles.begin(); x != tiles.end(); ++x)
     {
         bool success = x->get()->generateResources();
+    }*/
+
+    std::vector<std::shared_ptr<Course::PlayerBase>> players = m_GEHandler->getPlayers();
+    for (auto player = players.begin(); player != players.end(); ++player)
+    {
+        std::vector<std::shared_ptr<Course::GameObject>> objects = player->get()->getObjects();
+
+        for (auto x = objects.begin(); x != objects.end(); ++x){
+            Course::Coordinate coord = x->get()->getCoordinate();
+            std::shared_ptr<Course::TileBase> tile = m_objectmanager->getTile(coord);
+
+            bool success = tile->generateResources();
+        }
     }
     updateResourceInfo();
 }
@@ -451,6 +464,8 @@ void MapWindow::on_buildButton_clicked()
         m_buildingButtonGroup->checkedButton()->setChecked(false);
         m_buildingButtonGroup->setExclusive(true);
 
+
+        m_GEHandler->getCurrentPlayer()->addObject(m_objectmanager->getTile(*pos));
 
         // Update gamescene and objectmanager
         building->setCoordinate(pos);
