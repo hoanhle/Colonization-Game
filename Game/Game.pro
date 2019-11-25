@@ -14,10 +14,12 @@ SOURCES += \
     highscoredialog.cpp \
     housingbase.cpp \
     largehouse.cpp \
+    logger.cpp \
     main.cpp \
     mapitem.cpp \
     mapwindow.cc \
     mine.cpp \
+    miner.cpp \
     newbasicworker.cpp \
     objectmanager.cpp \
     rock.cpp \
@@ -40,9 +42,11 @@ HEADERS += \
     highscoredialog.hh \
     housingbase.hh \
     largehouse.hh \
+    logger.hh \
     mapitem.hh \
     mapwindow.hh \
     mine.hh \
+    miner.hh \
     newbasicworker.hh \
     nresourcemaps.hh \
     objectmanager.hh \
