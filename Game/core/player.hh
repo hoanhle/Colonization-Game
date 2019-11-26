@@ -44,7 +44,7 @@ public:
 
 
 private:
-    Course::ResourceMap resource_;
+    Course::ResourceMap resource_ = {};
     std::vector<std::weak_ptr<NewBasicWorker>> workers_;
 };
 

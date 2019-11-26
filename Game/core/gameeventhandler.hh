@@ -21,8 +21,6 @@ public:
      */
     void createPlayers(int numberPlayers);
 
-    void printPlayerNames();
-
     /**
      * @brief createBeginResource give basic resources to all players
      * in the beginning

@@ -1,4 +1,4 @@
-#include "player.hh"
+#include "core/player.hh"
 #include "core/nresourcemaps.hh"
 #include "QDebug"
 
