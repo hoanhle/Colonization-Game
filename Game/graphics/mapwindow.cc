@@ -2,11 +2,11 @@
 #include "ui_mapwindow.h"
 
 #include "graphics/simplemapitem.h"
-#include "highscoredialog.hh"
-#include "assigndialog.hh"
-#include "unassigndialog.hh"
-#include "startdialog.hh"
-#include "setplayerdialog.hh"
+#include "graphics/highscoredialog.hh"
+#include "graphics/assigndialog.hh"
+#include "graphics/unassigndialog.hh"
+#include "graphics/startdialog.hh"
+#include "graphics/setplayerdialog.hh"
 #include "core/gamescene.hh"
 
 
@@ -141,13 +141,13 @@ void MapWindow::addTiles(Course::WorldGenerator &generator)
 
 void MapWindow::updateResourceInfo()
 {
-    Course::ResourceMap playerResource = m_GEHandler->getCurrentPlayerResource();
+    Course::ResourceMap* playerResource = m_GEHandler->getCurrentPlayerResource();
 
-    m_ui->lcdFood->display(playerResource.at(Course::FOOD));
-    m_ui->lcdMoney->display(playerResource.at(Course::MONEY));
-    m_ui->lcdWood->display(playerResource.at(Course::WOOD));
-    m_ui->lcdStone->display(playerResource.at(Course::STONE));
-    m_ui->lcdOre->display(playerResource.at(Course::ORE));
+    m_ui->lcdFood->display(playerResource->at(Course::FOOD));
+    m_ui->lcdMoney->display(playerResource->at(Course::MONEY));
+    m_ui->lcdWood->display(playerResource->at(Course::WOOD));
+    m_ui->lcdStone->display(playerResource->at(Course::STONE));
+    m_ui->lcdOre->display(playerResource->at(Course::ORE));
 }
 
 Course::ResourceMap MapWindow::turnCostToMinus(const Course::ResourceMap& cost)
@@ -165,42 +165,41 @@ bool MapWindow::checkEnoughResource()
     QAbstractButton* selected = m_buildingButtonGroup->checkedButton();
     bool success = true;
     Course::ResourceMap subtract;
-    std::shared_ptr<Course::PlayerBase> currentPlayer = m_GEHandler->getCurrentPlayer();
     if (selected == m_ui->smallHouseButton){
         subtract = turnCostToMinus(NewResourceMaps::SMALLHOUSE_BUILD_COST);
-        success = m_GEHandler->modifyResources(currentPlayer, subtract);
+        success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->largeHouseButton)
     {
         subtract = turnCostToMinus(NewResourceMaps::LARGEHOUSE_BUILD_COST);
-        success = m_GEHandler->modifyResources(currentPlayer, subtract);
+        success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->farmButton)
     {
         subtract = turnCostToMinus(Course::ConstResourceMaps::FARM_BUILD_COST);
-        success = m_GEHandler->modifyResources(currentPlayer, subtract);
+        success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->hqButton)
     {
         subtract = turnCostToMinus(Course::ConstResourceMaps::HQ_BUILD_COST);
-        success = m_GEHandler->modifyResources(currentPlayer, subtract);
+        success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->outpustButton)
     {
         subtract = turnCostToMinus(Course::ConstResourceMaps::OUTPOST_BUILD_COST);
-        success = m_GEHandler->modifyResources(currentPlayer, subtract);
+        success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->apartmentsButton)
     {
         subtract = turnCostToMinus(NewResourceMaps::APARTMENT_BUILD_COST);
-        success = m_GEHandler->modifyResources(currentPlayer, subtract);
+        success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->skyscraperButton)
     {
         subtract = turnCostToMinus(NewResourceMaps::SKYSCRAPER_BUILD_COST);
-        success = m_GEHandler->modifyResources(currentPlayer, subtract);
+        success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->mineButton)
     {
         subtract = turnCostToMinus(NewResourceMaps::MINE_BUILD_COST);
-        success = m_GEHandler->modifyResources(currentPlayer, subtract);
+        success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->sawButton)
     {
         subtract = turnCostToMinus(NewResourceMaps::SAWMILL_BUILD_COST);
-        success = m_GEHandler->modifyResources(currentPlayer, subtract);
+        success = m_GEHandler->modifyResources(subtract);
     }
     return success;
 }
