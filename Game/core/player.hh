@@ -16,7 +16,7 @@ public:
      */
     Player(const std::string& name);
 
-    ~Player() = default;
+    virtual ~Player() = default;
 
     /**
      * @brief get current resource of the player

@@ -2,10 +2,8 @@
 #define GAMEEVENTHANDLER_HH
 
 #include "interfaces/igameeventhandler.h"
-#include "core/playerbase.h"
 #include "tiles/tilebase.h"
 #include "core/coordinate.h"
-#include "core/gameobject.h"
 #include "core/gameobject.h"
 #include "core/nresourcemaps.hh"
 #include "core/player.hh"
