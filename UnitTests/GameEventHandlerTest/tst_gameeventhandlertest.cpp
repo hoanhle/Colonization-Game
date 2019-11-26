@@ -1,6 +1,8 @@
 #include <QtTest>
 
+#include "core/gameeventhandler.hh"
 // add necessary includes here
+
 
 class GameEventHandlerTest : public QObject
 {
