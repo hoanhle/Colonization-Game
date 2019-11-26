@@ -9,7 +9,7 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES +=  tst_gameeventhandlertest.cpp \
-            ../../Game/core/gameeventhandler.cpp
+            ../../Game/core/gameeventhandler.cpp \
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 

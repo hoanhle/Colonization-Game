@@ -30,7 +30,8 @@ void GameEventHandler::createBeginResource()
 
 Course::ResourceMap* GameEventHandler::getCurrentPlayerResource()
 {
-    players_[current_]->getCurrentResources();
+    Course::ResourceMap* playerResource = players_[current_]->getCurrentResources();
+    return playerResource;
 }
 
 void GameEventHandler::changePlayer()

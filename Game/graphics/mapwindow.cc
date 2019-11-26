@@ -142,7 +142,7 @@ void MapWindow::addTiles(Course::WorldGenerator &generator)
 void MapWindow::updateResourceInfo()
 {
     Course::ResourceMap* playerResource = m_GEHandler->getCurrentPlayerResource();
-
+    auto resource = *playerResource;
     m_ui->lcdFood->display(playerResource->at(Course::FOOD));
     m_ui->lcdMoney->display(playerResource->at(Course::MONEY));
     m_ui->lcdWood->display(playerResource->at(Course::WOOD));
