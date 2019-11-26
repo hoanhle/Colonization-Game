@@ -3,8 +3,9 @@
 #include "core/playerbase.h"
 #include "interfaces/igameeventhandler.h"
 #include "iostream"
-#include "nresourcemaps.hh"
+#include "core/nresourcemaps.hh"
 #include "algorithm"
+#include "core/player.hh"
 
 GameEventHandler::GameEventHandler()
 {
@@ -15,8 +16,8 @@ void GameEventHandler::createPlayers(int numberPlayers)
     std::vector<std::string> maximumNames = {"player1", "player2", "player3", "player4"};
 
     for (int i = 0; i < numberPlayers; i++){
-        std::shared_ptr<Course::PlayerBase> newplayer =
-                std::make_shared<Course::PlayerBase>(maximumNames[i]);
+        std::shared_ptr<Player> newplayer =
+                std::make_shared<Player>(maximumNames[i]);
         players_.push_back(newplayer);
     }
 }
@@ -31,13 +32,13 @@ void GameEventHandler::printPlayerNames()
 void GameEventHandler::createBeginResource()
 {
     for (int i = 0; i < players_.size(); i++){
-        playersResource_.push_back(NewResourceMaps::BEGINNING_RESOURCE);
+        players_[i]->setBeginningResource();
     }
 }
 
-Course::ResourceMap GameEventHandler::getCurrentPlayerResource()
+Course::ResourceMap* GameEventHandler::getCurrentPlayerResource()
 {
-    return playersResource_[current_];
+    players_[current_]->getCurrentResources();
 }
 
 void GameEventHandler::changePlayer()
@@ -49,20 +50,17 @@ void GameEventHandler::changePlayer()
     }
 }
 
-std::shared_ptr<Course::PlayerBase> GameEventHandler::getCurrentPlayer()
-{
-    return players_[current_];
-}
 
 void GameEventHandler::printCurrentPlayer()
 {
     std::cout << players_[current_]->getName() << std::endl;
 }
 
-std::vector<std::shared_ptr<Course::PlayerBase> > GameEventHandler::getPlayers()
+std::shared_ptr<Player> GameEventHandler::getCurrentPlayer()
 {
-    return players_;
+    return players_[current_];
 }
+
 
 void GameEventHandler::setCurrentTile(std::shared_ptr<Course::GameObject> tile)
 {
@@ -81,19 +79,10 @@ bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player
 
 bool GameEventHandler::modifyResources(std::shared_ptr<Course::PlayerBase> player, Course::ResourceMap resources)
 {
-    Course::ResourceMap currentResource = playersResource_[current_];
-    Course::ResourceMap newResource = Course::mergeResourceMaps(currentResource, resources);
-    bool success = true;
+}
 
-    for (auto it = newResource.begin(); it != newResource.end(); it++){
-        if (it->second < 0){
-            success = false;
-        }
-    }
-
-    if (success){
-        playersResource_[current_] = newResource;
-    }
-
+bool GameEventHandler::modifyResources(Course::ResourceMap resources)
+{
+    bool success = getCurrentPlayer()->modifyPlayerResources(resources);
     return success;
 }

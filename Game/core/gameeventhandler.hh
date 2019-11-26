@@ -8,6 +8,7 @@
 #include "core/gameobject.h"
 #include "core/gameobject.h"
 #include "core/nresourcemaps.hh"
+#include "core/player.hh"
 #include <QDebug>
 
 
@@ -34,21 +35,23 @@ public:
      * @brief getCurrentPlayerResource
      * @return resourcemap of current player
      */
-    Course::ResourceMap getCurrentPlayerResource();
+    Course::ResourceMap* getCurrentPlayerResource();
 
     /**
      * @brief changePlayer change player after ending turn
      */
     void changePlayer();
 
-    std::shared_ptr<Course::PlayerBase> getCurrentPlayer();
-
-    void printCurrentPlayer();
     /**
-     * @brief Get all players in the game
-     * @return a vector containing shared pointers to all players
+     * @brief print the name of the current player
      */
-    std::vector<std::shared_ptr<Course::PlayerBase>> getPlayers();
+    void printCurrentPlayer();
+
+    /**
+     * @brief getCurrentPlayer
+     * @return shared pointer to the current player
+     */
+    std::shared_ptr<Player> getCurrentPlayer();
 
     /**
      * @brief setCurrentTile save the current selected tile
@@ -69,12 +72,10 @@ public:
     bool modifyResources(std::shared_ptr<Course::PlayerBase> player,
                                      Course::ResourceMap resources) override;
 
+    bool modifyResources(Course::ResourceMap resources);
+
 private:
-
-    std::vector<std::shared_ptr<Course::PlayerBase>> players_;
-
-    // Players resources with order respectively to players_ vector
-    std::vector<Course::ResourceMap> playersResource_;
+    std::vector<std::shared_ptr<Player>> players_;
 
     // Current player index
     int current_ = 0;
