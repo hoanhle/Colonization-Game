@@ -12,6 +12,19 @@ public:
      */
     SkyScraper() = delete;
 
+    /**
+     * @brief Constructor for the class.
+     *
+     * @param eventhandler points to the GameEventHandler.
+     * @param object manager points to the ObjectManager
+     * @param owner points to the owning player.
+     * @param tiles spaces indicates the number of positions it fills on the tile
+     * @param building is a resource map including the cost of construction
+     * @param production is a resource map indicating the production of building
+     * @param numPeople indicates the number of workers housed by the tile
+     *
+     * @post Exception Guarantee: No guarantee.
+     */
     explicit SkyScraper(
             const std::shared_ptr<Course::iGameEventHandler>& eventhandler,
             const std::shared_ptr<Course::iObjectManager>& objectmanager,

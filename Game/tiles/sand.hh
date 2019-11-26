@@ -23,6 +23,17 @@ class Sand : public Course::TileBase
 public:
     Sand() = delete;
 
+    /**
+     * @brief Constructor for the tile
+     * @param location contains the Cooridnate of the tile
+     * @param eventhandler points to the GameEventHandler
+     * @param objectmanager points to the ObjectManager
+     * @param max_build indicates the max number of buildings on the tile
+     * @param max_work indicates the max number of workers which can be allocated to the tile
+     * @param production is a resource map showing the base production of the tile
+     *
+     * @post Exception guarantee: no guarantee
+     */
     Sand(const Course::Coordinate& location,
          const std::shared_ptr<Course::iGameEventHandler>& eventhandler,
          const std::shared_ptr<Course::iObjectManager>& objectmanager,
