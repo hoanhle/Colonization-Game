@@ -7,6 +7,7 @@ CONFIG += c++14
 
 SOURCES += \
     buildings/apartmentblock.cpp \
+    core/player.cpp \
     graphics/assigndialog.cpp \
     workers/farmer.cpp \
     core/gameeventhandler.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
 
 HEADERS += \
     buildings/apartmentblock.hh \
+    core/player.hh \
     graphics/assigndialog.hh \
     workers/farmer.hh \
     core/gameeventhandler.hh \
