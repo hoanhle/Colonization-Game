@@ -79,6 +79,8 @@ bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player
 
 bool GameEventHandler::modifyResources(std::shared_ptr<Course::PlayerBase> player, Course::ResourceMap resources)
 {
+    bool success = getCurrentPlayer()->modifyPlayerResources(resources);
+    return success;
 }
 
 bool GameEventHandler::modifyResources(Course::ResourceMap resources)

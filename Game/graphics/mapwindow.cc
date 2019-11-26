@@ -8,7 +8,7 @@
 #include "graphics/startdialog.hh"
 #include "graphics/setplayerdialog.hh"
 #include "core/gamescene.hh"
-
+#include "iostream"
 
 #include <math.h>
 
@@ -338,12 +338,13 @@ void MapWindow::on_endTurnButton_clicked()
     m_GEHandler->printCurrentPlayer();
 
     std::vector<std::shared_ptr<Course::GameObject>> objects = m_GEHandler->getCurrentPlayer()->getObjects();
-
+    std::cout << objects.size() << std::endl;
     for (auto x = objects.begin(); x != objects.end(); ++x){
         Course::Coordinate coord = x->get()->getCoordinate();
         std::shared_ptr<Course::TileBase> tile = m_objectmanager->getTile(coord);
 
         bool success = tile->generateResources();
+        qDebug() << success;
     }
 
     updateResourceInfo();
