@@ -28,10 +28,22 @@ void GameEventHandler::createBeginResource()
     }
 }
 
+void GameEventHandler::createBeginWorker()
+{
+    for (int i = 0; i < players_.size(); i++){
+        players_[i]->setBeginningWorker();
+    }
+}
+
 Course::ResourceMap* GameEventHandler::getCurrentPlayerResource()
 {
     Course::ResourceMap* playerResource = players_[current_]->getCurrentResources();
     return playerResource;
+}
+
+std::map<std::string, int> *GameEventHandler::getCurrentPlayerWorkerNumber()
+{
+    players_[current_]->getCurrentWorkers();
 }
 
 void GameEventHandler::changePlayer()

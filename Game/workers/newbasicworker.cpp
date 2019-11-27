@@ -22,7 +22,7 @@ NewBasicWorker::NewBasicWorker(
 
 std::string NewBasicWorker::getType() const
 {
-    return "BasicWorjer";
+    return "BasicWorker";
 }
 
 bool NewBasicWorker::canBePlacedOnTile(const std::shared_ptr<Course::TileBase> &target) const

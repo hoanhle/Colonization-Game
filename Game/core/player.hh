@@ -24,10 +24,18 @@ public:
      */
     Course::ResourceMap* getCurrentResources();
 
+    std::map<std::string, int> *getCurrentWorkers();
+
     /**
      * @brief set beginning resource for the player
      */
     void setBeginningResource();
+
+    /**
+     * @brief initialize the totalNumberWorker map
+     * into 0 worker each type
+     */
+    void setBeginningWorker();
 
     /**
      * @brief Add resources to current resource_ of the player
@@ -50,13 +58,71 @@ public:
     bool modifyPlayerResource(Course::BasicResource resource,
                               int amount);
 
+    /**
+     * @brief Store a weak NewBasicWorker-pointer
+     * @param worker is a pointer to the store NewBasicWorker object
+     * @post Exception guarantee: Strong
+     * @exception See std::vector::push_back()
+     */
+    void addWorker(std::shared_ptr<NewBasicWorker> worker);
+
+    /**
+     * @brief stores a vector of weak NewBasicWorker-pointer
+     * @param workers is an std::vector of pointer to NewBasicWorker
+     * @post Exception guarantee: Strong
+     * @exception See std::vector::insert()
+     */
+    void addWorkers(
+            const std::vector<std::shared_ptr<NewBasicWorker>> workers);
+
+    /**
+     * @brief add the number of worker into the worker map
+     */
+    void addWorker(std::string workerType);
+
+    /**
+     * @brief Removes a weak NewBasicWorker-pointer based on a objectId
+     * and expired weak pointers
+     * @param id An ObjctId for NewBasicWorker
+     * @post Exception guarantee: Basic
+     */
+    void removeWorker(const Course::ObjectId& id);
+
+    /**
+     * @brief Remove a weak NewBasicWorker-pointer and expired weak pointers
+     * @param a shared-pointer to NewBasicWorker
+     * @post Exception guarantee: Basic
+     * @exception ExpiredPointer - worker is expired
+     * @exception KeyError - No workers match the search worker
+     */
+    void removeWorker(const std::shared_ptr<NewBasicWorker>& worker);
 
 
+    /**
+     * @brief removes a list of weak NewBasicWorker-pointers
+     * based on the ObjectID
+     * @param ids A vector of ObjectID for NewBasicWorker
+     * @post Exception guarantee: No-throw
+     * @note Even if some of the provided ID's are not found,
+     * no exceptions are thrown.
+     */
+    void removeWorkers(const std::vector<Course::ObjectId>& ids);
+
+    /**
+     * @brief Removes a list of weak NewBasicWorker-pointers and
+     * expired weak pointers
+     * @param workers A vector of weak NewBasicWorker-pointers
+     * @post Exception guarantee: No-throw
+     */
+    void removeWorkers(const std::vector<std::shared_ptr<NewBasicWorker>>& workers);
 
 
 private:
     Course::ResourceMap resource_ = {};
     std::vector<std::weak_ptr<NewBasicWorker>> workers_;
+
+    // Map to keep track the total number of each worker type
+    std::map<std::string, int> totalNumberWorker_;
 };
 
 #endif // PLAYER_HH

@@ -5,6 +5,13 @@
 #include "core/nresourcemaps.hh"
 #include "core/resourcemaps.h"
 #include "core/placeablegameobject.h"
+#include "workers/newbasicworker.hh"
+#include "workers/farmer.hh"
+#include "workers/logger.hh"
+#include "workers/miner.hh"
+#include "core/player.hh"
+#include "core/objectmanager.hh"
+#include "core/gameeventhandler.hh"
 
 /**
  * @brief The HousingBase class
@@ -51,6 +58,10 @@ public:
      */
     virtual std::string getType() const override;
 
+    /**
+     * @brief add numPeople_/4 set of worker (1 basic, 1 farmer, 1 logger, 1 miner)
+     * to player object and objectmanager
+     */
     void addWorkers();
 
 

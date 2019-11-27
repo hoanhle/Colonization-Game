@@ -150,6 +150,16 @@ void MapWindow::updateResourceInfo()
     m_ui->lcdOre->display(playerResource->at(Course::ORE));
 }
 
+void MapWindow::updateWorkerInfo()
+{
+    std::map<std::string, int>* playerWorker = m_GEHandler->getCurrentPlayerWorkerNumber();
+
+    m_ui->bwLcd->display(playerWorker->at("BasicWorker"));
+    m_ui->farmerLcd->display(playerWorker->at("Farmer"));
+    m_ui->loggerLcd->display(playerWorker->at("Logger"));
+    m_ui->minerLcd->display(playerWorker->at("Miner"));
+}
+
 Course::ResourceMap MapWindow::turnCostToMinus(const Course::ResourceMap& cost)
 {
     Course::ResourceMap subtract = cost;
@@ -302,11 +312,15 @@ void MapWindow::createPlayers(int numberPlayers)
     show();
     m_GEHandler->createPlayers(numberPlayers);
 
-    // Give all the players the basic resources in the beginng
+    // Give all the players the basic resources in the beginning
     m_GEHandler->createBeginResource();
 
-    // Show the first player resource
+    // Give all the players 0 workers in the beginning
+    m_GEHandler->createBeginWorker();
+
+    // Show the first player resource and worker info
     this->updateResourceInfo();
+    this->updateWorkerInfo();
 }
 
 
@@ -348,6 +362,7 @@ void MapWindow::on_endTurnButton_clicked()
     }
 
     updateResourceInfo();
+    updateWorkerInfo();
 }
 
 
@@ -369,6 +384,7 @@ void MapWindow::on_buildButton_clicked()
                                                     NewResourceMaps::SMALLHOUSE_BUILD_COST,
                                                     NewResourceMaps::SMALLHOUSE_PRODUCTION,
                                                     4);
+            std::dynamic_pointer_cast<SmallHouse>(building)->addWorkers();
 
         }else if (selected == m_ui->largeHouseButton)
         {
@@ -379,6 +395,7 @@ void MapWindow::on_buildButton_clicked()
                                                     NewResourceMaps::LARGEHOUSE_BUILD_COST,
                                                     NewResourceMaps::LARGEHOUSE_PRODUCTION,
                                                     8);
+            std::dynamic_pointer_cast<LargeHouse>(building)->addWorkers();
         }else if (selected == m_ui->farmButton)
         {
             building = std::make_shared<Course::Farm>(m_GEHandler,
@@ -415,6 +432,7 @@ void MapWindow::on_buildButton_clicked()
                                                         NewResourceMaps::APARTMENT_BUILD_COST,
                                                         NewResourceMaps::APARTMENT_PRODUCTION
                                                         );
+            std::dynamic_pointer_cast<ApartmentBlock>(building)->addWorkers();
         }else if (selected == m_ui->skyscraperButton)
         {
             building = std::make_shared<SkyScraper>(m_GEHandler,
@@ -424,8 +442,7 @@ void MapWindow::on_buildButton_clicked()
                                                     NewResourceMaps::SKYSCRAPER_BUILD_COST,
                                                     NewResourceMaps::SKYSCRAPER_PRODUCTION
                                                     );
-
-
+            std::dynamic_pointer_cast<SkyScraper>(building)->addWorkers();
         }else if (selected == m_ui->mineButton)
         {
             building = std::make_shared<Mine>(m_GEHandler,
@@ -469,8 +486,9 @@ void MapWindow::on_buildButton_clicked()
         m_ui->buildButton->setEnabled(false);
         m_ui->buildButton->setChecked(false);
 
-        // Update resource of the player
+        // Update resource and worker of the player
         updateResourceInfo();
+        updateWorkerInfo();
     } else {
         m_ui->warningLabel->setText("You don't have enough resource");
     }

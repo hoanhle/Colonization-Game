@@ -7,6 +7,7 @@
 #include "tiles/tilebase.h"
 #include "core/coordinate.h"
 #include "core/gameobject.h"
+#include "workers/newbasicworker.hh"
 
 
 
@@ -62,7 +63,7 @@ public:
             const std::vector<Course::Coordinate>& coordinates);
 
     /**
-     * @brief Returns a vecotr shared pointers to call the tiles on map
+     * @brief Returns a vector shared pointers to call the tiles on map
      *
      * @return Vector that contains to pointers to all tiles on the map.
      * @post Exception Guarantee: Basic
@@ -71,12 +72,17 @@ public:
 
     void addBuilding(std::shared_ptr<Course::BuildingBase> building);
 
-private:
+    /**
+     * @brief add worker pointer into m_worker
+     * @param worker: pointer to a newbasicworker object
+     * @post Exception Guarantee: Strong
+     */
+    void addWorker(std::shared_ptr<NewBasicWorker> worker);
 
+private:
     std::vector<std::shared_ptr<Course::TileBase>> m_tiles;
     std::vector<std::shared_ptr<Course::BuildingBase>> m_buildings;
-
-
+    std::vector<std::shared_ptr<NewBasicWorker>> m_workes;
 };
 
 #endif // OBJECTMANAGER_HH
