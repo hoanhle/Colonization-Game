@@ -1,5 +1,6 @@
 #include "core/player.hh"
 #include "core/nresourcemaps.hh"
+#include <algorithm>
 #include "QDebug"
 
 Player::Player(const std::string &name):
@@ -54,3 +55,15 @@ bool Player::modifyPlayerResource(Course::BasicResource resource, int amount)
 
     return success;
 }
+
+void Player::addWorker(std::shared_ptr<NewBasicWorker> worker)
+{
+    workers_.push_back(std::weak_ptr<NewBasicWorker>(worker));
+}
+
+void Player::addWorkers(const std::vector<std::shared_ptr<NewBasicWorker> > workers)
+{
+    workers_.insert(workers_.end(), workers.begin(), workers.end());
+}
+
+
