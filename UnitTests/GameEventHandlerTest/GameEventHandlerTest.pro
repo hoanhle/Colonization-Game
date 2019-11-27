@@ -11,15 +11,15 @@ TEMPLATE = app
 SOURCES +=  tst_gameeventhandlertest.cpp \
             ../../Game/core/gameeventhandler.cpp \
             ../../Game/core/player.cpp \
-            ../../Course/CourseLib/Core/playerbase.cpp \
-            ../../Course/CourseLib/Core/basicresources.cpp
+            ../../Course/CourseLib/core/playerbase.cpp \
+            ../../Course/CourseLib/core/basicresources.cpp
 
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 HEADERS += \
     ../../Game/core/gameeventhandler.hh \
-    ../..Course/CourseLib/Core/resourcemaps.hh
+    ../..Course/CourseLib/core/resourcemaps.hh
 
 INCLUDEPATH += \
     ../../Course/CourseLib/ \
