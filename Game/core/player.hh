@@ -68,13 +68,31 @@ public:
             const std::vector<std::shared_ptr<NewBasicWorker>> workers);
 
     /**
-     * @brief Removes a weak GameObject-pointer based on a objectId
+     * @brief Removes a weak NewBasicWorker-pointer based on a objectId
      * and expired weak pointers
-     * @param id An ObjctId for GameObject
+     * @param id An ObjctId for NewBasicWorker
      * @post Exception guarantee: Basic
      */
     void removeWorker(const Course::ObjectId& id);
 
+    /**
+     * @brief Remove a weak NewBasicWorker-pointer and expired weak pointers
+     * @param a shared-pointer to NewBasicWorker
+     * @post Exception guarantee: Basic
+     * @exception ExpiredPointer - worker is expired
+     * @exception KeyError - No workers match the search worker
+     */
+    void removeWorker(const std::shared_ptr<NewBasicWorker>& worker);
+
+
+    /**
+     * @brief removes a list of weak NewBasicWorker-pointers
+     * based on the ObjectID
+     * @param ids A vector of ObjectID for NewBasicWorker
+     * @post Exception guarantee: No-throw
+     * @note Even if some of the provided ID's are not found,
+     * no exceptions are thrown.
+     */
     void removeWorkers(const std::vector<Course::ObjectId>& ids);
 
     void removeWorkers(const std::vector<std::shared_ptr<NewBasicWorker>>& workers);

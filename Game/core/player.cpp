@@ -92,4 +92,23 @@ void Player::removeWorker(const Course::ObjectId &id)
     }
 }
 
+void Player::removeWorker(const std::shared_ptr<NewBasicWorker> &worker)
+{
+    if (not worker){
+        removeWorker(std::numeric_limits<Course::ObjectId>::max());
+    }
+    removeWorker(worker->ID);
+}
+
+void Player::removeWorkers(const std::vector<Course::ObjectId> &ids)
+{
+    for (auto it = ids.begin(); it != ids.end(); it++){
+        try {
+            removeWorker(*it);
+        } catch (const Course::KeyError&) {
+            continue;
+        }
+    }
+}
+
 
