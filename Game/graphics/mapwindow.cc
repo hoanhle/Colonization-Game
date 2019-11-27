@@ -160,6 +160,16 @@ void MapWindow::updateWorkerInfo()
     m_ui->minerLcd->display(playerWorker->at("Miner"));
 }
 
+void MapWindow::updateFreeWorkerInfo()
+{
+    std::map<std::string, int>* playerFreeWorker = m_GEHandler->getCurrentFreeWorkerNumber();
+
+    m_ui->freeBwNumber->display(playerFreeWorker->at("BasicWorker"));
+    m_ui->freeFarmerNumber->display(playerFreeWorker->at("Farmer"));
+    m_ui->freeLoggerNumber->display(playerFreeWorker->at("Logger"));
+    m_ui->freeMinerNumber->display(playerFreeWorker->at("Miner"));
+}
+
 Course::ResourceMap MapWindow::turnCostToMinus(const Course::ResourceMap& cost)
 {
     Course::ResourceMap subtract = cost;
@@ -363,6 +373,7 @@ void MapWindow::on_endTurnButton_clicked()
 
     updateResourceInfo();
     updateWorkerInfo();
+    updateFreeWorkerInfo();
 }
 
 
@@ -489,6 +500,7 @@ void MapWindow::on_buildButton_clicked()
         // Update resource and worker of the player
         updateResourceInfo();
         updateWorkerInfo();
+        updateFreeWorkerInfo();
     } else {
         m_ui->warningLabel->setText("You don't have enough resource");
     }
