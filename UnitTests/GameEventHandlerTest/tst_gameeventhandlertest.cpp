@@ -13,7 +13,8 @@ public:
     ~GameEventHandlerTest();
 
 private slots:
-    void test_case1();
+    void changePlayer();
+    void changePlayerData();
 
 };
 
@@ -27,8 +28,36 @@ GameEventHandlerTest::~GameEventHandlerTest()
 
 }
 
-void GameEventHandlerTest::test_case1()
+void GameEventHandlerTest::changePlayer()
 {
+    QFETCH(int, num);
+
+    GameEventHandler GE_handler = GameEventHandler();
+    GE_handler.createPlayers(num);
+    std::vector<std::shared_ptr<Player>> players;
+    for (int x = 0; x < num; ++x)
+    {
+        players.push_back(GE_handler.getCurrentPlayer());
+        GE_handler.changePlayer();
+    }
+    for (int x = 0; x < num; ++x)
+    {
+        QVERIFY2(GE_handler.getCurrentPlayer() == players[x], "wrong player");
+        GE_handler.changePlayer();
+    }
+
+
+}
+
+void GameEventHandlerTest::changePlayerData()
+{
+    QTest::addColumn<int>("number of players");
+
+    QTest::newRow("Two players") << 2;
+    QTest::newRow("Three players") << 3;
+    QTest::newRow("Four players") << 4;
+    QTest::newRow("Too many players") << 5;
+    QTest::newRow("Too few players") << 1;
 
 }
 
