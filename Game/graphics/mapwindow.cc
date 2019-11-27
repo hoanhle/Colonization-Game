@@ -384,6 +384,7 @@ void MapWindow::on_buildButton_clicked()
                                                     NewResourceMaps::SMALLHOUSE_BUILD_COST,
                                                     NewResourceMaps::SMALLHOUSE_PRODUCTION,
                                                     4);
+            std::dynamic_pointer_cast<SmallHouse>(building)->addWorkers();
 
         }else if (selected == m_ui->largeHouseButton)
         {
@@ -394,6 +395,7 @@ void MapWindow::on_buildButton_clicked()
                                                     NewResourceMaps::LARGEHOUSE_BUILD_COST,
                                                     NewResourceMaps::LARGEHOUSE_PRODUCTION,
                                                     8);
+            std::dynamic_pointer_cast<LargeHouse>(building)->addWorkers();
         }else if (selected == m_ui->farmButton)
         {
             building = std::make_shared<Course::Farm>(m_GEHandler,
@@ -430,6 +432,7 @@ void MapWindow::on_buildButton_clicked()
                                                         NewResourceMaps::APARTMENT_BUILD_COST,
                                                         NewResourceMaps::APARTMENT_PRODUCTION
                                                         );
+            std::dynamic_pointer_cast<ApartmentBlock>(building)->addWorkers();
         }else if (selected == m_ui->skyscraperButton)
         {
             building = std::make_shared<SkyScraper>(m_GEHandler,
@@ -439,8 +442,7 @@ void MapWindow::on_buildButton_clicked()
                                                     NewResourceMaps::SKYSCRAPER_BUILD_COST,
                                                     NewResourceMaps::SKYSCRAPER_PRODUCTION
                                                     );
-
-
+            std::dynamic_pointer_cast<SkyScraper>(building)->addWorkers();
         }else if (selected == m_ui->mineButton)
         {
             building = std::make_shared<Mine>(m_GEHandler,
@@ -484,8 +486,9 @@ void MapWindow::on_buildButton_clicked()
         m_ui->buildButton->setEnabled(false);
         m_ui->buildButton->setChecked(false);
 
-        // Update resource of the player
+        // Update resource and worker of the player
         updateResourceInfo();
+        updateWorkerInfo();
     } else {
         m_ui->warningLabel->setText("You don't have enough resource");
     }

@@ -26,10 +26,10 @@ void Player::setBeginningResource()
 
 void Player::setBeginningWorker()
 {
-    totalNumberWorker_.insert({"BasicWorker", 1});
-    totalNumberWorker_.insert({"Farmer", 1});
-    totalNumberWorker_.insert({"Logger", 1});
-    totalNumberWorker_.insert({"Miner", 1});
+    totalNumberWorker_.insert({"BasicWorker", 0});
+    totalNumberWorker_.insert({"Farmer", 0});
+    totalNumberWorker_.insert({"Logger", 0});
+    totalNumberWorker_.insert({"Miner", 0});
 }
 
 bool Player::modifyPlayerResources(Course::ResourceMap resources)
