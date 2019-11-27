@@ -79,4 +79,9 @@ void ObjectManager::addBuilding(std::shared_ptr<Course::BuildingBase> building )
     m_buildings.push_back(building);
 }
 
+void ObjectManager::addWorker(std::shared_ptr<NewBasicWorker> worker)
+{
+    m_workes.push_back(worker);
+}
+
 

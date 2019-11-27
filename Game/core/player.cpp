@@ -111,4 +111,17 @@ void Player::removeWorkers(const std::vector<Course::ObjectId> &ids)
     }
 }
 
+void Player::removeWorkers(
+        const std::vector<std::shared_ptr<NewBasicWorker>> &workers)
+{
+    for (auto it = workers.begin(); it!= workers.end(); it++){
+        try{
+            removeWorker(*it);
+        }
+        catch (const Course::KeyError&){
+            continue;
+        }
+    }
+}
+
 

@@ -63,7 +63,7 @@ public:
             const std::vector<Course::Coordinate>& coordinates);
 
     /**
-     * @brief Returns a vecotr shared pointers to call the tiles on map
+     * @brief Returns a vector shared pointers to call the tiles on map
      *
      * @return Vector that contains to pointers to all tiles on the map.
      * @post Exception Guarantee: Basic
@@ -71,6 +71,13 @@ public:
     std::vector<std::shared_ptr<Course::TileBase>> getAllTiles();
 
     void addBuilding(std::shared_ptr<Course::BuildingBase> building);
+
+    /**
+     * @brief add worker pointer into m_worker
+     * @param worker: pointer to a newbasicworker object
+     * @post Exception Guarantee: Strong
+     */
+    void addWorker(std::shared_ptr<NewBasicWorker> worker);
 
 private:
     std::vector<std::shared_ptr<Course::TileBase>> m_tiles;

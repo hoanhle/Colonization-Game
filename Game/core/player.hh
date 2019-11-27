@@ -95,6 +95,12 @@ public:
      */
     void removeWorkers(const std::vector<Course::ObjectId>& ids);
 
+    /**
+     * @brief Removes a list of weak NewBasicWorker-pointers and
+     * expired weak pointers
+     * @param workers A vector of weak NewBasicWorker-pointers
+     * @post Exception guarantee: No-throw
+     */
     void removeWorkers(const std::vector<std::shared_ptr<NewBasicWorker>>& workers);
 
 
