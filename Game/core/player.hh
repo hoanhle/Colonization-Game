@@ -67,6 +67,12 @@ public:
     void addWorkers(
             const std::vector<std::shared_ptr<NewBasicWorker>> workers);
 
+    /**
+     * @brief Removes a weak GameObject-pointer based on a objectId
+     * and expired weak pointers
+     * @param id An ObjctId for GameObject
+     * @post Exception guarantee: Basic
+     */
     void removeWorker(const Course::ObjectId& id);
 
     void removeWorkers(const std::vector<Course::ObjectId>& ids);

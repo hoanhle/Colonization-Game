@@ -1,5 +1,6 @@
 #include "core/player.hh"
 #include "core/nresourcemaps.hh"
+#include "exceptions/keyerror.h"
 #include <algorithm>
 #include "QDebug"
 
@@ -64,6 +65,31 @@ void Player::addWorker(std::shared_ptr<NewBasicWorker> worker)
 void Player::addWorkers(const std::vector<std::shared_ptr<NewBasicWorker> > workers)
 {
     workers_.insert(workers_.end(), workers.begin(), workers.end());
+}
+
+void Player::removeWorker(const Course::ObjectId &id)
+{
+    bool found = false;
+
+    auto it = std::remove_if(workers_.begin(), workers_.end(),
+                             [id, &found](std::weak_ptr<NewBasicWorker>& x){
+       auto locked = x.lock();
+
+       if (not locked){
+           return true;
+       }
+       if(locked->ID == id){
+           found = true;
+           return true;
+       }
+       return false;
+    });
+
+    workers_.erase(it, workers_.end());
+
+    if (not found){
+        throw Course::KeyError("Object not found.");
+    }
 }
 
 
