@@ -7,6 +7,7 @@
 #include "tiles/tilebase.h"
 #include "core/coordinate.h"
 #include "core/gameobject.h"
+#include "workers/newbasicworker.hh"
 
 
 
@@ -72,11 +73,9 @@ public:
     void addBuilding(std::shared_ptr<Course::BuildingBase> building);
 
 private:
-
     std::vector<std::shared_ptr<Course::TileBase>> m_tiles;
     std::vector<std::shared_ptr<Course::BuildingBase>> m_buildings;
-
-
+    std::vector<std::shared_ptr<NewBasicWorker>> m_workes;
 };
 
 #endif // OBJECTMANAGER_HH

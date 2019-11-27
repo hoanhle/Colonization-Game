@@ -50,8 +50,28 @@ public:
     bool modifyPlayerResource(Course::BasicResource resource,
                               int amount);
 
+    /**
+     * @brief Store a weak NewBasicWorker-pointer
+     * @param worker is a pointer to the store NewBasicWorker object
+     * @post Exception guarantee: Strong
+     * @exception See std::vector::push_back()
+     */
+    void addWorker(std::shared_ptr<NewBasicWorker> worker);
 
+    /**
+     * @brief stores a vector of weak NewBasicWorker-pointer
+     * @param workers is an std::vector of pointer to NewBasicWorker
+     * @post Exception guarantee: Strong
+     * @exception See std::vector::insert()
+     */
+    void addWorkers(
+            const std::vector<std::shared_ptr<NewBasicWorker>> workers);
 
+    void removeWorker(const Course::ObjectId& id);
+
+    void removeWorkers(const std::vector<Course::ObjectId>& ids);
+
+    void removeWorkers(const std::vector<std::shared_ptr<NewBasicWorker>>& workers);
 
 
 private:
