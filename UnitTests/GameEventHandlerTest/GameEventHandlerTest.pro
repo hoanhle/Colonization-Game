@@ -19,7 +19,7 @@ DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 HEADERS += \
     ../../Game/core/gameeventhandler.hh \
-    ../..Course/CourseLib/core/resourcemaps.hh
+    ../../Course/CourseLib/core/resourcemaps.h
 
 INCLUDEPATH += \
     ../../Course/CourseLib/ \
