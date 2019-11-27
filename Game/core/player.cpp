@@ -36,3 +36,21 @@ bool Player::modifyPlayerResources(Course::ResourceMap resources)
 
     return success;
 }
+
+bool Player::modifyPlayerResource(Course::BasicResource resource, int amount)
+{
+    bool success = true;
+    int currentBasicResource = resource_.at(resource);
+
+    currentBasicResource = currentBasicResource - amount;
+
+    if (currentBasicResource < 0){
+        success = false;
+    }
+
+    if (success) {
+        resource_.at(resource) = currentBasicResource;
+    }
+
+    return success;
+}

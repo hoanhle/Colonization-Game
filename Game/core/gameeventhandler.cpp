@@ -65,9 +65,11 @@ std::shared_ptr<Course::GameObject> GameEventHandler::returnSelectedTile()
     return tile_;
 }
 
-bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player, Course::BasicResource resource, int amount)
+bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player,
+                                      Course::BasicResource resource, int amount)
 {
-
+    bool success = getCurrentPlayer()->modifyPlayerResource(resource, amount);
+    return success;
 }
 
 bool GameEventHandler::modifyResources(std::shared_ptr<Course::PlayerBase> player, Course::ResourceMap resources)
