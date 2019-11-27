@@ -19,6 +19,11 @@ std::map<std::string, int> *Player::getCurrentWorkers()
     return &(totalNumberWorker_);
 }
 
+std::map<std::string, int> *Player::getFreeWorkers()
+{
+    return &(totalFreeWorker_);
+}
+
 void Player::setBeginningResource()
 {
     resource_ = NewResourceMaps::BEGINNING_RESOURCE;
@@ -26,10 +31,15 @@ void Player::setBeginningResource()
 
 void Player::setBeginningWorker()
 {
-    totalNumberWorker_.insert({"BasicWorker", 0});
-    totalNumberWorker_.insert({"Farmer", 0});
-    totalNumberWorker_.insert({"Logger", 0});
-    totalNumberWorker_.insert({"Miner", 0});
+    totalNumberWorker_ = {{"BasicWorker", 0},
+                          {"Farmer", 0},
+                          {"Miner", 0},
+                          {"Logger", 0}};
+
+    totalFreeWorker_ = {{"BasicWorker", 0},
+                        {"Farmer", 0},
+                        {"Miner", 0},
+                        {"Logger", 0}};
 }
 
 bool Player::modifyPlayerResources(Course::ResourceMap resources)
@@ -83,6 +93,7 @@ void Player::addWorkers(const std::vector<std::shared_ptr<NewBasicWorker> > work
 void Player::addWorker(std::string workerType)
 {
     totalNumberWorker_.at(workerType) += 1;
+    totalFreeWorker_.at(workerType) += 1;
 }
 
 void Player::removeWorker(const Course::ObjectId &id)

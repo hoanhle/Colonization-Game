@@ -68,9 +68,14 @@ public:
     void updateResourceInfo();
 
     /**
-     * @brief update player's worker in mapwindwo
+     * @brief update player's total worker number
      */
     void updateWorkerInfo();
+
+    /**
+     * @brief update player's free worker number
+     */
+    void updateFreeWorkerInfo();
 
     /**
      * @brief turn Resourcemap building cost

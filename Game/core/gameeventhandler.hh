@@ -46,6 +46,12 @@ public:
     std::map<std::string, int> *getCurrentPlayerWorkerNumber();
 
     /**
+     * @brief getCurrentFreeWorkerNumber
+     * @return pointer to freeNumberWorker map of the player
+     */
+    std::map<std::string, int> *getCurrentFreeWorkerNumber();
+
+    /**
      * @brief changePlayer change player after ending turn
      */
     void changePlayer();

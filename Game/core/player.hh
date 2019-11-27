@@ -24,8 +24,17 @@ public:
      */
     Course::ResourceMap* getCurrentResources();
 
+    /**
+     * @brief get the pointer to totalNumberWorker
+     * @return
+     */
     std::map<std::string, int> *getCurrentWorkers();
 
+    /**
+     * @brief get the pointer to totalFreeWorker
+     * @return
+     */
+    std::map<std::string, int> *getFreeWorkers();
     /**
      * @brief set beginning resource for the player
      */
@@ -123,6 +132,9 @@ private:
 
     // Map to keep track the total number of each worker type
     std::map<std::string, int> totalNumberWorker_;
+
+    // Map to keep track the total free number of each worker type
+    std::map<std::string, int> totalFreeWorker_;
 };
 
 #endif // PLAYER_HH

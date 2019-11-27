@@ -46,6 +46,11 @@ std::map<std::string, int> *GameEventHandler::getCurrentPlayerWorkerNumber()
     players_[current_]->getCurrentWorkers();
 }
 
+std::map<std::string, int> *GameEventHandler::getCurrentFreeWorkerNumber()
+{
+    players_[current_]->getFreeWorkers();
+}
+
 void GameEventHandler::changePlayer()
 {
     if (current_ == players_.size() - 1){
