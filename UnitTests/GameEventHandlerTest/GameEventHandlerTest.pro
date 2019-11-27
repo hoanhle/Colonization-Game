@@ -10,6 +10,7 @@ TEMPLATE = app
 
 SOURCES +=  tst_gameeventhandlertest.cpp \
 
+
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 HEADERS += \

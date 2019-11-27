@@ -16,7 +16,7 @@ public:
      */
     Player(const std::string& name);
 
-    virtual ~Player() = default;
+    ~Player() = default;
 
     /**
      * @brief get current resource of the player
@@ -39,8 +39,18 @@ public:
      */
     bool modifyPlayerResources(Course::ResourceMap resources);
 
+    /**
+     * @brief modify part of player resources (e.g: FOOD)
+     * @param resource the name of the resource
+     * @param amount how many to modify
+     * @return
+     * true: the modification is successful
+     * false: the modification is unsucessful
+     */
     bool modifyPlayerResource(Course::BasicResource resource,
                               int amount);
+
+
 
 
 private:
