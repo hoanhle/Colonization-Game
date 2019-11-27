@@ -11,6 +11,7 @@
 #include "workers/miner.hh"
 #include "core/player.hh"
 #include "core/objectmanager.hh"
+#include "core/gameeventhandler.hh"
 
 /**
  * @brief The HousingBase class
@@ -39,8 +40,8 @@ public:
      */
     explicit HousingBase(
             const std::shared_ptr<Course::iGameEventHandler>& eventhandler,
-            const std::shared_ptr<ObjectManager>& objectmanager,
-            const std::shared_ptr<Player>& owner,
+            const std::shared_ptr<Course::iObjectManager>& objectmanager,
+            const std::shared_ptr<Course::PlayerBase>& owner,
             const int& tilespaces = 1,
             const Course::ResourceMap& building  = {},
             const Course::ResourceMap& production = {},
@@ -58,7 +59,8 @@ public:
     virtual std::string getType() const override;
 
     /**
-     * @brief add workers to player and objec
+     * @brief add numPeople_/4 set of worker (1 basic, 1 farmer, 1 logger, 1 miner)
+     * to player object and objectmanager
      */
     void addWorkers();
 

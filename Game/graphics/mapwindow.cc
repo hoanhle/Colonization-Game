@@ -150,6 +150,16 @@ void MapWindow::updateResourceInfo()
     m_ui->lcdOre->display(playerResource->at(Course::ORE));
 }
 
+void MapWindow::updateWorkerInfo()
+{
+    std::map<std::string, int>* playerWorker = m_GEHandler->getCurrentPlayerWorkerNumber();
+
+    m_ui->bwLcd->display(playerWorker->at("BasicWorker"));
+    m_ui->farmerLcd->display(playerWorker->at("Farmer"));
+    m_ui->loggerLcd->display(playerWorker->at("Logger"));
+    m_ui->minerLcd->display(playerWorker->at("Miner"));
+}
+
 Course::ResourceMap MapWindow::turnCostToMinus(const Course::ResourceMap& cost)
 {
     Course::ResourceMap subtract = cost;
@@ -302,11 +312,15 @@ void MapWindow::createPlayers(int numberPlayers)
     show();
     m_GEHandler->createPlayers(numberPlayers);
 
-    // Give all the players the basic resources in the beginng
+    // Give all the players the basic resources in the beginning
     m_GEHandler->createBeginResource();
 
-    // Show the first player resource
+    // Give all the players 0 workers in the beginning
+    m_GEHandler->createBeginWorker();
+
+    // Show the first player resource and worker info
     this->updateResourceInfo();
+    this->updateWorkerInfo();
 }
 
 
@@ -348,6 +362,7 @@ void MapWindow::on_endTurnButton_clicked()
     }
 
     updateResourceInfo();
+    updateWorkerInfo();
 }
 
 

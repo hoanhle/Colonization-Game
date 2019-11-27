@@ -20,5 +20,5 @@ Farmer::Farmer(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
 
 std::string Farmer::getType() const
 {
-    return "farmer";
+    return "Farmer";
 }

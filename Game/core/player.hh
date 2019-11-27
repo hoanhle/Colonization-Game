@@ -24,10 +24,18 @@ public:
      */
     Course::ResourceMap* getCurrentResources();
 
+    std::map<std::string, int> *getCurrentWorkers();
+
     /**
      * @brief set beginning resource for the player
      */
     void setBeginningResource();
+
+    /**
+     * @brief initialize the totalNumberWorker map
+     * into 0 worker each type
+     */
+    void setBeginningWorker();
 
     /**
      * @brief Add resources to current resource_ of the player
@@ -66,6 +74,11 @@ public:
      */
     void addWorkers(
             const std::vector<std::shared_ptr<NewBasicWorker>> workers);
+
+    /**
+     * @brief add the number of worker into the worker map
+     */
+    void addWorker(std::string workerType);
 
     /**
      * @brief Removes a weak NewBasicWorker-pointer based on a objectId
@@ -107,6 +120,9 @@ public:
 private:
     Course::ResourceMap resource_ = {};
     std::vector<std::weak_ptr<NewBasicWorker>> workers_;
+
+    // Map to keep track the total number of each worker type
+    std::map<std::string, int> totalNumberWorker_;
 };
 
 #endif // PLAYER_HH

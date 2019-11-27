@@ -19,5 +19,5 @@ Logger::Logger(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
 
 std::string Logger::getType() const
 {
-    return "logger";
+    return "Logger";
 }

@@ -34,25 +34,36 @@ void HousingBase::addWorkers()
                                                      lockObjectManager(),
                                                      getOwner());
             std::dynamic_pointer_cast<Player>(getOwner())->addWorker(newWorker);
+            std::dynamic_pointer_cast<Player>(getOwner())->addWorker("BasicWorker");
+            std::dynamic_pointer_cast<ObjectManager>(lockObjectManager())->addWorker(
+                        newWorker);
         } else if (i % 4 == 1){
             std::shared_ptr<Farmer> newFarmer =
                     std::make_shared<Farmer>(lockEventHandler(),
                                                      lockObjectManager(),
                                                      getOwner());
             std::dynamic_pointer_cast<Player>(getOwner())->addWorker(newFarmer);
+            std::dynamic_pointer_cast<Player>(getOwner())->addWorker("Farmer");
+            std::dynamic_pointer_cast<ObjectManager>(lockObjectManager())->addWorker(
+                        newFarmer);
         } else if (i % 4 == 2){
             std::shared_ptr<Logger> newLogger =
                     std::make_shared<Logger>(lockEventHandler(),
                                                      lockObjectManager(),
                                                      getOwner());
             std::dynamic_pointer_cast<Player>(getOwner())->addWorker(newLogger);
+            std::dynamic_pointer_cast<Player>(getOwner())->addWorker("Logger");
+            std::dynamic_pointer_cast<ObjectManager>(lockObjectManager())->addWorker(
+                        newLogger);
         } else if (i % 4 == 3){
             std::shared_ptr<Miner> newMiner =
                     std::make_shared<Miner>(lockEventHandler(),
                                             lockObjectManager(),
                                             getOwner());
             std::dynamic_pointer_cast<Player>(getOwner())->addWorker(newMiner);
+            std::dynamic_pointer_cast<Player>(getOwner())->addWorker("Miner");
+            std::dynamic_pointer_cast<ObjectManager>(lockObjectManager())->addWorker(
+                        newMiner);
         }
     }
-    return;
 }

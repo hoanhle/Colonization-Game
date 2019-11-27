@@ -68,6 +68,11 @@ public:
     void updateResourceInfo();
 
     /**
+     * @brief update player's worker in mapwindwo
+     */
+    void updateWorkerInfo();
+
+    /**
      * @brief turn Resourcemap building cost
      * element into negative
      */

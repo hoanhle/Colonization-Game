@@ -28,10 +28,22 @@ public:
     void createBeginResource();
 
     /**
+     * @brief createBeginWorker give each player 1 worker each type
+     * in the beginning
+     */
+    void createBeginWorker();
+
+    /**
      * @brief getCurrentPlayerResource
      * @return resourcemap of current player
      */
     Course::ResourceMap* getCurrentPlayerResource();
+
+    /**
+     * @brief getCurrentPlayerWorkerNumber
+     * @return pointer to totalNumberWorker map of the player
+     */
+    std::map<std::string, int> *getCurrentPlayerWorkerNumber();
 
     /**
      * @brief changePlayer change player after ending turn

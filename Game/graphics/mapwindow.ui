@@ -499,7 +499,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="lcdNumber">
+    <widget class="QLCDNumber" name="bwLcd">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -529,7 +529,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="lcdNumber_4">
+    <widget class="QLCDNumber" name="farmerLcd">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -549,7 +549,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="lcdNumber_6">
+    <widget class="QLCDNumber" name="loggerLcd">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -569,7 +569,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="lcdNumber_8">
+    <widget class="QLCDNumber" name="minerLcd">
      <property name="geometry">
       <rect>
        <x>210</x>
