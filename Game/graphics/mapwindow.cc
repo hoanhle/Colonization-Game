@@ -11,7 +11,7 @@
 #include "iostream"
 
 #include <math.h>
-
+#include <QDebug>
 
 int X_SIZE = 10;
 int Y_SIZE = 10;
@@ -152,7 +152,8 @@ void MapWindow::updateResourceInfo()
 
 void MapWindow::updateWorkerInfo()
 {
-    std::map<std::string, int>* playerWorker = m_GEHandler->getCurrentPlayerWorkerNumber();
+    std::map<std::string, int>* playerWorker;
+    playerWorker = m_GEHandler->getCurrentPlayerWorkerNumber();
 
     m_ui->bwLcd->display(playerWorker->at("BasicWorker"));
     m_ui->farmerLcd->display(playerWorker->at("Farmer"));
@@ -163,7 +164,7 @@ void MapWindow::updateWorkerInfo()
 void MapWindow::updateFreeWorkerInfo()
 {
     std::map<std::string, int>* playerFreeWorker = m_GEHandler->getCurrentFreeWorkerNumber();
-
+    qDebug() << "playerFreeWorker";
     m_ui->freeBwNumber->display(playerFreeWorker->at("BasicWorker"));
     m_ui->freeFarmerNumber->display(playerFreeWorker->at("Farmer"));
     m_ui->freeLoggerNumber->display(playerFreeWorker->at("Logger"));
@@ -330,7 +331,7 @@ void MapWindow::createPlayers(int numberPlayers)
 
     // Show the first player resource and worker info
     this->updateResourceInfo();
-    this->updateWorkerInfo();
+    this->updateFreeWorkerInfo();
 }
 
 

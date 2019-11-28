@@ -21,6 +21,7 @@ std::map<std::string, int> *Player::getCurrentWorkers()
 
 std::map<std::string, int> *Player::getFreeWorkers()
 {
+    qDebug() << "Player call total free worker";
     return &(totalFreeWorker_);
 }
 

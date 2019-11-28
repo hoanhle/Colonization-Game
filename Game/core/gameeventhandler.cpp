@@ -43,12 +43,13 @@ Course::ResourceMap* GameEventHandler::getCurrentPlayerResource()
 
 std::map<std::string, int> *GameEventHandler::getCurrentPlayerWorkerNumber()
 {
-    players_[current_]->getCurrentWorkers();
+    return players_[current_]->getCurrentWorkers();
 }
 
 std::map<std::string, int> *GameEventHandler::getCurrentFreeWorkerNumber()
 {
-    players_[current_]->getFreeWorkers();
+    qDebug() << "GE call get current free worker";
+    return players_[current_]->getFreeWorkers();
 }
 
 void GameEventHandler::changePlayer()
