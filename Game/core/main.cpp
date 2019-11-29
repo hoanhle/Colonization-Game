@@ -32,10 +32,10 @@ int main(int argc, char* argv[])
         QDialog::connect(&setPlayerDialog, SIGNAL(startGame(int)),&mapWindow, SLOT(createPlayers(int)));
 
         // Stop the game if the startDialog get deleted.
-        if (startDialog.exec()){
-            appExitCode = app.exec();
-        } else {
+        if (startDialog.exec() == QDialog::Rejected){
             appExitCode = 0;
+        } else {
+            appExitCode = app.exec();
         }
 
 

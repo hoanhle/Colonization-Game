@@ -8,7 +8,6 @@ RulesDialog::RulesDialog(QWidget *parent) :
     ui->setupUi(this);
     ui->label->setWordWrap(true);
     this->setWindowTitle("HOW TO PLAY");
-    hide();
 }
 
 RulesDialog::~RulesDialog()
