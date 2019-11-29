@@ -5,6 +5,7 @@
 #include "core/nresourcemaps.hh"
 #include "algorithm"
 #include "core/player.hh"
+#include "tiles/tilebase.h"
 
 GameEventHandler::GameEventHandler()
 {
@@ -92,6 +93,36 @@ void GameEventHandler::assignWorkers(int numberWorker, std::string workerType)
 
     for (int i = 0; i < numberWorker; i++){
         tile_->addWorker(workersToRemove[i]);
+    }
+}
+
+std::vector<std::shared_ptr<NewBasicWorker> > GameEventHandler::getWorkerstoFree(
+        int numberWorker, std::string workerType) const
+{
+//    std::vector<std::shared_ptr<NewBasicWorker>> freeWorkers;
+//    std::vector< std::shared_ptr<Course::WorkerBase> > tileWorkers = tile_->getWorkers();
+
+//    int found = 0;
+//    for (auto it = tileWorkers.begin(); it < tileWorkers.end(); it++){
+//        if (found == numberWorker){
+//            break;
+//        }
+//        std::shared_ptr<NewBasicWorker> freeWorker = std::dynamic_pointer_cast<NewBasicWorker>(*it);
+//        if (freeWorker->getType() == workerType){
+//            freeWorkers.push_back(freeWorker);
+//        }
+//    }
+//    return freeWorkers;
+}
+
+void GameEventHandler::unassignWorkers(int numberWorker, std::string workerType)
+{
+    std::vector<std::shared_ptr<NewBasicWorker>> freeWorkers =
+            getWorkerstoFree(numberWorker, workerType);
+
+    for (auto freeWorker : freeWorkers){
+        tile_->removeWorker(freeWorker);
+        getCurrentPlayer()->addWorkerBack(freeWorker);
     }
 }
 

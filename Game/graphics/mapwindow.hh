@@ -94,8 +94,6 @@ public:
 
     std::string getSelectedWorkerType();
 
-
-
     void clearSelections();
 
 
@@ -105,10 +103,9 @@ private slots:
 
     void on_assignButton_clicked();
 
-    void on_quitButton_clicked();
-
     void on_unassignButton_clicked();
 
+    void on_quitButton_clicked();
 
     void on_endTurnButton_clicked();
 
@@ -130,7 +127,19 @@ public slots:
      */
     void workerButtonPressed(QAbstractButton*);
 
+    /**
+     * @brief tell the gameeventhandler to assign free workers of player
+     * to a tile
+     * @param workerNumber: number of workers to assign
+     */
     void assignWorkers(int workerNumber);
+
+    /**
+     * @brief tell the gameeventhandler to free workers of player
+     * from a tile
+     * @param workerNumber: number of workers to unassign
+     */
+    void unassignWorkers(int workerNumber);
 
 private:
     Ui::MapWindow* m_ui;

@@ -322,6 +322,13 @@ void MapWindow::assignWorkers(int workerNumber)
     updateFreeWorkerInfo();
 }
 
+void MapWindow::unassignWorkers(int workerNumber)
+{
+    std::string selectedType = getSelectedWorkerType();
+    m_GEHandler->assignWorkers(workerNumber, selectedType);
+    updateFreeWorkerInfo();
+}
+
 
 void MapWindow::on_quitButton_clicked()
 {
@@ -361,12 +368,8 @@ void MapWindow::setupButtonGroup(std::vector<QAbstractButton *> buttons, std::sh
 
 void MapWindow::on_unassignButton_clicked()
 {
-    /* TODO
-     * Connect the signal to update free workers
-     * After that free the workers from that block
-     */
-
-    UnAssignDialog* unAssignDialog = new UnAssignDialog(0, this);
+    UnAssignDialog* unAssignDialog = new UnAssignDialog(2, this);
+    connect(unAssignDialog, SIGNAL(freeWorkers(int)), this, SLOT(unassignWorkers(int)));
     unAssignDialog->exec();
 
     clearSelections();

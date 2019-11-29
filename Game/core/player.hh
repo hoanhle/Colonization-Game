@@ -91,6 +91,12 @@ public:
     void addWorker(std::string workerType);
 
     /**
+     * @brief add worker pointer back to the player object from a tile
+     * @param worker
+     */
+    void addWorkerBack(std::shared_ptr<NewBasicWorker> worker);
+
+    /**
      * @brief find a vector of worker pointer that has a specific type
      * @param workertype: type of the workers
      * @param numberWorker: number of workers to find
