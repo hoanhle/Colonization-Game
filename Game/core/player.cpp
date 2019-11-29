@@ -3,6 +3,7 @@
 #include "exceptions/keyerror.h"
 #include <algorithm>
 #include "QDebug"
+#include "iostream"
 
 Player::Player(const std::string &name):
     Course::PlayerBase(name)
@@ -102,6 +103,7 @@ std::vector<std::shared_ptr<NewBasicWorker> > Player::findWorkerstoRemove(int nu
     std::vector<std::shared_ptr<NewBasicWorker>> found_workers;
     int number_found = 0;
 
+    std::cout << workers_.size();
     for (auto it = workers_.begin(); it != workers_.end(); it++){
         if (number_found == numberWorker){
             break;
@@ -113,8 +115,12 @@ std::vector<std::shared_ptr<NewBasicWorker> > Player::findWorkerstoRemove(int nu
                 found_workers.push_back(locked);
                 number_found += 1;
             }
+
         }
     }
+
+    // Update free workers info after this
+    totalFreeWorker_.at(workertype) -= numberWorker;
 
     return found_workers;
 }

@@ -105,8 +105,6 @@ private slots:
 
     void on_assignButton_clicked();
 
-    void assignWorkers(int workerNumber);
-
     void on_quitButton_clicked();
 
     void on_unassignButton_clicked();
@@ -131,6 +129,8 @@ public slots:
      * @brief enable to assign or unassign when a worker is selected
      */
     void workerButtonPressed(QAbstractButton*);
+
+    void assignWorkers(int workerNumber);
 
 private:
     Ui::MapWindow* m_ui;

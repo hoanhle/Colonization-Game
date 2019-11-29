@@ -235,9 +235,9 @@ std::string MapWindow::getSelectedWorkerType()
     } else if (selected == m_ui->farmerButton){
         selectedType = "Farmer";
     } else if (selected == m_ui->minerButton){
-        selectedType = "BasicWorker";
+        selectedType = "Logger";
     } else if (selected == m_ui->loggerButton){
-        selectedType = "BasicWorker";
+        selectedType = "Miner";
     }
 
     return selectedType;
@@ -308,16 +308,18 @@ void MapWindow::on_assignButton_clicked()
     }
 
     AssignDialog* assignDialog = new AssignDialog(maxWorkers, this);
-    assignDialog->exec();
+    connect(assignDialog, SIGNAL(setWorkers(int)), this, SLOT(assignWorkers(int)));
 
-    connect(assignDialog, SIGNAL(setWorkers(int workerNumber)), this, SLOT(assignWorkers(int workerNumber)));
+    assignDialog->exec();
 
     clearSelections();
 }
 
 void MapWindow::assignWorkers(int workerNumber)
 {
-
+    std::string selectedType = getSelectedWorkerType();
+    m_GEHandler->assignWorkers(workerNumber, selectedType);
+    updateFreeWorkerInfo();
 }
 
 
