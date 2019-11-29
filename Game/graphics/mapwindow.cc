@@ -299,7 +299,6 @@ void MapWindow::clearSelections()
 }
 
 
-// TODO: Check if this use is okay!!
 void MapWindow::updateInformationLabel(std::shared_ptr<Course::GameObject> tile)
 {
     QString owner = "";
