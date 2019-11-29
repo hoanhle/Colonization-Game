@@ -30,7 +30,7 @@ signals:
     /**
      * @brief freeWorkers freeWorkers signal to send to slot that handles the event
      */
-    void freeWorkers();
+    void freeWorkers(int);
 
 private slots:
     void on_freeButton_clicked();

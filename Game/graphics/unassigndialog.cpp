@@ -24,6 +24,6 @@ int UnAssignDialog::getNumberOfWorkers()
 
 void UnAssignDialog::on_freeButton_clicked()
 {
-    emit freeWorkers();
+    emit freeWorkers(getNumberOfWorkers());
     accept();
 }

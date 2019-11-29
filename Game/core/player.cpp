@@ -98,6 +98,12 @@ void Player::addWorker(std::string workerType)
     totalFreeWorker_.at(workerType) += 1;
 }
 
+void Player::addWorkerBack(std::shared_ptr<NewBasicWorker> worker)
+{
+    workers_.push_back(std::weak_ptr<NewBasicWorker>(worker));
+    totalFreeWorker_.at(worker->getType()) += 1;
+}
+
 std::vector<std::shared_ptr<NewBasicWorker> > Player::findWorkerstoRemove(int numberWorker, std::string workertype)
 {
     std::vector<std::shared_ptr<NewBasicWorker>> found_workers;

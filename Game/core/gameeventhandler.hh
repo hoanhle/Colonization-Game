@@ -2,11 +2,12 @@
 #define GAMEEVENTHANDLER_HH
 
 #include "interfaces/igameeventhandler.h"
-#include "tiles/tilebase.h"
 #include "core/coordinate.h"
 #include "core/gameobject.h"
 #include "core/nresourcemaps.hh"
 #include "core/player.hh"
+#include "workers/basicworker.h"
+#include "tiles/tilebase.h"
 #include <QDebug>
 
 
@@ -79,7 +80,28 @@ public:
      */
     std::shared_ptr<Course::TileBase> returnSelectedTile();
 
+    /**
+     * @brief remove the workers pointer from the player object
+     * and add them to the tile
+     * @param numberWorker
+     * @param workerType
+     */
     void assignWorkers(int numberWorker, std::string workerType);
+
+    /**
+     * @brief get the vector of workers pointers from the tile that the player want to
+     * unassign
+     * @return vector of worker pointers
+     */
+    std::vector<std::shared_ptr<NewBasicWorker>> getWorkerstoFree(int numberWorker, std::string workerType) const;
+
+    /**
+     * @brief remove the workers pointer from the tile and add them
+     * back to the player object
+     * @param numberWorker
+     * @param workerType
+     */
+    void unassignWorkers(int numberWorker, std::string workerType);
 
     bool modifyResource(std::shared_ptr<Course::PlayerBase> player,
                                     Course::BasicResource resource,

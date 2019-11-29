@@ -12,7 +12,7 @@ SOURCES +=  tst_gameeventhandlertest.cpp \
             ../../Game/core/gameeventhandler.cpp \
             ../../Game/core/player.cpp \
             ../../Course/CourseLib/core/playerbase.cpp \
-            ../../Course/CourseLib/core/basicresources.cpp
+            ../../Course/CourseLib/core/basicresources.cpp \
 
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
