@@ -64,12 +64,14 @@ const Course::ResourceMap LARGEHOUSE_PRODUCTION = {
 const Course::ResourceMap MINE_BUILD_COST = {
     {Course::MONEY, 200},
     {Course::FOOD, 100},
-    {Course::WOOD, 100}
+    {Course::WOOD, 100},
+    {Course::ORE, 50}
 };
 const Course::ResourceMap MINE_PRODUCTION = {
     {Course::MONEY, 20},
     {Course::STONE, 50},
-    {Course::FOOD, 5}
+    {Course::FOOD, 5},
+    {Course::ORE, 35}
 };
 
 // Sawmill resources

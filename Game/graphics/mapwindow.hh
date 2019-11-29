@@ -93,10 +93,6 @@ public:
      */
     bool checkEnoughResource();
 
-    /**
-     * @brief get the selected worker type
-     * @return selected worker type (to assign or unassign)
-     */
     std::string getSelectedWorkerType();
 
     /**
@@ -110,9 +106,22 @@ public:
 
     void endGame();
 
+
+    /**
+     * @brief clear selected buttons
+     */
     void clearSelections();
 
+    /**
+     * @brief update the information about the current selected tile
+     * @param tile shared pointer to the current selected tile
+     */
+    void updateInformationLabel(std::shared_ptr<Course::GameObject> tile);
 
+    /**
+     * @brief Set the playerTurnLabel to show whose turn it is
+     */
+    void displayPlayerTurn();
 
 private slots:
     void on_highScoreButton_clicked();
@@ -150,12 +159,16 @@ public slots:
      */
     void assignWorkers(int workerNumber);
 
+
     /**
      * @brief tell the gameeventhandler to free workers of player
      * from a tile
      * @param workerNumber: number of workers to unassign
      */
     void unassignWorkers(int workerNumber);
+
+
+
 
 private:
     Ui::MapWindow* m_ui;

@@ -10,6 +10,7 @@
 #include "core/gamescene.hh"
 #include "iostream"
 #include "graphics/windialog.hh"
+#include "exceptions/noowner.hh"
 
 #include <math.h>
 #include <QDebug>
@@ -81,6 +82,7 @@ MapWindow::MapWindow(QWidget *parent,
                 "QPushButton {border-image: url(:/workerIcons/mine.png)}"
                 "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
 
+
     connect(m_scene.get(), SIGNAL(sendTilePointer(std::shared_ptr<Course::GameObject>)),
             this, SLOT(setSelectedTile(std::shared_ptr<Course::GameObject>)));
 
@@ -89,6 +91,8 @@ MapWindow::MapWindow(QWidget *parent,
 
     connect(m_workerButtonGroup.get(), SIGNAL(buttonClicked(QAbstractButton*)),
             this, SLOT(workerButtonPressed(QAbstractButton*)));
+
+
 }
 
 
@@ -271,6 +275,7 @@ void MapWindow::endGame()
 
 void MapWindow::clearSelections()
 {
+
     if(m_buildingButtonGroup->checkedButton())
     {
         m_buildingButtonGroup->setExclusive(false);
@@ -287,6 +292,39 @@ void MapWindow::clearSelections()
 
     m_ui->unassignButton->setEnabled(false);
     m_ui->assignButton->setEnabled(false);
+    m_ui->infoLabel->clear();
+
+}
+
+
+// TODO: Check if this use is okay!!
+void MapWindow::updateInformationLabel(std::shared_ptr<Course::GameObject> tile)
+{
+    QString owner = "";
+    QString workers = "";
+    try {
+        auto ownerPointer = tile->getOwner();
+        if (ownerPointer != nullptr)
+        {
+            owner = QString::fromStdString(ownerPointer->getName());
+        }else{
+            throw NoOwner("Selected tile has no owner");
+        }
+    } catch(NoOwner)
+    {
+        owner = "none";
+    }
+
+    for (auto item = m_GEHandler->returnSelectedTile()->getWorkers().begin();
+         item != m_GEHandler->returnSelectedTile()->getWorkers().end(); ++item)
+    {
+        QString name = QString::fromStdString(item->get()->getType());
+        workers = workers + name;
+    }
+
+
+    m_ui->infoLabel->setText("Owner: " + owner + "  Workers: " + workers);
+
 }
 
 
@@ -355,6 +393,13 @@ void MapWindow::unassignWorkers(int workerNumber)
     updateFreeWorkerInfo();
 }
 
+void MapWindow::displayPlayerTurn()
+{
+    QString turn = QString::fromStdString(m_GEHandler->getCurrentPlayer()->getName());
+
+    m_ui->playerTurnLabel->setText(turn + "'s turn");
+}
+
 
 void MapWindow::on_quitButton_clicked()
 {
@@ -417,13 +462,17 @@ void MapWindow::createPlayers(int numberPlayers)
     // Show the first player resource and worker info
     this->updateResourceInfo();
     this->updateFreeWorkerInfo();
+
+    displayPlayerTurn();
 }
 
 
 void MapWindow::setSelectedTile(std::shared_ptr<Course::GameObject> tile)
-{
+{ 
     std::shared_ptr<Course::Coordinate> pos = tile->getCoordinatePtr();
     m_GEHandler->setCurrentTile(m_objectmanager->getTile(*pos));
+    updateInformationLabel(tile);
+    m_ui->warningLabel->clear();
 }
 
 
@@ -454,6 +503,7 @@ void MapWindow::on_endTurnButton_clicked()
         Course::Coordinate coord = x->get()->getCoordinate();
         std::shared_ptr<Course::TileBase> tile = m_objectmanager->getTile(coord);
 
+
         bool success = tile->generateResources();
         qDebug() << success;
     }
@@ -463,6 +513,8 @@ void MapWindow::on_endTurnButton_clicked()
     updateFreeWorkerInfo();
     clearSelections();
     checkWinning();
+    displayPlayerTurn();
+    m_ui->warningLabel->clear();
 }
 
 
@@ -474,124 +526,131 @@ void MapWindow::on_buildButton_clicked()
     if (enoughResource){
         QAbstractButton* selected = m_buildingButtonGroup->checkedButton();
         std::shared_ptr<Course::Coordinate> pos = m_GEHandler->returnSelectedTile()->getCoordinatePtr();
-        std::shared_ptr<Course::PlayerBase> player = m_GEHandler->getCurrentPlayer();
-        std::shared_ptr<Course::BuildingBase> building = nullptr;
-        if (selected == m_ui->smallHouseButton)
+        if (m_GEHandler->returnSelectedTile()->hasSpaceForBuildings(1))
         {
-            building = std::make_shared<SmallHouse>(m_GEHandler,
-                                                    m_objectmanager,
-                                                    player,
-                                                    1,
-                                                    NewResourceMaps::SMALLHOUSE_BUILD_COST,
-                                                    NewResourceMaps::SMALLHOUSE_PRODUCTION,
-                                                    4);
-            std::dynamic_pointer_cast<SmallHouse>(building)->addWorkers();
+            std::shared_ptr<Course::PlayerBase> player = m_GEHandler->getCurrentPlayer();
+            std::shared_ptr<Course::BuildingBase> building = nullptr;
+            if (selected == m_ui->smallHouseButton)
+            {
+                building = std::make_shared<SmallHouse>(m_GEHandler,
+                                                        m_objectmanager,
+                                                        player,
+                                                        1,
+                                                        NewResourceMaps::SMALLHOUSE_BUILD_COST,
+                                                        NewResourceMaps::SMALLHOUSE_PRODUCTION,
+                                                        4);
+                std::dynamic_pointer_cast<SmallHouse>(building)->addWorkers();
 
-        }else if (selected == m_ui->largeHouseButton)
-        {
-            building = std::make_shared<LargeHouse>(m_GEHandler,
-                                                    m_objectmanager,
-                                                    player,
-                                                    1,
-                                                    NewResourceMaps::LARGEHOUSE_BUILD_COST,
-                                                    NewResourceMaps::LARGEHOUSE_PRODUCTION,
-                                                    8);
-            std::dynamic_pointer_cast<LargeHouse>(building)->addWorkers();
-        }else if (selected == m_ui->farmButton)
-        {
-            building = std::make_shared<Course::Farm>(m_GEHandler,
-                                                    m_objectmanager,
-                                                    player,
-                                                    1,
-                                                    Course::ConstResourceMaps::FARM_BUILD_COST,
-                                                    Course::ConstResourceMaps::FARM_PRODUCTION
-                                                    );
-        }else if (selected == m_ui->hqButton)
-        {
-            building = std::make_shared<Course::HeadQuarters>(m_GEHandler,
+            }else if (selected == m_ui->largeHouseButton)
+            {
+                building = std::make_shared<LargeHouse>(m_GEHandler,
+                                                        m_objectmanager,
+                                                        player,
+                                                        1,
+                                                        NewResourceMaps::LARGEHOUSE_BUILD_COST,
+                                                        NewResourceMaps::LARGEHOUSE_PRODUCTION,
+                                                        8);
+                std::dynamic_pointer_cast<LargeHouse>(building)->addWorkers();
+            }else if (selected == m_ui->farmButton)
+            {
+                building = std::make_shared<Course::Farm>(m_GEHandler,
+                                                        m_objectmanager,
+                                                        player,
+                                                        1,
+                                                        Course::ConstResourceMaps::FARM_BUILD_COST,
+                                                        Course::ConstResourceMaps::FARM_PRODUCTION
+                                                        );
+            }else if (selected == m_ui->hqButton)
+            {
+                building = std::make_shared<Course::HeadQuarters>(m_GEHandler,
+                                                                m_objectmanager,
+                                                                player,
+                                                                1,
+                                                                Course::ConstResourceMaps::HQ_BUILD_COST,
+                                                                Course::ConstResourceMaps::HQ_PRODUCTION
+                                                                );
+            }else if (selected == m_ui->outpustButton)
+            {
+                building = std::make_shared<Course::Outpost>(m_GEHandler,
                                                             m_objectmanager,
                                                             player,
                                                             1,
-                                                            Course::ConstResourceMaps::HQ_BUILD_COST,
-                                                            Course::ConstResourceMaps::HQ_PRODUCTION
+                                                            Course::ConstResourceMaps::OUTPOST_BUILD_COST,
+                                                            Course::ConstResourceMaps::OUTPOST_PRODUCTION
                                                             );
-        }else if (selected == m_ui->outpustButton)
-        {
-            building = std::make_shared<Course::Outpost>(m_GEHandler,
+            }else if (selected == m_ui->apartmentsButton)
+            {
+                building = std::make_shared<ApartmentBlock>(m_GEHandler,
+                                                            m_objectmanager,
+                                                            player,
+                                                            1,
+                                                            NewResourceMaps::APARTMENT_BUILD_COST,
+                                                            NewResourceMaps::APARTMENT_PRODUCTION
+                                                            );
+                std::dynamic_pointer_cast<ApartmentBlock>(building)->addWorkers();
+            }else if (selected == m_ui->skyscraperButton)
+            {
+                building = std::make_shared<SkyScraper>(m_GEHandler,
                                                         m_objectmanager,
                                                         player,
                                                         1,
-                                                        Course::ConstResourceMaps::OUTPOST_BUILD_COST,
-                                                        Course::ConstResourceMaps::OUTPOST_PRODUCTION
+                                                        NewResourceMaps::SKYSCRAPER_BUILD_COST,
+                                                        NewResourceMaps::SKYSCRAPER_PRODUCTION
                                                         );
-        }else if (selected == m_ui->apartmentsButton)
-        {
-            building = std::make_shared<ApartmentBlock>(m_GEHandler,
+                std::dynamic_pointer_cast<SkyScraper>(building)->addWorkers();
+            }else if (selected == m_ui->mineButton)
+            {
+                building = std::make_shared<Mine>(m_GEHandler,
                                                         m_objectmanager,
                                                         player,
                                                         1,
-                                                        NewResourceMaps::APARTMENT_BUILD_COST,
-                                                        NewResourceMaps::APARTMENT_PRODUCTION
+                                                        NewResourceMaps::MINE_BUILD_COST,
+                                                        NewResourceMaps::MINE_PRODUCTION
                                                         );
-            std::dynamic_pointer_cast<ApartmentBlock>(building)->addWorkers();
-        }else if (selected == m_ui->skyscraperButton)
-        {
-            building = std::make_shared<SkyScraper>(m_GEHandler,
-                                                    m_objectmanager,
-                                                    player,
-                                                    1,
-                                                    NewResourceMaps::SKYSCRAPER_BUILD_COST,
-                                                    NewResourceMaps::SKYSCRAPER_PRODUCTION
-                                                    );
-            std::dynamic_pointer_cast<SkyScraper>(building)->addWorkers();
-        }else if (selected == m_ui->mineButton)
-        {
-            building = std::make_shared<Mine>(m_GEHandler,
-                                                    m_objectmanager,
-                                                    player,
-                                                    1,
-                                                    NewResourceMaps::MINE_BUILD_COST,
-                                                    NewResourceMaps::MINE_PRODUCTION
-                                                    );
 
-        }else if (selected == m_ui->sawButton)
-        {
-            building = std::make_shared<SawMill>(m_GEHandler,
-                                                    m_objectmanager,
-                                                    player,
-                                                    1,
-                                                    NewResourceMaps::SAWMILL_BUILD_COST,
-                                                    NewResourceMaps::SAWMILL_PRODUCTION
-                                                    );
+            }else if (selected == m_ui->sawButton)
+            {
+                building = std::make_shared<SawMill>(m_GEHandler,
+                                                        m_objectmanager,
+                                                        player,
+                                                        1,
+                                                        NewResourceMaps::SAWMILL_BUILD_COST,
+                                                        NewResourceMaps::SAWMILL_PRODUCTION
+                                                        );
 
+            }
+
+
+
+            // Deselect the selected button after build
+            m_buildingButtonGroup->setExclusive(false);
+            m_buildingButtonGroup->checkedButton()->setChecked(false);
+            m_buildingButtonGroup->setExclusive(true);
+
+            // Add tile to player
+            m_GEHandler->getCurrentPlayer()->addObject(m_objectmanager->getTile(*pos));
+
+            // Update gamescene and objectmanager
+            building->setCoordinate(pos);
+            m_objectmanager->getTile(*pos)->addBuilding(building);
+
+            m_objectmanager->getTile(*pos)->setOwner(m_GEHandler->getCurrentPlayer());
+            m_scene->drawItem(building);
+
+            // Disable buildButton again
+            m_ui->buildButton->setEnabled(false);
+            m_ui->buildButton->setChecked(false);
+
+            // Update resource and worker of the player
+            updateResourceInfo();
+            updateWorkerInfo();
+            updateFreeWorkerInfo();
+        } else
+        {
+            m_ui->warningLabel->setText("You cannot place a tile building here");
         }
-
-
-
-        // Deselect the selected button after build
-        m_buildingButtonGroup->setExclusive(false);
-        m_buildingButtonGroup->checkedButton()->setChecked(false);
-        m_buildingButtonGroup->setExclusive(true);
-
-        // Add tile to player
-        m_GEHandler->getCurrentPlayer()->addObject(m_objectmanager->getTile(*pos));
-
-        // Update gamescene and objectmanager
-        building->setCoordinate(pos);
-        m_objectmanager->getTile(*pos)->addBuilding(building);
-
-        m_objectmanager->getTile(*pos)->setOwner(m_GEHandler->getCurrentPlayer());
-        m_scene->drawItem(building);
-
-        // Disable buildButton again
-        m_ui->buildButton->setEnabled(false);
-        m_ui->buildButton->setChecked(false);
-
-        // Update resource and worker of the player
-        updateResourceInfo();
-        updateWorkerInfo();
-        updateFreeWorkerInfo();
-    } else {
+    } else
+    {
         m_ui->warningLabel->setText("You don't have enough resource");
     }
     clearSelections();

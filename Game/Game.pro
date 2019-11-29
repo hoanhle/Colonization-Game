@@ -38,6 +38,7 @@ SOURCES += \
 HEADERS += \
     buildings/apartmentblock.hh \
     core/player.hh \
+    exceptions/noowner.hh \
     graphics/assigndialog.hh \
     graphics/windialog.hh \
     workers/farmer.hh \
