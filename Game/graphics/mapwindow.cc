@@ -225,6 +225,29 @@ bool MapWindow::checkEnoughResource()
     return success;
 }
 
+void MapWindow::clearSelections()
+{
+
+
+    if(m_buildingButtonGroup->checkedButton())
+    {
+        m_buildingButtonGroup->setExclusive(false);
+        m_buildingButtonGroup->checkedButton()->setChecked(false);
+        m_buildingButtonGroup->setExclusive(true);
+        m_ui->buildButton->setEnabled(false);
+    }
+    if(m_workerButtonGroup->checkedButton())
+    {
+        m_workerButtonGroup->setExclusive(false);
+        m_workerButtonGroup->checkedButton()->setChecked(false);
+        m_workerButtonGroup->setExclusive(true);
+    }
+
+    m_ui->unassignButton->setEnabled(false);
+    m_ui->assignButton->setEnabled(false);
+
+}
+
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
 {
@@ -264,7 +287,7 @@ void MapWindow::on_assignButton_clicked()
     AssignDialog* assignDialog = new AssignDialog(freeWorkers, this);
     assignDialog->exec();
 
-    m_ui->assignButton->setEnabled(false);
+    clearSelections();
 }
 
 
@@ -313,7 +336,8 @@ void MapWindow::on_unassignButton_clicked()
 
     UnAssignDialog* unAssignDialog = new UnAssignDialog(0, this);
     unAssignDialog->exec();
-    m_ui->unassignButton->setEnabled(false);
+
+    clearSelections();
 }
 
 
@@ -375,11 +399,14 @@ void MapWindow::on_endTurnButton_clicked()
     updateResourceInfo();
     updateWorkerInfo();
     updateFreeWorkerInfo();
+
+    clearSelections();
 }
 
 
 void MapWindow::on_buildButton_clicked()
 {
+    m_ui->warningLabel->clear();
     bool enoughResource = checkEnoughResource();
 
     if (enoughResource){
@@ -505,6 +532,7 @@ void MapWindow::on_buildButton_clicked()
     } else {
         m_ui->warningLabel->setText("You don't have enough resource");
     }
+    clearSelections();
 
 }
 
