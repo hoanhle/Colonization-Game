@@ -88,6 +88,7 @@ public:
 
     bool modifyResources(Course::ResourceMap resources);
 
+
 private:
     std::vector<std::shared_ptr<Player>> players_;
 

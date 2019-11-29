@@ -92,7 +92,13 @@ public:
      */
     bool checkEnoughResource();
 
+    /**
+     * @brief deselct any selected buttons and make build and assign buttons unavailable
+     */
     void clearSelections();
+
+
+    void updateInformationLabel(std::shared_ptr<Course::GameObject> tile);
 
 
 
@@ -110,6 +116,8 @@ private slots:
 
     void on_buildButton_clicked();
 
+
+
 public slots:
     void createPlayers(int numberPlayers);
 
@@ -124,6 +132,8 @@ public slots:
      * @brief enable to assign or unassign when a worker is selected
      */
     void workerButtonPressed(QAbstractButton*);
+
+
 
 private:
     Ui::MapWindow* m_ui;

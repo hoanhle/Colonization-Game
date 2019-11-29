@@ -114,6 +114,7 @@ bool GameScene::event(QEvent *event)
 
                 emit sendTilePointer(static_cast<Course::SimpleMapItem*>(pressed)
                                      ->getBoundObject());
+
                 return true;
             }
 

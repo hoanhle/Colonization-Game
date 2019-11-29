@@ -37,6 +37,7 @@ SOURCES += \
 HEADERS += \
     buildings/apartmentblock.hh \
     core/player.hh \
+    exceptions/noowner.hh \
     graphics/assigndialog.hh \
     workers/farmer.hh \
     core/gameeventhandler.hh \

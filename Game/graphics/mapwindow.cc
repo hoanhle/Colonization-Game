@@ -9,6 +9,7 @@
 #include "graphics/setplayerdialog.hh"
 #include "core/gamescene.hh"
 #include "iostream"
+#include "exceptions/noowner.hh"
 
 #include <math.h>
 #include <QDebug>
@@ -88,6 +89,8 @@ MapWindow::MapWindow(QWidget *parent,
 
     connect(m_workerButtonGroup.get(), SIGNAL(buttonClicked(QAbstractButton*)),
             this, SLOT(workerButtonPressed(QAbstractButton*)));
+
+
 }
 
 
@@ -228,7 +231,6 @@ bool MapWindow::checkEnoughResource()
 void MapWindow::clearSelections()
 {
 
-
     if(m_buildingButtonGroup->checkedButton())
     {
         m_buildingButtonGroup->setExclusive(false);
@@ -245,7 +247,31 @@ void MapWindow::clearSelections()
 
     m_ui->unassignButton->setEnabled(false);
     m_ui->assignButton->setEnabled(false);
+    m_ui->infoLabel->clear();
 
+}
+
+
+// TODO: Check if this use is okay!!
+void MapWindow::updateInformationLabel(std::shared_ptr<Course::GameObject> tile)
+{
+    QString owner = "";
+    try {
+        auto ownerPointer = tile->getOwner();
+        if (ownerPointer != nullptr)
+        {
+            owner = QString::fromStdString(ownerPointer->getName());
+        }else{
+            throw NoOwner("Selected tile has no owner");
+        }
+    } catch(NoOwner)
+    {
+        owner = "none";
+    }
+
+
+
+    m_ui->infoLabel->setText("Owner: " + owner);
 }
 
 
@@ -362,6 +388,7 @@ void MapWindow::createPlayers(int numberPlayers)
 void MapWindow::setSelectedTile(std::shared_ptr<Course::GameObject> tile)
 {
     m_GEHandler->setCurrentTile(tile);
+    updateInformationLabel(tile);
 }
 
 
