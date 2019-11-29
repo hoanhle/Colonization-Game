@@ -81,6 +81,7 @@ MapWindow::MapWindow(QWidget *parent,
                 "QPushButton {border-image: url(:/workerIcons/mine.png)}"
                 "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
 
+
     connect(m_scene.get(), SIGNAL(sendTilePointer(std::shared_ptr<Course::GameObject>)),
             this, SLOT(setSelectedTile(std::shared_ptr<Course::GameObject>)));
 
@@ -366,6 +367,13 @@ void MapWindow::unassignWorkers(int workerNumber)
     updateFreeWorkerInfo();
 }
 
+void MapWindow::displayPlayerTurn()
+{
+    QString turn = QString::fromStdString(m_GEHandler->getCurrentPlayer()->getName());
+
+    m_ui->playerTurnLabel->setText(turn + "'s turn");
+}
+
 
 void MapWindow::on_quitButton_clicked()
 {
@@ -428,6 +436,8 @@ void MapWindow::createPlayers(int numberPlayers)
     // Show the first player resource and worker info
     this->updateResourceInfo();
     this->updateFreeWorkerInfo();
+
+    displayPlayerTurn();
 }
 
 
@@ -475,6 +485,7 @@ void MapWindow::on_endTurnButton_clicked()
     updateFreeWorkerInfo();
 
     clearSelections();
+    displayPlayerTurn();
 }
 
 

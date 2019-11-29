@@ -98,13 +98,21 @@ public:
      */
     std::string getSelectedWorkerType();
 
-
+    /**
+     * @brief clear selected buttons
+     */
     void clearSelections();
 
-
+    /**
+     * @brief update the information about the current selected tile
+     * @param tile shared pointer to the current selected tile
+     */
     void updateInformationLabel(std::shared_ptr<Course::GameObject> tile);
 
-
+    /**
+     * @brief Set the playerTurnLabel to show whose turn it is
+     */
+    void displayPlayerTurn();
 
 private slots:
     void on_highScoreButton_clicked();
@@ -149,6 +157,8 @@ public slots:
      * @param workerNumber: number of workers to unassign
      */
     void unassignWorkers(int workerNumber);
+
+
 
 
 private:
