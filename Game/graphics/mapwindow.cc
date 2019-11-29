@@ -274,6 +274,7 @@ void MapWindow::clearSelections()
 void MapWindow::updateInformationLabel(std::shared_ptr<Course::GameObject> tile)
 {
     QString owner = "";
+    QString workers = "";
     try {
         auto ownerPointer = tile->getOwner();
         if (ownerPointer != nullptr)
@@ -287,9 +288,15 @@ void MapWindow::updateInformationLabel(std::shared_ptr<Course::GameObject> tile)
         owner = "none";
     }
 
+    for (auto item = m_GEHandler->returnSelectedTile()->getWorkers().begin();
+         item != m_GEHandler->returnSelectedTile()->getWorkers().end(); ++item)
+    {
+        QString name = QString::fromStdString(item->get()->getType());
+        workers = workers + name;
+    }
 
 
-    m_ui->infoLabel->setText("Owner: " + owner);
+    m_ui->infoLabel->setText("Owner: " + owner + "  Workers: " + workers);
 
 }
 
@@ -422,8 +429,9 @@ void MapWindow::createPlayers(int numberPlayers)
 
 
 void MapWindow::setSelectedTile(std::shared_ptr<Course::GameObject> tile)
-{
-    m_GEHandler->setCurrentTile(tile);
+{ 
+    std::shared_ptr<Course::Coordinate> pos = tile->getCoordinatePtr();
+    m_GEHandler->setCurrentTile(m_objectmanager->getTile(*pos));
     updateInformationLabel(tile);
 }
 

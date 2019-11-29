@@ -73,12 +73,12 @@ std::shared_ptr<Player> GameEventHandler::getCurrentPlayer()
 }
 
 
-void GameEventHandler::setCurrentTile(std::shared_ptr<Course::GameObject> tile)
+void GameEventHandler::setCurrentTile(std::shared_ptr<Course::TileBase> tile)
 {
     tile_ = tile;
 }
 
-std::shared_ptr<Course::GameObject> GameEventHandler::returnSelectedTile()
+std::shared_ptr<Course::TileBase> GameEventHandler::returnSelectedTile()
 {
     return tile_;
 }
@@ -89,6 +89,10 @@ void GameEventHandler::assignWorkers(int numberWorker, std::string workerType)
             getCurrentPlayer()->findWorkerstoRemove(numberWorker, workerType);
 
     getCurrentPlayer()->removeWorkers(workersToRemove);
+
+    for (int i = 0; i < numberWorker; i++){
+        tile_->addWorker(workersToRemove[i]);
+    }
 }
 
 bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player,
