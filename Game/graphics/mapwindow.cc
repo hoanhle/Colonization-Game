@@ -9,6 +9,7 @@
 #include "graphics/setplayerdialog.hh"
 #include "core/gamescene.hh"
 #include "iostream"
+#include "graphics/windialog.hh"
 
 #include <math.h>
 #include <QDebug>
@@ -243,6 +244,31 @@ std::string MapWindow::getSelectedWorkerType()
     return selectedType;
 }
 
+void MapWindow::checkWinning()
+{
+    bool win = m_GEHandler->checkWinning();
+
+    if (win){
+        WinDialog* winDialog = new WinDialog(this);
+        if (winDialog->exec()){
+            this->continueGame();
+        } else {
+            this->endGame();
+        }
+    }
+}
+
+void MapWindow::continueGame()
+{
+    hide();
+    qApp->exit(200);
+}
+
+void MapWindow::endGame()
+{
+    qApp->exit(0);
+}
+
 void MapWindow::clearSelections()
 {
     if(m_buildingButtonGroup->checkedButton())
@@ -435,8 +461,8 @@ void MapWindow::on_endTurnButton_clicked()
     updateResourceInfo();
     updateWorkerInfo();
     updateFreeWorkerInfo();
-
     clearSelections();
+    checkWinning();
 }
 
 

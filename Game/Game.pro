@@ -9,6 +9,7 @@ SOURCES += \
     buildings/apartmentblock.cpp \
     core/player.cpp \
     graphics/assigndialog.cpp \
+    graphics/windialog.cpp \
     workers/farmer.cpp \
     core/gameeventhandler.cpp \
     core/gamescene.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     buildings/apartmentblock.hh \
     core/player.hh \
     graphics/assigndialog.hh \
+    graphics/windialog.hh \
     workers/farmer.hh \
     core/gameeventhandler.hh \
     core/gamescene.hh \
@@ -94,7 +96,8 @@ FORMS += \
     graphics/rulesdialog.ui \
     graphics/setplayerdialog.ui \
     graphics/startdialog.ui \
-    graphics/unassigndialog.ui
+    graphics/unassigndialog.ui \
+    graphics/windialog.ui
 
 RESOURCES += \
     Icons.qrc
