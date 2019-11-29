@@ -83,6 +83,14 @@ std::shared_ptr<Course::GameObject> GameEventHandler::returnSelectedTile()
     return tile_;
 }
 
+void GameEventHandler::assignWorkers(int numberWorker, std::string workerType)
+{
+    std::vector<std::shared_ptr<NewBasicWorker>> workersToRemove =
+            getCurrentPlayer()->findWorkerstoRemove(numberWorker, workerType);
+
+    getCurrentPlayer()->removeWorkers(workersToRemove);
+}
+
 bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player,
                                       Course::BasicResource resource, int amount)
 {

@@ -91,6 +91,14 @@ public:
     void addWorker(std::string workerType);
 
     /**
+     * @brief find a vector of worker pointer that has a specific type
+     * @param workertype: type of the workers
+     * @param numberWorker: number of workers to find
+     * @return
+     */
+    std::vector<std::shared_ptr<NewBasicWorker>> findWorkerstoRemove(int numberWorker, std::string workertype);
+
+    /**
      * @brief Removes a weak NewBasicWorker-pointer based on a objectId
      * and expired weak pointers
      * @param id An ObjctId for NewBasicWorker

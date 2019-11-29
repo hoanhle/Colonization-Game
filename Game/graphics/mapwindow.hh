@@ -92,9 +92,13 @@ public:
      */
     bool checkEnoughResource();
 
+
     /**
      * @brief deselct any selected buttons and make build and assign buttons unavailable
      */
+    std::string getSelectedWorkerType();
+
+
     void clearSelections();
 
 
@@ -117,7 +121,6 @@ private slots:
     void on_buildButton_clicked();
 
 
-
 public slots:
     void createPlayers(int numberPlayers);
 
@@ -133,6 +136,8 @@ public slots:
      */
     void workerButtonPressed(QAbstractButton*);
 
+
+    void assignWorkers(int workerNumber);
 
 
 private:

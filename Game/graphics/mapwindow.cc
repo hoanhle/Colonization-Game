@@ -228,6 +228,24 @@ bool MapWindow::checkEnoughResource()
     return success;
 }
 
+std::string MapWindow::getSelectedWorkerType()
+{
+    std::string selectedType;
+    QAbstractButton* selected = m_workerButtonGroup->checkedButton();
+
+    if (selected == m_ui->bwButton){
+        selectedType = "BasicWorker";
+    } else if (selected == m_ui->farmerButton){
+        selectedType = "Farmer";
+    } else if (selected == m_ui->minerButton){
+        selectedType = "Logger";
+    } else if (selected == m_ui->loggerButton){
+        selectedType = "Miner";
+    }
+
+    return selectedType;
+}
+
 void MapWindow::clearSelections()
 {
 
@@ -272,6 +290,7 @@ void MapWindow::updateInformationLabel(std::shared_ptr<Course::GameObject> tile)
 
 
     m_ui->infoLabel->setText("Owner: " + owner);
+
 }
 
 
@@ -303,17 +322,34 @@ void MapWindow::on_highScoreButton_clicked()
 
 
 void MapWindow::on_assignButton_clicked()
-{
-    /* TODO
-     * Connect the signal to update assigned workers
-     * After that assign the worker from the block
-     */
-    int freeWorkers = m_ui->freeBwNumber->value();
+{   
+    // The maximum number of workers can be assigned to the selected tile
+    int maxWorkers = 0;
+    QAbstractButton* selected = m_workerButtonGroup->checkedButton();
 
-    AssignDialog* assignDialog = new AssignDialog(freeWorkers, this);
+    if (selected == m_ui->bwButton){
+        maxWorkers = m_ui->bwLcd->value();
+    } else if (selected == m_ui->farmerButton){
+        maxWorkers = m_ui->farmerLcd->value();
+    } else if (selected == m_ui->minerButton){
+        maxWorkers = m_ui->minerLcd->value();
+    } else if (selected == m_ui->loggerButton){
+        maxWorkers = m_ui->minerLcd->value();
+    }
+
+    AssignDialog* assignDialog = new AssignDialog(maxWorkers, this);
+    connect(assignDialog, SIGNAL(setWorkers(int)), this, SLOT(assignWorkers(int)));
+
     assignDialog->exec();
 
     clearSelections();
+}
+
+void MapWindow::assignWorkers(int workerNumber)
+{
+    std::string selectedType = getSelectedWorkerType();
+    m_GEHandler->assignWorkers(workerNumber, selectedType);
+    updateFreeWorkerInfo();
 }
 
 

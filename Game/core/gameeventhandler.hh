@@ -79,6 +79,7 @@ public:
      */
     std::shared_ptr<Course::GameObject> returnSelectedTile();
 
+    void assignWorkers(int numberWorker, std::string workerType);
 
     bool modifyResource(std::shared_ptr<Course::PlayerBase> player,
                                     Course::BasicResource resource,
