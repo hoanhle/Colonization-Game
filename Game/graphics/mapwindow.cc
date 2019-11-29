@@ -303,7 +303,10 @@ void MapWindow::clearSelections()
 void MapWindow::updateInformationLabel(std::shared_ptr<Course::GameObject> tile)
 {
     QString owner = "";
-    QString workers = "";
+    int farmers = 0;
+    int basicworkers = 0;
+    int miners = 0;
+    int loggers = 0;
     try {
         auto ownerPointer = tile->getOwner();
         if (ownerPointer != nullptr)
@@ -316,16 +319,31 @@ void MapWindow::updateInformationLabel(std::shared_ptr<Course::GameObject> tile)
     {
         owner = "none";
     }
-
-    for (auto item = m_GEHandler->returnSelectedTile()->getWorkers().begin();
-         item != m_GEHandler->returnSelectedTile()->getWorkers().end(); ++item)
+    std::vector<std::shared_ptr<Course::WorkerBase>> workers = m_GEHandler->returnSelectedTile()->getWorkers();
+    for (auto item = workers.begin();
+         item != workers.end(); ++item)
     {
         QString name = QString::fromStdString(item->get()->getType());
-        workers = workers + name;
+        if (name == "Farmer")
+        {
+            farmers += 1;
+        } else if (name == "BasicWorker")
+        {
+            basicworkers += 1;
+        } else if (name == "Miner")
+        {
+            miners += 1;
+        }else if (name == "Logger")
+        {
+            loggers += 1;
+        }
     }
 
 
-    m_ui->infoLabel->setText("Owner: " + owner + "  Workers: " + workers);
+    m_ui->infoLabel->setText("Owner: " + owner + "   Basic Workers: " + QString::number(basicworkers)
+                             + "   Farmers: " + QString::number(farmers)
+                             + "   Loggers: " + QString::number(loggers)
+                             + "   Miners: " + QString::number(miners));
 
 }
 
