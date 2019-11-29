@@ -11,6 +11,8 @@
 #include "iostream"
 #include "graphics/windialog.hh"
 #include "exceptions/noowner.hh"
+#include "exceptions/notenoughspace.h"
+#include "exceptions/invalidpointer.h"
 
 #include <math.h>
 #include <QDebug>
@@ -521,13 +523,11 @@ void MapWindow::on_endTurnButton_clicked()
 void MapWindow::on_buildButton_clicked()
 {
     m_ui->warningLabel->clear();
-    bool enoughResource = checkEnoughResource();
+    try {
+        if (checkEnoughResource()){
+            QAbstractButton* selected = m_buildingButtonGroup->checkedButton();
+            std::shared_ptr<Course::Coordinate> pos = m_GEHandler->returnSelectedTile()->getCoordinatePtr();
 
-    if (enoughResource){
-        QAbstractButton* selected = m_buildingButtonGroup->checkedButton();
-        std::shared_ptr<Course::Coordinate> pos = m_GEHandler->returnSelectedTile()->getCoordinatePtr();
-        if (m_GEHandler->returnSelectedTile()->hasSpaceForBuildings(1))
-        {
             std::shared_ptr<Course::PlayerBase> player = m_GEHandler->getCurrentPlayer();
             std::shared_ptr<Course::BuildingBase> building = nullptr;
             if (selected == m_ui->smallHouseButton)
@@ -649,14 +649,22 @@ void MapWindow::on_buildButton_clicked()
             updateResourceInfo();
             updateWorkerInfo();
             updateFreeWorkerInfo();
+
         } else
         {
-            m_ui->warningLabel->setText("You cannot place a tile building here");
+            m_ui->warningLabel->setText("You don't have enough resource");
         }
-    } else
+    } catch (Course::NotEnoughSpace)
     {
-        m_ui->warningLabel->setText("You don't have enough resource");
+        m_ui->warningLabel->setText("You cannot place a building here");
+    } catch (Course::IllegalAction)
+    {
+       m_ui->warningLabel->setText("You cannot place a building here");
+    } catch (Course::InvalidPointer)
+    {
+        return;
     }
+
     clearSelections();
 
 }
