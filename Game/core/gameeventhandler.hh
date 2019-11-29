@@ -111,6 +111,15 @@ public:
 
     bool modifyResources(Course::ResourceMap resources);
 
+    /**
+     * @brief check if the current player has won or not
+     * A player will win if he/she has 5000 resources total
+     * and 50 workers
+     * @return
+     * true: the player has won
+     * false: the player hasn't won
+     */
+    bool checkWinning();
 
 private:
     std::vector<std::shared_ptr<Player>> players_;

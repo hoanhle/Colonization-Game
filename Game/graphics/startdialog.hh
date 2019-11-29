@@ -2,6 +2,7 @@
 #define STARTDIALOG_HH
 
 #include <QDialog>
+#include "graphics/rulesdialog.hh"
 
 namespace Ui {
 class StartDialog;

@@ -35,6 +35,7 @@
 #include "buildings/farm.h"
 #include "buildings/headquarters.h"
 #include "buildings/outpost.h"
+#include "graphics/windialog.hh"
 
 
 namespace Ui {
@@ -129,11 +130,19 @@ public:
      */
     bool checkEnoughResource();
 
+    std::string getSelectedWorkerType();
 
     /**
-     * @brief deselct any selected buttons and make build and assign buttons unavailable
+     * @brief check if the current player has won or not
+     * A player will win if he/she has 5000 resources total
+     * and 50 workers
      */
-    std::string getSelectedWorkerType();
+    void checkWinning();
+
+    void continueGame();
+
+    void endGame();
+
 
     /**
      * @brief clear selected buttons

@@ -49,7 +49,6 @@ std::map<std::string, int> *GameEventHandler::getCurrentPlayerWorkerNumber()
 
 std::map<std::string, int> *GameEventHandler::getCurrentFreeWorkerNumber()
 {
-    qDebug() << "GE call get current free worker";
     return players_[current_]->getFreeWorkers();
 }
 
@@ -155,4 +154,28 @@ bool GameEventHandler::modifyResources(Course::ResourceMap resources)
 {
     bool success = getCurrentPlayer()->modifyPlayerResources(resources);
     return success;
+}
+
+bool GameEventHandler::checkWinning()
+{
+    Course::ResourceMap* playerResource = players_[current_]->getCurrentResources();
+    auto playerWorker = this->getCurrentPlayerWorkerNumber();
+
+    bool win = false;
+
+    int totalResource = 0;
+    for (auto pair : *playerResource){
+        totalResource += pair.second;
+    }
+
+    int totalWorker = 0;
+    for (auto pair: *playerWorker){
+        totalWorker += pair.second;
+    }
+
+    if (totalResource >= 3000 and totalWorker >= 10){
+        win = true;
+    }
+
+    return win;
 }

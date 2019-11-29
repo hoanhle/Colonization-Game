@@ -19,12 +19,14 @@ void StartDialog::on_startButton_clicked()
 {
     hide();
     emit openSetPlayers();
-
+    accept();
 }
 
 
 void StartDialog::on_ruleButton_clicked()
 {
     hide();
-    emit openRules();
+    RulesDialog* rulesDialog = new RulesDialog(this);
+    connect(rulesDialog, SIGNAL(backToStart()), this, SLOT(show()));
+    rulesDialog->show();
 }
