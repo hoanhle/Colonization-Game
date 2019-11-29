@@ -13,13 +13,17 @@ SOURCES +=  tst_gameeventhandlertest.cpp \
             ../../Game/core/player.cpp \
             ../../Course/CourseLib/core/playerbase.cpp \
             ../../Course/CourseLib/core/basicresources.cpp \
+            ../../Course/CourseLib/tiles/tilebase.cpp \
+            ../../Course/CourseLib/core/gameobject.cpp \
+            ../../Course/CourseLib/core/placeablegameobject.cpp \
+            ../../Course/CourseLib/core/coordinate.cpp
 
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 HEADERS += \
     ../../Game/core/gameeventhandler.hh \
-    ../../Course/CourseLib/core/resourcemaps.h
+    ../../Course/CourseLib/core/resourcemaps.h \
 
 INCLUDEPATH += \
     ../../Course/CourseLib/ \

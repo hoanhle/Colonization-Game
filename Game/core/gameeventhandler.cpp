@@ -1,11 +1,8 @@
 #include "gameeventhandler.hh"
 #include "vector"
-#include "interfaces/igameeventhandler.h"
-#include "iostream"
 #include "core/nresourcemaps.hh"
 #include "algorithm"
 #include "core/player.hh"
-#include "tiles/tilebase.h"
 
 GameEventHandler::GameEventHandler()
 {
@@ -59,12 +56,13 @@ void GameEventHandler::changePlayer()
     } else {
         current_ += 1;
     }
+    turns_ += 1;
 }
 
 
 void GameEventHandler::printCurrentPlayer()
 {
-    std::cout << players_[current_]->getName() << std::endl;
+    qDebug() << QString::fromLocal8Bit(players_[current_]->getName().c_str());
 }
 
 std::shared_ptr<Player> GameEventHandler::getCurrentPlayer()
@@ -96,22 +94,22 @@ void GameEventHandler::assignWorkers(int numberWorker, std::string workerType)
 }
 
 std::vector<std::shared_ptr<NewBasicWorker> > GameEventHandler::getWorkerstoFree(
-        int numberWorker, std::string workerType) const
+        int numberWorker, std::string workerType)
 {
-//    std::vector<std::shared_ptr<NewBasicWorker>> freeWorkers;
-//    std::vector< std::shared_ptr<Course::WorkerBase> > tileWorkers = tile_->getWorkers();
+    std::vector<std::shared_ptr<NewBasicWorker>> freeWorkers;
+    std::vector< std::shared_ptr<Course::WorkerBase> > tileWorkers = returnSelectedTile()->getWorkers();
 
-//    int found = 0;
-//    for (auto it = tileWorkers.begin(); it < tileWorkers.end(); it++){
-//        if (found == numberWorker){
-//            break;
-//        }
-//        std::shared_ptr<NewBasicWorker> freeWorker = std::dynamic_pointer_cast<NewBasicWorker>(*it);
-//        if (freeWorker->getType() == workerType){
-//            freeWorkers.push_back(freeWorker);
-//        }
-//    }
-//    return freeWorkers;
+    int found = 0;
+    for (auto it = tileWorkers.begin(); it < tileWorkers.end(); it++){
+        if (found == numberWorker){
+            break;
+        }
+        std::shared_ptr<NewBasicWorker> freeWorker = std::dynamic_pointer_cast<NewBasicWorker>(*it);
+        if (freeWorker->getType() == workerType){
+            freeWorkers.push_back(freeWorker);
+        }
+    }
+    return freeWorkers;
 }
 
 void GameEventHandler::unassignWorkers(int numberWorker, std::string workerType)

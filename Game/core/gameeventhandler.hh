@@ -1,13 +1,13 @@
 #ifndef GAMEEVENTHANDLER_HH
 #define GAMEEVENTHANDLER_HH
 
+#include "tiles/tilebase.h"
 #include "interfaces/igameeventhandler.h"
 #include "core/coordinate.h"
 #include "core/gameobject.h"
 #include "core/nresourcemaps.hh"
 #include "core/player.hh"
 #include "workers/basicworker.h"
-#include "tiles/tilebase.h"
 #include <QDebug>
 
 
@@ -93,7 +93,8 @@ public:
      * unassign
      * @return vector of worker pointers
      */
-    std::vector<std::shared_ptr<NewBasicWorker>> getWorkerstoFree(int numberWorker, std::string workerType) const;
+    std::vector<std::shared_ptr<NewBasicWorker>> getWorkerstoFree(
+            int numberWorker, std::string workerType);
 
     /**
      * @brief remove the workers pointer from the tile and add them
@@ -123,6 +124,8 @@ public:
 
 private:
     std::vector<std::shared_ptr<Player>> players_;
+
+    int turns_ = 0;
 
     // Current player index
     int current_ = 0;
