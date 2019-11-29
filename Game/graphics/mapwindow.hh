@@ -46,20 +46,57 @@ class MapWindow : public QMainWindow
 {
     Q_OBJECT
 public:
+
     explicit MapWindow(QWidget *parent = 0,
                        std::shared_ptr<GameEventHandler> GEHandler = {}
                        );
     ~MapWindow();
-
+    /**
+     * @brief sets the game event handler
+     * @param nHandler shared pointer to Game Event Handler
+     */
     void setGEHandler(std::shared_ptr<GameEventHandler> nHandler);
+
+    /**
+     * @brief set size of window
+     * @param width of window
+     * @param height of window
+     */
     void setSize(int width, int height);
+
+    /**
+     * @brief set scale of window
+     * @param scale of the window
+     */
     void setScale(int scale);
+
+    /**
+     * @brief resize the window
+     */
     void resize();
 
+    /**
+     * @brief draw item to the Map Window
+     * @param obj: shared pointer to a Game Object
+     */
     void drawItem( std::shared_ptr<Course::GameObject> obj);
+
+    /**
+     * @brief remove item from the Map Window
+     * @param obj: shared pointer to a Game Object
+     */
     void removeItem( std::shared_ptr<Course::GameObject> obj);
+
+    /**
+     * @brief update item on the Map Window
+     * @param obj: shared pointer to a Game Object
+     */
     void updateItem( std::shared_ptr<Course::GameObject> obj);
 
+    /**
+     * @brief add tiles to the world generator
+     * @param generator: reference to the map generator
+     */
     void addTiles(Course::WorldGenerator& generator);
 
 
