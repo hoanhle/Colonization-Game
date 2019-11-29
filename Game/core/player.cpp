@@ -97,6 +97,29 @@ void Player::addWorker(std::string workerType)
     totalFreeWorker_.at(workerType) += 1;
 }
 
+std::vector<std::shared_ptr<NewBasicWorker> > Player::findWorkerstoRemove(int numberWorker, std::string workertype)
+{
+    std::vector<std::shared_ptr<NewBasicWorker>> found_workers;
+    int number_found = 0;
+
+    for (auto it = workers_.begin(); it != workers_.end(); it++){
+        if (number_found == numberWorker){
+            break;
+        }
+
+        std::shared_ptr<NewBasicWorker> locked = it->lock();
+        if (locked){
+            if (locked->getType() == workertype){
+                found_workers.push_back(locked);
+                number_found += 1;
+            }
+        }
+    }
+
+    return found_workers;
+}
+
+
 void Player::removeWorker(const Course::ObjectId &id)
 {
     bool found = false;

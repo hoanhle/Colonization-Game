@@ -92,6 +92,10 @@ public:
      */
     bool checkEnoughResource();
 
+    std::string getSelectedWorkerType();
+
+
+
     void clearSelections();
 
 
@@ -101,6 +105,8 @@ private slots:
 
     void on_assignButton_clicked();
 
+    void assignWorkers(int workerNumber);
+
     void on_quitButton_clicked();
 
     void on_unassignButton_clicked();
@@ -109,6 +115,7 @@ private slots:
     void on_endTurnButton_clicked();
 
     void on_buildButton_clicked();
+
 
 public slots:
     void createPlayers(int numberPlayers);

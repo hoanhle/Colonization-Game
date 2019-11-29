@@ -24,6 +24,7 @@ int AssignDialog::getNumberOfWorkers()
 
 void AssignDialog::on_assignButton_clicked()
 {
-    emit setWorkers();
+    int workerNumber = getNumberOfWorkers();
+    emit setWorkers(workerNumber);
     accept();
 }

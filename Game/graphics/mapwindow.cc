@@ -225,10 +225,26 @@ bool MapWindow::checkEnoughResource()
     return success;
 }
 
+std::string MapWindow::getSelectedWorkerType()
+{
+    std::string selectedType;
+    QAbstractButton* selected = m_workerButtonGroup->checkedButton();
+
+    if (selected == m_ui->bwButton){
+        selectedType = "BasicWorker";
+    } else if (selected == m_ui->farmerButton){
+        selectedType = "Farmer";
+    } else if (selected == m_ui->minerButton){
+        selectedType = "BasicWorker";
+    } else if (selected == m_ui->loggerButton){
+        selectedType = "BasicWorker";
+    }
+
+    return selectedType;
+}
+
 void MapWindow::clearSelections()
 {
-
-
     if(m_buildingButtonGroup->checkedButton())
     {
         m_buildingButtonGroup->setExclusive(false);
@@ -245,7 +261,6 @@ void MapWindow::clearSelections()
 
     m_ui->unassignButton->setEnabled(false);
     m_ui->assignButton->setEnabled(false);
-
 }
 
 
@@ -277,17 +292,32 @@ void MapWindow::on_highScoreButton_clicked()
 
 
 void MapWindow::on_assignButton_clicked()
-{
-    /* TODO
-     * Connect the signal to update assigned workers
-     * After that assign the worker from the block
-     */
-    int freeWorkers = m_ui->freeBwNumber->value();
+{   
+    // The maximum number of workers can be assigned to the selected tile
+    int maxWorkers = 0;
+    QAbstractButton* selected = m_workerButtonGroup->checkedButton();
 
-    AssignDialog* assignDialog = new AssignDialog(freeWorkers, this);
+    if (selected == m_ui->bwButton){
+        maxWorkers = m_ui->bwLcd->value();
+    } else if (selected == m_ui->farmerButton){
+        maxWorkers = m_ui->farmerLcd->value();
+    } else if (selected == m_ui->minerButton){
+        maxWorkers = m_ui->minerLcd->value();
+    } else if (selected == m_ui->loggerButton){
+        maxWorkers = m_ui->minerLcd->value();
+    }
+
+    AssignDialog* assignDialog = new AssignDialog(maxWorkers, this);
     assignDialog->exec();
 
+    connect(assignDialog, SIGNAL(setWorkers(int workerNumber)), this, SLOT(assignWorkers(int workerNumber)));
+
     clearSelections();
+}
+
+void MapWindow::assignWorkers(int workerNumber)
+{
+
 }
 
 

@@ -27,7 +27,7 @@ public:
     int getNumberOfWorkers();
 
 signals:
-    void setWorkers();
+    void setWorkers(int workerNumber);
 
 private slots:
     void on_assignButton_clicked();
