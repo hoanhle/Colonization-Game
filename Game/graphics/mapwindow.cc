@@ -607,6 +607,10 @@ void MapWindow::on_buildButton_clicked()
             // Update gamescene and objectmanager
             building->setCoordinate(pos);
             m_objectmanager->getTile(*pos)->addBuilding(building);
+            if (building->getType() == "Outpost")
+            {
+                building->onBuildAction();
+            }
 
             m_objectmanager->getTile(*pos)->setOwner(m_GEHandler->getCurrentPlayer());
             m_scene->drawItem(building);
