@@ -393,7 +393,8 @@ void MapWindow::createPlayers(int numberPlayers)
 
 void MapWindow::setSelectedTile(std::shared_ptr<Course::GameObject> tile)
 {
-    m_GEHandler->setCurrentTile(tile);
+    std::shared_ptr<Course::Coordinate> pos = tile->getCoordinatePtr();
+    m_GEHandler->setCurrentTile(m_objectmanager->getTile(*pos));
 }
 
 

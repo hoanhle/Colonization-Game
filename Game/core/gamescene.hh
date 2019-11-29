@@ -9,6 +9,7 @@
 
 #include "core/gameobject.h"
 #include "graphics/mapitem.hh"
+#include "tiles/tilebase.h"
 
 const std::pair<int, int> SCENE_WIDTH_LIMITS = {1, 100};
 const std::pair<int, int> SCENE_HEIGHT_LIMITS = {1, 100};

@@ -71,13 +71,13 @@ public:
      * @brief setCurrentTile save the current selected tile
      * @param tile tile pointer
      */
-    void setCurrentTile(std::shared_ptr<Course::GameObject> tile);
+    void setCurrentTile(std::shared_ptr<Course::TileBase> tile);
 
     /**
      * @brief return the selected tile
      * @return tile tile pointer
      */
-    std::shared_ptr<Course::GameObject> returnSelectedTile();
+    std::shared_ptr<Course::TileBase> returnSelectedTile();
 
     void assignWorkers(int numberWorker, std::string workerType);
 
@@ -96,7 +96,7 @@ private:
     int current_ = 0;
 
     // Current selected tile
-    std::shared_ptr<Course::GameObject> tile_;
+    std::shared_ptr<Course::TileBase> tile_;
 };
 
 
