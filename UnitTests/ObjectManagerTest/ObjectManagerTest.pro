@@ -14,12 +14,16 @@ SOURCES +=  tst_objectmanagertest.cpp \
         ../../Game/core/gameeventhandler.cpp \
         ../../Game/core/objectmanager.cpp \
         ../../Game/core/player.cpp \
+        ../../Game/tiles/water.cpp \
+        ../../Game/tiles/sand.cpp \
+        ../../Game/tiles/rock.cpp \
         ../../Game/workers/newbasicworker.cpp \
         ../../Course/CourseLib/core/playerbase.cpp \
         ../../Course/CourseLib/core/coordinate.cpp \
         ../../Course/CourseLib/core/gameobject.cpp \
         ../../Course/CourseLib/tiles/tilebase.cpp \
         ../../Course/CourseLib/tiles/grassland.cpp \
+        ../../Course/CourseLib/tiles/forest.cpp \
         ../../Course/CourseLib/buildings/buildingbase.cpp \
         ../../Course/CourseLib/workers/workerbase.cpp \
         ../../Course/CourseLib/core/placeablegameobject.cpp \

@@ -56,22 +56,22 @@ void ObjectManagerTest::addTiles_data()
     std::vector<std::string> expected1 = {"Grassland"};
 
     QTest::newRow("Add grassland") << test1 << expected1 << manager << GE_handler;
-    /**
+
     std::vector<std::shared_ptr<Course::TileBase>> test2 = {};
     std::vector<std::string> expected2 = {};
-    tile = std::make_shared<Course::Grassland>(Coord, nullptr, );
+    tile = std::make_shared<Course::Grassland>(coord, GE_handler, manager );
     test2.push_back(tile);
     expected2.push_back("Grassland");
-    tile = std::make_shared<Course::Forest>();
+    tile = std::make_shared<Course::Forest>(coord, GE_handler, manager );
     test2.push_back(tile);
     expected2.push_back("Forest");
-    tile = std::make_shared<Rock>();
+    tile = std::make_shared<Student::Rock>(coord, GE_handler, manager );
     test2.push_back(tile);
     expected2.push_back("Rock");
-    tile = std::make_shared<Sand>();
+    tile = std::make_shared<Student::Sand>(coord, GE_handler, manager );
     test2.push_back(tile);
     expected2.push_back("Sand");
-    tile = std::make_shared<Water>();
+    tile = std::make_shared<Student::Water>(coord, GE_handler, manager );
     test2.push_back(tile);
     expected2.push_back("Water");
 
@@ -93,7 +93,6 @@ void ObjectManagerTest::addTiles_data()
     std::vector<std::string> expected4 = {};
 
     QTest::newRow("empty") << test4 << expected4;
-**/
 }
 
 void ObjectManagerTest::addTiles()
