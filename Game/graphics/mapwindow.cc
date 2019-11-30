@@ -264,14 +264,58 @@ void MapWindow::checkWinning()
     }
 }
 
+std::vector<QString> MapWindow::readHighScoreFile()
+{
+    std::vector<QString> points_;
+    QFile highScoreFile(Ui::directory);
+
+    if (highScoreFile.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&highScoreFile);
+        QString line = stream.readLine();
+        while (!line.isNull()){
+            points_.push_back(line);
+            line = stream.readLine();
+        }
+        highScoreFile.close();
+    }
+
+    return points_;
+}
+
+void MapWindow::writeToHighScoreFile(QString pointToAppend)
+{
+    QFile highScoreFile(Ui::directory);
+    std::vector<QString> existElements = readHighScoreFile();
+
+    for (int i = 0; i < existElements.size(); i++){
+        if (existElements[i] == pointToAppend){
+            return;
+        }
+    }
+
+    pointToAppend += "\n";
+
+    if (highScoreFile.open(QFile::WriteOnly | QIODevice::Append)) {
+        QTextStream out(&highScoreFile);
+        out << pointToAppend;
+    }
+
+    highScoreFile.flush();
+    highScoreFile.close();
+}
+
 void MapWindow::continueGame()
 {
     hide();
+    int turns = m_GEHandler->returnTurnNumber();
+    writeToHighScoreFile(QString::number(turns));
     qApp->exit(200);
 }
 
 void MapWindow::endGame()
 {
+    int turns = m_GEHandler->returnTurnNumber();
+    writeToHighScoreFile(QString::number(turns));
     qApp->exit(0);
 }
 
@@ -363,12 +407,19 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 void MapWindow::on_highScoreButton_clicked()
 {
     HighScoreDialog* highScoreDialog = new HighScoreDialog;
+    std::vector<QString> existPoints = readHighScoreFile();
+    std::vector<int> scoreDb;
 
-    playerInfo pair1 = {"haha", 1};
-    std::vector<playerInfo> highScoreDb;
-    highScoreDb.push_back(pair1);
+    for (int i = 0; i < existPoints.size(); i++){
+        int point = existPoints[i].toInt();
+        scoreDb.push_back(point);
+    }
 
-    highScoreDialog->setHighScoreInformation(highScoreDb);
+    if (scoreDb.size() > 0){
+        std::sort(scoreDb.begin(), scoreDb.end());
+    }
+
+    highScoreDialog->setHighScoreInformation(scoreDb);
     highScoreDialog->exec();
 
     delete highScoreDialog;

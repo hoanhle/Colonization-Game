@@ -1,41 +1,38 @@
 #include "highscoredialog.hh"
 #include "ui_highscoredialog.h"
+#include "iostream"
 
 HighScoreDialog::HighScoreDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::HighScoreDialog)
 {
     ui->setupUi(this);
-    this->setWindowTitle("High Scores");
+    this->setWindowTitle("High Scores Leaderboard");
 }
 
-void HighScoreDialog::setHighScoreInformation(std::vector<playerInfo> highScoreDb)
+void HighScoreDialog::setHighScoreInformation(std::vector<int> highScoreDb)
 {
-    if (highScoreDb.size() == 0){
-           ui->label->setText("You have no points to show");
-           return;
-       }
+   if (highScoreDb.size() == 0){
+       ui->label->setText("You have no points to show");
+       return;
+   }
 
-       ui->label->setText("Your top scores");
+   ui->label->setText("Your top scores");
 
-       // Number of peple having high scores
-       int k = 0;
+   // Number of peple having high scores
+   int k = 0;
 
-       // Update high score Info on the dialog
-       ui->player1->setText(QString::fromStdString(highScoreDb[0].first)); k++;
-       ui->score1->setText(QString::number(highScoreDb[0].second));
-       if (k == highScoreDb.size()) return;
-       ui->player2->setText(QString::fromStdString(highScoreDb[1].first)); k++;
-       ui->score2->setText(QString::number(highScoreDb[1].second));
-       if (k == highScoreDb.size()) return;
-       ui->player3->setText(QString::fromStdString(highScoreDb[2].first)); k++;
-       ui->score3->setText(QString::number(highScoreDb[2].second));
-       if (k == highScoreDb.size()) return;
-       ui->player4->setText(QString::fromStdString(highScoreDb[3].first)); k++;
-       ui->score4->setText(QString::number(highScoreDb[3].second));
-       if (k == highScoreDb.size()) return;
-       ui->player5->setText(QString::fromStdString(highScoreDb[4].first)); k++;
-       ui->score5->setText(QString::number(highScoreDb[4].second));
+   std::cout << highScoreDb[0];
+   // Update high score Info on the dialog
+   ui->score1->setText("1st place: " + QString::number(highScoreDb[0])); k++;
+   if (k == highScoreDb.size()) return;
+   ui->score2->setText("2nd place: " + QString::number(highScoreDb[1])); k++;
+   if (k == highScoreDb.size()) return;
+   ui->score3->setText("3rd place: " + QString::number(highScoreDb[2])); k++;
+   if (k == highScoreDb.size()) return;
+   ui->score4->setText("4th place: " + QString::number(highScoreDb[3])); k++;
+   if (k == highScoreDb.size()) return;
+   ui->score5->setText("5th place: " + QString::number(highScoreDb[4])); k++;
 }
 
 

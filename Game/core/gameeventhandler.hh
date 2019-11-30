@@ -123,6 +123,12 @@ public:
      */
     bool checkWinning();
 
+    /**
+     * @brief return the total number of turns one player has played
+     * @return total turns
+     */
+    int returnTurnNumber();
+
 private:
     std::vector<std::shared_ptr<Player>> players_;
 

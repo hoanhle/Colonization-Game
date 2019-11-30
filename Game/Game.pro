@@ -101,6 +101,7 @@ FORMS += \
     graphics/windialog.ui
 
 RESOURCES += \
-    Icons.qrc
+    Icons.qrc \
+    scoreDb.qrc
 
 DISTFILES +=

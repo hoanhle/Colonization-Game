@@ -54,10 +54,10 @@ void GameEventHandler::changePlayer()
 {
     if (current_ == players_.size() - 1){
         current_ = 0;
+        turns_ += 1;
     } else {
         current_ += 1;
     }
-    turns_ += 1;
 }
 
 
@@ -177,6 +177,11 @@ bool GameEventHandler::checkWinning()
     }
 
     return win;
+}
+
+int GameEventHandler::returnTurnNumber()
+{
+    return turns_;
 }
 
 } // namespace Student

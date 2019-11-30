@@ -40,17 +40,20 @@
 
 namespace Ui {
 class MapWindow;
+
+// Location of high score file
+const QString directory = ":/scoreDb.txt";
 }
 
 class MapWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-
     explicit MapWindow(QWidget *parent = 0,
                        std::shared_ptr<Student::GameEventHandler> GEHandler = {}
                        );
     ~MapWindow();
+
     /**
      * @brief sets the game event handler
      * @param nHandler shared pointer to Game Event Handler
@@ -99,7 +102,6 @@ public:
      */
     void addTiles(Course::WorldGenerator& generator);
 
-
     /**
      * @brief update player's resource in mapwindow
      */
@@ -130,6 +132,10 @@ public:
      */
     bool checkEnoughResource();
 
+    /**
+     * @brief get the pressed worker type
+     * @return the worker type
+     */
     std::string getSelectedWorkerType();
 
     /**
@@ -139,10 +145,27 @@ public:
      */
     void checkWinning();
 
+    /**
+     * @brief read from the file that contains high score db
+     * @return vector of user's scores
+     */
+    std::vector<QString> readHighScoreFile();
+
+    /**
+     * @brief append new point to highscore database
+     * @param pointToAppend: point to append
+     */
+    void writeToHighScoreFile(QString pointToAppend);
+
+    /**
+     * @brief players want to continue the game
+     */
     void continueGame();
 
+    /**
+     * @brief players want to end game
+     */
     void endGame();
-
 
     /**
      * @brief clear selected buttons
@@ -159,6 +182,8 @@ public:
      * @brief Set the playerTurnLabel to show whose turn it is
      */
     void displayPlayerTurn();
+
+
 
 private slots:
     void on_highScoreButton_clicked();

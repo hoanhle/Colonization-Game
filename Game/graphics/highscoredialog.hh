@@ -7,8 +7,9 @@ namespace Ui {
 class HighScoreDialog;
 }
 
-typedef std::pair<std::string, int> playerInfo;
-
+/**
+ * @brief The HighScoreDialog class top 5 scores
+ */
 class HighScoreDialog : public QDialog
 {
     Q_OBJECT
@@ -16,7 +17,12 @@ class HighScoreDialog : public QDialog
 public:
     explicit HighScoreDialog(QWidget *parent = nullptr);
 
-    void setHighScoreInformation(std::vector<playerInfo> highScoreDb);
+    /**
+     * @brief display top 5 scores to the leaderboard
+     * @param highScoreDb a vecrtor that contain all the points
+     * user has achieved
+     */
+    void setHighScoreInformation(std::vector<int> highScoreDb);
     ~HighScoreDialog();
 
 private slots:
