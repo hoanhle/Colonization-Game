@@ -363,7 +363,8 @@ void MapWindow::updateInformationLabel(std::shared_ptr<Course::GameObject> tile)
     {
         owner = "none";
     }
-    std::vector<std::shared_ptr<Course::WorkerBase>> workers = m_GEHandler->returnSelectedTile()->getWorkers();
+    std::vector<std::shared_ptr<Course::WorkerBase>> workers =
+            m_GEHandler->returnSelectedTile()->getWorkers();
     for (auto item = workers.begin();
          item != workers.end(); ++item)
     {
@@ -465,7 +466,7 @@ void MapWindow::assignWorkers(int workerNumber)
 void MapWindow::unassignWorkers(int workerNumber)
 {
     std::string selectedType = getSelectedWorkerType();
-    m_GEHandler->assignWorkers(workerNumber, selectedType);
+    m_GEHandler->unassignWorkers(workerNumber, selectedType);
     updateFreeWorkerInfo();
 }
 
@@ -515,7 +516,22 @@ void MapWindow::setupButtonGroup(std::vector<QAbstractButton *> buttons, std::sh
 
 void MapWindow::on_unassignButton_clicked()
 {
-    UnAssignDialog* unAssignDialog = new UnAssignDialog(2, this);
+    std::string workerType = getSelectedWorkerType();
+    int maxFreeWorkers = 0;
+
+    std::vector<std::shared_ptr<Course::WorkerBase>> workers =
+            m_GEHandler->returnSelectedTile()->getWorkers();
+    for (auto item = workers.begin();
+         item != workers.end(); ++item)
+    {
+        std::string name = item->get()->getType();
+        if (name == workerType)
+        {
+            maxFreeWorkers += 1;
+        }
+    }
+
+    UnAssignDialog* unAssignDialog = new UnAssignDialog(maxFreeWorkers, this);
     connect(unAssignDialog, SIGNAL(freeWorkers(int)), this, SLOT(unassignWorkers(int)));
     unAssignDialog->exec();
 
