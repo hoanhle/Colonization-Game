@@ -18,7 +18,7 @@
     <rect>
      <x>50</x>
      <y>70</y>
-     <width>301</width>
+     <width>421</width>
      <height>31</height>
     </rect>
    </property>
@@ -53,13 +53,13 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>50</y>
-     <width>191</width>
-     <height>16</height>
+     <y>45</y>
+     <width>411</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>You have 10 free workers</string>
+    <string>You can assign maximum 1 workers</string>
    </property>
   </widget>
  </widget>

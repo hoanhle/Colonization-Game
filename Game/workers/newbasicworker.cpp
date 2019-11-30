@@ -29,8 +29,7 @@ std::string NewBasicWorker::getType() const
 
 bool NewBasicWorker::canBePlacedOnTile(const std::shared_ptr<Course::TileBase> &target) const
 {
-    return Course::PlaceableGameObject::canBePlacedOnTile(target) and
-            target->hasSpaceForWorkers(spacesInTileCapacity());
+    return Course::PlaceableGameObject::canBePlacedOnTile(target);
 }
 
 void NewBasicWorker::doSpecialAction()

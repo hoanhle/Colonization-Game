@@ -8,8 +8,8 @@ AssignDialog::AssignDialog(unsigned int workers_, QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle("Assign Workers");
     ui->workerSpinBox->setMaximum(workers_);
-    ui->numberWorkersLabel->setText("You have " + QString::number(workers_)
-                                    + " free workers.");
+    ui->numberWorkersLabel->setText("You can assign maximum " + QString::number(workers_)
+                                    + " workers.");
 }
 
 AssignDialog::~AssignDialog()
