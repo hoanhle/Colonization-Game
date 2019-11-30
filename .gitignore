@@ -19,9 +19,5 @@ Game/ui_setplayerdialog.h
 Game/ui_startdialog.h
 Game/ui_unassigndialog.h
 *.bat
-<<<<<<< HEAD
 Game/ui_windialog.h
-=======
-*.exe
 
->>>>>>> 490710be5a7ccc9ab1b0828e1cc9c3d20de556a2
