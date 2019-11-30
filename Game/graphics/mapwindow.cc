@@ -92,8 +92,6 @@ MapWindow::MapWindow(QWidget *parent,
 
     connect(m_workerButtonGroup.get(), SIGNAL(buttonClicked(QAbstractButton*)),
             this, SLOT(workerButtonPressed(QAbstractButton*)));
-
-    qDebug() << filePath();
 }
 
 
@@ -262,18 +260,10 @@ void MapWindow::checkWinning()
     }
 }
 
-QString MapWindow::filePath()
-{
-    QString path = qApp->applicationDirPath();
-    path.append("/scoreDb.txt");
-
-    return path;
-}
-
 std::vector<QString> MapWindow::readHighScoreFile()
 {
     std::vector<QString> points_;
-    QFile highScoreFile(filePath());
+    QFile highScoreFile(Ui::directory);
 
     if (highScoreFile.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream stream(&highScoreFile);
@@ -290,7 +280,7 @@ std::vector<QString> MapWindow::readHighScoreFile()
 
 void MapWindow::writeToHighScoreFile(QString pointToAppend)
 {
-    QFile ScoreFile(filePath());
+    QFile ScoreFile(Ui::directory);
     pointToAppend += "\n";
     if (ScoreFile.open(QFile::WriteOnly | QIODevice::Append)) {
         QTextStream out(&ScoreFile);
@@ -359,7 +349,8 @@ void MapWindow::updateInformationLabel(std::shared_ptr<Course::GameObject> tile)
     {
         owner = "none";
     }
-    std::vector<std::shared_ptr<Course::WorkerBase>> workers = m_GEHandler->returnSelectedTile()->getWorkers();
+    std::vector<std::shared_ptr<Course::WorkerBase>> workers =
+            m_GEHandler->returnSelectedTile()->getWorkers();
     for (auto item = workers.begin();
          item != workers.end(); ++item)
     {
@@ -424,21 +415,26 @@ void MapWindow::on_highScoreButton_clicked()
 
 void MapWindow::on_assignButton_clicked()
 {   
-    // The maximum number of workers can be assigned to the selected tile
     int maxWorkers = 0;
     QAbstractButton* selected = m_workerButtonGroup->checkedButton();
 
     if (selected == m_ui->bwButton){
-        maxWorkers = m_ui->bwLcd->value();
+        maxWorkers = m_ui->freeBwNumber->value();
     } else if (selected == m_ui->farmerButton){
-        maxWorkers = m_ui->farmerLcd->value();
+        maxWorkers = m_ui->freeFarmerNumber->value();
     } else if (selected == m_ui->minerButton){
-        maxWorkers = m_ui->minerLcd->value();
+        maxWorkers = m_ui->freeMinerNumber->value();
     } else if (selected == m_ui->loggerButton){
-        maxWorkers = m_ui->minerLcd->value();
+        maxWorkers = m_ui->freeLoggerNumber->value();
     }
 
-    AssignDialog* assignDialog = new AssignDialog(maxWorkers, this);
+    // The maximum number of workers can be assigned to the selected tile
+    int maxAddedWorkers = 3 - m_GEHandler->returnSelectedTile()->getWorkerCount();
+    if (maxAddedWorkers > maxWorkers){
+        maxAddedWorkers = maxWorkers;
+    }
+
+    AssignDialog* assignDialog = new AssignDialog(maxAddedWorkers, this);
     connect(assignDialog, SIGNAL(setWorkers(int)), this, SLOT(assignWorkers(int)));
 
     assignDialog->exec();
@@ -456,7 +452,7 @@ void MapWindow::assignWorkers(int workerNumber)
 void MapWindow::unassignWorkers(int workerNumber)
 {
     std::string selectedType = getSelectedWorkerType();
-    m_GEHandler->assignWorkers(workerNumber, selectedType);
+    m_GEHandler->unassignWorkers(workerNumber, selectedType);
     updateFreeWorkerInfo();
 }
 
@@ -506,7 +502,22 @@ void MapWindow::setupButtonGroup(std::vector<QAbstractButton *> buttons, std::sh
 
 void MapWindow::on_unassignButton_clicked()
 {
-    UnAssignDialog* unAssignDialog = new UnAssignDialog(2, this);
+    std::string workerType = getSelectedWorkerType();
+    int maxFreeWorkers = 0;
+
+    std::vector<std::shared_ptr<Course::WorkerBase>> workers =
+            m_GEHandler->returnSelectedTile()->getWorkers();
+    for (auto item = workers.begin();
+         item != workers.end(); ++item)
+    {
+        std::string name = item->get()->getType();
+        if (name == workerType)
+        {
+            maxFreeWorkers += 1;
+        }
+    }
+
+    UnAssignDialog* unAssignDialog = new UnAssignDialog(maxFreeWorkers, this);
     connect(unAssignDialog, SIGNAL(freeWorkers(int)), this, SLOT(unassignWorkers(int)));
     unAssignDialog->exec();
 
