@@ -8,7 +8,6 @@
 #include "graphics/startdialog.hh"
 #include "graphics/setplayerdialog.hh"
 #include "core/gamescene.hh"
-#include "iostream"
 #include "graphics/windialog.hh"
 #include "exceptions/noowner.hh"
 #include "exceptions/notenoughspace.h"
@@ -93,8 +92,6 @@ MapWindow::MapWindow(QWidget *parent,
 
     connect(m_workerButtonGroup.get(), SIGNAL(buttonClicked(QAbstractButton*)),
             this, SLOT(workerButtonPressed(QAbstractButton*)));
-
-
 }
 
 
@@ -171,7 +168,6 @@ void MapWindow::updateWorkerInfo()
 void MapWindow::updateFreeWorkerInfo()
 {
     std::map<std::string, int>* playerFreeWorker = m_GEHandler->getCurrentFreeWorkerNumber();
-    qDebug() << "playerFreeWorker";
     m_ui->freeBwNumber->display(playerFreeWorker->at("BasicWorker"));
     m_ui->freeFarmerNumber->display(playerFreeWorker->at("Farmer"));
     m_ui->freeLoggerNumber->display(playerFreeWorker->at("Logger"));
@@ -264,15 +260,23 @@ void MapWindow::checkWinning()
     }
 }
 
+QString MapWindow::filePath()
+{
+    QString path = qApp->applicationDirPath();
+    path.replace("debug", "scoreDb.txt");
+
+    return path;
+}
+
 std::vector<QString> MapWindow::readHighScoreFile()
 {
     std::vector<QString> points_;
-    QFile highScoreFile(Ui::directory);
+    QFile highScoreFile(filePath());
 
     if (highScoreFile.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream stream(&highScoreFile);
         QString line = stream.readLine();
-        while (!line.isNull()){
+        while (!line.isNull()) {
             points_.push_back(line);
             line = stream.readLine();
         }
@@ -284,31 +288,22 @@ std::vector<QString> MapWindow::readHighScoreFile()
 
 void MapWindow::writeToHighScoreFile(QString pointToAppend)
 {
-    QFile highScoreFile(Ui::directory);
-    std::vector<QString> existElements = readHighScoreFile();
-
-    for (int i = 0; i < existElements.size(); i++){
-        if (existElements[i] == pointToAppend){
-            return;
-        }
-    }
-
+    QFile ScoreFile(filePath());
     pointToAppend += "\n";
-
-    if (highScoreFile.open(QFile::WriteOnly | QIODevice::Append)) {
-        QTextStream out(&highScoreFile);
+    if (ScoreFile.open(QFile::WriteOnly | QIODevice::Append)) {
+        QTextStream out(&ScoreFile);
         out << pointToAppend;
     }
 
-    highScoreFile.flush();
-    highScoreFile.close();
+    ScoreFile.flush();
+    ScoreFile.close();
 }
 
 void MapWindow::continueGame()
 {
-    hide();
     int turns = m_GEHandler->returnTurnNumber();
     writeToHighScoreFile(QString::number(turns));
+    hide();
     qApp->exit(200);
 }
 
@@ -569,14 +564,12 @@ void MapWindow::on_endTurnButton_clicked()
     m_GEHandler->printCurrentPlayer();
 
     std::vector<std::shared_ptr<Course::GameObject>> objects = m_GEHandler->getCurrentPlayer()->getObjects();
-    std::cout << objects.size() << std::endl;
     for (auto x = objects.begin(); x != objects.end(); ++x){
         Course::Coordinate coord = x->get()->getCoordinate();
         std::shared_ptr<Course::TileBase> tile = m_objectmanager->getTile(coord);
 
 
         bool success = tile->generateResources();
-        qDebug() << success;
     }
 
     updateResourceInfo();
@@ -735,7 +728,7 @@ void MapWindow::on_buildButton_clicked()
     }
 
     clearSelections();
-
+    checkWinning();
 }
 
 

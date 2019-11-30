@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>scoreDb.txt</file>
-    </qresource>
-</RCC>

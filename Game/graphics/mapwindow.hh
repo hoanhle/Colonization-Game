@@ -42,7 +42,6 @@ namespace Ui {
 class MapWindow;
 
 // Location of high score file
-const QString directory = ":/scoreDb.txt";
 }
 
 class MapWindow : public QMainWindow
@@ -145,6 +144,11 @@ public:
      */
     void checkWinning();
 
+    /**
+     * @brief file the path of highscoreDb
+     * @return highScoreDb path
+     */
+    QString filePath();
     /**
      * @brief read from the file that contains high score db
      * @return vector of user's scores
