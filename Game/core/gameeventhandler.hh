@@ -10,6 +10,7 @@
 #include "workers/basicworker.h"
 #include <QDebug>
 
+namespace Student {
 
 class GameEventHandler : public Course::iGameEventHandler
 {
@@ -132,7 +133,9 @@ private:
 
     // Current selected tile
     std::shared_ptr<Course::TileBase> tile_;
-};
+}; // class GameEventHandler
+
+} // namespace Student
 
 
 #endif // GAMEEVENTHANDLER_HH

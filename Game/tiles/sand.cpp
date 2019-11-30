@@ -1,5 +1,6 @@
 #include "sand.hh"
 
+namespace Student {
 
 Sand::Sand(const Course::Coordinate &location,
            const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
@@ -20,3 +21,5 @@ std::string Sand::getType() const
 {
     return "Sand";
 }
+
+} // namespace Student

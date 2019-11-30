@@ -1,5 +1,6 @@
 #include "workers/miner.hh"
 
+namespace Student {
 
 Miner::Miner(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
              const std::shared_ptr<Course::iObjectManager> &objectmanager,
@@ -22,3 +23,5 @@ std::string Miner::getType() const
 {
     return "Miner";
 }
+
+} // namespace Student

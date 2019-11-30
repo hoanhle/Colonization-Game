@@ -4,6 +4,8 @@
 
 #include "core/basicresources.h"
 
+namespace Student {
+
 // Add new resourcemap elements
 namespace NewResourceMaps {
 
@@ -133,6 +135,7 @@ const Course::ResourceMapDouble NEW_BASIC_WORKER_EFFICIENCY = {
 };
 
 }
+} // namespace Student
 
 
 #endif // NRESOURCEMAPS_HH

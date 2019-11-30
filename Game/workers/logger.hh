@@ -8,6 +8,8 @@
 #include "interfaces/igameeventhandler.h"
 #include "interfaces/iobjectmanager.h"
 
+namespace Student {
+
 class Logger : public NewBasicWorker
 {
 public:
@@ -33,5 +35,7 @@ public:
     virtual std::string getType() const override;
 
 };
+
+}
 
 #endif // LOGGER_HH

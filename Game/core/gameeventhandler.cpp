@@ -4,6 +4,7 @@
 #include "algorithm"
 #include "core/player.hh"
 
+namespace Student {
 GameEventHandler::GameEventHandler()
 {
 }
@@ -177,3 +178,5 @@ bool GameEventHandler::checkWinning()
 
     return win;
 }
+
+} // namespace Student

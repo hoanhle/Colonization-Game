@@ -1,6 +1,6 @@
 #include "housingbase.hh"
 
-
+namespace Student {
 HousingBase::HousingBase(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
                          const std::shared_ptr<Course::iObjectManager> &objectmanager,
                          const std::shared_ptr<Course::PlayerBase> &owner,
@@ -67,3 +67,5 @@ void HousingBase::addWorkers()
         }
     }
 }
+
+} // namespace Student

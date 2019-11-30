@@ -2,6 +2,7 @@
 #define SKYSCRAPER_HH
 #include "buildings/housingbase.hh"
 
+namespace Student {
 class SkyScraper : public HousingBase
 {
 public:
@@ -43,7 +44,8 @@ public:
      * @copydoc GameObject::getType()
      */
     virtual std::string getType() const override;
-};
+}; // class Skyscraper
+} // namespace Student
 
 
 #endif // SKYSCRAPER_HH

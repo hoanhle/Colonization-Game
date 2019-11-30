@@ -8,6 +8,8 @@
 #include "interfaces/igameeventhandler.h"
 #include "interfaces/iobjectmanager.h"
 
+namespace Student {
+
 class Farmer : public NewBasicWorker
 {
 public:
@@ -31,5 +33,7 @@ public:
      */
     virtual std::string getType() const override;
 };
+
+} // namespace Student
 
 #endif // FARMER_HH

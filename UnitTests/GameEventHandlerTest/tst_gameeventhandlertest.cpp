@@ -3,6 +3,7 @@
 #include "core/gameeventhandler.hh"
 // add necessary includes here
 
+using namespace Student;
 
 class GameEventHandlerTest : public QObject
 {

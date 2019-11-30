@@ -2,6 +2,7 @@
 #define MINE_HH
 #include "buildings/buildingbase.h"
 
+namespace Student {
 class Mine : public Course::BuildingBase
 {
 public:
@@ -41,6 +42,7 @@ public:
      */
     virtual std::string getType() const override;
 
-};
+}; // class Mine
+} // namespace Student
 
 #endif // MINE_HH

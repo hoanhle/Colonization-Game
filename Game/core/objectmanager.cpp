@@ -1,5 +1,6 @@
 #include "objectmanager.hh"
 
+namespace Student {
 ObjectManager::ObjectManager():
     m_tiles()
 {
@@ -85,3 +86,4 @@ void ObjectManager::addWorker(std::shared_ptr<NewBasicWorker> worker)
 }
 
 
+}

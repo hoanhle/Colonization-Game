@@ -21,7 +21,7 @@
 #include "tiles/rock.hh"
 #include "tiles/sand.hh"
 #include "tiles/water.hh"
-
+#include "core/nresourcemaps.hh"
 #include "graphics/highscoredialog.hh"
 #include "graphics/assigndialog.hh"
 #include "graphics/unassigndialog.hh"
@@ -48,14 +48,14 @@ class MapWindow : public QMainWindow
 public:
 
     explicit MapWindow(QWidget *parent = 0,
-                       std::shared_ptr<GameEventHandler> GEHandler = {}
+                       std::shared_ptr<Student::GameEventHandler> GEHandler = {}
                        );
     ~MapWindow();
     /**
      * @brief sets the game event handler
      * @param nHandler shared pointer to Game Event Handler
      */
-    void setGEHandler(std::shared_ptr<GameEventHandler> nHandler);
+    void setGEHandler(std::shared_ptr<Student::GameEventHandler> nHandler);
 
     /**
      * @brief set size of window
@@ -209,9 +209,9 @@ public slots:
 
 private:
     Ui::MapWindow* m_ui;
-    std::shared_ptr<GameEventHandler> m_GEHandler = nullptr;
-    std::shared_ptr<GameScene> m_scene = nullptr;
-    std::shared_ptr<ObjectManager> m_objectmanager = nullptr;
+    std::shared_ptr<Student::GameEventHandler> m_GEHandler = nullptr;
+    std::shared_ptr<Student::GameScene> m_scene = nullptr;
+    std::shared_ptr<Student::ObjectManager> m_objectmanager = nullptr;
     std::shared_ptr<QButtonGroup> m_buildingButtonGroup = nullptr;
     std::shared_ptr<QButtonGroup> m_workerButtonGroup = nullptr;
 

@@ -6,6 +6,8 @@
 #include "core/nresourcemaps.hh"
 #include <map>
 
+namespace Student {
+
 class Player : public Course::PlayerBase
 {
 public:
@@ -151,5 +153,7 @@ private:
     // Map to keep track the total free number of each worker type
     std::map<std::string, int> totalFreeWorker_;
 };
+
+} // namespace Student
 
 #endif // PLAYER_HH

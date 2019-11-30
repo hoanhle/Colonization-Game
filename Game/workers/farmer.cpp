@@ -1,6 +1,8 @@
 #include "workers/farmer.hh"
 #include "workers/workerbase.h"
 
+namespace Student {
+
 Farmer::Farmer(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
                const std::shared_ptr<Course::iObjectManager> &objectmanager,
                const std::shared_ptr<Course::PlayerBase> &owner,
@@ -22,3 +24,5 @@ std::string Farmer::getType() const
 {
     return "Farmer";
 }
+
+} // namespace Student

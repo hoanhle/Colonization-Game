@@ -3,6 +3,7 @@
 
 #include "buildings/housingbase.hh"
 
+namespace Student {
 class SmallHouse : public HousingBase
 {
 public:
@@ -44,6 +45,7 @@ public:
      * @copydoc GameObject::getType()
      */
     virtual std::string getType() const override;
-};
+}; // class SmallHouse
+} //namespace Student
 
 #endif // SMALLHOUSE_HH

@@ -1,6 +1,6 @@
 #include "rock.hh"
 
-
+namespace Student {
 
 Rock::Rock(const Course::Coordinate &location,
            const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
@@ -20,6 +20,8 @@ Rock::Rock(const Course::Coordinate &location,
 std::string Rock::getType() const
 {
     return "Rock";
+}
+
 }
 
 

@@ -11,6 +11,8 @@
 #include "graphics/mapitem.hh"
 #include "tiles/tilebase.h"
 
+namespace Student {
+
 const std::pair<int, int> SCENE_WIDTH_LIMITS = {1, 100};
 const std::pair<int, int> SCENE_HEIGHT_LIMITS = {1, 100};
 const std::pair<int, int> SCENE_SCALE_LIMITS = {1, 500};
@@ -123,5 +125,6 @@ private:
     int m_height;
     int m_scale;
 };
+} // namespace Student
 
 #endif // GAMESCENE_HH

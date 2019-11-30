@@ -7,6 +7,8 @@
 #include "interfaces/igameeventhandler.h"
 #include "interfaces/iobjectmanager.h"
 
+namespace Student {
+
 class NewBasicWorker : public Course::WorkerBase
 {
 public:
@@ -66,5 +68,7 @@ public:
      virtual const Course::ResourceMapDouble tileWorkAction() override final;
 
 };
+
+} // namespace Student
 
 #endif // NEWBASICWORKER_HH

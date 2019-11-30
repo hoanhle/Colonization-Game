@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
     do {
         QApplication app(argc, argv);
 
-        std::shared_ptr<GameEventHandler> handler = std::make_shared<GameEventHandler>();
+        std::shared_ptr<Student::GameEventHandler> handler = std::make_shared<Student::GameEventHandler>();
 
         MapWindow mapWindow(0, handler);
 

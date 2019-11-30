@@ -2,6 +2,8 @@
 #define LARGEHOUSE_HH
 #include "buildings/housingbase.hh"
 
+namespace Student {
+
 class LargeHouse : public HousingBase
 {
 public:
@@ -43,6 +45,8 @@ public:
      * @copydoc GameObject::getType()
      */
     virtual std::string getType() const override;
-};
+}; // class LargeHouse
+
+} // namespace Student
 
 #endif // LARGEHOUSE_HH

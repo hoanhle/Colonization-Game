@@ -13,6 +13,9 @@
 #include "core/objectmanager.hh"
 #include "core/gameeventhandler.hh"
 
+
+namespace Student {
+
 /**
  * @brief The HousingBase class
  */
@@ -70,6 +73,9 @@ public:
 
 private:
     int numPeople_;
-};
+}; // class HousingBase
+
+} //namespace Student
+
 
 #endif // HOUSINGBASE_HH

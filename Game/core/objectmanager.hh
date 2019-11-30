@@ -9,7 +9,7 @@
 #include "core/gameobject.h"
 #include "workers/newbasicworker.hh"
 
-
+namespace Student {
 
 class ObjectManager : public Course::iObjectManager
 {
@@ -84,5 +84,6 @@ private:
     std::vector<std::shared_ptr<Course::BuildingBase>> m_buildings;
     std::vector<std::shared_ptr<NewBasicWorker>> m_workes;
 };
+} // namespace Student
 
 #endif // OBJECTMANAGER_HH
