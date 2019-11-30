@@ -1,5 +1,6 @@
 #include "apartmentblock.hh"
 
+namespace Student {
 
 
 ApartmentBlock::ApartmentBlock(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
@@ -25,5 +26,6 @@ std::string ApartmentBlock::getType() const
     return "ApartmentBlock";
 }
 
+} // namespace Student
 
 

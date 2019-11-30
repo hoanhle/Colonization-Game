@@ -4,6 +4,7 @@
 #include "QDebug"
 #include "iostream"
 
+namespace Student {
 Player::Player(const std::string &name):
     Course::PlayerBase(name)
 {
@@ -187,5 +188,7 @@ void Player::removeWorkers(
         }
     }
 }
+
+} // namespace Student
 
 

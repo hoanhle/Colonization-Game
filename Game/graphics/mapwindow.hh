@@ -21,7 +21,7 @@
 #include "tiles/rock.hh"
 #include "tiles/sand.hh"
 #include "tiles/water.hh"
-
+#include "core/nresourcemaps.hh"
 #include "graphics/highscoredialog.hh"
 #include "graphics/assigndialog.hh"
 #include "graphics/unassigndialog.hh"
@@ -40,22 +40,24 @@
 
 namespace Ui {
 class MapWindow;
+
+// Location of high score file
 }
 
 class MapWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-
     explicit MapWindow(QWidget *parent = 0,
-                       std::shared_ptr<GameEventHandler> GEHandler = {}
+                       std::shared_ptr<Student::GameEventHandler> GEHandler = {}
                        );
     ~MapWindow();
+
     /**
      * @brief sets the game event handler
      * @param nHandler shared pointer to Game Event Handler
      */
-    void setGEHandler(std::shared_ptr<GameEventHandler> nHandler);
+    void setGEHandler(std::shared_ptr<Student::GameEventHandler> nHandler);
 
     /**
      * @brief set size of window
@@ -99,7 +101,6 @@ public:
      */
     void addTiles(Course::WorldGenerator& generator);
 
-
     /**
      * @brief update player's resource in mapwindow
      */
@@ -130,6 +131,7 @@ public:
      */
     bool checkEnoughResource();
 
+
     /**
      * @brief to get the type of the selected worker
      * @return string of the type of the worker
@@ -143,10 +145,32 @@ public:
      */
     void checkWinning();
 
+    /**
+     * @brief file the path of highscoreDb
+     * @return highScoreDb path
+     */
+    QString filePath();
+    /**
+     * @brief read from the file that contains high score db
+     * @return vector of user's scores
+     */
+    std::vector<QString> readHighScoreFile();
+
+    /**
+     * @brief append new point to highscore database
+     * @param pointToAppend: point to append
+     */
+    void writeToHighScoreFile(QString pointToAppend);
+
+    /**
+     * @brief players want to continue the game
+     */
     void continueGame();
 
+    /**
+     * @brief players want to end game
+     */
     void endGame();
-
 
     /**
      * @brief clear selected buttons
@@ -163,6 +187,8 @@ public:
      * @brief Set the playerTurnLabel to show whose turn it is
      */
     void displayPlayerTurn();
+
+
 
 private slots:
     void on_highScoreButton_clicked();
@@ -213,9 +239,9 @@ public slots:
 
 private:
     Ui::MapWindow* m_ui;
-    std::shared_ptr<GameEventHandler> m_GEHandler = nullptr;
-    std::shared_ptr<GameScene> m_scene = nullptr;
-    std::shared_ptr<ObjectManager> m_objectmanager = nullptr;
+    std::shared_ptr<Student::GameEventHandler> m_GEHandler = nullptr;
+    std::shared_ptr<Student::GameScene> m_scene = nullptr;
+    std::shared_ptr<Student::ObjectManager> m_objectmanager = nullptr;
     std::shared_ptr<QButtonGroup> m_buildingButtonGroup = nullptr;
     std::shared_ptr<QButtonGroup> m_workerButtonGroup = nullptr;
 

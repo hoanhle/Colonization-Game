@@ -6,44 +6,31 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>254</width>
+    <width>270</width>
     <height>312</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="player4">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>170</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Text label</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="score1">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>80</y>
-     <width>71</width>
+     <x>70</x>
+     <y>70</y>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>260</y>
+     <y>270</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -55,53 +42,27 @@
   <widget class="QLabel" name="score5">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>200</y>
-     <width>71</width>
+     <x>70</x>
+     <y>240</y>
+     <width>111</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="player2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>110</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Text label</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="score3">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>140</y>
-     <width>71</width>
+     <x>70</x>
+     <y>150</y>
+     <width>111</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="player1">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Text label</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -114,59 +75,33 @@
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="score2">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>70</x>
      <y>110</y>
-     <width>71</width>
+     <width>111</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="score4">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>170</y>
-     <width>71</width>
+     <x>70</x>
+     <y>190</y>
+     <width>111</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="player3">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>140</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Text label</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="player5">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>200</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Text label</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

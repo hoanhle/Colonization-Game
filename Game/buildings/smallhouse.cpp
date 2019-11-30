@@ -1,6 +1,6 @@
 #include "smallhouse.hh"
 
-
+namespace Student {
 
 SmallHouse::SmallHouse(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
                        const std::shared_ptr<Course::iObjectManager> &objectmanager,
@@ -24,3 +24,5 @@ std::string SmallHouse::getType() const
 {
     return "SmallHouse";
 }
+
+} // namespace Student

@@ -7,8 +7,7 @@
 
 #include <math.h>
 
-
-
+namespace Student {
 
 GameScene::GameScene(QWidget* parent,
                                  int width,
@@ -145,3 +144,5 @@ void GameScene::drawItem( std::shared_ptr<Course::GameObject> obj)
     MapItem* nItem = new MapItem(obj, obj->getType(), m_scale);
     addItem(nItem);
 }
+
+} // namespace Student

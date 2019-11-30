@@ -11,6 +11,7 @@
 #include "workers/basicworker.h"
 #include <QDebug>
 
+namespace Student {
 
 class GameEventHandler : public Course::iGameEventHandler
 {
@@ -123,6 +124,12 @@ public:
      */
     bool checkWinning();
 
+    /**
+     * @brief return the total number of turns one player has played
+     * @return total turns
+     */
+    int returnTurnNumber();
+
 private:
     std::vector<std::shared_ptr<Player>> players_;
 
@@ -133,7 +140,9 @@ private:
 
     // Current selected tile
     std::shared_ptr<Course::TileBase> tile_;
-};
+}; // class GameEventHandler
+
+} // namespace Student
 
 
 #endif // GAMEEVENTHANDLER_HH

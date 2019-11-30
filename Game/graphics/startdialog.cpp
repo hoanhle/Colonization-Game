@@ -25,8 +25,13 @@ void StartDialog::on_startButton_clicked()
 
 void StartDialog::on_ruleButton_clicked()
 {
-    hide();
+    accept();
     RulesDialog* rulesDialog = new RulesDialog(this);
     connect(rulesDialog, SIGNAL(backToStart()), this, SLOT(show()));
     rulesDialog->show();
+}
+
+void StartDialog::on_quitButton_clicked()
+{
+    reject();
 }

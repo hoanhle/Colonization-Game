@@ -36,6 +36,8 @@ private slots:
     void on_startButton_clicked();
     void on_ruleButton_clicked();
 
+    void on_quitButton_clicked();
+
 private:
     Ui::StartDialog *ui;
 

@@ -26,8 +26,8 @@ private slots:
 
 Q_DECLARE_METATYPE(std::vector<std::shared_ptr<Course::TileBase>>)
 Q_DECLARE_METATYPE(std::vector<std::string>)
-Q_DECLARE_METATYPE(std::shared_ptr<ObjectManager>)
-Q_DECLARE_METATYPE(std::shared_ptr<GameEventHandler>)
+Q_DECLARE_METATYPE(std::shared_ptr<Student::ObjectManager>)
+Q_DECLARE_METATYPE(std::shared_ptr<Student::GameEventHandler>)
 
 ObjectManagerTest::ObjectManagerTest()
 {
@@ -43,12 +43,12 @@ void ObjectManagerTest::addTiles_data()
 {
     QTest::addColumn<std::vector<std::shared_ptr<Course::TileBase>>>("tiles");
     QTest::addColumn<std::vector<std::string>>("expected");
-    QTest::addColumn<std::shared_ptr<ObjectManager>>("objectManager");
-    QTest::addColumn<std::shared_ptr<GameEventHandler>>("GE_handler");
+    QTest::addColumn<std::shared_ptr<Student::ObjectManager>>("objectManager");
+    QTest::addColumn<std::shared_ptr<Student::GameEventHandler>>("GE_handler");
 
     Course::Coordinate coord = Course::Coordinate(0,0);
-    std::shared_ptr<ObjectManager> manager = std::make_shared<ObjectManager>();
-    std::shared_ptr<GameEventHandler> GE_handler = std::make_shared<GameEventHandler>();
+    std::shared_ptr<Student::ObjectManager> manager = std::make_shared<Student::ObjectManager>();
+    std::shared_ptr<Student::GameEventHandler> GE_handler = std::make_shared<Student::GameEventHandler>();
 
     std::vector<std::shared_ptr<Course::TileBase>> test1 = {};
     std::shared_ptr<Course::TileBase> tile = std::make_shared<Course::Grassland>(coord, GE_handler, manager);
@@ -98,7 +98,7 @@ void ObjectManagerTest::addTiles_data()
 
 void ObjectManagerTest::addTiles()
 {
-    ObjectManager manager = ObjectManager();
+    Student::ObjectManager manager = Student::ObjectManager();
     QFETCH(std::vector<std::shared_ptr<Course::TileBase>>, tiles);
     QFETCH(std::vector<std::string>, expected);
 

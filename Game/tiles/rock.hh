@@ -5,6 +5,8 @@
 #include "core/objectmanager.hh"
 #include "core/nresourcemaps.hh"
 
+namespace Student {
+
 /**
  * @brief The Rock class represents Rock in the gameworld.
  *
@@ -52,5 +54,7 @@ public:
 
 
 };
+
+} // namespace Student
 
 #endif // ROCK_HH

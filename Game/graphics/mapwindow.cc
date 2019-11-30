@@ -8,7 +8,6 @@
 #include "graphics/startdialog.hh"
 #include "graphics/setplayerdialog.hh"
 #include "core/gamescene.hh"
-#include "iostream"
 #include "graphics/windialog.hh"
 #include "exceptions/noowner.hh"
 #include "exceptions/notenoughspace.h"
@@ -22,12 +21,12 @@ int Y_SIZE = 10;
 
 
 MapWindow::MapWindow(QWidget *parent,
-                     std::shared_ptr<GameEventHandler> handler):
+                     std::shared_ptr<Student::GameEventHandler> handler):
     QMainWindow(parent),
     m_ui(new Ui::MapWindow),
     m_GEHandler(handler),
-    m_scene(new GameScene(this)),
-    m_objectmanager(new ObjectManager())
+    m_scene(new Student::GameScene(this)),
+    m_objectmanager(new Student::ObjectManager())
 {
     m_ui->setupUi(this);
     m_ui->assignButton->setEnabled(false);
@@ -51,7 +50,7 @@ MapWindow::MapWindow(QWidget *parent,
 
     setStyleWorkerButtons();
 
-    GameScene* sgs_rawptr = m_scene.get();
+    Student::GameScene* sgs_rawptr = m_scene.get();
 
     Course::WorldGenerator& generator = Course::WorldGenerator::getInstance();
     addTiles(generator);
@@ -94,7 +93,7 @@ MapWindow::MapWindow(QWidget *parent,
     connect(m_workerButtonGroup.get(), SIGNAL(buttonClicked(QAbstractButton*)),
             this, SLOT(workerButtonPressed(QAbstractButton*)));
 
-
+    qDebug() << filePath();
 }
 
 
@@ -105,7 +104,7 @@ MapWindow::~MapWindow()
 
 
 void MapWindow::setGEHandler(
-        std::shared_ptr<GameEventHandler> nHandler)
+        std::shared_ptr<Student::GameEventHandler> nHandler)
 {
     m_GEHandler = nHandler;
 }
@@ -139,9 +138,9 @@ void MapWindow::addTiles(Course::WorldGenerator &generator)
 {
     generator.addConstructor<Course::Forest>(10);
     generator.addConstructor<Course::Grassland>(5);
-    generator.addConstructor<Rock>(6);
-    generator.addConstructor<Sand>(3);
-    generator.addConstructor<Water>(4);
+    generator.addConstructor<Student::Rock>(6);
+    generator.addConstructor<Student::Sand>(3);
+    generator.addConstructor<Student::Water>(4);
 
     generator.generateMap(X_SIZE, Y_SIZE, 99, m_objectmanager, m_GEHandler);
 }
@@ -171,7 +170,6 @@ void MapWindow::updateWorkerInfo()
 void MapWindow::updateFreeWorkerInfo()
 {
     std::map<std::string, int>* playerFreeWorker = m_GEHandler->getCurrentFreeWorkerNumber();
-    qDebug() << "playerFreeWorker";
     m_ui->freeBwNumber->display(playerFreeWorker->at("BasicWorker"));
     m_ui->freeFarmerNumber->display(playerFreeWorker->at("Farmer"));
     m_ui->freeLoggerNumber->display(playerFreeWorker->at("Logger"));
@@ -194,11 +192,11 @@ bool MapWindow::checkEnoughResource()
     bool success = true;
     Course::ResourceMap subtract;
     if (selected == m_ui->smallHouseButton){
-        subtract = turnCostToMinus(NewResourceMaps::SMALLHOUSE_BUILD_COST);
+        subtract = turnCostToMinus(Student::NewResourceMaps::SMALLHOUSE_BUILD_COST);
         success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->largeHouseButton)
     {
-        subtract = turnCostToMinus(NewResourceMaps::LARGEHOUSE_BUILD_COST);
+        subtract = turnCostToMinus(Student::NewResourceMaps::LARGEHOUSE_BUILD_COST);
         success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->farmButton)
     {
@@ -214,19 +212,19 @@ bool MapWindow::checkEnoughResource()
         success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->apartmentsButton)
     {
-        subtract = turnCostToMinus(NewResourceMaps::APARTMENT_BUILD_COST);
+        subtract = turnCostToMinus(Student::NewResourceMaps::SKYSCRAPER_BUILD_COST);
         success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->skyscraperButton)
     {
-        subtract = turnCostToMinus(NewResourceMaps::SKYSCRAPER_BUILD_COST);
+        subtract = turnCostToMinus(Student::NewResourceMaps::SKYSCRAPER_BUILD_COST);
         success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->mineButton)
     {
-        subtract = turnCostToMinus(NewResourceMaps::MINE_BUILD_COST);
+        subtract = turnCostToMinus(Student::NewResourceMaps::MINE_BUILD_COST);
         success = m_GEHandler->modifyResources(subtract);
     }else if (selected == m_ui->sawButton)
     {
-        subtract = turnCostToMinus(NewResourceMaps::SAWMILL_BUILD_COST);
+        subtract = turnCostToMinus(Student::NewResourceMaps::SAWMILL_BUILD_COST);
         success = m_GEHandler->modifyResources(subtract);
     }
     return success;
@@ -264,14 +262,57 @@ void MapWindow::checkWinning()
     }
 }
 
+QString MapWindow::filePath()
+{
+    QString path = qApp->applicationDirPath();
+    path.append("/scoreDb.txt");
+
+    return path;
+}
+
+std::vector<QString> MapWindow::readHighScoreFile()
+{
+    std::vector<QString> points_;
+    QFile highScoreFile(filePath());
+
+    if (highScoreFile.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&highScoreFile);
+        QString line = stream.readLine();
+        while (!line.isNull()) {
+            points_.push_back(line);
+            line = stream.readLine();
+        }
+        highScoreFile.close();
+    }
+
+    return points_;
+}
+
+void MapWindow::writeToHighScoreFile(QString pointToAppend)
+{
+    QFile ScoreFile(filePath());
+    pointToAppend += "\n";
+    if (ScoreFile.open(QFile::WriteOnly | QIODevice::Append)) {
+        QTextStream out(&ScoreFile);
+        out << pointToAppend;
+    }
+
+    ScoreFile.flush();
+    ScoreFile.close();
+}
+
 void MapWindow::continueGame()
 {
+    int turns = m_GEHandler->returnTurnNumber();
+    writeToHighScoreFile(QString::number(turns));
     hide();
     qApp->exit(200);
 }
 
 void MapWindow::endGame()
 {
+    int turns = m_GEHandler->returnTurnNumber();
+    writeToHighScoreFile(QString::number(turns));
     qApp->exit(0);
 }
 
@@ -362,12 +403,19 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 void MapWindow::on_highScoreButton_clicked()
 {
     HighScoreDialog* highScoreDialog = new HighScoreDialog;
+    std::vector<QString> existPoints = readHighScoreFile();
+    std::vector<int> scoreDb;
 
-    playerInfo pair1 = {"haha", 1};
-    std::vector<playerInfo> highScoreDb;
-    highScoreDb.push_back(pair1);
+    for (int i = 0; i < existPoints.size(); i++){
+        int point = existPoints[i].toInt();
+        scoreDb.push_back(point);
+    }
 
-    highScoreDialog->setHighScoreInformation(highScoreDb);
+    if (scoreDb.size() > 0){
+        std::sort(scoreDb.begin(), scoreDb.end());
+    }
+
+    highScoreDialog->setHighScoreInformation(scoreDb);
     highScoreDialog->exec();
 
     delete highScoreDialog;
@@ -517,14 +565,12 @@ void MapWindow::on_endTurnButton_clicked()
     m_GEHandler->printCurrentPlayer();
 
     std::vector<std::shared_ptr<Course::GameObject>> objects = m_GEHandler->getCurrentPlayer()->getObjects();
-    std::cout << objects.size() << std::endl;
     for (auto x = objects.begin(); x != objects.end(); ++x){
         Course::Coordinate coord = x->get()->getCoordinate();
         std::shared_ptr<Course::TileBase> tile = m_objectmanager->getTile(coord);
 
 
         bool success = tile->generateResources();
-        qDebug() << success;
     }
 
     updateResourceInfo();
@@ -549,25 +595,25 @@ void MapWindow::on_buildButton_clicked()
             std::shared_ptr<Course::BuildingBase> building = nullptr;
             if (selected == m_ui->smallHouseButton)
             {
-                building = std::make_shared<SmallHouse>(m_GEHandler,
+                building = std::make_shared<Student::SmallHouse>(m_GEHandler,
                                                         m_objectmanager,
                                                         player,
                                                         1,
-                                                        NewResourceMaps::SMALLHOUSE_BUILD_COST,
-                                                        NewResourceMaps::SMALLHOUSE_PRODUCTION,
+                                                        Student::NewResourceMaps::SMALLHOUSE_BUILD_COST,
+                                                        Student::NewResourceMaps::SMALLHOUSE_PRODUCTION,
                                                         4);
-                std::dynamic_pointer_cast<SmallHouse>(building)->addWorkers();
+                std::dynamic_pointer_cast<Student::SmallHouse>(building)->addWorkers();
 
             }else if (selected == m_ui->largeHouseButton)
             {
-                building = std::make_shared<LargeHouse>(m_GEHandler,
+                building = std::make_shared<Student::LargeHouse>(m_GEHandler,
                                                         m_objectmanager,
                                                         player,
                                                         1,
-                                                        NewResourceMaps::LARGEHOUSE_BUILD_COST,
-                                                        NewResourceMaps::LARGEHOUSE_PRODUCTION,
+                                                        Student::NewResourceMaps::LARGEHOUSE_BUILD_COST,
+                                                        Student::NewResourceMaps::LARGEHOUSE_PRODUCTION,
                                                         8);
-                std::dynamic_pointer_cast<LargeHouse>(building)->addWorkers();
+                std::dynamic_pointer_cast<Student::LargeHouse>(building)->addWorkers();
             }else if (selected == m_ui->farmButton)
             {
                 building = std::make_shared<Course::Farm>(m_GEHandler,
@@ -597,42 +643,42 @@ void MapWindow::on_buildButton_clicked()
                                                             );
             }else if (selected == m_ui->apartmentsButton)
             {
-                building = std::make_shared<ApartmentBlock>(m_GEHandler,
+                building = std::make_shared<Student::ApartmentBlock>(m_GEHandler,
                                                             m_objectmanager,
                                                             player,
                                                             1,
-                                                            NewResourceMaps::APARTMENT_BUILD_COST,
-                                                            NewResourceMaps::APARTMENT_PRODUCTION
+                                                            Student::NewResourceMaps::APARTMENT_BUILD_COST,
+                                                            Student::NewResourceMaps::APARTMENT_PRODUCTION
                                                             );
-                std::dynamic_pointer_cast<ApartmentBlock>(building)->addWorkers();
+                std::dynamic_pointer_cast<Student::ApartmentBlock>(building)->addWorkers();
             }else if (selected == m_ui->skyscraperButton)
             {
-                building = std::make_shared<SkyScraper>(m_GEHandler,
+                building = std::make_shared<Student::SkyScraper>(m_GEHandler,
                                                         m_objectmanager,
                                                         player,
                                                         1,
-                                                        NewResourceMaps::SKYSCRAPER_BUILD_COST,
-                                                        NewResourceMaps::SKYSCRAPER_PRODUCTION
+                                                        Student::NewResourceMaps::SKYSCRAPER_BUILD_COST,
+                                                        Student::NewResourceMaps::SKYSCRAPER_PRODUCTION
                                                         );
-                std::dynamic_pointer_cast<SkyScraper>(building)->addWorkers();
+                std::dynamic_pointer_cast<Student::SkyScraper>(building)->addWorkers();
             }else if (selected == m_ui->mineButton)
             {
-                building = std::make_shared<Mine>(m_GEHandler,
+                building = std::make_shared<Student::Mine>(m_GEHandler,
                                                         m_objectmanager,
                                                         player,
                                                         1,
-                                                        NewResourceMaps::MINE_BUILD_COST,
-                                                        NewResourceMaps::MINE_PRODUCTION
+                                                        Student::NewResourceMaps::MINE_BUILD_COST,
+                                                        Student::NewResourceMaps::MINE_PRODUCTION
                                                         );
 
             }else if (selected == m_ui->sawButton)
             {
-                building = std::make_shared<SawMill>(m_GEHandler,
+                building = std::make_shared<Student::SawMill>(m_GEHandler,
                                                         m_objectmanager,
                                                         player,
                                                         1,
-                                                        NewResourceMaps::SAWMILL_BUILD_COST,
-                                                        NewResourceMaps::SAWMILL_PRODUCTION
+                                                        Student::NewResourceMaps::SAWMILL_BUILD_COST,
+                                                        Student::NewResourceMaps::SAWMILL_PRODUCTION
                                                         );
 
             }
@@ -683,7 +729,7 @@ void MapWindow::on_buildButton_clicked()
     }
 
     clearSelections();
-
+    checkWinning();
 }
 
 

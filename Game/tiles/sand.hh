@@ -5,6 +5,8 @@
 #include "core/objectmanager.hh"
 #include "core/nresourcemaps.hh"
 
+namespace Student {
+
 /**
  * @brief The Sand class represents Sand in the gameworld.
  *
@@ -52,5 +54,8 @@ public:
     virtual std::string getType() const override;
 
 };
+
+
+} // namespace Student
 
 #endif // SAND_HH

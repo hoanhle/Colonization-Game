@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
     do {
         QApplication app(argc, argv);
 
-        std::shared_ptr<GameEventHandler> handler = std::make_shared<GameEventHandler>();
+        std::shared_ptr<Student::GameEventHandler> handler = std::make_shared<Student::GameEventHandler>();
 
         MapWindow mapWindow(0, handler);
 
@@ -32,10 +32,10 @@ int main(int argc, char* argv[])
         QDialog::connect(&setPlayerDialog, SIGNAL(startGame(int)),&mapWindow, SLOT(createPlayers(int)));
 
         // Stop the game if the startDialog get deleted.
-        if (startDialog.exec()){
-            appExitCode = app.exec();
-        } else {
+        if (startDialog.exec() == QDialog::Rejected){
             appExitCode = 0;
+        } else {
+            appExitCode = app.exec();
         }
 
 

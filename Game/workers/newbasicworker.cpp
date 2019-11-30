@@ -3,6 +3,8 @@
 #include "interfaces/iobjectmanager.h"
 #include "tiles/tilebase.h"
 
+namespace Student {
+
 NewBasicWorker::NewBasicWorker(
         const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
         const std::shared_ptr<Course::iObjectManager> &objectmanager,
@@ -73,4 +75,6 @@ const Course::ResourceMapDouble NewBasicWorker::tileWorkAction()
     return final_modifier;
 
 }
+
+} // namespace Student
 

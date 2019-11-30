@@ -2,6 +2,7 @@
 #define SAWMILL_HH
 #include "buildings/buildingbase.h"
 
+namespace Student {
 class SawMill : public Course::BuildingBase
 {
 public:
@@ -42,5 +43,7 @@ public:
     virtual std::string getType() const override;
 
 };
+
+} // namespace Student
 
 #endif // SAWMILL_HH

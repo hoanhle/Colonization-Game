@@ -1,5 +1,7 @@
 #include "workers/logger.hh"
 
+namespace Student {
+
 Logger::Logger(const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
                const std::shared_ptr<Course::iObjectManager> &objectmanager,
                const std::shared_ptr<Course::PlayerBase> &owner,
@@ -21,3 +23,5 @@ std::string Logger::getType() const
 {
     return "Logger";
 }
+
+} // namespace Student

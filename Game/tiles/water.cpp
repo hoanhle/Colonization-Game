@@ -1,6 +1,6 @@
 #include "water.hh"
 
-
+namespace Student {
 
 Water::Water(const Course::Coordinate &location,
              const std::shared_ptr<Course::iGameEventHandler> &eventhandler,
@@ -22,4 +22,5 @@ std::string Water::getType() const
     return "Water";
 }
 
+} // namespace Student
 
