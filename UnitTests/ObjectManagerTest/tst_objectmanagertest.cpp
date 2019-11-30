@@ -3,6 +3,7 @@
 // add necessary includes here
 #include "core/objectmanager.hh"
 #include "core/gameeventhandler.hh"
+#include "core/gameobject.h"
 #include "tiles/grassland.h"
 #include "tiles/forest.h"
 #include "tiles/rock.hh"
@@ -22,12 +23,19 @@ private slots:
     void addTiles();
     void addTiles_data();
 
+    void getTileFromCoord();
+    void getTileFromCoord_data();
+
 };
 
 Q_DECLARE_METATYPE(std::vector<std::shared_ptr<Course::TileBase>>)
 Q_DECLARE_METATYPE(std::vector<std::string>)
 Q_DECLARE_METATYPE(std::shared_ptr<Student::ObjectManager>)
 Q_DECLARE_METATYPE(std::shared_ptr<Student::GameEventHandler>)
+Q_DECLARE_METATYPE(Student::ObjectManager)
+Q_DECLARE_METATYPE(Course::ObjectId)
+
+
 
 ObjectManagerTest::ObjectManagerTest()
 {
@@ -38,6 +46,26 @@ ObjectManagerTest::~ObjectManagerTest()
 {
 
 }
+
+
+void ObjectManagerTest::addTiles()
+{
+    Student::ObjectManager manager = Student::ObjectManager();
+    QFETCH(std::vector<std::shared_ptr<Course::TileBase>>, tiles);
+    QFETCH(std::vector<std::string>, expected);
+
+    manager.addTiles(tiles);
+    std::vector<std::shared_ptr<Course::TileBase>> retrieved = manager.getAllTiles();
+
+
+    for (unsigned int i = 0; i < retrieved.size(); ++i)
+    {
+        QVERIFY2(retrieved[i]->getType() == expected[i], "tile does not match");
+    }
+
+
+}
+
 
 void ObjectManagerTest::addTiles_data()
 {
@@ -95,23 +123,43 @@ void ObjectManagerTest::addTiles_data()
     QTest::newRow("empty") << test4 << expected4;
 }
 
-void ObjectManagerTest::addTiles()
+void ObjectManagerTest::getTileFromCoord()
 {
+    QFETCH(Student::ObjectManager, objectManager);
+    QFETCH(char, x);
+    QFETCH(char, y);
+    QFETCH(Course::ObjectId, ID);
+    Course::Coordinate coord = Course::Coordinate(x, y);
+
+    QVERIFY2(objectManager.getTile(coord)->ID == ID, "Tile of incorrect ID");
+}
+
+void ObjectManagerTest::getTileFromCoord_data()
+{
+    QTest::addColumn<Student::ObjectManager>("objectManager");
+    QTest::addColumn<char>("x");
+    QTest::addColumn<char>("y");
+    QTest::addColumn<Course::ObjectId>("ID");
+
     Student::ObjectManager manager = Student::ObjectManager();
-    QFETCH(std::vector<std::shared_ptr<Course::TileBase>>, tiles);
-    QFETCH(std::vector<std::string>, expected);
+    std::shared_ptr<Student::ObjectManager> manager_ptr = std::make_shared<Student::ObjectManager>(manager);
+    std::shared_ptr<Student::GameEventHandler> GE_handler = std::make_shared<Student::GameEventHandler>();
 
-    manager.addTiles(tiles);
-    std::vector<std::shared_ptr<Course::TileBase>> retrieved = manager.getAllTiles();
+    // testcase one coord (0,0) from only one stored tile
+    char x = 0;
+    char y = 0;
+    Course::Coordinate coord = Course::Coordinate(x, y);
+    std::shared_ptr<Course::TileBase> tile = std::make_shared<Course::TileBase>(coord, GE_handler, manager_ptr);
+    manager.addTiles({tile});
 
+    QTest::newRow("one tile stored") << manager << x << y << tile->ID;
 
-    for (unsigned int i = 0; i < retrieved.size(); ++i)
-    {
-        QVERIFY2(retrieved[i]->getType() == expected[i], "tile does not match");
-    }
+    // testcase coord not found
 
 
 }
+
+
 
 QTEST_APPLESS_MAIN(ObjectManagerTest)
 
