@@ -92,8 +92,6 @@ MapWindow::MapWindow(QWidget *parent,
 
     connect(m_workerButtonGroup.get(), SIGNAL(buttonClicked(QAbstractButton*)),
             this, SLOT(workerButtonPressed(QAbstractButton*)));
-
-    qDebug() << filePath();
 }
 
 
@@ -262,22 +260,10 @@ void MapWindow::checkWinning()
     }
 }
 
-QString MapWindow::filePath()
-{
-    QString path = qApp->applicationDirPath();
-    if (path.contains("debug")){
-        path.replace("debug", "scoreDb.txt");
-    } else {
-        path.append("scoreDb.txt");
-    }
-
-    return path;
-}
-
 std::vector<QString> MapWindow::readHighScoreFile()
 {
     std::vector<QString> points_;
-    QFile highScoreFile(filePath());
+    QFile highScoreFile(Ui::directory);
 
     if (highScoreFile.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream stream(&highScoreFile);
@@ -294,7 +280,7 @@ std::vector<QString> MapWindow::readHighScoreFile()
 
 void MapWindow::writeToHighScoreFile(QString pointToAppend)
 {
-    QFile ScoreFile(filePath());
+    QFile ScoreFile(Ui::directory);
     pointToAppend += "\n";
     if (ScoreFile.open(QFile::WriteOnly | QIODevice::Append)) {
         QTextStream out(&ScoreFile);

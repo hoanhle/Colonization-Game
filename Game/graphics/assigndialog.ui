@@ -29,10 +29,10 @@
   <widget class="QSpinBox" name="workerSpinBox">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>170</x>
      <y>110</y>
-     <width>81</width>
-     <height>21</height>
+     <width>121</width>
+     <height>31</height>
     </rect>
    </property>
   </widget>
@@ -40,7 +40,7 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>130</y>
+     <y>160</y>
      <width>121</width>
      <height>31</height>
     </rect>

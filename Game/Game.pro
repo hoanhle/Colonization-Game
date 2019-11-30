@@ -103,4 +103,5 @@ FORMS += \
 RESOURCES += \
     Icons.qrc
 
-DISTFILES +=
+DISTFILES += \
+    scoreDb.txt
