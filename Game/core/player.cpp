@@ -1,5 +1,4 @@
 #include "core/player.hh"
-#include "core/nresourcemaps.hh"
 #include "exceptions/keyerror.h"
 #include <algorithm>
 #include "QDebug"

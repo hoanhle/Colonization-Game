@@ -4,6 +4,7 @@
 #include "core/playerbase.h"
 #include "workers/newbasicworker.hh"
 #include "core/nresourcemaps.hh"
+#include "core/basicresources.h"
 #include <map>
 
 class Player : public Course::PlayerBase

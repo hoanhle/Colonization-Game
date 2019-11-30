@@ -1,8 +1,7 @@
 #include "gameeventhandler.hh"
 #include "vector"
-#include "core/nresourcemaps.hh"
 #include "algorithm"
-#include "core/player.hh"
+
 
 GameEventHandler::GameEventHandler()
 {

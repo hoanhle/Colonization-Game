@@ -2,6 +2,7 @@
 #define GAMEEVENTHANDLER_HH
 
 #include "tiles/tilebase.h"
+#include "tiles/grassland.h"
 #include "interfaces/igameeventhandler.h"
 #include "core/coordinate.h"
 #include "core/gameobject.h"
