@@ -130,6 +130,10 @@ public:
      */
     bool checkEnoughResource();
 
+    /**
+     * @brief to get the type of the selected worker
+     * @return string of the type of the worker
+     */
     std::string getSelectedWorkerType();
 
     /**
