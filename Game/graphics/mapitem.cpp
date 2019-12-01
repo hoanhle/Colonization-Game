@@ -1,6 +1,8 @@
 #include "mapitem.hh"
 
 
+namespace Student {
+
 MapItem::MapItem(const std::shared_ptr<Course::GameObject> &obj, std::string type, int size):
     m_gameobject(obj), m_scenelocation(m_gameobject->getCoordinatePtr()->asQpoint()), m_size(size)
 {
@@ -119,3 +121,5 @@ void MapItem::setSize(int size)
         m_size = size;
     }
 }
+
+} // namespace Student
