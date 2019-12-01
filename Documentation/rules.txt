@@ -1,0 +1,40 @@
+Game-start:
+Users click start and choose the number of players in the game (from 2 to 4 players).
+The game is played in turns.
+The players can play rock-paper-scissors to decide order of playing.
+In the beginning, each player will have 500 resources each type (food, money, ore, wood, stone).
+This money can be used to buy and build buildings on the map.
+
+Game-play:
+Each turn, players can do those following actions:
+Build buildings:
+There are three main types of buildings in the game.
+- Sawmill, farm, mine. They helps the users to increase the production of each land (tile) the player has
+- Smallhouse, Largehouse, Apartmentblock and Skyscrapper. Build these buildings increase the number of people (workers) the players has.
+- Outpost. Help the players to get ownership of neighborhood lands.
+How to build: 
+The player must click on the tile that has no-owner or he/she owns the tile/land. After that, the player can pick different building type
+and build button to build. (Remember: player can only build if he/she has enough resources)
+
+Assign workers:
+The player can assign workers to a tile to increase the efficiency of tile-production.
+How to assign:
+The player can click on tile to see information about that tile. If the player owns the tile, he/she can assign the workers to tile by choose
+the type of workers he/she want to assign and click assign button. After that, an dialog will open and the player can type in the number of workers to 
+assign. 
+
+Unassign workers:
+The player can unassign workers from a tile to get them back.
+How to unassign:
+The player can click on tile to see information about that tile. If the player owns the tile, he/she can unassign the workers from the tile by choose
+the type of workers he/she want to unassign and click unassign button. After that, an dialog will open and the player can type in the number of workers to 
+unassign. 
+
+The player can click on end turn to end their turn.
+
+How to win:
+The game ends when a player can get 5000 resources in total and 50 people in total. His/her village becomes the largest in Pirkamaa and they claim
+the ownership of the whole magical land.
+
+
+
