@@ -17,7 +17,10 @@
 namespace Student {
 
 /**
- * @brief The HousingBase class
+ * @brief The HousingBase class is a base-class for different
+ * housing buildings in the game
+ *
+ * It increases the number of workers for the player
  */
 class HousingBase : public Course::BuildingBase
 {
@@ -37,7 +40,7 @@ public:
      * @param tiles spaces indicates the number of positions it fills on the tile
      * @param building is a resource map including the cost of construction
      * @param production is a resource map indicating the production of building
-     * @param numPeople indicates the number of workers housed by the tile
+     * @param numPeople indicates the number of workers housed it created
      *
      * @post Exception Guarantee: No guarantee.
      */
@@ -62,8 +65,8 @@ public:
     virtual std::string getType() const override;
 
     /**
-     * @brief add numPeople_/4 set of worker (1 basic, 1 farmer, 1 logger, 1 miner)
-     * to player object and objectmanager
+     * @brief add numPeople/4 set of worker (1 basic, 1 farmer, 1 logger, 1 miner)
+     * to player object and objectmanager object
      */
     void addWorkers();
 

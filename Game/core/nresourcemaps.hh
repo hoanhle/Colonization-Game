@@ -25,8 +25,8 @@ const Course::ResourceMap SMALLHOUSE_BUILD_COST = {
     {Course::WOOD, 25}
 };
 const Course::ResourceMap SMALLHOUSE_PRODUCTION = {
-    {Course::MONEY, 0},
-    {Course::FOOD, -10}
+    {Course::MONEY, -2},
+    {Course::FOOD, -2}
 };
 
 // Apartment block resources
@@ -36,8 +36,8 @@ const Course::ResourceMap APARTMENT_BUILD_COST = {
     {Course::WOOD, 100}
 };
 const Course::ResourceMap APARTMENT_PRODUCTION = {
-    {Course::MONEY, 0},
-    {Course::FOOD, -1}
+    {Course::MONEY, -6},
+    {Course::FOOD, -6}
 };
 
 // SkySkraper resources
@@ -47,8 +47,8 @@ const Course::ResourceMap SKYSCRAPER_BUILD_COST = {
     {Course::WOOD, 500}
 };
 const Course::ResourceMap SKYSCRAPER_PRODUCTION = {
-    {Course::MONEY, 0},
-    {Course::FOOD, -100}
+    {Course::MONEY, -20},
+    {Course::FOOD, -20}
 };
 
 // LargeHouse resources
@@ -58,8 +58,8 @@ const Course::ResourceMap LARGEHOUSE_BUILD_COST = {
     {Course::WOOD, 35}
 };
 const Course::ResourceMap LARGEHOUSE_PRODUCTION = {
-    {Course::MONEY, 0},
-    {Course::FOOD, -2}
+    {Course::MONEY, -4},
+    {Course::FOOD, -4}
 };
 
 // Mine resources
