@@ -307,7 +307,6 @@ void MapWindow::endGame()
 
 void MapWindow::clearSelections()
 {
-
     if(m_buildingButtonGroup->checkedButton())
     {
         m_buildingButtonGroup->setExclusive(false);
@@ -323,7 +322,10 @@ void MapWindow::clearSelections()
     }
 
     m_ui->unassignButton->setEnabled(false);
+    m_ui->unassignButton->setChecked(false);
+    m_ui->assignButton->setChecked(false);
     m_ui->assignButton->setEnabled(false);
+    m_ui->buildButton->setChecked(false);
     m_ui->infoLabel->clear();
 
 }
@@ -414,30 +416,36 @@ void MapWindow::on_highScoreButton_clicked()
 
 void MapWindow::on_assignButton_clicked()
 {   
-    int maxWorkers = 0;
-    QAbstractButton* selected = m_workerButtonGroup->checkedButton();
+    if (m_GEHandler->returnSelectedTile()->getOwner() ==
+            m_GEHandler->getCurrentPlayer()){
+        int maxWorkers = 0;
+        QAbstractButton* selected = m_workerButtonGroup->checkedButton();
 
-    if (selected == m_ui->bwButton){
-        maxWorkers = m_ui->freeBwNumber->value();
-    } else if (selected == m_ui->farmerButton){
-        maxWorkers = m_ui->freeFarmerNumber->value();
-    } else if (selected == m_ui->minerButton){
-        maxWorkers = m_ui->freeMinerNumber->value();
-    } else if (selected == m_ui->loggerButton){
-        maxWorkers = m_ui->freeLoggerNumber->value();
+        if (selected == m_ui->bwButton){
+            maxWorkers = m_ui->freeBwNumber->value();
+        } else if (selected == m_ui->farmerButton){
+            maxWorkers = m_ui->freeFarmerNumber->value();
+        } else if (selected == m_ui->minerButton){
+            maxWorkers = m_ui->freeMinerNumber->value();
+        } else if (selected == m_ui->loggerButton){
+            maxWorkers = m_ui->freeLoggerNumber->value();
+        }
+
+        // The maximum number of workers can be assigned to the selected tile
+        int maxAddedWorkers = 3 - m_GEHandler->returnSelectedTile()->getWorkerCount();
+        if (maxAddedWorkers > maxWorkers){
+            maxAddedWorkers = maxWorkers;
+        }
+
+        AssignDialog* assignDialog = new AssignDialog(maxAddedWorkers, this);
+        connect(assignDialog, SIGNAL(setWorkers(int)), this, SLOT(assignWorkers(int)));
+
+        assignDialog->exec();
+
+    } else {
+        m_ui->warningLabel->setText(
+                    "You can't assign workers here since this land is not yours");
     }
-
-    // The maximum number of workers can be assigned to the selected tile
-    int maxAddedWorkers = 3 - m_GEHandler->returnSelectedTile()->getWorkerCount();
-    if (maxAddedWorkers > maxWorkers){
-        maxAddedWorkers = maxWorkers;
-    }
-
-    AssignDialog* assignDialog = new AssignDialog(maxAddedWorkers, this);
-    connect(assignDialog, SIGNAL(setWorkers(int)), this, SLOT(assignWorkers(int)));
-
-    assignDialog->exec();
-
     clearSelections();
 }
 
@@ -502,24 +510,29 @@ void MapWindow::setupButtonGroup(
 
 void MapWindow::on_unassignButton_clicked()
 {
-    std::string workerType = getSelectedWorkerType();
-    int maxFreeWorkers = 0;
+    if (m_GEHandler->returnSelectedTile()->getOwner() ==
+        m_GEHandler->getCurrentPlayer()){
+        std::string workerType = getSelectedWorkerType();
+        int maxFreeWorkers = 0;
 
-    std::vector<std::shared_ptr<Course::WorkerBase>> workers =
-            m_GEHandler->returnSelectedTile()->getWorkers();
-    for (auto item = workers.begin();
-         item != workers.end(); ++item)
-    {
-        std::string name = item->get()->getType();
-        if (name == workerType)
+        std::vector<std::shared_ptr<Course::WorkerBase>> workers =
+                m_GEHandler->returnSelectedTile()->getWorkers();
+        for (auto item = workers.begin();
+             item != workers.end(); ++item)
         {
-            maxFreeWorkers += 1;
+            std::string name = item->get()->getType();
+            if (name == workerType)
+            {
+                maxFreeWorkers += 1;
+            }
         }
-    }
 
-    UnAssignDialog* unAssignDialog = new UnAssignDialog(maxFreeWorkers, this);
-    connect(unAssignDialog, SIGNAL(freeWorkers(int)), this, SLOT(unassignWorkers(int)));
-    unAssignDialog->exec();
+        UnAssignDialog* unAssignDialog = new UnAssignDialog(maxFreeWorkers, this);
+        connect(unAssignDialog, SIGNAL(freeWorkers(int)), this, SLOT(unassignWorkers(int)));
+        unAssignDialog->exec();
+    } else {
+        m_ui->warningLabel->setText("This land is not yours. Go away!");
+    }
 
     clearSelections();
 }
