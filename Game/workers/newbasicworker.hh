@@ -9,6 +9,22 @@
 
 namespace Student {
 
+/**
+ * @brief The NewBasicWorker class represents a "normal worker" in the game.
+ *
+ * Worker has following production-efficiency: \n
+ * * Money - 0.25 \n
+ * * Food - 1.00 \n
+ * * Wood - 0.75 \n
+ * * Stone - 0.50 \n
+ * * Ore - 0.50 \n
+ *
+ * NewBasicWorkers consume Food and money. \n
+ * * 1 Food - Or NewBasicWorker refuses to work. \n
+ * * 1 Money - Or NewBasicWorker works at 50% efficiency. \n
+ * * Resourcefocus adds 25% efficiency for the focused resource,
+ * even if the worker is refusing work.
+ */
 class NewBasicWorker : public Course::WorkerBase
 {
 public:
@@ -21,9 +37,9 @@ public:
      * @brief Constructor for the class.
      *
      * @param eventhandler points to the student's GameEventHandler.
+     * @param objectmanager points to the student's ObjectManager
      * @param owner points to the owning player.
      */
-
      NewBasicWorker(const std::shared_ptr<Course::iGameEventHandler>& eventhandler,
                     const std::shared_ptr<Course::iObjectManager>& objectmanager,
                     const std::shared_ptr<Course::PlayerBase>& owner,
