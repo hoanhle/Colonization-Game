@@ -3,6 +3,12 @@
 #include "buildings/housingbase.hh"
 
 namespace Student {
+
+/**
+ * @brief The SkyScraper class represents a sky scraper in the game
+ *
+ * It houses 24 workers (6 of each type)
+ */
 class SkyScraper : public HousingBase
 {
 public:
@@ -29,7 +35,7 @@ public:
             const int& tilespaces = 1,
             const Course::ResourceMap& building  = NewResourceMaps::SKYSCRAPER_BUILD_COST,
             const Course::ResourceMap& production = NewResourceMaps::SKYSCRAPER_PRODUCTION,
-            const int& numPeople = 40);
+            const int& numPeople = 24);
 
     /**
      * @brief Default destructor.

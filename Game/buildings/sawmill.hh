@@ -4,6 +4,11 @@
 #include "core/nresourcemaps.hh"
 
 namespace Student {
+
+/**
+ * @brief The SawMill class represents a saw mill in the game
+ * It adds 50 base production for wood and 20 for money
+ */
 class SawMill : public Course::BuildingBase
 {
 public:

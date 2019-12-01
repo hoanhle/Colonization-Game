@@ -8,7 +8,7 @@ namespace Student {
 /**
  * @brief The Mine class represents a mine-building in the game
  *
- * The mine adds
+ * The mine adds base productions: 50 for stone, 35 for ore and 20 for money
  */
 class Mine : public Course::BuildingBase
 {

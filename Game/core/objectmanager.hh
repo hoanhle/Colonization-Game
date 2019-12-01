@@ -11,6 +11,9 @@
 
 namespace Student {
 
+/**
+ * @brief The ObjectManager class keeps track of all of the objects within the game
+ */
 class ObjectManager : public Course::iObjectManager
 {
 public:

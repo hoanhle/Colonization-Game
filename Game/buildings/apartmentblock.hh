@@ -8,7 +8,7 @@ namespace Student {
 /**
  * @brief The ApartmentBlock class represents a apartment-building in the game
  *
- * The apartmentblock add 8 workers (2 each type) to the player.
+ * The apartmentblock adds 12 workers (3 each type) to the player.
  */
 class ApartmentBlock : public HousingBase
 {

@@ -4,6 +4,12 @@
 #include "buildings/housingbase.hh"
 
 namespace Student {
+
+/**
+ * @brief The SmallHouse class represents a small house in the game
+ *
+ * It houses 4 workers (1 of each type)
+ */
 class SmallHouse : public HousingBase
 {
 public:

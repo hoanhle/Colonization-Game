@@ -17,7 +17,9 @@ const std::pair<int, int> SCENE_WIDTH_LIMITS = {1, 100};
 const std::pair<int, int> SCENE_HEIGHT_LIMITS = {1, 100};
 const std::pair<int, int> SCENE_SCALE_LIMITS = {1, 500};
 
-
+/**
+ * @brief The GameScene class defines the map area for the game to be played on
+ */
 class GameScene : public QGraphicsScene
 {
     Q_OBJECT

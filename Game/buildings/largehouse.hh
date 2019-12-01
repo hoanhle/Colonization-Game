@@ -7,7 +7,7 @@ namespace Student {
 /**
  * @brief The LargeHouse class represents a large house in the game
  *
- * It increase
+ * It houses 8 workers
  */
 class LargeHouse : public HousingBase
 {
