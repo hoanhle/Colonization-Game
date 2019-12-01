@@ -23,6 +23,7 @@ const Course::ResourceMap SMALLHOUSE_BUILD_COST = {
     {Course::MONEY, 50},
     {Course::FOOD, 100},
     {Course::WOOD, 25}
+
 };
 const Course::ResourceMap SMALLHOUSE_PRODUCTION = {
     {Course::MONEY, -2},
@@ -33,18 +34,20 @@ const Course::ResourceMap SMALLHOUSE_PRODUCTION = {
 const Course::ResourceMap APARTMENT_BUILD_COST = {
     {Course::MONEY, 250},
     {Course::FOOD, 200},
-    {Course::WOOD, 100}
+    {Course::WOOD, 100},
+    {Course::STONE, 100},
 };
 const Course::ResourceMap APARTMENT_PRODUCTION = {
     {Course::MONEY, -6},
     {Course::FOOD, -24}
 };
 
-// SkySkraper resources
+// SkyScraper resources
 const Course::ResourceMap SKYSCRAPER_BUILD_COST = {
     {Course::MONEY, 1000},
     {Course::FOOD, 500},
-    {Course::WOOD, 500}
+    {Course::WOOD, 500},
+    {Course::STONE, 500},
 };
 const Course::ResourceMap SKYSCRAPER_PRODUCTION = {
     {Course::MONEY, -20},
@@ -55,7 +58,8 @@ const Course::ResourceMap SKYSCRAPER_PRODUCTION = {
 const Course::ResourceMap LARGEHOUSE_BUILD_COST = {
     {Course::MONEY, 100},
     {Course::FOOD, 150},
-    {Course::WOOD, 35}
+    {Course::WOOD, 35},
+    {Course::STONE, 50},
 };
 const Course::ResourceMap LARGEHOUSE_PRODUCTION = {
     {Course::MONEY, -4},
@@ -78,7 +82,7 @@ const Course::ResourceMap MINE_PRODUCTION = {
 
 // Sawmill resources
 const Course::ResourceMap SAWMILL_BUILD_COST = {
-    {Course::MONEY, 200},
+    {Course::MONEY, 100},
     {Course::FOOD, 100},
     {Course::WOOD, 100}
 };
