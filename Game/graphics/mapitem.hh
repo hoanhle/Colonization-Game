@@ -9,6 +9,7 @@
 
 #include "core/gameobject.h"
 
+namespace Student {
 /**
  * @brief The SimpleMapItem class is a custom QGraphicsItem that
  * acts as a single GameObject's graphical element.
@@ -86,5 +87,7 @@ private:
     //static void addNewColor(std::string type);
 
 };
+
+} // namespace Student
 
 #endif // MAPITEM_HH

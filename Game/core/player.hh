@@ -16,6 +16,8 @@ namespace Student {
  * Expired weak pointers are automatically removed when requesting
  * and moving objects
  *
+ * This class is also used to keep track the resources a player currently has
+ * in the game
  * @note Objects are stored as weak pointers
  */
 class Player : public Course::PlayerBase
