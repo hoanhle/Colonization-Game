@@ -14,11 +14,17 @@ public:
     ~GameEventHandlerTest();
 
 private slots:
+
     void changePlayer();
     void changePlayer_data();
 
     void modifyResources();
     void modifyResources_data();
+
+    void createBeginResources();
+    void createBeginResources_data();
+
+
 
 };
 
@@ -162,7 +168,29 @@ void GameEventHandlerTest::modifyResources_data()
                                                  {Course::FOOD, 500},
                                                  {Course::WOOD, 500},
                                                  {Course::STONE, 500},
-                                                 {Course::ORE, 500},});
+                                                                     {Course::ORE, 500},});
+}
+
+void GameEventHandlerTest::createBeginResources()
+{
+    QFETCH(Course::ResourceMap, resources);
+    GameEventHandler GE_handler = GameEventHandler();
+    GE_handler.createPlayers(1);
+
+    GE_handler.createBeginResource();
+    QVERIFY2(GE_handler.getCurrentPlayerResource()->at(Course::MONEY) == resources.at(Course::MONEY), "money change wrong");
+    QVERIFY2(GE_handler.getCurrentPlayerResource()->at(Course::FOOD) == resources.at(Course::FOOD), "food change wrong");
+    QVERIFY2(GE_handler.getCurrentPlayerResource()->at(Course::WOOD) == resources.at(Course::WOOD), "wood change wrong");
+    QVERIFY2(GE_handler.getCurrentPlayerResource()->at(Course::STONE) == resources.at(Course::STONE), "stone change wrong");
+    QVERIFY2(GE_handler.getCurrentPlayerResource()->at(Course::ORE) == resources.at(Course::ORE), "ore change wrong");
+}
+
+void GameEventHandlerTest::createBeginResources_data()
+{
+    QTest::addColumn<Course::ResourceMap>("resources");
+
+    QTest::newRow("standard initial resource") << Student::NewResourceMaps::BEGINNING_RESOURCE;
+
 }
 
 QTEST_APPLESS_MAIN(GameEventHandlerTest)
