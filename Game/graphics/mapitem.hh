@@ -17,7 +17,7 @@ class MapItem : public QGraphicsItem
 {
 public:
     /**
-     * @brief Constructor
+     * @brief Constructor of a map item for a game object to be displayed
      * @param obj shared_ptr to the obj.
      * @param type of the created item
      * @param size of the created item in pixels.
@@ -26,7 +26,7 @@ public:
     MapItem(const std::shared_ptr<Course::GameObject> &obj, std::string type, int size);
 
     /**
-     * @brief boundingRect
+     * @brief boundingRect defines the bounding rect of the item
      * @return the bounding rectangle of this item.
      */
     QRectF boundingRect() const override;
@@ -44,8 +44,8 @@ public:
                QWidget *widget) override;
 
     /**
-     * @brief getBoundObject
-     * @return the object this item is bound to.
+     * @brief getBoundObject returns the object bound to item
+     * @return shared pointer to the object this item is bound to.
      */
     const std::shared_ptr<Course::GameObject> &getBoundObject();
 
@@ -63,7 +63,7 @@ public:
     bool isSameObj(std::shared_ptr<Course::GameObject> obj);
 
     /**
-     * @brief getSize
+     * @brief gets the size of the object
      * @return size of the object in pixels.
      * @post Exception guarantee: No-throw
      */
