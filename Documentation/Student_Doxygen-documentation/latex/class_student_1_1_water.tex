@@ -1,0 +1,92 @@
+\hypertarget{class_student_1_1_water}{}\doxysection{Student\+::Water Class Reference}
+\label{class_student_1_1_water}\index{Student::Water@{Student::Water}}
+
+
+The \mbox{\hyperlink{class_student_1_1_sand}{Sand}} class represents \mbox{\hyperlink{class_student_1_1_sand}{Sand}} in the gameworld.  
+
+
+
+
+{\ttfamily \#include $<$water.\+hh$>$}
+
+Inheritance diagram for Student\+::Water\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_student_1_1_water}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_student_1_1_water_acc7959ee4b1e325f45e4456c891425c3}{Water}} (const Course\+::\+Coordinate \&location, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&eventhandler, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&objectmanager, const unsigned int \&max\+\_\+build=0, const unsigned int \&max\+\_\+work=1, const Course\+::\+Resource\+Map \&production=New\+Resource\+Maps\+::\+W\+A\+T\+E\+R\+\_\+\+BP)
+\begin{DoxyCompactList}\small\item\em Constructor for the tile. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_water_a1066a8b71fb1ad0ce82ee2906c3a9417}\label{class_student_1_1_water_a1066a8b71fb1ad0ce82ee2906c3a9417}} 
+virtual \mbox{\hyperlink{class_student_1_1_water_a1066a8b71fb1ad0ce82ee2906c3a9417}{$\sim$\+Water}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_student_1_1_water_af44098bc96bfc3e568b17057ab6780a5}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_student_1_1_sand}{Sand}} class represents \mbox{\hyperlink{class_student_1_1_sand}{Sand}} in the gameworld. 
+
+\mbox{\hyperlink{class_student_1_1_sand}{Sand}} has Basic\+Production\+: ~\newline
+
+\begin{DoxyItemize}
+\item Money = 3
+\item Food = 5
+\item Wood = 0
+\item Stone = 0
+\item Ore = 0
+\end{DoxyItemize}
+
+Tile supports 0 buildings. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_1_1_water_acc7959ee4b1e325f45e4456c891425c3}\label{class_student_1_1_water_acc7959ee4b1e325f45e4456c891425c3}} 
+\index{Student::Water@{Student::Water}!Water@{Water}}
+\index{Water@{Water}!Student::Water@{Student::Water}}
+\doxysubsubsection{\texorpdfstring{Water()}{Water()}}
+{\footnotesize\ttfamily Student\+::\+Water\+::\+Water (\begin{DoxyParamCaption}\item[{const Course\+::\+Coordinate \&}]{location,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&}]{eventhandler,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&}]{objectmanager,  }\item[{const unsigned int \&}]{max\+\_\+build = {\ttfamily 0},  }\item[{const unsigned int \&}]{max\+\_\+work = {\ttfamily 1},  }\item[{const Course\+::\+Resource\+Map \&}]{production = {\ttfamily NewResourceMaps\+:\+:WATER\+\_\+BP} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the tile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & contains the Cooridnate of the tile \\
+\hline
+{\em eventhandler} & points to the \mbox{\hyperlink{class_student_1_1_game_event_handler}{Game\+Event\+Handler}} \\
+\hline
+{\em objectmanager} & points to the \mbox{\hyperlink{class_student_1_1_object_manager}{Object\+Manager}} \\
+\hline
+{\em max\+\_\+build} & indicates the max number of buildings on the tile \\
+\hline
+{\em max\+\_\+work} & indicates the max number of workers which can be allocated to the tile \\
+\hline
+{\em production} & is a resource map showing the base production of the tile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: no guarantee 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_1_1_water_af44098bc96bfc3e568b17057ab6780a5}\label{class_student_1_1_water_af44098bc96bfc3e568b17057ab6780a5}} 
+\index{Student::Water@{Student::Water}!getType@{getType}}
+\index{getType@{getType}!Student::Water@{Student::Water}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Student\+::\+Water\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tiles/water.\+hh\item 
+tiles/water.\+cpp\end{DoxyCompactItemize}

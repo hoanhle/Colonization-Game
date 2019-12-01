@@ -1,0 +1,89 @@
+\hypertarget{class_student_1_1_large_house}{}\doxysection{Student\+::Large\+House Class Reference}
+\label{class_student_1_1_large_house}\index{Student::LargeHouse@{Student::LargeHouse}}
+
+
+The \mbox{\hyperlink{class_student_1_1_large_house}{Large\+House}} class represents a large house in the game.  
+
+
+
+
+{\ttfamily \#include $<$largehouse.\+hh$>$}
+
+Inheritance diagram for Student\+::Large\+House\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_student_1_1_large_house}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_student_1_1_large_house_af34188cf6821914233b22d0fbcc82566}\label{class_student_1_1_large_house_af34188cf6821914233b22d0fbcc82566}} 
+\mbox{\hyperlink{class_student_1_1_large_house_af34188cf6821914233b22d0fbcc82566}{Large\+House}} ()=delete
+\begin{DoxyCompactList}\small\item\em Disabled parameterless constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_student_1_1_large_house_a0682d2d4f6f0ef75f89d5deba566bd94}{Large\+House}} (const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&eventhandler, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&objectmanager, const std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ \&owner, const int \&tilespaces=1, const Course\+::\+Resource\+Map \&building=New\+Resource\+Maps\+::\+L\+A\+R\+G\+E\+H\+O\+U\+S\+E\+\_\+\+B\+U\+I\+L\+D\+\_\+\+C\+O\+ST, const Course\+::\+Resource\+Map \&production=New\+Resource\+Maps\+::\+L\+A\+R\+G\+E\+H\+O\+U\+S\+E\+\_\+\+P\+R\+O\+D\+U\+C\+T\+I\+ON, const int \&num\+People=8)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_large_house_a10a53e65fc5577b7e82946a0a6b3c3a5}\label{class_student_1_1_large_house_a10a53e65fc5577b7e82946a0a6b3c3a5}} 
+virtual \mbox{\hyperlink{class_student_1_1_large_house_a10a53e65fc5577b7e82946a0a6b3c3a5}{$\sim$\+Large\+House}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_student_1_1_large_house_a0b804d069f76d85db6e0a81e2936ae97}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_student_1_1_large_house_a5d4111660ed0118f3c92f0ca9ecbabd0}\label{class_student_1_1_large_house_a5d4111660ed0118f3c92f0ca9ecbabd0}} 
+const Course\+::\+Resource\+Map {\bfseries B\+U\+I\+L\+D\+\_\+\+C\+O\+ST}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_student_1_1_large_house}{Large\+House}} class represents a large house in the game. 
+
+It houses 8 workers 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_1_1_large_house_a0682d2d4f6f0ef75f89d5deba566bd94}\label{class_student_1_1_large_house_a0682d2d4f6f0ef75f89d5deba566bd94}} 
+\index{Student::LargeHouse@{Student::LargeHouse}!LargeHouse@{LargeHouse}}
+\index{LargeHouse@{LargeHouse}!Student::LargeHouse@{Student::LargeHouse}}
+\doxysubsubsection{\texorpdfstring{LargeHouse()}{LargeHouse()}}
+{\footnotesize\ttfamily Student\+::\+Large\+House\+::\+Large\+House (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&}]{eventhandler,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&}]{objectmanager,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ \&}]{owner,  }\item[{const int \&}]{tilespaces = {\ttfamily 1},  }\item[{const Course\+::\+Resource\+Map \&}]{building = {\ttfamily NewResourceMaps\+:\+:LARGEHOUSE\+\_\+BUILD\+\_\+COST},  }\item[{const Course\+::\+Resource\+Map \&}]{production = {\ttfamily NewResourceMaps\+:\+:LARGEHOUSE\+\_\+PRODUCTION},  }\item[{const int \&}]{num\+People = {\ttfamily 8} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eventhandler} & points to the \mbox{\hyperlink{class_student_1_1_game_event_handler}{Game\+Event\+Handler}}. \\
+\hline
+{\em object} & manager points to the \mbox{\hyperlink{class_student_1_1_object_manager}{Object\+Manager}} \\
+\hline
+{\em owner} & points to the owning player.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception Guarantee\+: No guarantee. 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_1_1_large_house_a0b804d069f76d85db6e0a81e2936ae97}\label{class_student_1_1_large_house_a0b804d069f76d85db6e0a81e2936ae97}} 
+\index{Student::LargeHouse@{Student::LargeHouse}!getType@{getType}}
+\index{getType@{getType}!Student::LargeHouse@{Student::LargeHouse}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Student\+::\+Large\+House\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Reimplemented from \mbox{\hyperlink{class_student_1_1_housing_base_ae1e089f058c9870e4e6f4a62063b662e}{Student\+::\+Housing\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+buildings/largehouse.\+hh\item 
+buildings/largehouse.\+cpp\end{DoxyCompactItemize}

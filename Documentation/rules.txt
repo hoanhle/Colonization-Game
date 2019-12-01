@@ -1,40 +1,82 @@
 Game-start:
-Users click start and choose the number of players in the game (from 2 to 4 players).
-The game is played in turns.
-The players can play rock-paper-scissors to decide order of playing.
+Users are greeted with the back story and can click start to proceed. 
+In the next window the user can choose the number of players in the game (from 2 to 4 players).
+
+The game is a turn based game.
+The players can decide between them the order of which they play.  For example, play rock-paper-scissors.
 In the beginning, each player will have 500 resources each type (food, money, ore, wood, stone).
-This money can be used to buy and build buildings on the map.
+This money can be used to buy and build buildings on the map, each of which have a respective build cost and production benefits.
 
 Game-play:
 Each turn, players can do those following actions:
 Build buildings:
 There are three main types of buildings in the game.
 - Sawmill, farm, mine. They helps the users to increase the production of each land (tile) the player has
-- Smallhouse, Largehouse, Apartmentblock and Skyscrapper. Build these buildings increase the number of people (workers) the players has.
-- Outpost. Help the players to get ownership of neighborhood lands.
+- SmallHouse, LargeHouse, ApartmentBlock and Skyscraper. Build these buildings increase the number of people (workers) the players has.
+- Outpost. Gives the players ownership of neighbourhood tiles.
+
 How to build: 
-The player must click on the tile that has no-owner or he/she owns the tile/land. After that, the player can pick different building type
-and build button to build. (Remember: player can only build if he/she has enough resources)
+The player must select a tile that has no-owner or which he/she owns the tile/land. After that, the player can pick the building type they wish to build and then press build button to build. (Remember: player can only build if he/she has enough resources).  Note it is also good to consider where you are building a building as each tile type has a base production rate.  Note buildings cannot be built on water
+
+Building build costs:
+
+SmallHouse: Money 50, Food 100, Wood 25
+LargeHouse: Money 100, Food 150, Wood 35, Stone 500
+ApartmentBlock: Money 250, Food 200, Wood 100, Stone 100
+Skyscraper: Money 1000, Food 500, Wood 500, Stone 500
+Farm: Money 50, Food 100, Wood 25
+Mine: Money 200, Food 100, Wood 100, Ore 50
+SawMill: Money 100, Food 100, Wood 100, Ore 50
+Outpost: Money 150, Food 200, Wood 200, Stone 25
+HeadQuarters: Money 750, Food 1000, Wood 500, Stone 250
+
+Building production rates:
+
+Farm: Money 1, Food 20
+Mine: Money 20, Stone 50, Food 5, Ore 35
+SawMill: Money 20, Wood 50, Food 5
+Outpost: Money -5, Food -2
+HeadQuarters: Money 10, Food 2
+
+
+Tile base production:
+
+Grassland: Money 2, Food 5, Wood 1, Stone 1, Ore 0
+Forest: Money 1, Food 3, Wood 5, Stone 1, Ore 0
+Sand: Money 1, Food 1, Wood 0, Stone 1, Ore 2
+Rock: Money 3, Food 0, Wood 0, Stone 5, Ore 2
+
+Housing Capacity:
+
+SmallHouse: 4 workers (1 of each type)
+LargeHouse: 8 workers (2 of each type)
+ApartmentBlock: 12 workers (3 of each type)
+Skyscraper: 24 workers (6 of each type)
+
 
 Assign workers:
-The player can assign workers to a tile to increase the efficiency of tile-production.
+The player can assign workers to a tile to increase the efficiency of the tile-production.
+
 How to assign:
-The player can click on tile to see information about that tile. If the player owns the tile, he/she can assign the workers to tile by choose
-the type of workers he/she want to assign and click assign button. After that, an dialog will open and the player can type in the number of workers to 
-assign. 
+The player can click on tile to see information about that tile. If the player owns the tile, he/she can assign the workers to tile by choosing the type of workers he/she want to assign and click assign button. After that, a dialog will open and the player can type in the number of workers to assign. 
 
 Unassign workers:
-The player can unassign workers from a tile to get them back.
+The player can unassign workers from a tile to get them back to assign to another tile.
+
+Worker Production Multipliers:
+
+Basic Worker: Money 0.25, Food 1, Wood 0.75, Stone 0.50, Ore 0.50
+Farmer: Money 0.50, Food 1.50, Wood 0.50, Stone 0.25, Ore 0.25
+Miner: Money 0.50, Food 0.25, Wood 0.25, Stone 1.00, Ore 1.00
+Logger: Money 0.50, Food 0.25, Wood 1.50, Stone 0.25, Ore 0.50
+
 How to unassign:
-The player can click on tile to see information about that tile. If the player owns the tile, he/she can unassign the workers from the tile by choose
-the type of workers he/she want to unassign and click unassign button. After that, an dialog will open and the player can type in the number of workers to 
-unassign. 
+The player can click on tile to see information about that tile. If the player owns the tile, he/she can unassign the workers from the tile by choosing the type of workers he/she want to unassign and click unassign button. After that, a dialog will open and the player can type in the number of workers to unassign. 
 
-The player can click on end turn to end their turn.
+The player can end their turn by clicking the end turn button.
 
-How to win:
-The game ends when a player can get 5000 resources in total and 50 people in total. His/her village becomes the largest in Pirkamaa and they claim
-the ownership of the whole magical land.
+The aim of the game:
+The game ends when a player can get 5000 resources in total and 50 people in total. His/her village becomes the largest in Pirkanmaa and they claim the ownership of the whole magical land!
 
 
 

@@ -1,0 +1,140 @@
+\hypertarget{class_student_1_1_new_basic_worker}{}\doxysection{Student\+::New\+Basic\+Worker Class Reference}
+\label{class_student_1_1_new_basic_worker}\index{Student::NewBasicWorker@{Student::NewBasicWorker}}
+
+
+The \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} class represents a \char`\"{}normal worker\char`\"{} in the game.  
+
+
+
+
+{\ttfamily \#include $<$newbasicworker.\+hh$>$}
+
+Inheritance diagram for Student\+::New\+Basic\+Worker\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_student_1_1_new_basic_worker}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_student_1_1_new_basic_worker_ac70912cc2267ca30ea577b3b90ada75e}\label{class_student_1_1_new_basic_worker_ac70912cc2267ca30ea577b3b90ada75e}} 
+\mbox{\hyperlink{class_student_1_1_new_basic_worker_ac70912cc2267ca30ea577b3b90ada75e}{New\+Basic\+Worker}} ()=delete
+\begin{DoxyCompactList}\small\item\em Disabled parameterless. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_student_1_1_new_basic_worker_ad5eab52347ff57def431123d00fc1e41}{New\+Basic\+Worker}} (const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&eventhandler, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&objectmanager, const std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ \&owner, const int \&tilespaces=1, const Course\+::\+Resource\+Map \&cost=\{\}, const Course\+::\+Resource\+Map\+Double efficiency=New\+Resource\+Maps\+::\+N\+E\+W\+\_\+\+B\+A\+S\+I\+C\+\_\+\+W\+O\+R\+K\+E\+R\+\_\+\+E\+F\+F\+I\+C\+I\+E\+N\+CY)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_student_1_1_new_basic_worker_a754dfd86b0407ba4bfcd08dc523a1411}{get\+Type}} () const override
+\item 
+virtual bool \mbox{\hyperlink{class_student_1_1_new_basic_worker_afa12cf04b30eaf6059f8c97c13dedc95}{can\+Be\+Placed\+On\+Tile}} (const std\+::shared\+\_\+ptr$<$ Course\+::\+Tile\+Base $>$ \&target) const override final
+\begin{DoxyCompactList}\small\item\em Check if the worker can be placed on the Tile according to it\textquotesingle{}s placement rule. Only rule is that the Tile must have same owner as the worker. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_new_basic_worker_a7b9f3112334c3e4bdc368d4c507c47e6}\label{class_student_1_1_new_basic_worker_a7b9f3112334c3e4bdc368d4c507c47e6}} 
+virtual void \mbox{\hyperlink{class_student_1_1_new_basic_worker_a7b9f3112334c3e4bdc368d4c507c47e6}{do\+Special\+Action}} () override final
+\begin{DoxyCompactList}\small\item\em Performs the Worker\textquotesingle{}s default action. \end{DoxyCompactList}\item 
+virtual const Course\+::\+Resource\+Map\+Double \mbox{\hyperlink{class_student_1_1_new_basic_worker_ae9d72ba54077f89086ab1b24dc840669}{tile\+Work\+Action}} () override final
+\begin{DoxyCompactList}\small\item\em Returns Worker\textquotesingle{}s efficiency at resource production. Worker consumes F\+O\+OD and M\+O\+N\+EY. Resource consumption and resource focus determine final multiplier that is based on W\+O\+R\+K\+E\+R\+\_\+\+E\+F\+F\+I\+C\+I\+E\+N\+CY. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} class represents a \char`\"{}normal worker\char`\"{} in the game. 
+
+Worker has following production-\/efficiency\+: ~\newline
+
+\begin{DoxyItemize}
+\item Money -\/ 0.\+25 ~\newline
+
+\item Food -\/ 1.\+00 ~\newline
+
+\item Wood -\/ 0.\+75 ~\newline
+
+\item Stone -\/ 0.\+50 ~\newline
+
+\item Ore -\/ 0.\+50 ~\newline
+ New\+Basic\+Workers consume Food and money. ~\newline
+
+\item 1 Food -\/ Or \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} refuses to work. ~\newline
+
+\item 1 Money -\/ Or \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} works at 50\% efficiency. ~\newline
+
+\item Resourcefocus adds 25\% efficiency for the focused resource, even if the worker is refusing work. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_1_1_new_basic_worker_ad5eab52347ff57def431123d00fc1e41}\label{class_student_1_1_new_basic_worker_ad5eab52347ff57def431123d00fc1e41}} 
+\index{Student::NewBasicWorker@{Student::NewBasicWorker}!NewBasicWorker@{NewBasicWorker}}
+\index{NewBasicWorker@{NewBasicWorker}!Student::NewBasicWorker@{Student::NewBasicWorker}}
+\doxysubsubsection{\texorpdfstring{NewBasicWorker()}{NewBasicWorker()}}
+{\footnotesize\ttfamily Student\+::\+New\+Basic\+Worker\+::\+New\+Basic\+Worker (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&}]{eventhandler,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&}]{objectmanager,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ \&}]{owner,  }\item[{const int \&}]{tilespaces = {\ttfamily 1},  }\item[{const Course\+::\+Resource\+Map \&}]{cost = {\ttfamily \{\}},  }\item[{const Course\+::\+Resource\+Map\+Double}]{efficiency = {\ttfamily NewResourceMaps\+:\+:NEW\+\_\+BASIC\+\_\+WORKER\+\_\+EFFICIENCY} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eventhandler} & points to the student\textquotesingle{}s \mbox{\hyperlink{class_student_1_1_game_event_handler}{Game\+Event\+Handler}}. \\
+\hline
+{\em objectmanager} & points to the student\textquotesingle{}s \mbox{\hyperlink{class_student_1_1_object_manager}{Object\+Manager}} \\
+\hline
+{\em owner} & points to the owning player. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_1_1_new_basic_worker_afa12cf04b30eaf6059f8c97c13dedc95}\label{class_student_1_1_new_basic_worker_afa12cf04b30eaf6059f8c97c13dedc95}} 
+\index{Student::NewBasicWorker@{Student::NewBasicWorker}!canBePlacedOnTile@{canBePlacedOnTile}}
+\index{canBePlacedOnTile@{canBePlacedOnTile}!Student::NewBasicWorker@{Student::NewBasicWorker}}
+\doxysubsubsection{\texorpdfstring{canBePlacedOnTile()}{canBePlacedOnTile()}}
+{\footnotesize\ttfamily bool Student\+::\+New\+Basic\+Worker\+::can\+Be\+Placed\+On\+Tile (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ Course\+::\+Tile\+Base $>$ \&}]{target }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if the worker can be placed on the Tile according to it\textquotesingle{}s placement rule. Only rule is that the Tile must have same owner as the worker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & is the Tile that worker is being placed on. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True -\/ If baseclass\textquotesingle{} method return true and target Tile has space for worker. False -\/ If both conditions aren\textquotesingle{}t met. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Override to change placement rules for derived worker. 
+\end{DoxyNote}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: Basic 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_student_1_1_new_basic_worker_a754dfd86b0407ba4bfcd08dc523a1411}\label{class_student_1_1_new_basic_worker_a754dfd86b0407ba4bfcd08dc523a1411}} 
+\index{Student::NewBasicWorker@{Student::NewBasicWorker}!getType@{getType}}
+\index{getType@{getType}!Student::NewBasicWorker@{Student::NewBasicWorker}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Student\+::\+New\+Basic\+Worker\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Reimplemented in \mbox{\hyperlink{class_student_1_1_farmer_ab55837c8cdbd2f983be69fd49f158ef7}{Student\+::\+Farmer}}, \mbox{\hyperlink{class_student_1_1_logger_aa94c65f50114a204b1b0e4d8b2cfc790}{Student\+::\+Logger}}, and \mbox{\hyperlink{class_student_1_1_miner_a61517431331ab8a8adb8c43cfcab8015}{Student\+::\+Miner}}.
+
+\mbox{\Hypertarget{class_student_1_1_new_basic_worker_ae9d72ba54077f89086ab1b24dc840669}\label{class_student_1_1_new_basic_worker_ae9d72ba54077f89086ab1b24dc840669}} 
+\index{Student::NewBasicWorker@{Student::NewBasicWorker}!tileWorkAction@{tileWorkAction}}
+\index{tileWorkAction@{tileWorkAction}!Student::NewBasicWorker@{Student::NewBasicWorker}}
+\doxysubsubsection{\texorpdfstring{tileWorkAction()}{tileWorkAction()}}
+{\footnotesize\ttfamily const Course\+::\+Resource\+Map\+Double Student\+::\+New\+Basic\+Worker\+::tile\+Work\+Action (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns Worker\textquotesingle{}s efficiency at resource production. Worker consumes F\+O\+OD and M\+O\+N\+EY. Resource consumption and resource focus determine final multiplier that is based on W\+O\+R\+K\+E\+R\+\_\+\+E\+F\+F\+I\+C\+I\+E\+N\+CY. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+workers/newbasicworker.\+hh\item 
+workers/newbasicworker.\+cpp\end{DoxyCompactItemize}

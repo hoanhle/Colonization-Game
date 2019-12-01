@@ -1,0 +1,96 @@
+\hypertarget{class_student_1_1_farmer}{}\doxysection{Student\+::Farmer Class Reference}
+\label{class_student_1_1_farmer}\index{Student::Farmer@{Student::Farmer}}
+
+
+The \mbox{\hyperlink{class_student_1_1_farmer}{Farmer}} class represents a farmer in the game.  
+
+
+
+
+{\ttfamily \#include $<$farmer.\+hh$>$}
+
+Inheritance diagram for Student\+::Farmer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_student_1_1_farmer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_student_1_1_farmer_abe443ecf4a59ae97f21f8f7a098ddd76}\label{class_student_1_1_farmer_abe443ecf4a59ae97f21f8f7a098ddd76}} 
+\mbox{\hyperlink{class_student_1_1_farmer_abe443ecf4a59ae97f21f8f7a098ddd76}{Farmer}} ()=delete
+\begin{DoxyCompactList}\small\item\em Delete parameterless constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_student_1_1_farmer_ad14113dbefd812e04d0f5c028cb989ad}{Farmer}} (const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&eventhandler, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&objectmanager, const std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ \&owner, const int \&tilespaces=1, const Course\+::\+Resource\+Map \&cost=\{\}, const Course\+::\+Resource\+Map\+Double efficiency=New\+Resource\+Maps\+::\+F\+A\+R\+M\+E\+R\+\_\+\+E\+F\+F\+I\+C\+I\+E\+N\+CY, const Course\+::\+Basic\+Resource focus=Course\+::\+F\+O\+OD)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_student_1_1_farmer_ab55837c8cdbd2f983be69fd49f158ef7}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_student_1_1_farmer}{Farmer}} class represents a farmer in the game. 
+
+\mbox{\hyperlink{class_student_1_1_farmer}{Farmer}} has following production-\/efficiency\+: ~\newline
+
+\begin{DoxyItemize}
+\item Money -\/ 0.\+50 ~\newline
+
+\item Food -\/ 1.\+50 ~\newline
+
+\item Wood -\/ 0.\+5 ~\newline
+
+\item Stone -\/ 0.\+25 ~\newline
+
+\item Ore -\/ 0.\+25 ~\newline
+ Farmers consume Food and money. ~\newline
+
+\item 1 Food -\/ Or Farmers refuses to work. ~\newline
+
+\item 1 Money -\/ Or Farmers works at 50\% efficiency. ~\newline
+
+\item Resourcefocus adds 25\% efficiency for the focused resource, even if the farmer is refusing work. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_1_1_farmer_ad14113dbefd812e04d0f5c028cb989ad}\label{class_student_1_1_farmer_ad14113dbefd812e04d0f5c028cb989ad}} 
+\index{Student::Farmer@{Student::Farmer}!Farmer@{Farmer}}
+\index{Farmer@{Farmer}!Student::Farmer@{Student::Farmer}}
+\doxysubsubsection{\texorpdfstring{Farmer()}{Farmer()}}
+{\footnotesize\ttfamily Student\+::\+Farmer\+::\+Farmer (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&}]{eventhandler,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&}]{objectmanager,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ \&}]{owner,  }\item[{const int \&}]{tilespaces = {\ttfamily 1},  }\item[{const Course\+::\+Resource\+Map \&}]{cost = {\ttfamily \{\}},  }\item[{const Course\+::\+Resource\+Map\+Double}]{efficiency = {\ttfamily NewResourceMaps\+:\+:FARMER\+\_\+EFFICIENCY},  }\item[{const Course\+::\+Basic\+Resource}]{focus = {\ttfamily Course\+:\+:FOOD} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eventhandler} & points to the student\textquotesingle{}s \mbox{\hyperlink{class_student_1_1_game_event_handler}{Game\+Event\+Handler}}. \\
+\hline
+{\em objectmanager} & points to the student\textquotesingle{}s \mbox{\hyperlink{class_student_1_1_object_manager}{Object\+Manager}} \\
+\hline
+{\em owner} & points to the owning player. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_1_1_farmer_ab55837c8cdbd2f983be69fd49f158ef7}\label{class_student_1_1_farmer_ab55837c8cdbd2f983be69fd49f158ef7}} 
+\index{Student::Farmer@{Student::Farmer}!getType@{getType}}
+\index{getType@{getType}!Student::Farmer@{Student::Farmer}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Student\+::\+Farmer\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Reimplemented from \mbox{\hyperlink{class_student_1_1_new_basic_worker_a754dfd86b0407ba4bfcd08dc523a1411}{Student\+::\+New\+Basic\+Worker}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+workers/farmer.\+hh\item 
+workers/farmer.\+cpp\end{DoxyCompactItemize}

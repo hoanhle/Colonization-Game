@@ -1,0 +1,92 @@
+\hypertarget{class_student_1_1_sand}{}\doxysection{Student\+::Sand Class Reference}
+\label{class_student_1_1_sand}\index{Student::Sand@{Student::Sand}}
+
+
+The \mbox{\hyperlink{class_student_1_1_sand}{Sand}} class represents \mbox{\hyperlink{class_student_1_1_sand}{Sand}} in the gameworld.  
+
+
+
+
+{\ttfamily \#include $<$sand.\+hh$>$}
+
+Inheritance diagram for Student\+::Sand\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_student_1_1_sand}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_student_1_1_sand_a725f883502dde9fdaed79ff7c130c94f}{Sand}} (const Course\+::\+Coordinate \&location, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&eventhandler, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&objectmanager, const unsigned int \&max\+\_\+build=1, const unsigned int \&max\+\_\+work=2, const Course\+::\+Resource\+Map \&production=New\+Resource\+Maps\+::\+S\+A\+N\+D\+\_\+\+BP)
+\begin{DoxyCompactList}\small\item\em Constructor for the tile. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_sand_a84c4bbdc093bf5ca39172acec8b511c1}\label{class_student_1_1_sand_a84c4bbdc093bf5ca39172acec8b511c1}} 
+virtual \mbox{\hyperlink{class_student_1_1_sand_a84c4bbdc093bf5ca39172acec8b511c1}{$\sim$\+Sand}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_student_1_1_sand_a51171d70b4ec746518903b37fdc55ee7}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_student_1_1_sand}{Sand}} class represents \mbox{\hyperlink{class_student_1_1_sand}{Sand}} in the gameworld. 
+
+\mbox{\hyperlink{class_student_1_1_sand}{Sand}} has Basic\+Production\+: ~\newline
+
+\begin{DoxyItemize}
+\item Money = 1
+\item Food = 1
+\item Wood = 0
+\item Stone = 1
+\item Ore = 2
+\end{DoxyItemize}
+
+Tile supports 1 buildings. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_1_1_sand_a725f883502dde9fdaed79ff7c130c94f}\label{class_student_1_1_sand_a725f883502dde9fdaed79ff7c130c94f}} 
+\index{Student::Sand@{Student::Sand}!Sand@{Sand}}
+\index{Sand@{Sand}!Student::Sand@{Student::Sand}}
+\doxysubsubsection{\texorpdfstring{Sand()}{Sand()}}
+{\footnotesize\ttfamily Student\+::\+Sand\+::\+Sand (\begin{DoxyParamCaption}\item[{const Course\+::\+Coordinate \&}]{location,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&}]{eventhandler,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&}]{objectmanager,  }\item[{const unsigned int \&}]{max\+\_\+build = {\ttfamily 1},  }\item[{const unsigned int \&}]{max\+\_\+work = {\ttfamily 2},  }\item[{const Course\+::\+Resource\+Map \&}]{production = {\ttfamily NewResourceMaps\+:\+:SAND\+\_\+BP} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the tile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & contains the Cooridnate of the tile \\
+\hline
+{\em eventhandler} & points to the \mbox{\hyperlink{class_student_1_1_game_event_handler}{Game\+Event\+Handler}} \\
+\hline
+{\em objectmanager} & points to the \mbox{\hyperlink{class_student_1_1_object_manager}{Object\+Manager}} \\
+\hline
+{\em max\+\_\+build} & indicates the max number of buildings on the tile \\
+\hline
+{\em max\+\_\+work} & indicates the max number of workers which can be allocated to the tile \\
+\hline
+{\em production} & is a resource map showing the base production of the tile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: no guarantee 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_1_1_sand_a51171d70b4ec746518903b37fdc55ee7}\label{class_student_1_1_sand_a51171d70b4ec746518903b37fdc55ee7}} 
+\index{Student::Sand@{Student::Sand}!getType@{getType}}
+\index{getType@{getType}!Student::Sand@{Student::Sand}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Student\+::\+Sand\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tiles/sand.\+hh\item 
+tiles/sand.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,326 @@
+\hypertarget{class_map_window}{}\doxysection{Map\+Window Class Reference}
+\label{class_map_window}\index{MapWindow@{MapWindow}}
+
+
+The \mbox{\hyperlink{class_map_window}{Map\+Window}} class represents the main G\+UI of the game.  
+
+
+
+
+{\ttfamily \#include $<$mapwindow.\+hh$>$}
+
+Inheritance diagram for Map\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_map_window}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_map_window_a53b58e2531d7774dbc20f919cf0393e9}\label{class_map_window_a53b58e2531d7774dbc20f919cf0393e9}} 
+void {\bfseries create\+Players} (int number\+Players)
+\item 
+\mbox{\Hypertarget{class_map_window_a2055ce59ec85ee6f755fd719b86aba78}\label{class_map_window_a2055ce59ec85ee6f755fd719b86aba78}} 
+void {\bfseries set\+Selected\+Tile} (std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$ tile)
+\item 
+\mbox{\Hypertarget{class_map_window_a6711f5dcccad640aa4088d91e8b6bc87}\label{class_map_window_a6711f5dcccad640aa4088d91e8b6bc87}} 
+void \mbox{\hyperlink{class_map_window_a6711f5dcccad640aa4088d91e8b6bc87}{building\+Button\+Pressed}} (Q\+Abstract\+Button $\ast$)
+\begin{DoxyCompactList}\small\item\em enable to build when a building is selected \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_window_aee6ea33677763573f88688e73311017f}\label{class_map_window_aee6ea33677763573f88688e73311017f}} 
+void \mbox{\hyperlink{class_map_window_aee6ea33677763573f88688e73311017f}{worker\+Button\+Pressed}} (Q\+Abstract\+Button $\ast$)
+\begin{DoxyCompactList}\small\item\em enable to assign or unassign when a worker is selected \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_a70bc973cc3af6a330fb945462913b8e3}{assign\+Workers}} (int worker\+Number)
+\begin{DoxyCompactList}\small\item\em tell the gameeventhandler to assign free workers of player to a tile \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_a43100747cbecfd473db7ca2c4d1a1e31}{unassign\+Workers}} (int worker\+Number)
+\begin{DoxyCompactList}\small\item\em tell the gameeventhandler to free workers of player from a tile \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_map_window_af3f6b3a4e0b17b09f9630887e4d3104b}\label{class_map_window_af3f6b3a4e0b17b09f9630887e4d3104b}} 
+{\bfseries Map\+Window} (Q\+Widget $\ast$parent=0, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_game_event_handler}{Student\+::\+Game\+Event\+Handler}} $>$ G\+E\+Handler=\{\})
+\item 
+void \mbox{\hyperlink{class_map_window_ac3271f4f0da88ec7ed817a0fe3b27306}{set\+G\+E\+Handler}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_game_event_handler}{Student\+::\+Game\+Event\+Handler}} $>$ n\+Handler)
+\begin{DoxyCompactList}\small\item\em sets the game event handler \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_a7b5fcf2d1ba7c211faabdfd3c81cc5b5}{set\+Size}} (int width, int height)
+\begin{DoxyCompactList}\small\item\em set size of window \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_a9d5c988b6ac8dced6aa128df160be6cc}{set\+Scale}} (int scale)
+\begin{DoxyCompactList}\small\item\em set scale of window \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_window_a9eebe13b89eacd419ed5c250a9fc1d2e}\label{class_map_window_a9eebe13b89eacd419ed5c250a9fc1d2e}} 
+void \mbox{\hyperlink{class_map_window_a9eebe13b89eacd419ed5c250a9fc1d2e}{resize}} ()
+\begin{DoxyCompactList}\small\item\em resize the window \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_a673ec26f170e21616c75f7f485b4d546}{draw\+Item}} (std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$ obj)
+\begin{DoxyCompactList}\small\item\em draw item to the Map Window \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_a88384cf195d4cec6e4779d2f6b83b675}{remove\+Item}} (std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$ obj)
+\begin{DoxyCompactList}\small\item\em remove item from the Map Window \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_a40b4e18c08d80bafcf006fafe16d75c2}{update\+Item}} (std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$ obj)
+\begin{DoxyCompactList}\small\item\em update item on the Map Window \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_a15322e98f20463411f57476d9c779767}{add\+Tiles}} (Course\+::\+World\+Generator \&generator)
+\begin{DoxyCompactList}\small\item\em add tiles to the world generator \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_window_a6f361e21daff20a881cc9db6b69d1600}\label{class_map_window_a6f361e21daff20a881cc9db6b69d1600}} 
+void \mbox{\hyperlink{class_map_window_a6f361e21daff20a881cc9db6b69d1600}{update\+Resource\+Info}} ()
+\begin{DoxyCompactList}\small\item\em update player\textquotesingle{}s resource in mapwindow \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_window_a1ed2b055a71e12f45c4d915a56845876}\label{class_map_window_a1ed2b055a71e12f45c4d915a56845876}} 
+void \mbox{\hyperlink{class_map_window_a1ed2b055a71e12f45c4d915a56845876}{update\+Worker\+Info}} ()
+\begin{DoxyCompactList}\small\item\em update player\textquotesingle{}s total worker number \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_window_a884b3190948d9d7eeb01de66865d8f25}\label{class_map_window_a884b3190948d9d7eeb01de66865d8f25}} 
+void \mbox{\hyperlink{class_map_window_a884b3190948d9d7eeb01de66865d8f25}{update\+Free\+Worker\+Info}} ()
+\begin{DoxyCompactList}\small\item\em update player\textquotesingle{}s free worker number \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_window_a296e332946c5ac6d7ee0729e936aea8f}\label{class_map_window_a296e332946c5ac6d7ee0729e936aea8f}} 
+Course\+::\+Resource\+Map \mbox{\hyperlink{class_map_window_a296e332946c5ac6d7ee0729e936aea8f}{turn\+Cost\+To\+Minus}} (const Course\+::\+Resource\+Map \&cost)
+\begin{DoxyCompactList}\small\item\em turn Resourcemap building cost element into negative \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_map_window_a0ce7347f2a0226e480f92d03c427dd05}{check\+Enough\+Resource}} ()
+\begin{DoxyCompactList}\small\item\em check if the player has enough resource to build also minus the resource imidiately if the player has enough \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_map_window_a7b10e5d3b3d2b083da6550cdf3cac6f3}{get\+Selected\+Worker\+Type}} ()
+\begin{DoxyCompactList}\small\item\em to get the type of the selected worker button \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_a6366ab4312e3120c2c9a6056957d006d}{check\+Winning}} ()
+\begin{DoxyCompactList}\small\item\em check if the current player has won or not A player will win if he/she has 5000 resources total and 50 workers \end{DoxyCompactList}\item 
+std\+::vector$<$ Q\+String $>$ \mbox{\hyperlink{class_map_window_a62f877cda579176a1cad76176f437599}{read\+High\+Score\+File}} ()
+\begin{DoxyCompactList}\small\item\em read from the file that contains high score db \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_ad4cd462213de77e66d0e1a7723be74eb}{write\+To\+High\+Score\+File}} (Q\+String point\+To\+Append)
+\begin{DoxyCompactList}\small\item\em append new point to highscore database \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_window_a260bf29eb2976869d7c7f14c04589067}\label{class_map_window_a260bf29eb2976869d7c7f14c04589067}} 
+void \mbox{\hyperlink{class_map_window_a260bf29eb2976869d7c7f14c04589067}{continue\+Game}} ()
+\begin{DoxyCompactList}\small\item\em players want to continue the game \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_window_adb882a00141cf7f3c2b58e75644fac0e}\label{class_map_window_adb882a00141cf7f3c2b58e75644fac0e}} 
+void \mbox{\hyperlink{class_map_window_adb882a00141cf7f3c2b58e75644fac0e}{end\+Game}} ()
+\begin{DoxyCompactList}\small\item\em players want to end game \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_window_a668f3246a7827efd5f7346f26789df00}\label{class_map_window_a668f3246a7827efd5f7346f26789df00}} 
+void \mbox{\hyperlink{class_map_window_a668f3246a7827efd5f7346f26789df00}{clear\+Selections}} ()
+\begin{DoxyCompactList}\small\item\em clear selected buttons \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_window_a76582c652bc575c3ab9d44a0f292e1d4}{update\+Information\+Label}} (std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$ tile)
+\begin{DoxyCompactList}\small\item\em update the information about the current selected tile \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_window_a762999ade49d0a5c12493fcd474df95a}\label{class_map_window_a762999ade49d0a5c12493fcd474df95a}} 
+void \mbox{\hyperlink{class_map_window_a762999ade49d0a5c12493fcd474df95a}{display\+Player\+Turn}} ()
+\begin{DoxyCompactList}\small\item\em Set the player\+Turn\+Label to show whose turn it is. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_map_window}{Map\+Window}} class represents the main G\+UI of the game. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_map_window_a15322e98f20463411f57476d9c779767}\label{class_map_window_a15322e98f20463411f57476d9c779767}} 
+\index{MapWindow@{MapWindow}!addTiles@{addTiles}}
+\index{addTiles@{addTiles}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{addTiles()}{addTiles()}}
+{\footnotesize\ttfamily void Map\+Window\+::add\+Tiles (\begin{DoxyParamCaption}\item[{Course\+::\+World\+Generator \&}]{generator }\end{DoxyParamCaption})}
+
+
+
+add tiles to the world generator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em generator} & reference to the map generator \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_window_a70bc973cc3af6a330fb945462913b8e3}\label{class_map_window_a70bc973cc3af6a330fb945462913b8e3}} 
+\index{MapWindow@{MapWindow}!assignWorkers@{assignWorkers}}
+\index{assignWorkers@{assignWorkers}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{assignWorkers}{assignWorkers}}
+{\footnotesize\ttfamily void Map\+Window\+::assign\+Workers (\begin{DoxyParamCaption}\item[{int}]{worker\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+tell the gameeventhandler to assign free workers of player to a tile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker\+Number} & number of workers to assign \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_window_a0ce7347f2a0226e480f92d03c427dd05}\label{class_map_window_a0ce7347f2a0226e480f92d03c427dd05}} 
+\index{MapWindow@{MapWindow}!checkEnoughResource@{checkEnoughResource}}
+\index{checkEnoughResource@{checkEnoughResource}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{checkEnoughResource()}{checkEnoughResource()}}
+{\footnotesize\ttfamily bool Map\+Window\+::check\+Enough\+Resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check if the player has enough resource to build also minus the resource imidiately if the player has enough 
+
+\begin{DoxyReturn}{Returns}
+true\+: enough resource false\+: not enough resource 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_map_window_a6366ab4312e3120c2c9a6056957d006d}\label{class_map_window_a6366ab4312e3120c2c9a6056957d006d}} 
+\index{MapWindow@{MapWindow}!checkWinning@{checkWinning}}
+\index{checkWinning@{checkWinning}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{checkWinning()}{checkWinning()}}
+{\footnotesize\ttfamily void Map\+Window\+::check\+Winning (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check if the current player has won or not A player will win if he/she has 5000 resources total and 50 workers 
+
+\begin{DoxyNote}{Note}
+If the player has won, open win-\/dialog to ask if the players want to play again or end the game 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_map_window_a673ec26f170e21616c75f7f485b4d546}\label{class_map_window_a673ec26f170e21616c75f7f485b4d546}} 
+\index{MapWindow@{MapWindow}!drawItem@{drawItem}}
+\index{drawItem@{drawItem}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{drawItem()}{drawItem()}}
+{\footnotesize\ttfamily void Map\+Window\+::draw\+Item (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$}]{obj }\end{DoxyParamCaption})}
+
+
+
+draw item to the Map Window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & shared pointer to a Game Object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_window_a7b10e5d3b3d2b083da6550cdf3cac6f3}\label{class_map_window_a7b10e5d3b3d2b083da6550cdf3cac6f3}} 
+\index{MapWindow@{MapWindow}!getSelectedWorkerType@{getSelectedWorkerType}}
+\index{getSelectedWorkerType@{getSelectedWorkerType}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{getSelectedWorkerType()}{getSelectedWorkerType()}}
+{\footnotesize\ttfamily std\+::string Map\+Window\+::get\+Selected\+Worker\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+to get the type of the selected worker button 
+
+\begin{DoxyReturn}{Returns}
+string of the type of the worker 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_map_window_a62f877cda579176a1cad76176f437599}\label{class_map_window_a62f877cda579176a1cad76176f437599}} 
+\index{MapWindow@{MapWindow}!readHighScoreFile@{readHighScoreFile}}
+\index{readHighScoreFile@{readHighScoreFile}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{readHighScoreFile()}{readHighScoreFile()}}
+{\footnotesize\ttfamily std\+::vector$<$ Q\+String $>$ Map\+Window\+::read\+High\+Score\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+read from the file that contains high score db 
+
+\begin{DoxyReturn}{Returns}
+vector of user\textquotesingle{}s scores 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_map_window_a88384cf195d4cec6e4779d2f6b83b675}\label{class_map_window_a88384cf195d4cec6e4779d2f6b83b675}} 
+\index{MapWindow@{MapWindow}!removeItem@{removeItem}}
+\index{removeItem@{removeItem}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{removeItem()}{removeItem()}}
+{\footnotesize\ttfamily void Map\+Window\+::remove\+Item (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$}]{obj }\end{DoxyParamCaption})}
+
+
+
+remove item from the Map Window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & shared pointer to a Game Object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_window_ac3271f4f0da88ec7ed817a0fe3b27306}\label{class_map_window_ac3271f4f0da88ec7ed817a0fe3b27306}} 
+\index{MapWindow@{MapWindow}!setGEHandler@{setGEHandler}}
+\index{setGEHandler@{setGEHandler}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{setGEHandler()}{setGEHandler()}}
+{\footnotesize\ttfamily void Map\+Window\+::set\+G\+E\+Handler (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_game_event_handler}{Student\+::\+Game\+Event\+Handler}} $>$}]{n\+Handler }\end{DoxyParamCaption})}
+
+
+
+sets the game event handler 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Handler} & shared pointer to Game Event Handler \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_window_a9d5c988b6ac8dced6aa128df160be6cc}\label{class_map_window_a9d5c988b6ac8dced6aa128df160be6cc}} 
+\index{MapWindow@{MapWindow}!setScale@{setScale}}
+\index{setScale@{setScale}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{setScale()}{setScale()}}
+{\footnotesize\ttfamily void Map\+Window\+::set\+Scale (\begin{DoxyParamCaption}\item[{int}]{scale }\end{DoxyParamCaption})}
+
+
+
+set scale of window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale} & of the window \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_window_a7b5fcf2d1ba7c211faabdfd3c81cc5b5}\label{class_map_window_a7b5fcf2d1ba7c211faabdfd3c81cc5b5}} 
+\index{MapWindow@{MapWindow}!setSize@{setSize}}
+\index{setSize@{setSize}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily void Map\+Window\+::set\+Size (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+set size of window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & of window \\
+\hline
+{\em height} & of window \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_window_a43100747cbecfd473db7ca2c4d1a1e31}\label{class_map_window_a43100747cbecfd473db7ca2c4d1a1e31}} 
+\index{MapWindow@{MapWindow}!unassignWorkers@{unassignWorkers}}
+\index{unassignWorkers@{unassignWorkers}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{unassignWorkers}{unassignWorkers}}
+{\footnotesize\ttfamily void Map\+Window\+::unassign\+Workers (\begin{DoxyParamCaption}\item[{int}]{worker\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+tell the gameeventhandler to free workers of player from a tile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker\+Number} & number of workers to unassign \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_window_a76582c652bc575c3ab9d44a0f292e1d4}\label{class_map_window_a76582c652bc575c3ab9d44a0f292e1d4}} 
+\index{MapWindow@{MapWindow}!updateInformationLabel@{updateInformationLabel}}
+\index{updateInformationLabel@{updateInformationLabel}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{updateInformationLabel()}{updateInformationLabel()}}
+{\footnotesize\ttfamily void Map\+Window\+::update\+Information\+Label (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$}]{tile }\end{DoxyParamCaption})}
+
+
+
+update the information about the current selected tile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile} & shared pointer to the current selected tile \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_window_a40b4e18c08d80bafcf006fafe16d75c2}\label{class_map_window_a40b4e18c08d80bafcf006fafe16d75c2}} 
+\index{MapWindow@{MapWindow}!updateItem@{updateItem}}
+\index{updateItem@{updateItem}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{updateItem()}{updateItem()}}
+{\footnotesize\ttfamily void Map\+Window\+::update\+Item (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$}]{obj }\end{DoxyParamCaption})}
+
+
+
+update item on the Map Window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & shared pointer to a Game Object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_map_window_ad4cd462213de77e66d0e1a7723be74eb}\label{class_map_window_ad4cd462213de77e66d0e1a7723be74eb}} 
+\index{MapWindow@{MapWindow}!writeToHighScoreFile@{writeToHighScoreFile}}
+\index{writeToHighScoreFile@{writeToHighScoreFile}!MapWindow@{MapWindow}}
+\doxysubsubsection{\texorpdfstring{writeToHighScoreFile()}{writeToHighScoreFile()}}
+{\footnotesize\ttfamily void Map\+Window\+::write\+To\+High\+Score\+File (\begin{DoxyParamCaption}\item[{Q\+String}]{point\+To\+Append }\end{DoxyParamCaption})}
+
+
+
+append new point to highscore database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point\+To\+Append} & point to append \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+graphics/mapwindow.\+hh\item 
+graphics/mapwindow.\+cc\end{DoxyCompactItemize}

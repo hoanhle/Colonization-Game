@@ -1,0 +1,92 @@
+\hypertarget{class_student_1_1_rock}{}\doxysection{Student\+::Rock Class Reference}
+\label{class_student_1_1_rock}\index{Student::Rock@{Student::Rock}}
+
+
+The \mbox{\hyperlink{class_student_1_1_rock}{Rock}} class represents \mbox{\hyperlink{class_student_1_1_rock}{Rock}} in the gameworld.  
+
+
+
+
+{\ttfamily \#include $<$rock.\+hh$>$}
+
+Inheritance diagram for Student\+::Rock\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_student_1_1_rock}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_student_1_1_rock_a243c270443874c49d83d0845b913b19d}{Rock}} (const Course\+::\+Coordinate \&location, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&eventhandler, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&objectmanager, const unsigned int \&max\+\_\+build=1, const unsigned int \&max\+\_\+work=3, const Course\+::\+Resource\+Map \&production=New\+Resource\+Maps\+::\+R\+O\+C\+K\+\_\+\+BP)
+\begin{DoxyCompactList}\small\item\em Constructor for the tile. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_rock_a5b84829254c5ddb7065583ae03f94e5e}\label{class_student_1_1_rock_a5b84829254c5ddb7065583ae03f94e5e}} 
+virtual \mbox{\hyperlink{class_student_1_1_rock_a5b84829254c5ddb7065583ae03f94e5e}{$\sim$\+Rock}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_student_1_1_rock_a3d3075c07686a160c4664d30f9f4d361}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_student_1_1_rock}{Rock}} class represents \mbox{\hyperlink{class_student_1_1_rock}{Rock}} in the gameworld. 
+
+\mbox{\hyperlink{class_student_1_1_rock}{Rock}} has Basic\+Production\+: ~\newline
+
+\begin{DoxyItemize}
+\item Money = 3
+\item Food = 0
+\item Wood = 0
+\item Stone = 5
+\item Ore = 2
+\end{DoxyItemize}
+
+Tile supports 1 buildings. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_1_1_rock_a243c270443874c49d83d0845b913b19d}\label{class_student_1_1_rock_a243c270443874c49d83d0845b913b19d}} 
+\index{Student::Rock@{Student::Rock}!Rock@{Rock}}
+\index{Rock@{Rock}!Student::Rock@{Student::Rock}}
+\doxysubsubsection{\texorpdfstring{Rock()}{Rock()}}
+{\footnotesize\ttfamily Student\+::\+Rock\+::\+Rock (\begin{DoxyParamCaption}\item[{const Course\+::\+Coordinate \&}]{location,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&}]{eventhandler,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&}]{objectmanager,  }\item[{const unsigned int \&}]{max\+\_\+build = {\ttfamily 1},  }\item[{const unsigned int \&}]{max\+\_\+work = {\ttfamily 3},  }\item[{const Course\+::\+Resource\+Map \&}]{production = {\ttfamily NewResourceMaps\+:\+:ROCK\+\_\+BP} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the tile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & contains the Cooridnate of the tile \\
+\hline
+{\em eventhandler} & points to the \mbox{\hyperlink{class_student_1_1_game_event_handler}{Game\+Event\+Handler}} \\
+\hline
+{\em objectmanager} & points to the \mbox{\hyperlink{class_student_1_1_object_manager}{Object\+Manager}} \\
+\hline
+{\em max\+\_\+build} & indicates the max number of buildings on the tile \\
+\hline
+{\em max\+\_\+work} & indicates the max number of workers which can be allocated to the tile \\
+\hline
+{\em production} & is a resource map showing the base production of the tile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: no guarantee 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_1_1_rock_a3d3075c07686a160c4664d30f9f4d361}\label{class_student_1_1_rock_a3d3075c07686a160c4664d30f9f4d361}} 
+\index{Student::Rock@{Student::Rock}!getType@{getType}}
+\index{getType@{getType}!Student::Rock@{Student::Rock}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Student\+::\+Rock\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tiles/rock.\+hh\item 
+tiles/rock.\+cpp\end{DoxyCompactItemize}

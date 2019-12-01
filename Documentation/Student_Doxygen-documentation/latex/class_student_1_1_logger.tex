@@ -1,0 +1,96 @@
+\hypertarget{class_student_1_1_logger}{}\doxysection{Student\+::Logger Class Reference}
+\label{class_student_1_1_logger}\index{Student::Logger@{Student::Logger}}
+
+
+The \mbox{\hyperlink{class_student_1_1_logger}{Logger}} class represents a logger in the game.  
+
+
+
+
+{\ttfamily \#include $<$logger.\+hh$>$}
+
+Inheritance diagram for Student\+::Logger\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_student_1_1_logger}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_student_1_1_logger_ab4f94090b2423cdbee56dcc16ef3b54a}\label{class_student_1_1_logger_ab4f94090b2423cdbee56dcc16ef3b54a}} 
+\mbox{\hyperlink{class_student_1_1_logger_ab4f94090b2423cdbee56dcc16ef3b54a}{Logger}} ()=delete
+\begin{DoxyCompactList}\small\item\em Delete parameterless constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_student_1_1_logger_a7ed25c930ee46d8dca9f0f3a3d53935c}{Logger}} (const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&eventhandler, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&objectmanager, const std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ \&owner, const int \&tilespaces=1, const Course\+::\+Resource\+Map \&cost=\{\}, const Course\+::\+Resource\+Map\+Double efficiency=New\+Resource\+Maps\+::\+L\+O\+G\+G\+E\+R\+\_\+\+E\+F\+F\+I\+C\+I\+E\+N\+CY, const Course\+::\+Basic\+Resource focus=Course\+::\+W\+O\+OD)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_student_1_1_logger_aa94c65f50114a204b1b0e4d8b2cfc790}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_student_1_1_logger}{Logger}} class represents a logger in the game. 
+
+\mbox{\hyperlink{class_student_1_1_logger}{Logger}} has following production-\/efficiency\+: ~\newline
+
+\begin{DoxyItemize}
+\item Money -\/ 0.\+50 ~\newline
+
+\item Food -\/ 0.\+25 ~\newline
+
+\item Wood -\/ 1.\+50 ~\newline
+
+\item Stone -\/ 0.\+25 ~\newline
+
+\item Ore -\/ 0.\+50 ~\newline
+ Loggers consume Food and money. ~\newline
+
+\item 1 Food -\/ Or Loggers refuses to work. ~\newline
+
+\item 1 Money -\/ Or Loggers works at 50\% efficiency. ~\newline
+
+\item Resourcefocus adds 25\% efficiency for the focused resource, even if the logger is refusing work. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_1_1_logger_a7ed25c930ee46d8dca9f0f3a3d53935c}\label{class_student_1_1_logger_a7ed25c930ee46d8dca9f0f3a3d53935c}} 
+\index{Student::Logger@{Student::Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Student::Logger@{Student::Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}}
+{\footnotesize\ttfamily Student\+::\+Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&}]{eventhandler,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&}]{objectmanager,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ \&}]{owner,  }\item[{const int \&}]{tilespaces = {\ttfamily 1},  }\item[{const Course\+::\+Resource\+Map \&}]{cost = {\ttfamily \{\}},  }\item[{const Course\+::\+Resource\+Map\+Double}]{efficiency = {\ttfamily NewResourceMaps\+:\+:LOGGER\+\_\+EFFICIENCY},  }\item[{const Course\+::\+Basic\+Resource}]{focus = {\ttfamily Course\+:\+:WOOD} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eventhandler} & points to the student\textquotesingle{}s \mbox{\hyperlink{class_student_1_1_game_event_handler}{Game\+Event\+Handler}}. \\
+\hline
+{\em objectmanager} & points to the student\textquotesingle{}s \mbox{\hyperlink{class_student_1_1_object_manager}{Object\+Manager}} \\
+\hline
+{\em owner} & points to the owning player. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_1_1_logger_aa94c65f50114a204b1b0e4d8b2cfc790}\label{class_student_1_1_logger_aa94c65f50114a204b1b0e4d8b2cfc790}} 
+\index{Student::Logger@{Student::Logger}!getType@{getType}}
+\index{getType@{getType}!Student::Logger@{Student::Logger}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Student\+::\+Logger\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Reimplemented from \mbox{\hyperlink{class_student_1_1_new_basic_worker_a754dfd86b0407ba4bfcd08dc523a1411}{Student\+::\+New\+Basic\+Worker}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+workers/logger.\+hh\item 
+workers/logger.\+cpp\end{DoxyCompactItemize}

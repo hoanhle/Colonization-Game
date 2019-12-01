@@ -1,0 +1,90 @@
+\hypertarget{class_assign_dialog}{}\doxysection{Assign\+Dialog Class Reference}
+\label{class_assign_dialog}\index{AssignDialog@{AssignDialog}}
+
+
+The \mbox{\hyperlink{class_assign_dialog}{Assign\+Dialog}} class display the dialog for player to assign workers to a tile.  
+
+
+
+
+{\ttfamily \#include $<$assigndialog.\+hh$>$}
+
+Inheritance diagram for Assign\+Dialog\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_assign_dialog}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_assign_dialog_a5f8f4701e3643e9e4cf8f1929e28c8d3}{set\+Workers}} (int worker\+Number)
+\begin{DoxyCompactList}\small\item\em a signal with info of the number of worker player wants to assign \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_assign_dialog_aeda006a7a45a9401b206bc85c33cccd7}{Assign\+Dialog}} (unsigned int workers\+\_\+, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em assigndialog constructor of this dialog \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_assign_dialog_a2481072ac5e59ff7077363b68681f952}{get\+Number\+Of\+Workers}} ()
+\begin{DoxyCompactList}\small\item\em get\+Number\+Of\+Workers \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_assign_dialog}{Assign\+Dialog}} class display the dialog for player to assign workers to a tile. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_assign_dialog_aeda006a7a45a9401b206bc85c33cccd7}\label{class_assign_dialog_aeda006a7a45a9401b206bc85c33cccd7}} 
+\index{AssignDialog@{AssignDialog}!AssignDialog@{AssignDialog}}
+\index{AssignDialog@{AssignDialog}!AssignDialog@{AssignDialog}}
+\doxysubsubsection{\texorpdfstring{AssignDialog()}{AssignDialog()}}
+{\footnotesize\ttfamily Assign\+Dialog\+::\+Assign\+Dialog (\begin{DoxyParamCaption}\item[{unsigned int}]{workers\+\_\+,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+assigndialog constructor of this dialog 
+
+
+\begin{DoxyParams}{Parameters}
+{\em workers\+\_\+} & number of total free workers \\
+\hline
+{\em parent} & Q\+Widget parent \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_assign_dialog_a2481072ac5e59ff7077363b68681f952}\label{class_assign_dialog_a2481072ac5e59ff7077363b68681f952}} 
+\index{AssignDialog@{AssignDialog}!getNumberOfWorkers@{getNumberOfWorkers}}
+\index{getNumberOfWorkers@{getNumberOfWorkers}!AssignDialog@{AssignDialog}}
+\doxysubsubsection{\texorpdfstring{getNumberOfWorkers()}{getNumberOfWorkers()}}
+{\footnotesize\ttfamily int Assign\+Dialog\+::get\+Number\+Of\+Workers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Number\+Of\+Workers 
+
+\begin{DoxyReturn}{Returns}
+number of workers to assign to that tile 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_assign_dialog_a5f8f4701e3643e9e4cf8f1929e28c8d3}\label{class_assign_dialog_a5f8f4701e3643e9e4cf8f1929e28c8d3}} 
+\index{AssignDialog@{AssignDialog}!setWorkers@{setWorkers}}
+\index{setWorkers@{setWorkers}!AssignDialog@{AssignDialog}}
+\doxysubsubsection{\texorpdfstring{setWorkers}{setWorkers}}
+{\footnotesize\ttfamily void Assign\+Dialog\+::set\+Workers (\begin{DoxyParamCaption}\item[{int}]{worker\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+a signal with info of the number of worker player wants to assign 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker\+Number} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+graphics/assigndialog.\+hh\item 
+graphics/assigndialog.\+cpp\item 
+moc\+\_\+assigndialog.\+cpp\end{DoxyCompactItemize}

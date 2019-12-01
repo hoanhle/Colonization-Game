@@ -1,0 +1,177 @@
+\hypertarget{class_map_item}{}\doxysection{Map\+Item Class Reference}
+\label{class_map_item}\index{MapItem@{MapItem}}
+
+
+The Simple\+Map\+Item class is a custom Q\+Graphics\+Item that acts as a single Game\+Object\textquotesingle{}s graphical element.  
+
+
+
+
+{\ttfamily \#include $<$mapitem.\+hh$>$}
+
+Inheritance diagram for Map\+Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_map_item}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_map_item_aa07cab70e04235dc08984ea79d10c97a}{Map\+Item}} (const std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$ \&obj, std\+::string type, int size)
+\begin{DoxyCompactList}\small\item\em Constructor of a map item for a game object to be displayed. \end{DoxyCompactList}\item 
+Q\+RectF \mbox{\hyperlink{class_map_item_a3b3b3273632471f2513035a200340a69}{bounding\+Rect}} () const override
+\begin{DoxyCompactList}\small\item\em bounding\+Rect defines the bounding rect of the item \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_item_a199158a2265a00704bf848e8abd61c53}{paint}} (Q\+Painter $\ast$painter, const Q\+Style\+Option\+Graphics\+Item $\ast$option, Q\+Widget $\ast$widget) override
+\begin{DoxyCompactList}\small\item\em paints the item \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$ \& \mbox{\hyperlink{class_map_item_a63ef014ada46c6b68de1fbe87a43c435}{get\+Bound\+Object}} ()
+\begin{DoxyCompactList}\small\item\em get\+Bound\+Object returns the object bound to item \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_map_item_aa2c3ad1e8c9023042ce71dfda1e9c0ed}\label{class_map_item_aa2c3ad1e8c9023042ce71dfda1e9c0ed}} 
+void \mbox{\hyperlink{class_map_item_aa2c3ad1e8c9023042ce71dfda1e9c0ed}{update\+Loc}} ()
+\begin{DoxyCompactList}\small\item\em update\+Loc moves the item if the position has changed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_map_item_add416649188fbdddfafcb76164e93ce5}{is\+Same\+Obj}} (std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$ obj)
+\begin{DoxyCompactList}\small\item\em checks if this instance has obj as bound obj. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_map_item_aef34243fa4f532bceb3d8d1263f417d1}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em gets the size of the object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_item_a1cc68627047223dfa5068cf91fc0f982}{set\+Size}} (int size)
+\begin{DoxyCompactList}\small\item\em set\+Size \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Simple\+Map\+Item class is a custom Q\+Graphics\+Item that acts as a single Game\+Object\textquotesingle{}s graphical element. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_map_item_aa07cab70e04235dc08984ea79d10c97a}\label{class_map_item_aa07cab70e04235dc08984ea79d10c97a}} 
+\index{MapItem@{MapItem}!MapItem@{MapItem}}
+\index{MapItem@{MapItem}!MapItem@{MapItem}}
+\doxysubsubsection{\texorpdfstring{MapItem()}{MapItem()}}
+{\footnotesize\ttfamily Map\+Item\+::\+Map\+Item (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$ \&}]{obj,  }\item[{std\+::string}]{type,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Constructor of a map item for a game object to be displayed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & shared\+\_\+ptr to the obj. \\
+\hline
+{\em type} & of the created item \\
+\hline
+{\em size} & of the created item in pixels. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+obj must have a valid Coordinate. 
+\end{DoxyPrecond}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_map_item_a3b3b3273632471f2513035a200340a69}\label{class_map_item_a3b3b3273632471f2513035a200340a69}} 
+\index{MapItem@{MapItem}!boundingRect@{boundingRect}}
+\index{boundingRect@{boundingRect}!MapItem@{MapItem}}
+\doxysubsubsection{\texorpdfstring{boundingRect()}{boundingRect()}}
+{\footnotesize\ttfamily Q\+RectF Map\+Item\+::bounding\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+bounding\+Rect defines the bounding rect of the item 
+
+\begin{DoxyReturn}{Returns}
+the bounding rectangle of this item. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_map_item_a63ef014ada46c6b68de1fbe87a43c435}\label{class_map_item_a63ef014ada46c6b68de1fbe87a43c435}} 
+\index{MapItem@{MapItem}!getBoundObject@{getBoundObject}}
+\index{getBoundObject@{getBoundObject}!MapItem@{MapItem}}
+\doxysubsubsection{\texorpdfstring{getBoundObject()}{getBoundObject()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$ \& Map\+Item\+::get\+Bound\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Bound\+Object returns the object bound to item 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the object this item is bound to. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_map_item_aef34243fa4f532bceb3d8d1263f417d1}\label{class_map_item_aef34243fa4f532bceb3d8d1263f417d1}} 
+\index{MapItem@{MapItem}!getSize@{getSize}}
+\index{getSize@{getSize}!MapItem@{MapItem}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily int Map\+Item\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+gets the size of the object 
+
+\begin{DoxyReturn}{Returns}
+size of the object in pixels. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: No-\/throw 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_map_item_add416649188fbdddfafcb76164e93ce5}\label{class_map_item_add416649188fbdddfafcb76164e93ce5}} 
+\index{MapItem@{MapItem}!isSameObj@{isSameObj}}
+\index{isSameObj@{isSameObj}!MapItem@{MapItem}}
+\doxysubsubsection{\texorpdfstring{isSameObj()}{isSameObj()}}
+{\footnotesize\ttfamily bool Map\+Item\+::is\+Same\+Obj (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Course\+::\+Game\+Object $>$}]{obj }\end{DoxyParamCaption})}
+
+
+
+checks if this instance has obj as bound obj. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & to compare to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True\+: if obj is pointing to the same object as this item. False otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_map_item_a199158a2265a00704bf848e8abd61c53}\label{class_map_item_a199158a2265a00704bf848e8abd61c53}} 
+\index{MapItem@{MapItem}!paint@{paint}}
+\index{paint@{paint}!MapItem@{MapItem}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily void Map\+Item\+::paint (\begin{DoxyParamCaption}\item[{Q\+Painter $\ast$}]{painter,  }\item[{const Q\+Style\+Option\+Graphics\+Item $\ast$}]{option,  }\item[{Q\+Widget $\ast$}]{widget }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+paints the item 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & \\
+\hline
+{\em option} & \\
+\hline
+{\em widget} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The Graphics\+View containing the scene this belongs to usually calls this function. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_map_item_a1cc68627047223dfa5068cf91fc0f982}\label{class_map_item_a1cc68627047223dfa5068cf91fc0f982}} 
+\index{MapItem@{MapItem}!setSize@{setSize}}
+\index{setSize@{setSize}!MapItem@{MapItem}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily void Map\+Item\+::set\+Size (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+set\+Size 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & of the object in pixels. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+0 $<$ size $<$= 500 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: No-\/throw 
+\end{DoxyPostcond}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+graphics/mapitem.\+hh\item 
+graphics/mapitem.\+cpp\end{DoxyCompactItemize}

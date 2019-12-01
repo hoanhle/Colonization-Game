@@ -1,0 +1,100 @@
+\hypertarget{class_student_1_1_housing_base}{}\doxysection{Student\+::Housing\+Base Class Reference}
+\label{class_student_1_1_housing_base}\index{Student::HousingBase@{Student::HousingBase}}
+
+
+The \mbox{\hyperlink{class_student_1_1_housing_base}{Housing\+Base}} class is a base-\/class for different housing buildings in the game.  
+
+
+
+
+{\ttfamily \#include $<$housingbase.\+hh$>$}
+
+Inheritance diagram for Student\+::Housing\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.692308cm]{class_student_1_1_housing_base}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_student_1_1_housing_base_af02681f2d25ff770489483de16a87e43}\label{class_student_1_1_housing_base_af02681f2d25ff770489483de16a87e43}} 
+\mbox{\hyperlink{class_student_1_1_housing_base_af02681f2d25ff770489483de16a87e43}{Housing\+Base}} ()=delete
+\begin{DoxyCompactList}\small\item\em Disabled parameterless constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_student_1_1_housing_base_a96132b083069311e47d810f519594675}{Housing\+Base}} (const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&eventhandler, const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&objectmanager, const std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ \&owner, const int \&tilespaces=1, const Course\+::\+Resource\+Map \&building=\{\}, const Course\+::\+Resource\+Map \&production=\{\}, const int \&num\+People=0)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_housing_base_a37954a2e8e4c0e28166c49f6458bd068}\label{class_student_1_1_housing_base_a37954a2e8e4c0e28166c49f6458bd068}} 
+virtual \mbox{\hyperlink{class_student_1_1_housing_base_a37954a2e8e4c0e28166c49f6458bd068}{$\sim$\+Housing\+Base}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_student_1_1_housing_base_ae1e089f058c9870e4e6f4a62063b662e}{get\+Type}} () const override
+\item 
+\mbox{\Hypertarget{class_student_1_1_housing_base_aa0625edf59e4cd30c93c8ff38eca1715}\label{class_student_1_1_housing_base_aa0625edf59e4cd30c93c8ff38eca1715}} 
+void \mbox{\hyperlink{class_student_1_1_housing_base_aa0625edf59e4cd30c93c8ff38eca1715}{add\+Workers}} ()
+\begin{DoxyCompactList}\small\item\em add num\+People/4 set of worker (1 basic, 1 farmer, 1 logger, 1 miner) to player object and objectmanager object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_student_1_1_housing_base_abb51b7afdd58e480fd1fffad103cb922}\label{class_student_1_1_housing_base_abb51b7afdd58e480fd1fffad103cb922}} 
+const Course\+::\+Resource\+Map {\bfseries B\+U\+I\+L\+D\+\_\+\+C\+O\+ST}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_student_1_1_housing_base}{Housing\+Base}} class is a base-\/class for different housing buildings in the game. 
+
+It increases the number of workers for the player 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_1_1_housing_base_a96132b083069311e47d810f519594675}\label{class_student_1_1_housing_base_a96132b083069311e47d810f519594675}} 
+\index{Student::HousingBase@{Student::HousingBase}!HousingBase@{HousingBase}}
+\index{HousingBase@{HousingBase}!Student::HousingBase@{Student::HousingBase}}
+\doxysubsubsection{\texorpdfstring{HousingBase()}{HousingBase()}}
+{\footnotesize\ttfamily Student\+::\+Housing\+Base\+::\+Housing\+Base (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Game\+Event\+Handler $>$ \&}]{eventhandler,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::i\+Object\+Manager $>$ \&}]{objectmanager,  }\item[{const std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ \&}]{owner,  }\item[{const int \&}]{tilespaces = {\ttfamily 1},  }\item[{const Course\+::\+Resource\+Map \&}]{building = {\ttfamily \{\}},  }\item[{const Course\+::\+Resource\+Map \&}]{production = {\ttfamily \{\}},  }\item[{const int \&}]{num\+People = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eventhandler} & points to the \mbox{\hyperlink{class_student_1_1_game_event_handler}{Game\+Event\+Handler}}. \\
+\hline
+{\em object} & manager points to the \mbox{\hyperlink{class_student_1_1_object_manager}{Object\+Manager}} \\
+\hline
+{\em owner} & points to the owning player. \\
+\hline
+{\em tiles} & spaces indicates the number of positions it fills on the tile \\
+\hline
+{\em building} & is a resource map including the cost of construction \\
+\hline
+{\em production} & is a resource map indicating the production of building \\
+\hline
+{\em num\+People} & indicates the number of workers housed it created\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception Guarantee\+: No guarantee. 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_1_1_housing_base_ae1e089f058c9870e4e6f4a62063b662e}\label{class_student_1_1_housing_base_ae1e089f058c9870e4e6f4a62063b662e}} 
+\index{Student::HousingBase@{Student::HousingBase}!getType@{getType}}
+\index{getType@{getType}!Student::HousingBase@{Student::HousingBase}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Student\+::\+Housing\+Base\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Reimplemented in \mbox{\hyperlink{class_student_1_1_apartment_block_a30ba3a3f994298a295dda95ec6aecac2}{Student\+::\+Apartment\+Block}}, \mbox{\hyperlink{class_student_1_1_small_house_a46cd95617dd48ca7bbd604df9c0ce98b}{Student\+::\+Small\+House}}, \mbox{\hyperlink{class_student_1_1_large_house_a0b804d069f76d85db6e0a81e2936ae97}{Student\+::\+Large\+House}}, and \mbox{\hyperlink{class_student_1_1_sky_scraper_af54c05edbc35b5698ac1c8afc143ec48}{Student\+::\+Sky\+Scraper}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+buildings/housingbase.\+hh\item 
+buildings/housingbase.\+cpp\end{DoxyCompactItemize}

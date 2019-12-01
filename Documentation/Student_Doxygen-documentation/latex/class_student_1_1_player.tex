@@ -1,0 +1,351 @@
+\hypertarget{class_student_1_1_player}{}\doxysection{Student\+::Player Class Reference}
+\label{class_student_1_1_player}\index{Student::Player@{Student::Player}}
+
+
+The \mbox{\hyperlink{class_student_1_1_player}{Player}} class represents a player in game.  
+
+
+
+
+{\ttfamily \#include $<$player.\+hh$>$}
+
+Inheritance diagram for Student\+::Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_student_1_1_player}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_student_1_1_player_a3da45f2f8b74ee4ff264d6e24a4c8918}{Player}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_player_a07f6b3b5a202f2e07ccd68fd763ccecb}\label{class_student_1_1_player_a07f6b3b5a202f2e07ccd68fd763ccecb}} 
+\mbox{\hyperlink{class_student_1_1_player_a07f6b3b5a202f2e07ccd68fd763ccecb}{$\sim$\+Player}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+Course\+::\+Resource\+Map $\ast$ \mbox{\hyperlink{class_student_1_1_player_a02aac376a4932cd46d9ea5963e2c5ec9}{get\+Current\+Resources}} ()
+\begin{DoxyCompactList}\small\item\em get current resource of the player \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, int $>$ $\ast$ \mbox{\hyperlink{class_student_1_1_player_a8324d7541bd558fce56af5447078fe84}{get\+Current\+Workers}} ()
+\begin{DoxyCompactList}\small\item\em get current total number of workers of player \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, int $>$ $\ast$ \mbox{\hyperlink{class_student_1_1_player_a19ff8cf2601487387d122f1dc1a1a886}{get\+Free\+Workers}} ()
+\begin{DoxyCompactList}\small\item\em get current total number of free workers of player \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_player_abb3f7844d2eeea1ddbb8c831600ab888}\label{class_student_1_1_player_abb3f7844d2eeea1ddbb8c831600ab888}} 
+void \mbox{\hyperlink{class_student_1_1_player_abb3f7844d2eeea1ddbb8c831600ab888}{set\+Beginning\+Resource}} ()
+\begin{DoxyCompactList}\small\item\em set beginning resource for the player \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_player_a1c2b989624dd9e7badbeaa2a2c81535f}\label{class_student_1_1_player_a1c2b989624dd9e7badbeaa2a2c81535f}} 
+void \mbox{\hyperlink{class_student_1_1_player_a1c2b989624dd9e7badbeaa2a2c81535f}{set\+Beginning\+Worker}} ()
+\begin{DoxyCompactList}\small\item\em initialize the total\+Number\+Worker map into 0 worker each type \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_student_1_1_player_a1a722b9afa4d44c66ec31b81cf2ad6cf}{modify\+Player\+Resources}} (Course\+::\+Resource\+Map resources)
+\begin{DoxyCompactList}\small\item\em Add resources to current resource\+\_\+ of the player can be used to subtract to add to the resource\+\_\+. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_student_1_1_player_a9c613bb8763687fd77d81458d8bf3490}{modify\+Player\+Resource}} (Course\+::\+Basic\+Resource resource, int amount)
+\begin{DoxyCompactList}\small\item\em modify part of player resources (e.\+g\+: F\+O\+OD) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_player_abab8acf2f1cc2ff7a2e4092fcd99c4ea}{add\+Worker}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$ worker)
+\begin{DoxyCompactList}\small\item\em Store a weak New\+Basic\+Worker-\/pointer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_player_a5af091efc3ff06fdba60ea5914f7f36a}{add\+Workers}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$$>$ workers)
+\begin{DoxyCompactList}\small\item\em stores a vector of weak New\+Basic\+Worker-\/pointer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_player_aad1a812cc37584fafccf759563469c3b}{add\+Worker}} (std\+::string worker\+Type)
+\begin{DoxyCompactList}\small\item\em add 1 worker to worker type in worker-\/maps \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_player_a05545ee48a500dfcb88faf7a9b3bf23c}{add\+Worker\+Back}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$ worker)
+\begin{DoxyCompactList}\small\item\em add worker pointer back to the player object from a tile \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$ $>$ \mbox{\hyperlink{class_student_1_1_player_a6dd1e2ef10dcc09423fabc9e116c6dee}{find\+Workersto\+Remove}} (int number\+Worker, std\+::string workertype)
+\begin{DoxyCompactList}\small\item\em find a vector of worker pointer that has a specific type \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_player_afac57b5f366bbbe8c3551ffdfc32d8ae}{remove\+Worker}} (const Course\+::\+Object\+Id \&id)
+\begin{DoxyCompactList}\small\item\em Removes a weak New\+Basic\+Worker-\/pointer based on a object\+Id and expired weak pointers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_player_a0b24dc8a82173b6673482c1fc9dd927e}{remove\+Worker}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$ \&worker)
+\begin{DoxyCompactList}\small\item\em Remove a weak New\+Basic\+Worker-\/pointer and expired weak pointers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_player_a5177640134e51507f286c0976ae50aa6}{remove\+Workers}} (const std\+::vector$<$ Course\+::\+Object\+Id $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em removes a list of weak New\+Basic\+Worker-\/pointers based on the Object\+ID \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_player_aebf05a564c674748a694e3ab3fac1c48}{remove\+Workers}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$$>$ \&workers)
+\begin{DoxyCompactList}\small\item\em Removes a list of weak New\+Basic\+Worker-\/pointers and expired weak pointers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_student_1_1_player}{Player}} class represents a player in game. 
+
+The class is used to store and access \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} and Gameobject Expired weak pointers are automatically removed when requesting and moving objects
+
+\begin{DoxyNote}{Note}
+Objects are stored as weak pointers 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_student_1_1_player_a3da45f2f8b74ee4ff264d6e24a4c8918}\label{class_student_1_1_player_a3da45f2f8b74ee4ff264d6e24a4c8918}} 
+\index{Student::Player@{Student::Player}!Player@{Player}}
+\index{Player@{Player}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Student\+::\+Player\+::\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & A std\+::string for player\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_1_1_player_abab8acf2f1cc2ff7a2e4092fcd99c4ea}\label{class_student_1_1_player_abab8acf2f1cc2ff7a2e4092fcd99c4ea}} 
+\index{Student::Player@{Student::Player}!addWorker@{addWorker}}
+\index{addWorker@{addWorker}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{addWorker()}{addWorker()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Student\+::\+Player\+::add\+Worker (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$}]{worker }\end{DoxyParamCaption})}
+
+
+
+Store a weak New\+Basic\+Worker-\/pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & is a pointer to the store \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: Strong 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em See} & std\+::vector\+::push\+\_\+back() \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_student_1_1_player_aad1a812cc37584fafccf759563469c3b}\label{class_student_1_1_player_aad1a812cc37584fafccf759563469c3b}} 
+\index{Student::Player@{Student::Player}!addWorker@{addWorker}}
+\index{addWorker@{addWorker}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{addWorker()}{addWorker()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Student\+::\+Player\+::add\+Worker (\begin{DoxyParamCaption}\item[{std\+::string}]{worker\+Type }\end{DoxyParamCaption})}
+
+
+
+add 1 worker to worker type in worker-\/maps 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker\+Type} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_student_1_1_player_a05545ee48a500dfcb88faf7a9b3bf23c}\label{class_student_1_1_player_a05545ee48a500dfcb88faf7a9b3bf23c}} 
+\index{Student::Player@{Student::Player}!addWorkerBack@{addWorkerBack}}
+\index{addWorkerBack@{addWorkerBack}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{addWorkerBack()}{addWorkerBack()}}
+{\footnotesize\ttfamily void Student\+::\+Player\+::add\+Worker\+Back (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$}]{worker }\end{DoxyParamCaption})}
+
+
+
+add worker pointer back to the player object from a tile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & shared\+\_\+pointer of worker object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_student_1_1_player_a5af091efc3ff06fdba60ea5914f7f36a}\label{class_student_1_1_player_a5af091efc3ff06fdba60ea5914f7f36a}} 
+\index{Student::Player@{Student::Player}!addWorkers@{addWorkers}}
+\index{addWorkers@{addWorkers}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{addWorkers()}{addWorkers()}}
+{\footnotesize\ttfamily void Student\+::\+Player\+::add\+Workers (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$$>$}]{workers }\end{DoxyParamCaption})}
+
+
+
+stores a vector of weak New\+Basic\+Worker-\/pointer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em workers} & is an std\+::vector of pointer to \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: Strong 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em See} & std\+::vector\+::insert() \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_student_1_1_player_a6dd1e2ef10dcc09423fabc9e116c6dee}\label{class_student_1_1_player_a6dd1e2ef10dcc09423fabc9e116c6dee}} 
+\index{Student::Player@{Student::Player}!findWorkerstoRemove@{findWorkerstoRemove}}
+\index{findWorkerstoRemove@{findWorkerstoRemove}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{findWorkerstoRemove()}{findWorkerstoRemove()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$ $>$ Student\+::\+Player\+::find\+Workersto\+Remove (\begin{DoxyParamCaption}\item[{int}]{number\+Worker,  }\item[{std\+::string}]{workertype }\end{DoxyParamCaption})}
+
+
+
+find a vector of worker pointer that has a specific type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em workertype} & type of the workers \\
+\hline
+{\em number\+Worker} & number of workers to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_player_a02aac376a4932cd46d9ea5963e2c5ec9}\label{class_student_1_1_player_a02aac376a4932cd46d9ea5963e2c5ec9}} 
+\index{Student::Player@{Student::Player}!getCurrentResources@{getCurrentResources}}
+\index{getCurrentResources@{getCurrentResources}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{getCurrentResources()}{getCurrentResources()}}
+{\footnotesize\ttfamily Course\+::\+Resource\+Map $\ast$ Student\+::\+Player\+::get\+Current\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get current resource of the player 
+
+\begin{DoxyReturn}{Returns}
+pointer to resource\+\_\+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_player_a8324d7541bd558fce56af5447078fe84}\label{class_student_1_1_player_a8324d7541bd558fce56af5447078fe84}} 
+\index{Student::Player@{Student::Player}!getCurrentWorkers@{getCurrentWorkers}}
+\index{getCurrentWorkers@{getCurrentWorkers}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{getCurrentWorkers()}{getCurrentWorkers()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, int $>$ $\ast$ Student\+::\+Player\+::get\+Current\+Workers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get current total number of workers of player 
+
+\begin{DoxyReturn}{Returns}
+pointer to total\+Number\+Worker\+\_\+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_player_a19ff8cf2601487387d122f1dc1a1a886}\label{class_student_1_1_player_a19ff8cf2601487387d122f1dc1a1a886}} 
+\index{Student::Player@{Student::Player}!getFreeWorkers@{getFreeWorkers}}
+\index{getFreeWorkers@{getFreeWorkers}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{getFreeWorkers()}{getFreeWorkers()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, int $>$ $\ast$ Student\+::\+Player\+::get\+Free\+Workers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get current total number of free workers of player 
+
+\begin{DoxyReturn}{Returns}
+pointer to total\+Free\+Worker\+\_\+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_player_a9c613bb8763687fd77d81458d8bf3490}\label{class_student_1_1_player_a9c613bb8763687fd77d81458d8bf3490}} 
+\index{Student::Player@{Student::Player}!modifyPlayerResource@{modifyPlayerResource}}
+\index{modifyPlayerResource@{modifyPlayerResource}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{modifyPlayerResource()}{modifyPlayerResource()}}
+{\footnotesize\ttfamily bool Student\+::\+Player\+::modify\+Player\+Resource (\begin{DoxyParamCaption}\item[{Course\+::\+Basic\+Resource}]{resource,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+modify part of player resources (e.\+g\+: F\+O\+OD) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource} & the name of the resource \\
+\hline
+{\em amount} & how many to modify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true\+: the modification is successful false\+: the modification is unsucessful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_player_a1a722b9afa4d44c66ec31b81cf2ad6cf}\label{class_student_1_1_player_a1a722b9afa4d44c66ec31b81cf2ad6cf}} 
+\index{Student::Player@{Student::Player}!modifyPlayerResources@{modifyPlayerResources}}
+\index{modifyPlayerResources@{modifyPlayerResources}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{modifyPlayerResources()}{modifyPlayerResources()}}
+{\footnotesize\ttfamily bool Student\+::\+Player\+::modify\+Player\+Resources (\begin{DoxyParamCaption}\item[{Course\+::\+Resource\+Map}]{resources }\end{DoxyParamCaption})}
+
+
+
+Add resources to current resource\+\_\+ of the player can be used to subtract to add to the resource\+\_\+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resources} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true\+: the modification is successful false\+: the modification is unsucessful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_player_afac57b5f366bbbe8c3551ffdfc32d8ae}\label{class_student_1_1_player_afac57b5f366bbbe8c3551ffdfc32d8ae}} 
+\index{Student::Player@{Student::Player}!removeWorker@{removeWorker}}
+\index{removeWorker@{removeWorker}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{removeWorker()}{removeWorker()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Student\+::\+Player\+::remove\+Worker (\begin{DoxyParamCaption}\item[{const Course\+::\+Object\+Id \&}]{id }\end{DoxyParamCaption})}
+
+
+
+Removes a weak New\+Basic\+Worker-\/pointer based on a object\+Id and expired weak pointers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & An Objct\+Id for \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: Basic 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_student_1_1_player_a0b24dc8a82173b6673482c1fc9dd927e}\label{class_student_1_1_player_a0b24dc8a82173b6673482c1fc9dd927e}} 
+\index{Student::Player@{Student::Player}!removeWorker@{removeWorker}}
+\index{removeWorker@{removeWorker}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{removeWorker()}{removeWorker()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Student\+::\+Player\+::remove\+Worker (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$ \&}]{worker }\end{DoxyParamCaption})}
+
+
+
+Remove a weak New\+Basic\+Worker-\/pointer and expired weak pointers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & shared-\/pointer to \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: Basic 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Expired\+Pointer} & -\/ worker is expired \\
+\hline
+{\em Key\+Error} & -\/ No workers match the search worker \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_student_1_1_player_a5177640134e51507f286c0976ae50aa6}\label{class_student_1_1_player_a5177640134e51507f286c0976ae50aa6}} 
+\index{Student::Player@{Student::Player}!removeWorkers@{removeWorkers}}
+\index{removeWorkers@{removeWorkers}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{removeWorkers()}{removeWorkers()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Student\+::\+Player\+::remove\+Workers (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Course\+::\+Object\+Id $>$ \&}]{ids }\end{DoxyParamCaption})}
+
+
+
+removes a list of weak New\+Basic\+Worker-\/pointers based on the Object\+ID 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & A vector of Object\+ID for \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: No-\/throw 
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Even if some of the provided ID\textquotesingle{}s are not found, no exceptions are thrown. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_student_1_1_player_aebf05a564c674748a694e3ab3fac1c48}\label{class_student_1_1_player_aebf05a564c674748a694e3ab3fac1c48}} 
+\index{Student::Player@{Student::Player}!removeWorkers@{removeWorkers}}
+\index{removeWorkers@{removeWorkers}!Student::Player@{Student::Player}}
+\doxysubsubsection{\texorpdfstring{removeWorkers()}{removeWorkers()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Student\+::\+Player\+::remove\+Workers (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$$>$ \&}]{workers }\end{DoxyParamCaption})}
+
+
+
+Removes a list of weak New\+Basic\+Worker-\/pointers and expired weak pointers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em workers} & A vector of weak New\+Basic\+Worker-\/pointers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: No-\/throw 
+\end{DoxyPostcond}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+core/player.\+hh\item 
+core/player.\+cpp\end{DoxyCompactItemize}

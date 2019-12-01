@@ -1,0 +1,313 @@
+\hypertarget{class_student_1_1_game_event_handler}{}\doxysection{Student\+::Game\+Event\+Handler Class Reference}
+\label{class_student_1_1_game_event_handler}\index{Student::GameEventHandler@{Student::GameEventHandler}}
+
+
+The \mbox{\hyperlink{class_student_1_1_game_event_handler}{Game\+Event\+Handler}} represents a class handle all events in the game.  
+
+
+
+
+{\ttfamily \#include $<$gameeventhandler.\+hh$>$}
+
+Inheritance diagram for Student\+::Game\+Event\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_student_1_1_game_event_handler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_student_1_1_game_event_handler_a52d5095e8b409166b8ccbef044dfb2ca}{create\+Players}} (int number\+Players)
+\begin{DoxyCompactList}\small\item\em create\+Players \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a259ac4bc4a8da3042c7c875762f4ab41}\label{class_student_1_1_game_event_handler_a259ac4bc4a8da3042c7c875762f4ab41}} 
+void \mbox{\hyperlink{class_student_1_1_game_event_handler_a259ac4bc4a8da3042c7c875762f4ab41}{create\+Begin\+Resource}} ()
+\begin{DoxyCompactList}\small\item\em create\+Begin\+Resource give basic resources to all players in the beginning \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a266eb552a84dee4b3fbb98908f046f7e}\label{class_student_1_1_game_event_handler_a266eb552a84dee4b3fbb98908f046f7e}} 
+void \mbox{\hyperlink{class_student_1_1_game_event_handler_a266eb552a84dee4b3fbb98908f046f7e}{create\+Begin\+Worker}} ()
+\begin{DoxyCompactList}\small\item\em create\+Begin\+Worker give each player 1 worker each type in the beginning \end{DoxyCompactList}\item 
+Course\+::\+Resource\+Map $\ast$ \mbox{\hyperlink{class_student_1_1_game_event_handler_ab2adec9e749888d8992db07b0ffb639b}{get\+Current\+Player\+Resource}} ()
+\begin{DoxyCompactList}\small\item\em get\+Current\+Player\+Resource \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, int $>$ $\ast$ \mbox{\hyperlink{class_student_1_1_game_event_handler_a5a304d9625328ea89bff05ed7a6d2e7d}{get\+Current\+Player\+Worker\+Number}} ()
+\begin{DoxyCompactList}\small\item\em get\+Current\+Player\+Worker\+Number \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, int $>$ $\ast$ \mbox{\hyperlink{class_student_1_1_game_event_handler_a7d22f96974597e12f0a27ee010a8a194}{get\+Current\+Free\+Worker\+Number}} ()
+\begin{DoxyCompactList}\small\item\em get\+Current\+Free\+Worker\+Number \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_ad0b46ec8d37d2f2f6e8ea23b7b774102}\label{class_student_1_1_game_event_handler_ad0b46ec8d37d2f2f6e8ea23b7b774102}} 
+void \mbox{\hyperlink{class_student_1_1_game_event_handler_ad0b46ec8d37d2f2f6e8ea23b7b774102}{change\+Player}} ()
+\begin{DoxyCompactList}\small\item\em change\+Player change player after ending turn \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_ae9447a6c59525706c9fc4aec03f42c1a}\label{class_student_1_1_game_event_handler_ae9447a6c59525706c9fc4aec03f42c1a}} 
+void \mbox{\hyperlink{class_student_1_1_game_event_handler_ae9447a6c59525706c9fc4aec03f42c1a}{print\+Current\+Player}} ()
+\begin{DoxyCompactList}\small\item\em print the name of the current player \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_player}{Player}} $>$ \mbox{\hyperlink{class_student_1_1_game_event_handler_a5109160dbd7b040b8acb377201ef0531}{get\+Current\+Player}} ()
+\begin{DoxyCompactList}\small\item\em get\+Current\+Player \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_game_event_handler_a6163a97ad40d9071ba9795efbfc7ddbf}{set\+Current\+Tile}} (std\+::shared\+\_\+ptr$<$ Course\+::\+Tile\+Base $>$ tile)
+\begin{DoxyCompactList}\small\item\em set\+Current\+Tile save the current selected tile \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ Course\+::\+Tile\+Base $>$ \mbox{\hyperlink{class_student_1_1_game_event_handler_a067aca9401d247cc3db94018a4b40322}{return\+Selected\+Tile}} ()
+\begin{DoxyCompactList}\small\item\em return the selected tile \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_game_event_handler_aea05ed821990e867d5dd540877e374c4}{assign\+Workers}} (int number\+Worker, std\+::string worker\+Type)
+\begin{DoxyCompactList}\small\item\em remove the workers pointer from the player object and add them to the tile \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$ $>$ \mbox{\hyperlink{class_student_1_1_game_event_handler_ac28946e71c9f81307f7d96523b24c622}{get\+Workersto\+Free}} (int number\+Worker, std\+::string worker\+Type)
+\begin{DoxyCompactList}\small\item\em get the vector of workers pointers from the tile that the player want to unassign \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_1_1_game_event_handler_a8a5dce1947c671104f2df1332f2a15b5}{unassign\+Workers}} (int number\+Worker, std\+::string worker\+Type)
+\begin{DoxyCompactList}\small\item\em remove the workers pointer from the tile and add them back to the player object \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_student_1_1_game_event_handler_a9e7c8e885d50a54c95a6795d92473abd}{modify\+Resource}} (std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ player, Course\+::\+Basic\+Resource resource, int amount) override
+\begin{DoxyCompactList}\small\item\em Modify \mbox{\hyperlink{class_student_1_1_player}{Player}}\textquotesingle{}s resource. Can be used to both sum or subtract. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_student_1_1_game_event_handler_ab8edd24471123fb4c555697e79533e98}{modify\+Resources}} (std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$ player, Course\+::\+Resource\+Map resources) override
+\begin{DoxyCompactList}\small\item\em Modify \mbox{\hyperlink{class_student_1_1_player}{Player}}\textquotesingle{}s resources. Can be used to both sum or subtract. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_student_1_1_game_event_handler_a9d9dd103b9e2fe2436078f4f23e132b3}{modify\+Resources}} (Course\+::\+Resource\+Map resources)
+\begin{DoxyCompactList}\small\item\em Modify current \mbox{\hyperlink{class_student_1_1_player}{Player}}\textquotesingle{}s resources. Can be used to both sum or subtract. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_student_1_1_game_event_handler_afab805b845d9a386b867c4755ae4f509}{check\+Winning}} ()
+\begin{DoxyCompactList}\small\item\em check if the current player has won or not A player will win if he/she has 5000 resources total and 50 workers \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_student_1_1_game_event_handler_a6de0e57f276533ecc23e36430a7f68e7}{return\+Turn\+Number}} ()
+\begin{DoxyCompactList}\small\item\em return the total number of turns one player has played \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_student_1_1_game_event_handler}{Game\+Event\+Handler}} represents a class handle all events in the game. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_aea05ed821990e867d5dd540877e374c4}\label{class_student_1_1_game_event_handler_aea05ed821990e867d5dd540877e374c4}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!assignWorkers@{assignWorkers}}
+\index{assignWorkers@{assignWorkers}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{assignWorkers()}{assignWorkers()}}
+{\footnotesize\ttfamily void Student\+::\+Game\+Event\+Handler\+::assign\+Workers (\begin{DoxyParamCaption}\item[{int}]{number\+Worker,  }\item[{std\+::string}]{worker\+Type }\end{DoxyParamCaption})}
+
+
+
+remove the workers pointer from the player object and add them to the tile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Worker} & \\
+\hline
+{\em worker\+Type} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_afab805b845d9a386b867c4755ae4f509}\label{class_student_1_1_game_event_handler_afab805b845d9a386b867c4755ae4f509}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!checkWinning@{checkWinning}}
+\index{checkWinning@{checkWinning}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{checkWinning()}{checkWinning()}}
+{\footnotesize\ttfamily bool Student\+::\+Game\+Event\+Handler\+::check\+Winning (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check if the current player has won or not A player will win if he/she has 5000 resources total and 50 workers 
+
+\begin{DoxyReturn}{Returns}
+true\+: the player has won false\+: the player hasn\textquotesingle{}t won 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a52d5095e8b409166b8ccbef044dfb2ca}\label{class_student_1_1_game_event_handler_a52d5095e8b409166b8ccbef044dfb2ca}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!createPlayers@{createPlayers}}
+\index{createPlayers@{createPlayers}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{createPlayers()}{createPlayers()}}
+{\footnotesize\ttfamily void Student\+::\+Game\+Event\+Handler\+::create\+Players (\begin{DoxyParamCaption}\item[{int}]{number\+Players }\end{DoxyParamCaption})}
+
+
+
+create\+Players 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Players} & number of players in the game \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a7d22f96974597e12f0a27ee010a8a194}\label{class_student_1_1_game_event_handler_a7d22f96974597e12f0a27ee010a8a194}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!getCurrentFreeWorkerNumber@{getCurrentFreeWorkerNumber}}
+\index{getCurrentFreeWorkerNumber@{getCurrentFreeWorkerNumber}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{getCurrentFreeWorkerNumber()}{getCurrentFreeWorkerNumber()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, int $>$ $\ast$ Student\+::\+Game\+Event\+Handler\+::get\+Current\+Free\+Worker\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Current\+Free\+Worker\+Number 
+
+\begin{DoxyReturn}{Returns}
+pointer to free\+Number\+Worker map of the player 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a5109160dbd7b040b8acb377201ef0531}\label{class_student_1_1_game_event_handler_a5109160dbd7b040b8acb377201ef0531}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!getCurrentPlayer@{getCurrentPlayer}}
+\index{getCurrentPlayer@{getCurrentPlayer}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{getCurrentPlayer()}{getCurrentPlayer()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_player}{Player}} $>$ Student\+::\+Game\+Event\+Handler\+::get\+Current\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Current\+Player 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the current player 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_ab2adec9e749888d8992db07b0ffb639b}\label{class_student_1_1_game_event_handler_ab2adec9e749888d8992db07b0ffb639b}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!getCurrentPlayerResource@{getCurrentPlayerResource}}
+\index{getCurrentPlayerResource@{getCurrentPlayerResource}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{getCurrentPlayerResource()}{getCurrentPlayerResource()}}
+{\footnotesize\ttfamily Course\+::\+Resource\+Map $\ast$ Student\+::\+Game\+Event\+Handler\+::get\+Current\+Player\+Resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Current\+Player\+Resource 
+
+\begin{DoxyReturn}{Returns}
+resourcemap of current player 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a5a304d9625328ea89bff05ed7a6d2e7d}\label{class_student_1_1_game_event_handler_a5a304d9625328ea89bff05ed7a6d2e7d}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!getCurrentPlayerWorkerNumber@{getCurrentPlayerWorkerNumber}}
+\index{getCurrentPlayerWorkerNumber@{getCurrentPlayerWorkerNumber}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{getCurrentPlayerWorkerNumber()}{getCurrentPlayerWorkerNumber()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, int $>$ $\ast$ Student\+::\+Game\+Event\+Handler\+::get\+Current\+Player\+Worker\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Current\+Player\+Worker\+Number 
+
+\begin{DoxyReturn}{Returns}
+pointer to total\+Number\+Worker map of the player 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_ac28946e71c9f81307f7d96523b24c622}\label{class_student_1_1_game_event_handler_ac28946e71c9f81307f7d96523b24c622}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!getWorkerstoFree@{getWorkerstoFree}}
+\index{getWorkerstoFree@{getWorkerstoFree}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{getWorkerstoFree()}{getWorkerstoFree()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_student_1_1_new_basic_worker}{New\+Basic\+Worker}} $>$ $>$ Student\+::\+Game\+Event\+Handler\+::get\+Workersto\+Free (\begin{DoxyParamCaption}\item[{int}]{number\+Worker,  }\item[{std\+::string}]{worker\+Type }\end{DoxyParamCaption})}
+
+
+
+get the vector of workers pointers from the tile that the player want to unassign 
+
+\begin{DoxyReturn}{Returns}
+vector of worker pointers 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a9e7c8e885d50a54c95a6795d92473abd}\label{class_student_1_1_game_event_handler_a9e7c8e885d50a54c95a6795d92473abd}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!modifyResource@{modifyResource}}
+\index{modifyResource@{modifyResource}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{modifyResource()}{modifyResource()}}
+{\footnotesize\ttfamily bool Student\+::\+Game\+Event\+Handler\+::modify\+Resource (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$}]{player,  }\item[{Course\+::\+Basic\+Resource}]{resource,  }\item[{int}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Modify \mbox{\hyperlink{class_student_1_1_player}{Player}}\textquotesingle{}s resource. Can be used to both sum or subtract. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the \mbox{\hyperlink{class_student_1_1_player}{Player}} whose resource is being modified. \\
+\hline
+{\em resource} & Defines the modified resource. \\
+\hline
+{\em amount} & Defines the amount of change. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Exception guarantee\+: Basic 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+True -\/ Modification was succesful. ~\newline
+False -\/ Modification failed. ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a9d9dd103b9e2fe2436078f4f23e132b3}\label{class_student_1_1_game_event_handler_a9d9dd103b9e2fe2436078f4f23e132b3}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!modifyResources@{modifyResources}}
+\index{modifyResources@{modifyResources}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{modifyResources()}{modifyResources()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Student\+::\+Game\+Event\+Handler\+::modify\+Resources (\begin{DoxyParamCaption}\item[{Course\+::\+Resource\+Map}]{resources }\end{DoxyParamCaption})}
+
+
+
+Modify current \mbox{\hyperlink{class_student_1_1_player}{Player}}\textquotesingle{}s resources. Can be used to both sum or subtract. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the \mbox{\hyperlink{class_student_1_1_player}{Player}} whose resources are being modified. \\
+\hline
+{\em resources} & Resource\+Map containing change amounts. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True -\/ Modification was succesful. ~\newline
+False -\/ Modification failed. ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_ab8edd24471123fb4c555697e79533e98}\label{class_student_1_1_game_event_handler_ab8edd24471123fb4c555697e79533e98}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!modifyResources@{modifyResources}}
+\index{modifyResources@{modifyResources}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{modifyResources()}{modifyResources()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Student\+::\+Game\+Event\+Handler\+::modify\+Resources (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Course\+::\+Player\+Base $>$}]{player,  }\item[{Course\+::\+Resource\+Map}]{resources }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Modify \mbox{\hyperlink{class_student_1_1_player}{Player}}\textquotesingle{}s resources. Can be used to both sum or subtract. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the \mbox{\hyperlink{class_student_1_1_player}{Player}} whose resources are being modified. \\
+\hline
+{\em resources} & Resource\+Map containing change amounts. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True -\/ Modification was succesful. ~\newline
+False -\/ Modification failed. ~\newline
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a067aca9401d247cc3db94018a4b40322}\label{class_student_1_1_game_event_handler_a067aca9401d247cc3db94018a4b40322}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!returnSelectedTile@{returnSelectedTile}}
+\index{returnSelectedTile@{returnSelectedTile}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{returnSelectedTile()}{returnSelectedTile()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ Course\+::\+Tile\+Base $>$ Student\+::\+Game\+Event\+Handler\+::return\+Selected\+Tile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+return the selected tile 
+
+\begin{DoxyReturn}{Returns}
+tile current tile pointer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a6de0e57f276533ecc23e36430a7f68e7}\label{class_student_1_1_game_event_handler_a6de0e57f276533ecc23e36430a7f68e7}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!returnTurnNumber@{returnTurnNumber}}
+\index{returnTurnNumber@{returnTurnNumber}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{returnTurnNumber()}{returnTurnNumber()}}
+{\footnotesize\ttfamily int Student\+::\+Game\+Event\+Handler\+::return\+Turn\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+return the total number of turns one player has played 
+
+\begin{DoxyReturn}{Returns}
+total turns 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a6163a97ad40d9071ba9795efbfc7ddbf}\label{class_student_1_1_game_event_handler_a6163a97ad40d9071ba9795efbfc7ddbf}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!setCurrentTile@{setCurrentTile}}
+\index{setCurrentTile@{setCurrentTile}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{setCurrentTile()}{setCurrentTile()}}
+{\footnotesize\ttfamily void Student\+::\+Game\+Event\+Handler\+::set\+Current\+Tile (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Course\+::\+Tile\+Base $>$}]{tile }\end{DoxyParamCaption})}
+
+
+
+set\+Current\+Tile save the current selected tile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile} & current tile pointer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_student_1_1_game_event_handler_a8a5dce1947c671104f2df1332f2a15b5}\label{class_student_1_1_game_event_handler_a8a5dce1947c671104f2df1332f2a15b5}} 
+\index{Student::GameEventHandler@{Student::GameEventHandler}!unassignWorkers@{unassignWorkers}}
+\index{unassignWorkers@{unassignWorkers}!Student::GameEventHandler@{Student::GameEventHandler}}
+\doxysubsubsection{\texorpdfstring{unassignWorkers()}{unassignWorkers()}}
+{\footnotesize\ttfamily void Student\+::\+Game\+Event\+Handler\+::unassign\+Workers (\begin{DoxyParamCaption}\item[{int}]{number\+Worker,  }\item[{std\+::string}]{worker\+Type }\end{DoxyParamCaption})}
+
+
+
+remove the workers pointer from the tile and add them back to the player object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Worker} & \\
+\hline
+{\em worker\+Type} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+core/gameeventhandler.\+hh\item 
+core/gameeventhandler.\+cpp\end{DoxyCompactItemize}
