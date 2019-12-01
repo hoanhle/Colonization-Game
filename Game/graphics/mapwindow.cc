@@ -237,9 +237,9 @@ std::string MapWindow::getSelectedWorkerType()
     } else if (selected == m_ui->farmerButton){
         selectedType = "Farmer";
     } else if (selected == m_ui->minerButton){
-        selectedType = "Logger";
-    } else if (selected == m_ui->loggerButton){
         selectedType = "Miner";
+    } else if (selected == m_ui->loggerButton){
+        selectedType = "Logger";
     }
 
     return selectedType;

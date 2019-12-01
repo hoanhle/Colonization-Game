@@ -24,15 +24,15 @@ void HighScoreDialog::setHighScoreInformation(std::vector<int> highScoreDb)
 
    std::cout << highScoreDb[0];
    // Update high score Info on the dialog
-   ui->score1->setText("1st place: " + QString::number(highScoreDb[0])); k++;
+   ui->score1->setText("1st place: " + QString::number(highScoreDb[0]) + " turns"); k++;
    if (k == highScoreDb.size()) return;
-   ui->score2->setText("2nd place: " + QString::number(highScoreDb[1])); k++;
+   ui->score2->setText("2nd place: " + QString::number(highScoreDb[1]) + " turns"); k++;
    if (k == highScoreDb.size()) return;
-   ui->score3->setText("3rd place: " + QString::number(highScoreDb[2])); k++;
+   ui->score3->setText("3rd place: " + QString::number(highScoreDb[2]) + " turns"); k++;
    if (k == highScoreDb.size()) return;
-   ui->score4->setText("4th place: " + QString::number(highScoreDb[3])); k++;
+   ui->score4->setText("4th place: " + QString::number(highScoreDb[3]) + " turns"); k++;
    if (k == highScoreDb.size()) return;
-   ui->score5->setText("5th place: " + QString::number(highScoreDb[4])); k++;
+   ui->score5->setText("5th place: " + QString::number(highScoreDb[4]) + " turns"); k++;
 }
 
 
