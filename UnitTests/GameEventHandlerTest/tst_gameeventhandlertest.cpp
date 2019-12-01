@@ -6,6 +6,8 @@
 #include "workers/farmer.hh"
 #include "workers/logger.hh"
 #include "workers/miner.hh"
+#include "tiles/tilebase.h"
+#include "core/player.hh"
 // add necessary includes here
 
 using namespace Student;
@@ -32,6 +34,12 @@ private slots:
     void getCurrentWorkerNumber();
     void getCurrentWorkerNumber_data();
 
+    void setCurrentTile();
+    void setCurrentTile_data();
+
+    void assignWorkers();
+    void assignWorkers_data();
+
 
 };
 
@@ -40,6 +48,10 @@ typedef std::map<std::string, int> workerMap;
 Q_DECLARE_METATYPE(Course::BasicResource)
 Q_DECLARE_METATYPE(Student::GameEventHandler)
 Q_DECLARE_METATYPE(workerMap)
+Q_DECLARE_METATYPE(Course::ObjectId)
+Q_DECLARE_METATYPE(Student::ObjectManager)
+Q_DECLARE_METATYPE(std::shared_ptr<Student::GameEventHandler>)
+
 
 
 GameEventHandlerTest::GameEventHandlerTest()
@@ -209,6 +221,9 @@ void GameEventHandlerTest::getCurrentWorkerNumber()
 {
     QFETCH(Student::GameEventHandler, GE_handler);
     QFETCH(workerMap, expectedWorkerNum);
+
+    QVERIFY2(GE_handler.getCurrentPlayerWorkerNumber()->at("BasicWorker") ==
+             expectedWorkerNum.at("BasicWorker"), "basic worker count");
 }
 
 void GameEventHandlerTest::getCurrentWorkerNumber_data()
@@ -223,26 +238,24 @@ void GameEventHandlerTest::getCurrentWorkerNumber_data()
             std::make_shared<Student::GameEventHandler>(GE_handler);
     std::shared_ptr<Student::ObjectManager> managerPtr =
             std::make_shared<Student::ObjectManager>(manager);
-
     GE_handler.createPlayers(1);
 
-    // Test no workers
-    std::map<std::string, int> expected1 = {{"BasicWorker", 0},
-                                           {"Farmer", 0},
-                                           {"Miner", 0},
-                                           {"Logger", 0}};
-    QTest::newRow("no workers") << GE_handler << expected1;
+    GameEventHandler GE_handler1 = GameEventHandler();
+    GE_handler1.createPlayers(1);
 
 
     // Test initial createBeginWorkers
-    GE_handler.createBeginWorker();
-    std::map<std::string, int> expected2 = {{"BasicWorker", 1},
-                                           {"Farmer", 1},
-                                           {"Miner", 1},
-                                           {"Logger", 1}};
+    GE_handler1.createBeginWorker();
+    std::map<std::string, int> expected2 = {{"BasicWorker", 0},
+                                           {"Farmer", 0},
+                                           {"Miner", 0},
+                                           {"Logger", 0}};
 
-    QTest::newRow("createBeginWorker numbers") << GE_handler << expected2;
+    QTest::newRow("createBeginWorker numbers") << GE_handler1 << expected2;
+
+
     auto player = GE_handler.getCurrentPlayer();
+    GE_handler.createBeginWorker();
     // Test many workers
     for (int x = 0; x < 10; ++x)
     {
@@ -258,13 +271,139 @@ void GameEventHandlerTest::getCurrentWorkerNumber_data()
         GE_handler.getCurrentPlayer()->addWorker(miner);
         GE_handler.getCurrentPlayer()->addWorker(farmer);
         GE_handler.getCurrentPlayer()->addWorker(logger);
+        GE_handler.getCurrentPlayer()->addWorker("BasicWorker");
+        GE_handler.getCurrentPlayer()->addWorker("Miner");
+        GE_handler.getCurrentPlayer()->addWorker("Farmer");
+        GE_handler.getCurrentPlayer()->addWorker("Logger");
 
     }
-    std::map<std::string, int> expected3 = {{"BasicWorker", 11},
-                                           {"Farmer", 11},
-                                           {"Miner", 11},
-                                           {"Logger", 11}};
+    std::map<std::string, int> expected3 = {{"BasicWorker", 10},
+                                           {"Farmer", 10},
+                                           {"Miner", 10},
+                                           {"Logger", 10}};
     QTest::newRow("many workers") << GE_handler << expected3;
+}
+
+
+void GameEventHandlerTest::setCurrentTile()
+{
+    QFETCH(Student::GameEventHandler, GE_handler);
+    QFETCH(Course::ObjectId, currentTile);
+
+    QVERIFY2(GE_handler.returnSelectedTile()->ID == currentTile, "incorrect tile");
+
+}
+
+void GameEventHandlerTest::setCurrentTile_data()
+{
+    QTest::addColumn<Student::GameEventHandler>("GE_handler");
+    QTest::addColumn<Course::ObjectId >("currentTile");
+
+    Student::ObjectManager manager = Student::ObjectManager();
+    std::shared_ptr<Student::ObjectManager> managerPtr =
+            std::make_shared<Student::ObjectManager>(manager);
+
+    GameEventHandler GE_handler = GameEventHandler();
+    std::shared_ptr<Student::GameEventHandler> GE_pointer =
+            std::make_shared<Student::GameEventHandler>(GE_handler);
+
+    // One stored tile
+    Course::Coordinate coord = Course::Coordinate(0, 0);
+    std::shared_ptr<Course::TileBase> tile = std::make_shared<Course::TileBase>(coord, GE_pointer, managerPtr);
+    manager.addTiles({tile});
+
+    GE_handler.setCurrentTile(tile);
+    QTest::newRow("one stored tile") << GE_handler << tile->ID;
+
+    // Many stored tiles
+    Course::ObjectId tileID;
+    for (int x = 0; x < 10; ++x )
+    {
+        for (int y = 0; y < 10; ++y)
+        {
+            coord = Course::Coordinate(x, y);
+            tile = std::make_shared<Course::TileBase>(coord, GE_pointer, managerPtr);
+            manager.addTiles({tile});
+            if (x == 5 && y == 7)
+            {
+                tileID = tile->ID;
+                GE_handler.setCurrentTile(tile);
+            }
+        }
+    }
+    QTest::newRow("many stored tile") << GE_handler << tileID;
+}
+
+void GameEventHandlerTest::assignWorkers()
+{
+    QFETCH(std::shared_ptr<Student::GameEventHandler>, GE_handler);
+    QFETCH(Course::ObjectId, tileID);
+    QFETCH(workerMap, playerFreeWorkers);
+    QFETCH(unsigned int, tileWorkerCount);
+
+
+    QVERIFY2(GE_handler->getCurrentFreeWorkerNumber()->at("BasicWorker") ==
+             playerFreeWorkers.at("BasicWorker"), "player free basic workers");
+    QVERIFY2(GE_handler->getCurrentFreeWorkerNumber()->at("Miner") ==
+             playerFreeWorkers.at("Miner"), "player free miners");
+    QVERIFY2(GE_handler->getCurrentFreeWorkerNumber()->at("Farmer") ==
+             playerFreeWorkers.at("Farmer"), "player free farmers");
+    QVERIFY2(GE_handler->getCurrentFreeWorkerNumber()->at("Logger") ==
+             playerFreeWorkers.at("Logger"), "player free loggers");
+}
+
+void GameEventHandlerTest::assignWorkers_data()
+{
+    QTest::addColumn<std::shared_ptr<Student::GameEventHandler>>("GE_handler");
+    QTest::addColumn<Course::ObjectId>("tileID");
+    QTest::addColumn<workerMap>("playerFreeWorkers");
+    QTest::addColumn<unsigned int>("tileWorkerCount");
+
+    std::shared_ptr<Student::ObjectManager> managerPtr =
+            std::make_shared<Student::ObjectManager>();
+    std::shared_ptr<Student::GameEventHandler> GE_pointer =
+            std::make_shared<Student::GameEventHandler>();
+
+    GE_pointer->createPlayers(1);
+    GE_pointer->createBeginWorker();
+    GE_pointer->createBeginResource();
+
+    // Assign one worker
+    Course::Coordinate coord = Course::Coordinate(0, 0);
+
+    std::shared_ptr<Course::TileBase> tile = std::make_shared<Course::TileBase>(coord, GE_pointer, managerPtr);
+    managerPtr->addTiles({tile});
+    auto allTiles =  managerPtr->getAllTiles();
+    GE_pointer->setCurrentTile(tile);
+    auto player = GE_pointer->getCurrentPlayer();
+
+    std::shared_ptr<Student::NewBasicWorker> basic =
+            std::make_shared<Student::NewBasicWorker>(GE_pointer, managerPtr, player);
+    std::shared_ptr<Student::Miner> miner =
+            std::make_shared<Student::Miner>(GE_pointer, managerPtr, player);
+    std::shared_ptr<Student::Farmer> farmer =
+            std::make_shared<Student::Farmer>(GE_pointer, managerPtr, player);
+    std::shared_ptr<Student::Logger> logger =
+            std::make_shared<Student::Logger>(GE_pointer, managerPtr, player);
+
+
+    GE_pointer->getCurrentPlayer()->addWorkers({basic, miner, farmer, logger});
+    managerPtr->addWorker(basic);
+    managerPtr->addWorker(miner);
+    managerPtr->addWorker(farmer);
+    managerPtr->addWorker(logger);
+    player->addWorker("BasicWorker");
+    player->addWorker("Miner");
+    player->addWorker("Farmer");
+    player->addWorker("Logger");
+    GE_pointer->assignWorkers(1, "BasicWorker");
+    workerMap playerFreeWorkers = {{"BasicWorker", 0},
+                                   {"Farmer", 1},
+                                   {"Miner", 1},
+                                   {"Logger", 1}};
+    unsigned int tileWorkerCount = 1;
+    QTest::newRow("One worker assigned") << GE_pointer << tile->ID << playerFreeWorkers << tileWorkerCount;
+
 }
 
 QTEST_APPLESS_MAIN(GameEventHandlerTest)
