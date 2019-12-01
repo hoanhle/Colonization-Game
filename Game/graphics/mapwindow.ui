@@ -638,7 +638,7 @@
       <x>20</x>
       <y>540</y>
       <width>491</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -651,7 +651,7 @@
       <x>20</x>
       <y>560</y>
       <width>491</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -686,7 +686,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

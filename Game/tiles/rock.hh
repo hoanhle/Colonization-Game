@@ -1,4 +1,4 @@
-#ifndef ROCK_HH
+    #ifndef ROCK_HH
 #define ROCK_HH
 
 #include "tiles/tilebase.h"
