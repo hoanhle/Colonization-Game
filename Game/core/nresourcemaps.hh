@@ -119,8 +119,8 @@ const Course::ResourceMap WATER_BP = {
 };
 
 const Course::ResourceMapDouble FARMER_EFFICIENCY = {
-    {Course::MONEY, 1},
-    {Course::FOOD, 2},
+    {Course::MONEY, 0.5},
+    {Course::FOOD, 1.5},
     {Course::WOOD, 0.5},
     {Course::STONE, 0.25},
     {Course::ORE, 0.25}
@@ -132,6 +132,22 @@ const Course::ResourceMapDouble NEW_BASIC_WORKER_EFFICIENCY = {
     {Course::WOOD, 0.75},
     {Course::STONE, 0.50},
     {Course::ORE, 0.50}
+};
+
+const Course::ResourceMapDouble LOGGER_EFFICIENCY = {
+    {Course::MONEY, 0.50},
+    {Course::FOOD, 0.25},
+    {Course::WOOD, 1.50},
+    {Course::STONE, 0.25},
+    {Course::ORE, 0.50}
+};
+
+const Course::ResourceMapDouble MINER_EFFICIENCY = {
+    {Course::MONEY, 0.50},
+    {Course::FOOD, 0.25},
+    {Course::WOOD, 0.25},
+    {Course::STONE, 1.00},
+    {Course::ORE, 1.00}
 };
 
 }
