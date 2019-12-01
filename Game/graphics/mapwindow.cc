@@ -29,15 +29,15 @@ MapWindow::MapWindow(QWidget *parent,
     m_objectmanager(new Student::ObjectManager())
 {
     m_ui->setupUi(this);
+    // All action buttons are disabled in the beginning
     m_ui->assignButton->setEnabled(false);
     m_ui->unassignButton->setEnabled(false);
     m_ui->buildButton->setEnabled(false);
 
-
+    // Create button groups for workers and buidling buttons
     m_workerButtonGroup = std::make_shared<QButtonGroup>(this);
     std::vector<QAbstractButton*> workerButtons = {m_ui->bwButton, m_ui->loggerButton,
                                                m_ui->farmerButton, m_ui->minerButton };
-
 
     m_buildingButtonGroup = std::make_shared<QButtonGroup>(this);
     std::vector<QAbstractButton*> buildingButtons = {m_ui->hqButton, m_ui->farmButton,
@@ -47,7 +47,6 @@ MapWindow::MapWindow(QWidget *parent,
 
     setupButtonGroup(workerButtons, m_workerButtonGroup);
     setupButtonGroup(buildingButtons, m_buildingButtonGroup);
-
     setStyleWorkerButtons();
 
     Student::GameScene* sgs_rawptr = m_scene.get();
@@ -490,7 +489,8 @@ void MapWindow::setStyleWorkerButtons()
 }
 
 
-void MapWindow::setupButtonGroup(std::vector<QAbstractButton *> buttons, std::shared_ptr<QButtonGroup>  group)
+void MapWindow::setupButtonGroup(
+        std::vector<QAbstractButton *> buttons, std::shared_ptr<QButtonGroup>  group)
 {
     for(auto iter = buttons.begin(); iter != buttons.end(); ++iter)
     {
@@ -566,8 +566,6 @@ void MapWindow::workerButtonPressed(QAbstractButton*)
     m_ui->unassignButton->setEnabled(true);
 }
 
-
-
 void MapWindow::on_endTurnButton_clicked()
 {
     // Change player when end turn
@@ -579,8 +577,6 @@ void MapWindow::on_endTurnButton_clicked()
     for (auto x = objects.begin(); x != objects.end(); ++x){
         Course::Coordinate coord = x->get()->getCoordinate();
         std::shared_ptr<Course::TileBase> tile = m_objectmanager->getTile(coord);
-
-
         bool success = tile->generateResources();
     }
 
