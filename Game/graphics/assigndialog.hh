@@ -21,6 +21,7 @@ public:
      * @param parent QWidget parent
      */
     explicit AssignDialog(unsigned int workers_, QWidget *parent = nullptr);
+
     ~AssignDialog();
 
     /**

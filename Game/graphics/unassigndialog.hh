@@ -7,6 +7,9 @@ namespace Ui {
 class UnAssignDialog;
 }
 
+/**
+ * @brief The UnAssignDialog class displays a dialog for player to free workers from a tile
+ */
 class UnAssignDialog : public QDialog
 {
     Q_OBJECT
@@ -18,6 +21,7 @@ public:
      * @param parent
      */
     explicit UnAssignDialog(unsigned int workers_, QWidget *parent = nullptr);
+
     ~UnAssignDialog();
 
     /**
@@ -33,6 +37,9 @@ signals:
     void freeWorkers(int);
 
 private slots:
+    /**
+     * @brief on_freeButton_clicked
+     */
     void on_freeButton_clicked();
 
 private:

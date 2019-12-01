@@ -23,6 +23,7 @@ public:
      * user has achieved
      */
     void setHighScoreInformation(std::vector<int> highScoreDb);
+
     ~HighScoreDialog();
 
 private slots:
