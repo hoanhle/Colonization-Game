@@ -26,6 +26,13 @@ private slots:
     void getTileFromCoord();
     void getTileFromCoord_data();
 
+    void getTileFromID();
+    void getTileFromID_data();
+
+    void tileNotFound();
+    void tileNotFound_data();
+
+
 };
 
 Q_DECLARE_METATYPE(std::vector<std::shared_ptr<Course::TileBase>>)
@@ -154,10 +161,128 @@ void ObjectManagerTest::getTileFromCoord_data()
 
     QTest::newRow("one tile stored") << manager << x << y << tile->ID;
 
-    // testcase coord not found
+    // testcase many tiles stored
+    Course::ObjectId tileID;
+    for (int x = 0; x < 10; ++x )
+    {
+        for (int y = 0; y < 10; ++y)
+        {
+            coord = Course::Coordinate(x, y);
+            tile = std::make_shared<Course::TileBase>(coord, GE_handler, manager_ptr);
+            manager.addTiles({tile});
+            if (x == 5 && y == 7)
+            {
+                tileID = tile->ID;
+            }
+        }
+    }
+    x = 5;
+    y = 7;
+
+    QTest::newRow("many tiles stored") << manager << x << y << tileID;
 
 
 }
+
+void ObjectManagerTest::getTileFromID()
+{
+    QFETCH(Student::ObjectManager, objectManager);
+    QFETCH(char, x);
+    QFETCH(char, y);
+    QFETCH(Course::ObjectId, ID);
+    Course::Coordinate coord = Course::Coordinate(x, y);
+
+    QVERIFY2(objectManager.getTile(ID)->getCoordinate() == coord, "Incorrect Tile");
+}
+
+void ObjectManagerTest::getTileFromID_data()
+{
+    QTest::addColumn<Student::ObjectManager>("objectManager");
+    QTest::addColumn<char>("x");
+    QTest::addColumn<char>("y");
+    QTest::addColumn<Course::ObjectId>("ID");
+
+    Student::ObjectManager manager = Student::ObjectManager();
+    std::shared_ptr<Student::ObjectManager> manager_ptr = std::make_shared<Student::ObjectManager>(manager);
+    std::shared_ptr<Student::GameEventHandler> GE_handler = std::make_shared<Student::GameEventHandler>();
+
+    // testcase one coord (0,0) from only one stored tile
+    char x = 0;
+    char y = 0;
+    Course::Coordinate coord = Course::Coordinate(x, y);
+    std::shared_ptr<Course::TileBase> tile = std::make_shared<Course::TileBase>(coord, GE_handler, manager_ptr);
+    manager.addTiles({tile});
+
+    QTest::newRow("one tile stored") << manager << x << y << tile->ID;
+
+    // testcase many tiles stored
+    Course::ObjectId tileID;
+    for (int x = 0; x < 10; ++x )
+    {
+        for (int y = 0; y < 10; ++y)
+        {
+            coord = Course::Coordinate(x, y);
+            tile = std::make_shared<Course::TileBase>(coord, GE_handler, manager_ptr);
+            manager.addTiles({tile});
+            if (x == 5 && y == 7)
+            {
+                tileID = tile->ID;
+            }
+        }
+    }
+    x = 5;
+    y = 7;
+
+    QTest::newRow("many tiles stored") << manager << x << y << tileID;
+}
+
+void ObjectManagerTest::tileNotFound()
+{
+    QFETCH(Student::ObjectManager, objectManager);
+    QFETCH(char, x);
+    QFETCH(char, y);
+
+    Course::Coordinate coord = Course::Coordinate(x, y);
+    QVERIFY2(objectManager.getTile(coord) == nullptr, "does not return empty");
+}
+
+void ObjectManagerTest::tileNotFound_data()
+{
+    QTest::addColumn<Student::ObjectManager>("objectManager");
+    QTest::addColumn<char>("x");
+    QTest::addColumn<char>("y");
+
+    Student::ObjectManager manager = Student::ObjectManager();
+    std::shared_ptr<Student::ObjectManager> manager_ptr = std::make_shared<Student::ObjectManager>(manager);
+    std::shared_ptr<Student::GameEventHandler> GE_handler = std::make_shared<Student::GameEventHandler>();
+
+    //No tiles stored
+    char x = 7;
+    char y = 3;
+    QTest::newRow("No tiles stored") << manager << x << y;
+
+    // Particular tile not stored
+    Course::Coordinate coord = Course::Coordinate(0, 0);
+    std::shared_ptr<Course::TileBase> tile = nullptr;
+    // Correct tile not stored
+    for (int x = 0; x < 10; ++x )
+    {
+        for (int y = 0; y < 10; ++y)
+        {
+            coord = Course::Coordinate(x, y);
+            tile = std::make_shared<Course::TileBase>(coord, GE_handler, manager_ptr);
+            manager.addTiles({tile});
+
+        }
+    }
+
+    x = 13;
+    y = 17;
+
+    QTest::newRow("particular tile not stored") << manager << x << y;
+}
+
+
 
 
 

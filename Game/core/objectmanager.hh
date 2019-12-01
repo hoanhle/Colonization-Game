@@ -70,6 +70,11 @@ public:
      */
     std::vector<std::shared_ptr<Course::TileBase>> getAllTiles();
 
+    /**
+     * @brief add building pointer into m_worker
+     * @param worker: pointer to a BuildingBase object
+     * @post Exception Guarantee: Strong
+     */
     void addBuilding(std::shared_ptr<Course::BuildingBase> building);
 
     /**
