@@ -11,8 +11,12 @@
 #include "workers/basicworker.h"
 #include <QDebug>
 
+
 namespace Student {
 
+/**
+ * @brief The GameEventHandler represents a class handle all events in the game
+ */
 class GameEventHandler : public Course::iGameEventHandler
 {
 public:
@@ -72,13 +76,13 @@ public:
 
     /**
      * @brief setCurrentTile save the current selected tile
-     * @param tile tile pointer
+     * @param tile current tile pointer
      */
     void setCurrentTile(std::shared_ptr<Course::TileBase> tile);
 
     /**
      * @brief return the selected tile
-     * @return tile tile pointer
+     * @return tile current tile pointer
      */
     std::shared_ptr<Course::TileBase> returnSelectedTile();
 
@@ -104,15 +108,44 @@ public:
      * @param numberWorker
      * @param workerType
      */
+
     void unassignWorkers(int numberWorker, std::string workerType);
 
+    /**
+     * @brief Modify Player's resource. Can be used to both sum or subtract.
+     * @param player Pointer to the Player whose resource is being modified.
+     * @param resource Defines the modified resource.
+     * @param amount Defines the amount of change.
+     * @post Exception guarantee: Basic
+     * @return
+     * True - Modification was succesful. \n
+     * False - Modification failed. \n
+     */
     bool modifyResource(std::shared_ptr<Course::PlayerBase> player,
                                     Course::BasicResource resource,
                                     int amount) override;
+
+    /**
+     * @brief Modify Player's resources. Can be used to both sum or subtract
+     * @param player Pointer to the Player whose resources are being modified.
+     * @param resources ResourceMap containing change amounts.
+     * @return
+     * True - Modification was succesful. \n
+     * False - Modification failed. \n
+     */
     bool modifyResources(std::shared_ptr<Course::PlayerBase> player,
                                      Course::ResourceMap resources) override;
 
+    /**
+     * @brief Modify current Player's resources. Can be used to both sum or subtract
+     * @param player Pointer to the Player whose resources are being modified.
+     * @param resources ResourceMap containing change amounts.
+     * @return
+     * True - Modification was succesful. \n
+     * False - Modification failed. \n
+     */
     bool modifyResources(Course::ResourceMap resources);
+
 
     /**
      * @brief check if the current player has won or not
@@ -131,8 +164,10 @@ public:
     int returnTurnNumber();
 
 private:
+    // Vector contains all player-shared-pointers
     std::vector<std::shared_ptr<Player>> players_;
 
+    // Total number of turns
     int turns_ = 0;
 
     // Current player index
@@ -140,6 +175,7 @@ private:
 
     // Current selected tile
     std::shared_ptr<Course::TileBase> tile_;
+
 }; // class GameEventHandler
 
 } // namespace Student

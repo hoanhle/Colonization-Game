@@ -83,6 +83,7 @@ std::shared_ptr<Course::TileBase> GameEventHandler::returnSelectedTile()
 
 void GameEventHandler::assignWorkers(int numberWorker, std::string workerType)
 {
+    // Get worker-pointers to remove from player object and add to tile object
     std::vector<std::shared_ptr<NewBasicWorker>> workersToRemove =
             getCurrentPlayer()->findWorkerstoRemove(numberWorker, workerType);
 
@@ -97,7 +98,8 @@ std::vector<std::shared_ptr<NewBasicWorker> > GameEventHandler::getWorkerstoFree
         int numberWorker, std::string workerType)
 {
     std::vector<std::shared_ptr<NewBasicWorker>> freeWorkers;
-    std::vector< std::shared_ptr<Course::WorkerBase> > tileWorkers = returnSelectedTile()->getWorkers();
+    std::vector< std::shared_ptr<Course::WorkerBase> > tileWorkers =
+            returnSelectedTile()->getWorkers();
 
     int found = 0;
     for (auto it = tileWorkers.begin(); it < tileWorkers.end(); it++){
@@ -171,7 +173,7 @@ bool GameEventHandler::checkWinning()
         totalWorker += pair.second;
     }
 
-    if (totalResource >= 3000 and totalWorker >= 10){
+    if (totalResource >= 5000 and totalWorker >= 50){
         win = true;
     }
 
