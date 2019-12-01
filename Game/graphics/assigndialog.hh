@@ -7,6 +7,9 @@ namespace Ui {
 class AssignDialog;
 }
 
+/**
+ * @brief The AssignDialog class display the dialog for player to assign workers to a tile
+ */
 class AssignDialog : public QDialog
 {
     Q_OBJECT
@@ -18,15 +21,21 @@ public:
      * @param parent QWidget parent
      */
     explicit AssignDialog(unsigned int workers_, QWidget *parent = nullptr);
+
     ~AssignDialog();
 
     /**
      * @brief getNumberOfWorkers
-     * @return number of workers to assign to that building
+     * @return number of workers to assign to that tile
      */
     int getNumberOfWorkers();
 
 signals:
+    /**
+     * @brief a signal with info of the number of worker
+     * player wants to assign
+     * @param workerNumber
+     */
     void setWorkers(int workerNumber);
 
 private slots:

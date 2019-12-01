@@ -8,12 +8,9 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
 #include <QButtonGroup>
-
 #include <map>
-
 #include "interfaces/igameeventhandler.h"
 #include "core/gamescene.hh"
-
 #include "core/objectmanager.hh"
 #include "core/worldgenerator.h"
 #include "tiles/forest.h"
@@ -40,12 +37,15 @@
 
 namespace Ui {
 
+
 class MapWindow;
 // Location of high score file
 const QString directory = "scoreDb.txt";
-
 }
 
+/**
+ * @brief The MapWindow class represents the main GUI of the game
+ */
 class MapWindow : public QMainWindow
 {
     Q_OBJECT
@@ -135,7 +135,7 @@ public:
 
 
     /**
-     * @brief to get the type of the selected worker
+     * @brief to get the type of the selected worker button
      * @return string of the type of the worker
      */
     std::string getSelectedWorkerType();
@@ -144,6 +144,10 @@ public:
      * @brief check if the current player has won or not
      * A player will win if he/she has 5000 resources total
      * and 50 workers
+     *
+     * @note
+     * If the player has won, open win-dialog to ask if
+     * the players want to play again or end the game
      */
     void checkWinning();
 
@@ -185,21 +189,36 @@ public:
      */
     void displayPlayerTurn();
 
-
-
 private slots:
-    void on_highScoreButton_clicked();
-
+    /**
+     * @brief on_assignButton_clicked displays AssignDialog
+     */
     void on_assignButton_clicked();
 
+    /**
+     * @brief on_unassignButton_clicked displays UnAssignDialog
+     */
     void on_unassignButton_clicked();
 
-    void on_quitButton_clicked();
-
-    void on_endTurnButton_clicked();
-
+    /**
+     * @brief on_buildButton_clicked Player builded a building in the selected tile
+     */
     void on_buildButton_clicked();
 
+    /**
+     * @brief on_highScoreButton_clicked display HighscoreDialog
+     */
+    void on_highScoreButton_clicked();
+
+    /**
+     * @brief on_endTurnButton_clicked Player ends his/her turn, move to the next player
+     */
+    void on_endTurnButton_clicked();
+
+    /**
+     * @brief on_quitButton_clicked Players quit the game
+     */
+    void on_quitButton_clicked();
 
 public slots:
     void createPlayers(int numberPlayers);

@@ -9,17 +9,27 @@
 
 namespace Student {
 
+/**
+ * @brief The Player class represents a player in game
+ *
+ * The class is used to store and access NewBasicWorker and Gameobject
+ * Expired weak pointers are automatically removed when requesting
+ * and moving objects
+ *
+ * @note Objects are stored as weak pointers
+ */
 class Player : public Course::PlayerBase
 {
 public:
     /**
      * @brief Constructor for the class
      * @param name A std::string for player's name
-     * @param objects (optional) A std::vector of shared-pointers to
-     * TileBases pointer
      */
     Player(const std::string& name);
 
+    /**
+     * @brief Default destructor
+     */
     ~Player() = default;
 
     /**
@@ -29,16 +39,17 @@ public:
     Course::ResourceMap* getCurrentResources();
 
     /**
-     * @brief get the pointer to totalNumberWorker
-     * @return
+     * @brief get current total number of workers of player
+     * @return pointer to totalNumberWorker_
      */
     std::map<std::string, int> *getCurrentWorkers();
 
     /**
-     * @brief get the pointer to totalFreeWorker
-     * @return
+     * @brief get current total number of free workers of player
+     * @return pointer to totalFreeWorker_
      */
     std::map<std::string, int> *getFreeWorkers();
+
     /**
      * @brief set beginning resource for the player
      */
@@ -89,13 +100,14 @@ public:
             const std::vector<std::shared_ptr<NewBasicWorker>> workers);
 
     /**
-     * @brief add the number of worker into the worker map
+     * @brief add 1 worker to worker type in worker-maps
+     * @param workerType
      */
     void addWorker(std::string workerType);
 
     /**
      * @brief add worker pointer back to the player object from a tile
-     * @param worker
+     * @param worker: shared_pointer of worker object
      */
     void addWorkerBack(std::shared_ptr<NewBasicWorker> worker);
 
@@ -105,7 +117,8 @@ public:
      * @param numberWorker: number of workers to find
      * @return
      */
-    std::vector<std::shared_ptr<NewBasicWorker>> findWorkerstoRemove(int numberWorker, std::string workertype);
+    std::vector<std::shared_ptr<NewBasicWorker>> findWorkerstoRemove(
+            int numberWorker, std::string workertype);
 
     /**
      * @brief Removes a weak NewBasicWorker-pointer based on a objectId
