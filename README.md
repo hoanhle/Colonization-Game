@@ -24,7 +24,7 @@ STEP 3: Build project by Qt and run the game and unittest in Qt
 Below is the start menu of the game with the depiction of the game world.
 
 <p align="center">
-  <img  src="Documentation/Game/startDialog.png" width ="75%"; height = "75%">
+  <img  src="Documentation/Game/startDialog.png" width ="50%"; height = "50%">
 </p>
 
 ### Game rule
@@ -32,7 +32,7 @@ Below is the start menu of the game with the depiction of the game world.
 The user first need to choose the number of players in the game (from 2 to 4 players).
 
 <p align="center">
-  <img  src="Documentation/Game/setPlayerNumberDialog.png" width ="50%"; height = "50%">
+  <img  src="Documentation/Game/setPlayerNumberDialog.png" width ="40%"; height = "40%">
 </p>
 In the beginning, each player will have 500 resources of each type (food, money, ore, wood, stone). This money can be used to
 buy and build buildings on the map, each of which have a respective build-cost and production benefits.
@@ -42,19 +42,19 @@ Each turn, player can do those following actions:
 ##### BUILD BUILDINGS TO GENERATE RESOURCES AND CLAIM THE OWNERSHIP OF THE LAND
 
 <p align="center">
-  <img  src="Documentation/Game/build.png" width ="75%"; height = "75%">
+  <img  src="Documentation/Game/build.png" width ="60%"; height = "60%">
 </p>
 
 ##### ASSIGN WORKERS TO HIS/HER LAND TO INCREASE THE EFFICIENCY PRODUCTION
 
 <p align="center">
-  <img  src="Documentation/Game/assign.png"  width ="75%"; height = "75%">
+  <img  src="Documentation/Game/assign.png"  width ="60%"; height = "60%">
 </p>
 
 ##### FREE WORKERS FROM HIS/HER LAND
 
-<p align="center" style="width: 75%; height: 75%">
-  <img  src="Documentation/Game/unassign.png"  width ="75%"; height = "75%">
+<p align="center">
+  <img  src="Documentation/Game/unassign.png"  width ="60%"; height = "60%">
 </p>
 
 The game ends when a player can get 5000 resources in total and 50 people in total. His/her village becomes the largest in Pirkanmaa and they claim the ownership of the whole magical land!
@@ -66,7 +66,7 @@ One can read more detailed rules in [here](Documentation/rules.txt)
 * After a player has won the game, the score will be saved in score database. After that, when players click on the highscore button in the game, it will show the best 5 scores of all time.
 
 <p align="center">
-  <img  src="Documentation/Game/highscore.png">
+  <img  src="Documentation/Game/highscore.png" width ="30%"; height = "30%">
 </p>
 
 * Each building and worker brings different effect to the user. Moreover, the user can only acquire more people in his/her village if they build housing-type buildings.
