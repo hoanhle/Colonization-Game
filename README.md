@@ -1,23 +1,80 @@
-# Programming 3 Exercise project template
+# Colonizing Pirkanmaa Game
 
-1. Make sure you have setup ssh-key for your GitLab account. https://course-gitlab.tuni.fi/profile/keys
-2. Clone using --recursive
-3. Make sure you can build the project. (Should compile without issues if your environment is setup correctly)
+## Description
 
-## Submodule / CourseLibrary
-Submodule for CourseLibrary is currently configured to use ssh. If you haven't yet setup an ssh-key. Go do it at  https://course-gitlab.tuni.fi/profile/keys
+This project is based on the idea of an existing board game - working title Colonizing Pirkanmaa. The aim of it is to
+build the largest community in the initially uninhabited area of Pirkanmaa.
 
-The page contains also instructions for generating and using existing ssh-keys.
+**Programming language** C++ and Qt
 
-Don't change anything in CourseLibrary ( You won't be able to submit changes made in it )
+## How to install
 
-If you find any bugs and/or missing features you can report them in GitLab  https://course-gitlab.tuni.fi/tie-02402-ohj3_2019-2020/courselibrary/issues
+STEP 1: Install [Qt](https://www.qt.io/)
 
-## Other notes
+STEP 2: Clone the repository
+```
+git clone https://github.com/hoanhle/Colonization-Game
 
-You'll probably want to remove MapWindow and make your own, especially if you want a grade better than 1. It's in this template just so you can get started more easily and do some experimenting.
+```
+STEP 3: Build project by Qt and run the game and unittest in Qt
 
-You should create your own code inside your own namespace :)
+## Game manual and instructions
+
+### Start
+
+Below is the start menu of the game with the depiction of the game world.
+
+![Start menu](Documentation/Game/startDialog.png)
+
+### Game rule
+
+The user first need to choose the number of players in the game (from 2 to 4 players).
 
 
-# You are allowed (and probably should) make changes to this file after you have started your project. :)
+![Set player number dialog](Documentation/Game/setPlayerNumberDialog.png)
+
+In the beginning, each player will have 500 resources each type (food, money, ore, wood, stone). This money can be used to
+buy and build buildings on the map, each of which have a respective build-cost and production benefits.
+
+Each turn, player can do those following actions:
+
+##### BUILD BUILDINGS TO GENERATE RESOURCES AND CLAIM THE OWNERSHIP OF THE LAND
+
+![Build buildings](Documentation/Game/build.png)
+
+##### ASSIGN WORKERS TO HIS/HER LAND TO INCREASE THE EFFICIENCY PRODUCTION
+
+![Assign workers](Documentation/Game/assign.png)
+
+##### FREE WORKERS FROM HIS/HER LAND
+
+![Unassign workers](Documentation/Game/unassign.png)
+
+The game ends when a player can get 5000 resources in total and 50 people in total. His/her village becomes the largest in Pirkanmaa and they claim the ownership of the whole magical land!
+
+The detailed rules of the game can be found in [here](Documentation/rules.txt)
+
+#### Extra features
+
+* After a player has won the game, the score will be saved in score database. After that, when players click on the highscore button in the game, it will show the best 5 scores of all time.
+
+![Highscore](Documentation/Game/highscore.png)
+
+* Each building and worker brings different effect to the user. Moreover, the user can only acquire more people in his/her village if they build housing-type buildings.
+* Players can choose to play again or end the game after a player has won
+
+
+### Software documentation
+
+One can further read more information about the project [here](Documentation/Documentation.pdf)
+Doxygen generated documentation can be found in here [staff](Documentation/Course_Doxy-documentation) and [student](Documentation/Student_Doxygen-documentation)
+
+### Support
+
+Further support and information can be provided through this email address: <i>hoanh.le@tuni.fi</i>
+
+### Authors and acknowledgement
+
+Tampere Universities | Science and Engineering | ICT/Maths/Machine Learning
+- Hoanh Le
+- Ben Kavanagh
