@@ -82,6 +82,22 @@ MapWindow::MapWindow(QWidget *parent,
                 "QPushButton {border-image: url(:/workerIcons/mine.png)}"
                 "QPushButton:checked {border-image: url(:/workerIcons/mine_selected.png)}");
 
+    // Set tool tips for building
+    m_ui->smallHouseButton->setToolTip("Money 50, Food 100, Wood 25");
+    m_ui->largeHouseButton->setToolTip("Money 100, Food 150, Wood 35, Stone 50");
+    m_ui->apartmentsButton->setToolTip("Money 250, Food 200, Wood 100, Stone 100");
+    m_ui->skyscraperButton->setToolTip("Money 1000, Food 500, Wood 500, Stone 500");
+    m_ui->farmButton->setToolTip("Money 50, Food 100, Wood 25");
+    m_ui->mineButton->setToolTip("Money 200, Food 100, Wood 100, Ore 50");
+    m_ui->sawButton->setToolTip("Money 100, Food 100, Wood 100, Ore 50");
+    m_ui->outpustButton->setToolTip("Money 150, Food 200, Wood 200, Stone 25");
+    m_ui->hqButton->setToolTip("Money 750, Food 1000, Wood 500, Stone 250");
+
+    m_ui->bwButton->setToolTip("Money 0.25, Food 1, Wood 0.75, Stone 0.50, Ore 0.50");
+    m_ui->farmerButton->setToolTip("Money 0.50, Food 1.50, Wood 0.50, Stone 0.25, Ore 0.25");
+    m_ui->minerButton->setToolTip("Money 0.50, Food 0.25, Wood 0.25, Stone 1.00, Ore 1.00");
+    m_ui->loggerButton->setToolTip("Money 0.50, Food 0.25, Wood 1.50, Stone 0.25, Ore 0.50");
+
 
     connect(m_scene.get(), SIGNAL(sendTilePointer(std::shared_ptr<Course::GameObject>)),
             this, SLOT(setSelectedTile(std::shared_ptr<Course::GameObject>)));
